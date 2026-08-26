@@ -63,7 +63,7 @@
 
   /* ---------- NAV ---------- */
   header{position:sticky; top:0; z-index:100; background:rgba(255,255,255,.85); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-bottom:1px solid rgba(26,26,26,.08); box-shadow:0 2px 20px -12px rgba(0,0,0,.15);}
-  nav{display:flex; align-items:center; justify-content:space-between; padding:16px 32px; max-width:var(--container); margin:0 auto; position:relative;}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:22px 32px; max-width:var(--container); margin:0 auto; position:relative;}
   .logo{display:flex; align-items:center; gap:9px; font-family:'Unbounded',sans-serif; font-weight:700; font-size:18px;}
   .logo-img{height:30px; width:auto; max-width:160px; object-fit:contain;}
   .logo-fallback{display:none; align-items:center; gap:9px;}
@@ -82,6 +82,7 @@
   .burger.open span:nth-child(2){opacity:0;}
   .burger.open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg);}
   .nav-links-cta{display:none;}
+  .hero-actions .btn{min-width:236px;}
 
   /* ---------- HERO ---------- */
   .hero{padding:44px 0 30px; overflow:hidden;}
@@ -95,10 +96,11 @@
   .hero-bg{position:absolute; inset:0;}
   .hero-bg img{width:100%; height:100%; object-fit:cover;}
 
-  .float-card{position:absolute; left:20px; bottom:20px; right:20px; background:rgba(255,255,255,.75); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,.6); border-radius:var(--radius-sm); padding:16px 18px; display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; box-shadow:0 20px 40px -14px rgba(0,0,0,.2);}
-  .pill{background:#fff; border:1px solid #E4E4E4; color:var(--graphite); font-size:13px; font-weight:700; padding:8px 15px; border-radius:100px;}
+  .float-card{margin-top:16px; background:#fff; border:1px solid #E4E4E4; border-radius:var(--radius-sm); padding:16px 18px; display:flex; align-items:center; justify-content:center; gap:10px; flex-wrap:wrap; box-shadow:0 10px 26px -16px rgba(0,0,0,.18);}
+  .pill{background:var(--green-tint); border:1px solid #D6F2E1; color:var(--green-deep); font-size:13px; font-weight:700; padding:8px 15px; border-radius:100px;}
 
-  .proof-row{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; padding-top:32px; border-top:1px solid #ECECEC;}
+  .proof-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:32px;}
+  .proof-item{background:var(--bg-soft); border:1px solid #E7EFE9; border-radius:16px; padding:16px 14px;}
   .proof-item .p-num{font-family:'Unbounded',sans-serif; font-size:clamp(17px,1.7vw,21px); font-weight:600; color:var(--graphite);}
   .proof-item .p-lbl{font-size:13.5px; color:#6B6B6B; font-weight:500; margin-top:4px;}
 
@@ -152,14 +154,13 @@
 
   /* ---------- TOOLS ---------- */
   .tools-list{position:relative; z-index:2;}
-  .tool-row{display:grid; grid-template-columns:64px 1fr; gap:22px; align-items:center; padding:26px 0; border-bottom:1px solid #E2E9E5; transition:padding-left .3s ease;}
+  .tool-row{display:grid; grid-template-columns:80px 1fr; gap:22px; align-items:center; padding:26px 0; border-bottom:1px solid #E2E9E5; transition:padding-left .3s ease;}
   .tool-row:first-child{border-top:1px solid #E2E9E5;}
   .tool-row:hover{padding-left:12px; background:linear-gradient(90deg, rgba(0,200,83,.08), transparent 45%);}
-  .tool-icon{position:relative; width:64px; height:64px; border-radius:16px; overflow:hidden; flex-shrink:0; background:var(--green-tint);}
+  .tool-icon{position:relative; width:80px; height:80px; border-radius:18px; overflow:hidden; flex-shrink:0; background:var(--green-tint);}
   .tool-icon .fallback-bg{position:absolute; inset:0; background:linear-gradient(150deg,#0F2A19,#081209); padding:4px;}
-  .tool-icon .fallback-bg::after{font-size:8px; max-width:56px;}
+  .tool-icon .fallback-bg::after{font-size:8px; max-width:70px;}
   .tool-icon img{position:relative; z-index:1; width:100%; height:100%; object-fit:cover;}
-  .tool-num-badge{position:absolute; z-index:2; top:-6px; left:-6px; background:var(--graphite); color:#fff; font-family:'Unbounded',sans-serif; font-size:11px; font-weight:600; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
   .tool-title{font-size:19px; font-weight:600; margin-bottom:6px; font-family:'Unbounded',sans-serif;}
   .tool-desc{max-width:600px;}
 
@@ -261,6 +262,8 @@
     .blob{display:none;}
     #pain h2{white-space:normal; font-size:clamp(26px,7vw,34px);}
     .icp-grid{grid-template-columns:1fr;}
+    .portrait{padding:56px 0;}
+    .footer-grid{grid-template-columns:1fr; gap:32px;}
   }
 </style>
 </head>
@@ -307,12 +310,14 @@
           <div class="proof-item"><div class="p-num">Понятный отчёт</div><div class="p-lbl">сколько стоит каждый ученик</div></div>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-bg">
-          <picture>
-            <source media="(max-width:760px)" srcset="images/hero-bg-mobile.jpg">
-            <img src="images/hero-bg-desktop.jpg" alt="" loading="eager" onerror="this.closest('.hero-bg').style.display='none'">
-          </picture>
+      <div>
+        <div class="hero-visual">
+          <div class="hero-bg">
+            <picture>
+              <source media="(max-width:760px)" srcset="images/hero-bg-mobile.jpg">
+              <img src="images/hero-bg-desktop.jpg" alt="" loading="eager" onerror="this.closest('.hero-bg').style.display='none'">
+            </picture>
+          </div>
         </div>
         <div class="float-card">
           <span class="pill">Реклама</span>
@@ -425,7 +430,7 @@
         <p>Ученик боится экзамена, сравнивает пять школ подряд и сомневается неделями. Мы строим рекламу и сайт так, чтобы снять эти сомнения — а не просто перечислить цены.</p>
         <div class="icp-grid">
           <div class="icp-item"><span class="icp-label">Возраст</span><span class="icp-value">18–35 лет</span></div>
-          <div class="icp-item"><span class="icp-label">Где ищут</span><span class="icp-value">Instagram, Avito, Google-карты, отзывы</span></div>
+          <div class="icp-item"><span class="icp-label">Где ищут</span><span class="icp-value">Instagram, Kufar, Google-карты, отзывы</span></div>
           <div class="icp-item"><span class="icp-label">Как решают</span><span class="icp-value">Сравнивают 3–5 школ, читают отзывы, тянут неделями</span></div>
         </div>
         <span class="portrait-badge">Ученик выбирает не самую дешёвую школу, а ту, которой доверяет</span>
@@ -469,27 +474,27 @@
       </div>
       <div class="tools-list">
         <div class="tool-row reveal">
-          <div class="tool-icon"><span class="tool-num-badge">01</span><div class="fallback-bg" data-label="Instagram-реклама"></div><img src="images/tool-instagram.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="tool-icon"><div class="fallback-bg" data-label="Instagram-реклама"></div><img src="images/tool-instagram.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Instagram-реклама</div><p class="tool-desc">Показываем объявления тем, кто ищет автошколу прямо сейчас, а не просто листает ленту.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><span class="tool-num-badge">02</span><div class="fallback-bg" data-label="Google Ads"></div><img src="images/tool-google.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="tool-icon"><div class="fallback-bg" data-label="Google Ads"></div><img src="images/tool-google.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Google Ads</div><p class="tool-desc">Заявки от тех, кто уже вбил «автошкола + город» в поиск и сравнивает варианты.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><span class="tool-num-badge">03</span><div class="fallback-bg" data-label="Яндекс Директ"></div><img src="images/tool-yandex.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="tool-icon"><div class="fallback-bg" data-label="Яндекс Директ"></div><img src="images/tool-yandex.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Яндекс Директ</div><p class="tool-desc">Основной канал заявок для большинства регионов. Настраиваем, чистим от нецелевых кликов, ведём каждую неделю.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><span class="tool-num-badge">04</span><div class="fallback-bg" data-label="SEO-продвижение"></div><img src="images/tool-seo.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="tool-icon"><div class="fallback-bg" data-label="SEO-продвижение"></div><img src="images/tool-seo.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">SEO — продвижение сайта</div><p class="tool-desc">Чтобы школу находили не только через рекламу, но и в поиске бесплатно — через полгода-год это отдельный поток заявок.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><span class="tool-num-badge">05</span><div class="fallback-bg" data-label="Разработка сайтов"></div><img src="images/tool-web.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="tool-icon"><div class="fallback-bg" data-label="Разработка сайтов"></div><img src="images/tool-web.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Разработка сайтов</div><p class="tool-desc">Сайт, который за пять секунд объясняет, чем вы отличаетесь от школы через дорогу.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><span class="tool-num-badge">06</span><div class="fallback-bg" data-label="Аналитика заявок"></div><img src="images/tool-analytics.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="tool-icon"><div class="fallback-bg" data-label="Аналитика заявок"></div><img src="images/tool-analytics.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Аналитика</div><p class="tool-desc">Считаем весь путь — от клика по рекламе до записи на экзамен. Без этого остальные пункты — просто гадание.</p></div>
         </div>
       </div>
@@ -556,7 +561,7 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div class="eyebrow">Отзывы</div>
-        <h2>Говорят собственники, а не наш отдел маркетинга</h2>
+        <h2>Что говорят наши клиенты</h2>
         <p>Три коротких видео — без монтажа и заготовленных фраз.</p>
       </div>
       <div class="grid-3">
@@ -631,7 +636,7 @@
       </div>
       <div class="footer-col">
         <h4>Контакты</h4>
-        <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+        <a href="tel:+375336680676">+375 33 668-06-76</a>
         <a href="mailto:hello@coordinat.agency">hello@coordinat.agency</a>
         <a href="#contact">Записаться на аудит</a>
       </div>
