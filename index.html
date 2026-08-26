@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Координаты — маркетинг для автошкол</title>
+<meta name="description" content="Маркетинговое агентство «Координаты». Находим, где ваша автошкола теряет заявки, и чиним это: реклама, сайты, аналитика под ключ.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#00C853;
+    --green-dark:#00A344;
+    --green-light:#E9FBF0;
+    --graphite:#1A1A1A;
+    --white:#FFFFFF;
+    --bg-soft:#F6F8F7;
+    --radius-lg:32px;
+    --radius-md:24px;
+    --radius-sm:16px;
+    --container:1240px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Montserrat', Arial, sans-serif;
+    color:var(--graphite);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--container); margin:0 auto; padding:0 32px;}
+  section{position:relative;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--green-dark); margin-bottom:18px;
+  }
+  .eyebrow::before{content:''; width:8px; height:8px; border-radius:50%; background:var(--green);}
+  h1,h2,h3{font-weight:900; line-height:1.05; letter-spacing:-0.02em;}
+  h2{font-size:clamp(30px,4.2vw,52px); margin-bottom:18px;}
+  h3{font-size:22px; margin-bottom:12px;}
+  p{line-height:1.6; font-size:16px; color:#4A4A4A;}
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    font-family:inherit; font-weight:700; font-size:15px; letter-spacing:-0.01em;
+    padding:17px 30px; border-radius:100px; border:none; cursor:pointer;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:var(--green); color:#08210F;
+    box-shadow:0 8px 24px -6px rgba(0,200,83,.55), 0 0 0 rgba(0,200,83,0);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 34px -8px rgba(0,200,83,.75);}
+  .btn-secondary{
+    background:transparent; color:var(--graphite); border:2px solid #DEDEDE;
+  }
+  .btn-secondary:hover{border-color:var(--graphite); transform:translateY(-2px);}
+  .btn-dark{background:var(--graphite); color:#fff;}
+  .btn-dark:hover{transform:translateY(-2px); box-shadow:0 14px 30px -10px rgba(0,0,0,.5);}
+  .btn-block{width:100%;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(26,26,26,.06);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:var(--container); margin:0 auto;}
+  .logo{display:flex; align-items:center; gap:9px; font-weight:900; font-size:21px; letter-spacing:-0.02em;}
+  .logo-dot{width:11px; height:11px; border-radius:50%; background:var(--green); box-shadow:0 0 14px rgba(0,200,83,.7);}
+  .nav-links{display:flex; align-items:center; gap:34px;}
+  .nav-links a{font-size:14.5px; font-weight:600; color:#3B3B3B; transition:color .2s ease; position:relative;}
+  .nav-links a:hover{color:var(--graphite);}
+  .nav-links a::after{content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--green); transition:width .25s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{display:flex; align-items:center; gap:22px;}
+  .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .burger span{width:24px; height:2px; background:var(--graphite); border-radius:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:64px 0 40px; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;}
+  .hero h1{font-size:clamp(36px,5vw,64px); margin-bottom:22px;}
+  .hero h1 .hl{color:var(--green-dark);}
+  .hero p.lead{font-size:19px; color:#4A4A4A; max-width:520px; margin-bottom:34px;}
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:56px;}
+  .hero-visual{position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/5; isolation:isolate;}
+  .hero-visual img{width:100%; height:100%; object-fit:cover;}
+  .hero-visual .fallback-bg{
+    position:absolute; inset:0; z-index:-1;
+    background:
+      radial-gradient(circle at 25% 20%, rgba(0,200,83,.55), transparent 55%),
+      radial-gradient(circle at 80% 75%, rgba(0,200,83,.35), transparent 50%),
+      linear-gradient(160deg,#0E2617,#08130D 70%);
+  }
+  .float-card{
+    position:absolute; left:20px; bottom:20px; right:20px;
+    background:rgba(255,255,255,.72); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:var(--radius-sm); padding:18px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    box-shadow:0 20px 40px -12px rgba(0,0,0,.25);
+  }
+  .float-card .num{font-size:26px; font-weight:900; color:var(--green-dark);}
+  .float-card .lbl{font-size:12.5px; font-weight:600; color:#333; max-width:150px; line-height:1.3;}
+  .proof-row{display:grid; grid-template-columns:repeat(4,1fr); gap:28px; padding-top:40px; border-top:1px solid #ECECEC;}
+  .proof-item .p-num{font-size:clamp(26px,2.6vw,36px); font-weight:900; color:var(--graphite);}
+  .proof-item .p-num span{color:var(--green-dark);}
+  .proof-item .p-lbl{font-size:13.5px; color:#6B6B6B; font-weight:600; margin-top:4px;}
+
+  /* ---------- CARDS GRID (glass) ---------- */
+  .band{padding:110px 0;}
+  .band.soft{background:var(--bg-soft);}
+  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .glass-card{
+    background:rgba(255,255,255,.6);
+    border:1px solid rgba(255,255,255,.8);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border-radius:var(--radius-md); padding:34px 28px;
+    box-shadow:0 10px 30px -18px rgba(20,20,20,.25);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, border-color .3s ease;
+  }
+  .glass-card:hover{transform:translateY(-6px); box-shadow:0 24px 44px -18px rgba(20,20,20,.28); border-color:rgba(0,200,83,.5);}
+  .pain-num{font-size:14px; font-weight:800; color:var(--green-dark); letter-spacing:.06em; margin-bottom:16px; display:block;}
+  .card-mark{width:44px; height:44px; border-radius:12px; background:var(--green-light); display:flex; align-items:center; justify-content:center; margin-bottom:20px;}
+  .card-mark svg{width:20px; height:20px;}
+
+  /* approach section */
+  .approach-card{padding:40px 32px;}
+  .approach-card.dark{
+    background:var(--graphite); color:#fff; border:1px solid #232323;
+    transform:scale(1.03);
+  }
+  .approach-card.dark p{color:#B9B9B9;}
+  .approach-card.dark .card-mark{background:rgba(0,200,83,.18);}
+  .approach-card .step{font-size:13px; font-weight:800; letter-spacing:.1em; color:var(--green-dark); margin-bottom:14px; display:block;}
+  .approach-card.dark .step{color:var(--green);}
+
+  /* ---------- CLIENT PORTRAIT ---------- */
+  .portrait{background:var(--graphite); color:#fff; padding:110px 0;}
+  .portrait-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:center;}
+  .portrait-photo{border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:3/4; position:relative; isolation:isolate;}
+  .portrait-photo img{width:100%; height:100%; object-fit:cover;}
+  .portrait-photo .fallback-bg{position:absolute; inset:0; z-index:-1; background:linear-gradient(150deg,#123322,#0A1A11);}
+  .portrait h2{color:#fff;}
+  .portrait p{color:#C7C7C7; font-size:17px;}
+  .portrait p + p{margin-top:16px;}
+  .portrait-badge{display:inline-block; margin-top:30px; padding:10px 18px; border-radius:100px; background:rgba(0,200,83,.14); border:1px solid rgba(0,200,83,.4); color:var(--green); font-size:13px; font-weight:700;}
+
+  /* ---------- ENTRY PATHS ---------- */
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .path-card{
+    border-radius:var(--radius-lg); padding:44px 36px; position:relative; overflow:hidden;
+    border:1px solid #EAEAEA; background:#fff;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .path-card:hover{transform:translateY(-6px); box-shadow:0 24px 44px -20px rgba(20,20,20,.25);}
+  .path-card.accent{background:linear-gradient(160deg,#062A15,#0A0A0A);}
+  .path-card.accent h3, .path-card.accent p{color:#fff;}
+  .path-card.accent p{color:#BFBFBF;}
+  .path-tag{font-size:13px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--green-dark); margin-bottom:14px; display:block;}
+  .path-card.accent .path-tag{color:var(--green);}
+  .path-card p{margin-bottom:26px; min-height:78px;}
+
+  /* ---------- TOOLS ---------- */
+  .tools-list{display:flex; flex-direction:column;}
+  .tool-row{
+    display:grid; grid-template-columns:90px 1fr; gap:28px; align-items:start;
+    padding:32px 0; border-bottom:1px solid #E7E7E7;
+    transition:padding-left .3s ease;
+  }
+  .tool-row:first-child{border-top:1px solid #E7E7E7;}
+  .tool-row:hover{padding-left:14px; background:linear-gradient(90deg, var(--green-light), transparent 40%);}
+  .tool-num{font-size:15px; font-weight:800; color:#B9B9B9; font-variant-numeric:tabular-nums;}
+  .tool-row:hover .tool-num{color:var(--green-dark);}
+  .tool-title{font-size:20px; font-weight:800; margin-bottom:6px;}
+  .tool-desc{max-width:620px;}
+
+  /* ---------- CASES ---------- */
+  .case-card{border-radius:var(--radius-md); overflow:hidden; background:#fff; border:1px solid #EDEDED; transition:transform .3s ease, box-shadow .3s ease;}
+  .case-card:hover{transform:translateY(-6px); box-shadow:0 22px 40px -18px rgba(20,20,20,.22);}
+  .case-photo{aspect-ratio:4/3; position:relative; isolation:isolate; overflow:hidden;}
+  .case-photo img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .case-card:hover .case-photo img{transform:scale(1.06);}
+  .case-photo .fallback-bg{position:absolute; inset:0; z-index:-1; background:linear-gradient(150deg,#0F2A19,#081209);}
+  .case-result{position:absolute; left:16px; bottom:16px; background:rgba(255,255,255,.85); backdrop-filter:blur(10px); border-radius:100px; padding:8px 16px; font-weight:800; font-size:14px; color:var(--green-dark);}
+  .case-body{padding:26px 26px 30px;}
+  .case-body .school{font-size:13px; font-weight:700; color:#8A8A8A; margin-bottom:8px; text-transform:uppercase; letter-spacing:.05em;}
+
+  /* ---------- VIDEO REVIEWS ---------- */
+  .review-card{border-radius:var(--radius-md); overflow:hidden; position:relative; aspect-ratio:9/13; isolation:isolate; cursor:pointer;}
+  .review-card img{width:100%; height:100%; object-fit:cover; transition:transform .4s ease;}
+  .review-card:hover img{transform:scale(1.05);}
+  .review-card .fallback-bg{position:absolute; inset:0; z-index:-1; background:linear-gradient(160deg,#0F2A19,#081209);}
+  .review-scrim{position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 45%);}
+  .review-info{position:absolute; left:20px; right:20px; bottom:20px; color:#fff;}
+  .review-info .rname{font-weight:800; font-size:17px;}
+  .review-info .rschool{font-size:13px; color:#D9D9D9; margin-top:2px;}
+  .play-btn{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:64px; height:64px; border-radius:50%;
+    background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center;
+    transition:transform .25s ease, background .25s ease;
+  }
+  .review-card:hover .play-btn{transform:translate(-50%,-50%) scale(1.1); background:var(--green);}
+  .play-btn svg{width:20px; height:20px; margin-left:3px;}
+
+  /* ---------- FINAL CTA ---------- */
+  .final{background:var(--graphite); color:#fff; padding:120px 0;}
+  .final-grid{display:grid; grid-template-columns:1fr .95fr; gap:60px; align-items:start;}
+  .final h2{color:#fff; max-width:520px;}
+  .final p.lead{color:#BDBDBD; font-size:18px; max-width:480px; margin-bottom:8px;}
+  .final-note{font-size:13.5px; color:#8C8C8C; margin-top:16px; line-height:1.5;}
+  .form-card{
+    background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(14px); border-radius:var(--radius-lg); padding:38px;
+  }
+  .field{margin-bottom:18px;}
+  .field label{display:block; font-size:12.5px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#9C9C9C; margin-bottom:8px;}
+  .field input{
+    width:100%; padding:15px 16px; border-radius:14px; border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.04); color:#fff; font-family:inherit; font-size:15px; outline:none;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .field input::placeholder{color:#6E6E6E;}
+  .field input:focus{border-color:var(--green); background:rgba(255,255,255,.07);}
+  .form-success{display:none; text-align:center; padding:20px 0; font-weight:700; color:var(--green);}
+  .form-success.show{display:block;}
+  .form-card form.hidden{display:none;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:64px 0 32px; background:#0E0E0E; color:#B9B9B9;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,.08);}
+  footer .logo{color:#fff;}
+  .footer-desc{margin-top:16px; max-width:260px; font-size:14px; color:#8C8C8C; line-height:1.6;}
+  .footer-col h4{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#fff; margin-bottom:18px;}
+  .footer-col a{display:block; font-size:14.5px; color:#9E9E9E; margin-bottom:12px; transition:color .2s ease;}
+  .footer-col a:hover{color:var(--green);}
+  .footer-bottom{display:flex; justify-content:space-between; align-items:center; padding-top:26px; font-size:13px; color:#6B6B6B; flex-wrap:wrap; gap:12px;}
+
+  /* ---------- reveal animation ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{order:-1; aspect-ratio:16/10;}
+    .grid-4{grid-template-columns:repeat(2,1fr);}
+    .grid-3{grid-template-columns:1fr; gap:22px;}
+    .approach-card.dark{transform:none;}
+    .portrait-grid{grid-template-columns:1fr; gap:36px;}
+    .portrait-photo{max-width:340px; aspect-ratio:3/4;}
+    .grid-2{grid-template-columns:1fr;}
+    .final-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr; row-gap:36px;}
+  }
+  @media (max-width:760px){
+    .wrap{padding:0 20px;}
+    .nav-links{position:fixed; top:69px; left:0; right:0; background:#fff; flex-direction:column; align-items:flex-start; gap:0; padding:10px 20px 20px; border-bottom:1px solid #eee; transform:translateY(-130%); opacity:0; pointer-events:none; transition:all .3s ease;}
+    .nav-links.open{transform:translateY(0); opacity:1; pointer-events:auto;}
+    .nav-links a{padding:12px 0; width:100%; border-bottom:1px solid #F2F2F2;}
+    .nav-cta .btn-primary{display:none;}
+    .burger{display:flex;}
+    .hero{padding:36px 0 20px;}
+    .proof-row{grid-template-columns:repeat(2,1fr); gap:24px;}
+    .band{padding:72px 0;}
+    .grid-4{grid-template-columns:1fr;}
+    .final{padding:80px 0;}
+    .form-card{padding:26px;}
+    .footer-grid{grid-template-columns:1fr; gap:30px;}
+    .review-card{aspect-ratio:9/14;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo"><span>Координаты</span><span class="logo-dot"></span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#pain">Боли</a></li>
+      <li><a href="#approach">Подход</a></li>
+      <li><a href="#tools">Инструменты</a></li>
+      <li><a href="#cases">Кейсы</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Записаться на аудит</a>
+      <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Маркетинг для автошкол</div>
+        <h1>Ваша реклама крутится.<br>А заявки <span class="hl">где?</span></h1>
+        <p class="lead">Мы не запускаем рекламу ради рекламы. Мы находим этап воронки, на котором ваша автошкола теряет учеников, — и чиним именно его, а не всё подряд.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Записаться на аудит</a>
+          <a href="#approach" class="btn btn-secondary">Как мы работаем</a>
+        </div>
+        <div class="proof-row">
+          <div class="proof-item"><div class="p-num">53<span>+</span></div><div class="p-lbl">автошколы за 6 лет</div></div>
+          <div class="proof-item"><div class="p-num"><span>×2,1</span></div><div class="p-lbl">среднее снижение цены заявки</div></div>
+          <div class="proof-item"><div class="p-num">14</div><div class="p-lbl">городов присутствия</div></div>
+          <div class="proof-item"><div class="p-num">60<span> дн.</span></div><div class="p-lbl">до первых измеримых цифр</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="fallback-bg"></div>
+        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80"
+             alt="Автомобиль автошколы крупным планом" loading="eager"
+             onerror="this.style.display='none'">
+        <div class="float-card">
+          <div class="lbl">Цена заявки после аудита воронки</div>
+          <div class="num">−38%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN -->
+  <section class="band" id="pain">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Знакомая ситуация</div>
+        <h2>Обычно к нам приходят с одним из четырёх</h2>
+        <p>Мы начинаем почти каждую работу с одного и того же разговора. Возможно, вы узнаете себя.</p>
+      </div>
+      <div class="grid-4">
+        <div class="glass-card reveal">
+          <span class="pain-num">01</span>
+          <h3>Реклама крутится, а заявок всё меньше</h3>
+          <p>Бюджет списывается каждый день, подрядчик присылает скриншоты охватов, а по факту — то густо, то пусто. Объяснить, почему, никто не берётся.</p>
+        </div>
+        <div class="glass-card reveal">
+          <span class="pain-num">02</span>
+          <h3>Сайт есть, а толку ноль</h3>
+          <p>Сайт делали три года назад для галочки. Он не объясняет, чем вы отличаетесь от школы через дорогу, и живёт отдельно от рекламы.</p>
+        </div>
+        <div class="glass-card reveal">
+          <span class="pain-num">03</span>
+          <h3>Непонятно, откуда приходят ученики</h3>
+          <p>Instagram, Директ, сарафан, доски объявлений — заявки идут отовсюду. Посчитать, что из этого реально окупается, невозможно.</p>
+        </div>
+        <div class="glass-card reveal">
+          <span class="pain-num">04</span>
+          <h3>Все автошколы в городе выглядят одинаково</h3>
+          <p>Те же фото у машины, те же «дружелюбные цены» и «опытные инструкторы». Ученик не видит разницы — и выбирает по цене.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="band soft" id="approach">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Наш подход</div>
+        <h2>Три принципа, а не список услуг</h2>
+        <p>Из-за них с нами остаются на годы, а не на один рекламный месяц.</p>
+      </div>
+      <div class="grid-3">
+        <div class="glass-card approach-card reveal">
+          <span class="step">Принцип 01</span>
+          <h3>Сначала диагностика, потом решение</h3>
+          <p>Мы не продаём услугу, пока не разобрались, где именно вы теряете заявки. Аудит — это разбор воронки, а не презентация с прайсом на первой встрече.</p>
+        </div>
+        <div class="glass-card approach-card dark reveal">
+          <span class="step">Принцип 02</span>
+          <h3>Думаем как будущий ученик, а не как рекламщик</h3>
+          <p>Страх экзамена, нехватка времени, сомнения — какую школу выбрать. Рекламу и сайт строим вокруг этих сомнений, а не вокруг ваших преимуществ на бумаге.</p>
+        </div>
+        <div class="glass-card approach-card reveal">
+          <span class="step">Принцип 03</span>
+          <h3>Всё под ключ — один центр ответственности</h3>
+          <p>Реклама, сайт и аналитика работают в одной связке у одной команды. Никто не переводит стрелки на смежного подрядчика.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT PORTRAIT -->
+  <section class="portrait">
+    <div class="wrap portrait-grid">
+      <div class="portrait-photo reveal">
+        <div class="fallback-bg"></div>
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80"
+             alt="Собственник автошколы" loading="lazy" onerror="this.style.display='none'">
+      </div>
+      <div class="reveal">
+        <div class="eyebrow">С кем мы работаем</div>
+        <h2>Портрет нашего клиента</h2>
+        <p>Собственник автошколы с 1–5 филиалами, который уже пробовал таргетолога-фрилансера, агентство «под ключ» с шаблонным сайтом и самостоятельные вечерние попытки вести Директ.</p>
+        <p>Реклама периодически «выстреливала», но объяснить, почему в один месяц заявки есть, а в другой — нет, не мог никто. Он устал от отчётов на сорок слайдов и хочет понятную систему: сколько стоит ученик, откуда он пришёл и что делать, чтобы заявок стало больше.</p>
+        <span class="portrait-badge">Знакомо? Тогда нам есть о чём поговорить</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRY PATHS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">С чего начать</div>
+        <h2>Два входа — один результат</h2>
+        <p>Не важно, на каком вы этапе. Разговор в обоих случаях начинается с одного и того же — с аудита.</p>
+      </div>
+      <div class="grid-2">
+        <div class="path-card reveal">
+          <span class="path-tag">Вариант А</span>
+          <h3>Уже есть сайт и реклама</h3>
+          <p>Проведём аудит текущей воронки: разберём рекламные кабинеты, сайт и путь ученика от клика до записи на экзамен. Покажем, на каком именно шаге теряются заявки.</p>
+          <a href="#contact" class="btn btn-primary btn-block">Записаться на аудит</a>
+        </div>
+        <div class="path-card accent reveal">
+          <span class="path-tag">Вариант Б</span>
+          <h3>Сайта и рекламы пока нет</h3>
+          <p>Соберём воронку с нуля: от позиционирования и сайта до первых кампаний. Начинаем с диагностики рынка и конкурентов в вашем городе.</p>
+          <a href="#contact" class="btn btn-primary btn-block">Записаться на аудит</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="band soft" id="tools">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Инструменты</div>
+        <h2>Что конкретно мы делаем</h2>
+        <p>Не «полный комплекс услуг», а шесть инструментов, каждым из которых мы пользуемся ежедневно.</p>
+      </div>
+      <div class="tools-list">
+        <div class="tool-row reveal">
+          <span class="tool-num">01</span>
+          <div><div class="tool-title">Instagram-реклама</div><p class="tool-desc">Таргет на аудиторию, которая ищет автошколу прямо сейчас, а не просто листает ленту между делом.</p></div>
+        </div>
+        <div class="tool-row reveal">
+          <span class="tool-num">02</span>
+          <div><div class="tool-title">Google Ads</div><p class="tool-desc">Заявки от тех, кто уже вбил «автошкола + город» в поиск и готов сравнивать варианты.</p></div>
+        </div>
+        <div class="tool-row reveal">
+          <span class="tool-num">03</span>
+          <div><div class="tool-title">Яндекс Директ</div><p class="tool-desc">Основной канал заявок для большинства регионов. Настраиваем, чистим от нецелевых кликов, ведём еженедельно.</p></div>
+        </div>
+        <div class="tool-row reveal">
+          <span class="tool-num">04</span>
+          <div><div class="tool-title">SEO</div><p class="tool-desc">Чтобы школу находили не только через рекламу, но и в органической выдаче — через полгода-год это отдельный канал заявок.</p></div>
+        </div>
+        <div class="tool-row reveal">
+          <span class="tool-num">05</span>
+          <div><div class="tool-title">Разработка сайтов</div><p class="tool-desc">Сайт, который за пять секунд объясняет разницу между вами и школой через дорогу — и связан с рекламой напрямую.</p></div>
+        </div>
+        <div class="tool-row reveal">
+          <span class="tool-num">06</span>
+          <div><div class="tool-title">Аналитика и воронка</div><p class="tool-desc">Сквозная аналитика от клика по рекламе до оплаты и записи на экзамен. Без неё все остальные пункты — гадание.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="band" id="cases">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Кейсы</div>
+        <h2>Цифры, а не скриншоты охватов</h2>
+        <p>Три школы, три разные точки входа — и в каждой понятный результат в понятных единицах.</p>
+      </div>
+      <div class="grid-3">
+        <div class="case-card reveal">
+          <div class="case-photo">
+            <div class="fallback-bg"></div>
+            <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=800&q=80" alt="Обучение вождению, руки на руле" loading="lazy" onerror="this.style.display='none'">
+            <span class="case-result">Заявка −41%</span>
+          </div>
+          <div class="case-body">
+            <div class="school">Автошкола «Формула», Екатеринбург</div>
+            <p>Перераспределили бюджет между Директом и Instagram по данным сквозной аналитики — цена заявки упала за два месяца.</p>
+          </div>
+        </div>
+        <div class="case-card reveal">
+          <div class="case-photo">
+            <div class="fallback-bg"></div>
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Аналитика заявок на ноутбуке" loading="lazy" onerror="this.style.display='none'">
+            <span class="case-result">212 заявок</span>
+          </div>
+          <div class="case-body">
+            <div class="school">Автошкола «Вектор», Казань</div>
+            <p>Собрали сайт и воронку с нуля: 212 заявок за первый квартал работы при цене заявки 640 ₽.</p>
+          </div>
+        </div>
+        <div class="case-card reveal">
+          <div class="case-photo">
+            <div class="fallback-bg"></div>
+            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80" alt="Дорога, экзамен по вождению" loading="lazy" onerror="this.style.display='none'">
+            <span class="case-result">−30% слива</span>
+          </div>
+          <div class="case-body">
+            <div class="school">Сеть «Дорога», Новосибирск, 3 филиала</div>
+            <p>Внедрили сквозную аналитику и нашли филиал, который «съедал» треть бюджета без единой записи на экзамен.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO REVIEWS -->
+  <section class="band soft" id="reviews">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Отзывы</div>
+        <h2>Говорят собственники, а не наш отдел маркетинга</h2>
+        <p>Три коротких видео — без монтажа и заготовленных фраз.</p>
+      </div>
+      <div class="grid-3">
+        <div class="review-card reveal" onclick="alert('Видео-отзыв Игоря, автошкола «Формула»')">
+          <div class="fallback-bg"></div>
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=700&q=80" alt="Отзыв собственника автошколы «Формула»" loading="lazy" onerror="this.style.display='none'">
+          <div class="review-scrim"></div>
+          <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="review-info"><div class="rname">Игорь Соколов</div><div class="rschool">Автошкола «Формула», Екатеринбург</div></div>
+        </div>
+        <div class="review-card reveal" onclick="alert('Видео-отзыв Марины, автошкола «Вектор»')">
+          <div class="fallback-bg"></div>
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=700&q=80" alt="Отзыв собственницы автошколы «Вектор»" loading="lazy" onerror="this.style.display='none'">
+          <div class="review-scrim"></div>
+          <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="review-info"><div class="rname">Марина Ефимова</div><div class="rschool">Автошкола «Вектор», Казань</div></div>
+        </div>
+        <div class="review-card reveal" onclick="alert('Видео-отзыв Дмитрия, сеть «Дорога»')">
+          <div class="fallback-bg"></div>
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80" alt="Отзыв собственника сети «Дорога»" loading="lazy" onerror="this.style.display='none'">
+          <div class="review-scrim"></div>
+          <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="review-info"><div class="rname">Дмитрий Наумов</div><div class="rschool">Сеть «Дорога», Новосибирск</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final" id="contact">
+    <div class="wrap final-grid">
+      <div class="reveal">
+        <div class="eyebrow">Следующий шаг</div>
+        <h2>Разберём вашу воронку на созвоне</h2>
+        <p class="lead">40 минут, ваши рекламные кабинеты и сайт — на столе. Покажем, на каком шаге вы теряете заявки и что с этим делать.</p>
+        <p class="final-note">Аудит платный: мы не тратим время на школы, которым наш подход не подходит, и не обещаем результат до разговора.</p>
+      </div>
+      <div class="form-card reveal">
+        <form id="auditForm">
+          <div class="field">
+            <label for="f-name">Имя</label>
+            <input id="f-name" type="text" placeholder="Как к вам обращаться" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Телефон или Telegram</label>
+            <input id="f-phone" type="text" placeholder="+7 999 000-00-00 или @username" required>
+          </div>
+          <div class="field">
+            <label for="f-school">Название автошколы</label>
+            <input id="f-school" type="text" placeholder="Как называется ваша школа" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Записаться на аудит</button>
+        </form>
+        <div class="form-success" id="formSuccess">Заявка принята. Свяжемся в течение рабочего дня, чтобы согласовать время созвона.</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo"><span>Координаты</span><span class="logo-dot"></span></a>
+        <p class="footer-desc">Маркетинговое агентство для автошкол. Находим, где вы теряете заявки, и чиним это — от рекламы до аналитики.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <a href="#pain">Боли</a>
+        <a href="#approach">Подход</a>
+        <a href="#tools">Инструменты</a>
+        <a href="#cases">Кейсы</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="tel:+70000000000">+7 (000) 000-00-00</a>
+        <a href="mailto:hello@koordinaty.agency">hello@koordinaty.agency</a>
+        <a href="#contact">Записаться на аудит</a>
+      </div>
+      <div class="footer-col">
+        <h4>Соцсети</h4>
+        <a href="#">Telegram</a>
+        <a href="#">Instagram</a>
+        <a href="#">VK</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Координаты. Маркетинг для автошкол.</span>
+      <span>Работаем по всей России</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // form submit (no backend — demo confirmation)
+  const form = document.getElementById('auditForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.classList.add('hidden');
+    success.classList.add('show');
+  });
+</script>
+
+</body>
+</html>
