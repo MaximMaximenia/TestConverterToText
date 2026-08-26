@@ -53,7 +53,7 @@
   .btn-primary::before{content:''; position:absolute; top:0; left:-60%; width:35%; height:100%; background:linear-gradient(120deg, transparent, rgba(255,255,255,.6), transparent); transform:skewX(-20deg); pointer-events:none; animation:shine 3.4s ease-in-out infinite;}
   @keyframes shine{0%{left:-60%;} 42%{left:130%;} 100%{left:130%;}}
   .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 34px -8px rgba(0,200,83,.75);}
-  .btn-secondary{background:transparent; color:var(--graphite); border:2px solid #DEDEDE;}
+  .btn-secondary{background:rgba(255,255,255,.9); color:var(--graphite); border:2px solid #DEDEDE;}
   .btn-secondary:hover{border-color:var(--graphite); transform:translateY(-2px);}
   .btn-block{width:100%;}
 
@@ -102,7 +102,7 @@
   .proof-item .p-lbl{font-size:13.5px; color:#6B6B6B; font-weight:500; margin-top:4px;}
 
   /* ---------- CARDS ---------- */
-  .band{padding:100px 0;}
+  .band{padding:140px 0;}
   .band.soft{background:var(--bg-soft);}
   .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; position:relative; z-index:2;}
   .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; position:relative; z-index:2;}
@@ -125,7 +125,7 @@
   .approach-card.dark .step{color:var(--green);}
 
   /* ---------- STUDENT PSYCHOLOGY (dark) ---------- */
-  .portrait{background:var(--graphite); color:#fff; padding:100px 0;}
+  .portrait{background:var(--graphite); color:#fff; padding:130px 0;}
   .portrait-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:center;}
   .portrait-photo{border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:3/4; position:relative;}
   .portrait-photo .fallback-bg{position:absolute; inset:0; background:linear-gradient(150deg,#123322,#0A1A11);}
@@ -156,6 +156,7 @@
   .tool-icon{position:relative; width:80px; height:80px; border-radius:18px; overflow:hidden; flex-shrink:0; background:var(--green-tint);}
   .tool-icon .fallback-bg{position:absolute; inset:0; background:linear-gradient(150deg,#0F2A19,#081209); padding:4px;}
   .tool-icon img{position:relative; z-index:1; width:100%; height:100%; object-fit:cover;}
+  .tool-goal{display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--green-deep); background:var(--green-tint); padding:4px 10px; border-radius:100px; margin-bottom:8px;}
   .tool-title{font-size:19px; font-weight:600; margin-bottom:6px; font-family:'Unbounded',sans-serif;}
   .tool-desc{max-width:600px;}
 
@@ -185,8 +186,17 @@
 
   .fallback-bg{display:flex; align-items:center; justify-content:center; text-align:center; padding:24px;}
 
+  /* ---------- FAQ ---------- */
+  .faq-list{max-width:760px; position:relative; z-index:2;}
+  .faq-item{background:#fff; border:1px solid #EAEAEA; border-radius:var(--radius-md); padding:22px 26px; margin-bottom:14px;}
+  .faq-item summary{cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px; font-family:'Unbounded',sans-serif; font-size:16.5px; font-weight:600; color:var(--graphite);}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; flex-shrink:0; width:28px; height:28px; border-radius:50%; background:var(--green-tint); color:var(--green-deep); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:700; transition:transform .25s ease;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{margin-top:14px;}
+
   /* ---------- FINAL CTA ---------- */
-  .final{background:var(--graphite); color:#fff; padding:110px 0;}
+  .final{background:var(--graphite); color:#fff; padding:140px 0;}
   .final-grid{display:grid; grid-template-columns:1fr .95fr; gap:56px; align-items:start; position:relative; z-index:2;}
   .final h2{color:#fff; max-width:500px;}
   .final p.lead{color:#BDBDBD; font-size:17px; max-width:460px; margin-bottom:8px;}
@@ -247,9 +257,9 @@
     .hero-content{padding:0 20px;}
     .hero-bg-overlay{background:linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.9) 45%, rgba(255,255,255,.55) 75%, rgba(255,255,255,.25) 100%);}
     .proof-row{grid-template-columns:1fr; gap:16px;}
-    .band{padding:68px 0;}
+    .band{padding:92px 0;}
     .grid-4{grid-template-columns:1fr;}
-    .final{padding:72px 0;}
+    .final{padding:92px 0;}
     .form-card{padding:24px;}
     .review-card{aspect-ratio:9/14;}
     .sticky-cta-text{display:none;}
@@ -257,7 +267,7 @@
     .blob{display:none;}
     #pain h2{white-space:normal; font-size:clamp(26px,7vw,34px);}
     .icp-grid{grid-template-columns:1fr;}
-    .portrait{padding:56px 0;}
+    .portrait{padding:76px 0;}
     .footer-grid{grid-template-columns:1fr; gap:32px;}
   }
 </style>
@@ -275,11 +285,12 @@
       <li><a href="#tools">Инструменты</a></li>
       <li><a href="#cases">Кейсы</a></li>
       <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#faq">Вопросы</a></li>
       <li><a href="#contact">Контакты</a></li>
-      <li class="nav-links-cta"><a href="#contact" class="btn btn-primary btn-block"><span>Записаться на аудит</span></a></li>
+      <li class="nav-links-cta"><a href="#contact" class="btn btn-primary btn-block"><span>Получить план по заявкам</span></a></li>
     </ul>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-primary"><span>Записаться на аудит</span></a>
+      <a href="#contact" class="btn btn-primary"><span>Получить план по заявкам</span></a>
       <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -301,7 +312,7 @@
       <h1>Стабильный поток заявок для вашей <span class="hl">автошколы</span></h1>
       <p class="lead">Неважно, крутится у вас реклама сейчас или нет. Разберёмся, что мешает, и выстроим систему, которая генерирует новых учеников каждый месяц.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary"><span>Записаться на аудит</span></a>
+        <a href="#contact" class="btn btn-primary"><span>Получить план по заявкам</span></a>
         <a href="#approach" class="btn btn-secondary">Как мы работаем</a>
       </div>
       <div class="proof-row">
@@ -435,13 +446,13 @@
           <span class="path-tag">Вариант А</span>
           <h3>Уже есть сайт и реклама</h3>
           <p>Посмотрим рекламные кабинеты, сайт и то, как ученик идёт от объявления до записи на экзамен. Покажем, где именно теряются заявки.</p>
-          <a href="#contact" class="btn btn-primary btn-block"><span>Записаться на аудит</span></a>
+          <a href="#contact" class="btn btn-primary btn-block"><span>Получить план по заявкам</span></a>
         </div>
         <div class="path-card accent reveal">
           <span class="path-tag">Вариант Б</span>
           <h3>Сайта и рекламы пока нет</h3>
           <p>Соберём всё с нуля — от сайта до первых рекламных кампаний. Начнём с того, как выглядит рынок и конкуренты в вашем городе.</p>
-          <a href="#contact" class="btn btn-primary btn-block"><span>Записаться на аудит</span></a>
+          <a href="#contact" class="btn btn-primary btn-block"><span>Получить план по заявкам</span></a>
         </div>
       </div>
     </div>
@@ -459,27 +470,27 @@
       <div class="tools-list">
         <div class="tool-row reveal">
           <div class="tool-icon"><div class="fallback-bg" data-label="Instagram-реклама"></div><img src="images/tool-instagram.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-          <div><div class="tool-title">Instagram-реклама</div><p class="tool-desc">Показываем объявления тем, кто ищет автошколу прямо сейчас, а не просто листает ленту.</p></div>
+          <div><span class="tool-goal">Доверие и узнаваемость</span><div class="tool-title">Instagram-реклама</div><p class="tool-desc">Показываем объявления тем, кто ищет автошколу прямо сейчас, а не просто листает ленту.</p></div>
         </div>
         <div class="tool-row reveal">
           <div class="tool-icon"><div class="fallback-bg" data-label="Google Ads"></div><img src="images/tool-google.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-          <div><div class="tool-title">Google Ads</div><p class="tool-desc">Заявки от тех, кто уже вбил «автошкола + город» в поиск и сравнивает варианты.</p></div>
+          <div><span class="tool-goal">Быстрый старт</span><div class="tool-title">Google Ads</div><p class="tool-desc">Заявки от тех, кто уже вбил «автошкола + город» в поиск и сравнивает варианты.</p></div>
         </div>
         <div class="tool-row reveal">
           <div class="tool-icon"><div class="fallback-bg" data-label="Яндекс Директ"></div><img src="images/tool-yandex.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-          <div><div class="tool-title">Яндекс Директ</div><p class="tool-desc">Заявки от тех, кто уже вбил «автошкола» в Яндексе и ищет прямо сейчас — основной канал для большинства регионов.</p></div>
+          <div><span class="tool-goal">Быстрый старт</span><div class="tool-title">Яндекс Директ</div><p class="tool-desc">Заявки от тех, кто уже вбил «автошкола» в Яндексе и ищет прямо сейчас — основной канал для большинства регионов.</p></div>
         </div>
         <div class="tool-row reveal">
           <div class="tool-icon"><div class="fallback-bg" data-label="SEO-продвижение"></div><img src="images/tool-seo.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-          <div><div class="tool-title">SEO — продвижение сайта</div><p class="tool-desc">Игра в долгую: через полгода-год школу находят в поиске бесплатно, и заявки идут постоянно — а не только пока крутится реклама.</p></div>
+          <div><span class="tool-goal">Долгосрочный поток</span><div class="tool-title">SEO — продвижение сайта</div><p class="tool-desc">Игра в долгую: через полгода-год школу находят в поиске бесплатно, и заявки идут постоянно — а не только пока крутится реклама.</p></div>
         </div>
         <div class="tool-row reveal">
           <div class="tool-icon"><div class="fallback-bg" data-label="Разработка сайтов"></div><img src="images/tool-web.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-          <div><div class="tool-title">Разработка сайтов</div><p class="tool-desc">Сайт, который за пять секунд объясняет, чем вы отличаетесь от школы через дорогу.</p></div>
+          <div><span class="tool-goal">Фундамент</span><div class="tool-title">Разработка сайтов</div><p class="tool-desc">Сайт, который за пять секунд объясняет, чем вы отличаетесь от школы через дорогу.</p></div>
         </div>
         <div class="tool-row reveal">
           <div class="tool-icon"><div class="fallback-bg" data-label="Аналитика заявок"></div><img src="images/tool-analytics.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-          <div><div class="tool-title">Аналитика</div><p class="tool-desc">Считаем весь путь клиента — от клика по рекламе до записи на экзамен. Без этого остальные пункты — просто гадание.</p></div>
+          <div><span class="tool-goal">Контроль результата</span><div class="tool-title">Аналитика</div><p class="tool-desc">Считаем весь путь клиента — от клика по рекламе до записи на экзамен. Без этого остальные пункты — просто гадание.</p></div>
         </div>
       </div>
     </div>
@@ -573,6 +584,34 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="band soft" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Вопросы</div>
+        <h2>Отвечаем на вопросы</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>Что если у меня нет сайта?</summary>
+          <p>Соберём с нуля — сайт, рекламу и аналитику с самого начала. Начинаем с того, как выглядит рынок и конкуренты в вашем городе.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Какой бюджет нужен на рекламу?</summary>
+          <p>Зависит от города и конкуренции — единой цифры для всех не существует. Обсудим на созвоне и подберём бюджет, с которого имеет смысл начинать именно вам.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Когда будет первый результат?</summary>
+          <p>Первые заявки обычно приходят через 10–15 дней после запуска.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>Что входит в разбор ситуации?</summary>
+          <p>Смотрим ваши рекламные кабинеты и сайт, если они есть, созваниваемся на 30–40 минут, показываем, где теряются заявки, и даём конкретный план действий.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- FINAL CTA -->
   <section class="final" id="contact">
     <div class="wrap final-grid">
@@ -580,6 +619,7 @@
         <div class="eyebrow">Следующий шаг</div>
         <h2>Разберём вашу ситуацию</h2>
         <p class="lead">Погрузимся в вашу нишу и покажем, какие точки роста есть именно у вас.</p>
+        <p class="final-note">Берём на разбор ограниченное количество школ в месяц — чтобы у каждой было достаточно времени.</p>
       </div>
       <div class="form-card reveal">
         <form id="auditForm">
@@ -591,7 +631,7 @@
             <label for="f-phone">Телефон или Telegram</label>
             <input id="f-phone" type="text" placeholder="+7 999 000-00-00 или @username" required>
           </div>
-          <button type="submit" class="btn btn-primary btn-block"><span>Записаться на аудит</span></button>
+          <button type="submit" class="btn btn-primary btn-block"><span>Разобрать мою ситуацию</span></button>
         </form>
         <div class="form-success" id="formSuccess">Заявка принята. Свяжемся в течение рабочего дня, чтобы согласовать время созвона.</div>
       </div>
@@ -621,7 +661,7 @@
         <h4>Контакты</h4>
         <a href="tel:+375336680676">+375 33 668-06-76</a>
         <a href="mailto:maxich66@gmail.com">maxich66@gmail.com</a>
-        <a href="#contact">Записаться на аудит</a>
+        <a href="#contact">Получить план по заявкам</a>
       </div>
       <div class="footer-col">
         <h4>Соцсети</h4>
@@ -638,7 +678,7 @@
 <div class="sticky-cta">
   <div class="sticky-cta-inner">
     <span class="sticky-cta-text">Проанализируем вашу ситуацию и покажем, как получать больше заявок</span>
-    <a href="#contact" class="btn btn-primary"><span>Записаться на аудит</span></a>
+    <a href="#contact" class="btn btn-primary"><span>Получить план по заявкам</span></a>
   </div>
 </div>
 
