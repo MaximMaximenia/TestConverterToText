@@ -25,12 +25,14 @@
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
+  html{overflow-x:hidden; max-width:100%;}
   body{
     font-family:'Inter', Arial, sans-serif;
     color:var(--graphite);
     background:var(--white);
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+    max-width:100%;
     padding-bottom:82px;
   }
   img{max-width:100%; display:block; width:100%; height:100%; object-fit:cover;}
@@ -63,7 +65,7 @@
   header{position:sticky; top:0; z-index:100; background:rgba(255,255,255,.85); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-bottom:1px solid rgba(26,26,26,.08); box-shadow:0 2px 20px -12px rgba(0,0,0,.15);}
   nav{display:flex; align-items:center; justify-content:space-between; padding:16px 32px; max-width:var(--container); margin:0 auto; position:relative;}
   .logo{display:flex; align-items:center; gap:9px; font-family:'Unbounded',sans-serif; font-weight:700; font-size:18px;}
-  .logo-img{height:30px; width:auto; object-fit:contain;}
+  .logo-img{height:30px; width:auto; max-width:160px; object-fit:contain;}
   .logo-fallback{display:none; align-items:center; gap:9px;}
   .logo-dot{width:10px; height:10px; border-radius:50%; background:var(--green); box-shadow:0 0 14px rgba(0,200,83,.7);}
   .nav-links{display:flex; align-items:center; gap:32px;}
@@ -73,11 +75,11 @@
   .nav-links > li > a:not(.btn):hover::after{width:100%;}
   .nav-cta{display:flex; align-items:center; gap:22px;}
   .nav-cta .btn-primary{padding:14px 26px; font-size:14px;}
-  .burger{display:none; flex-direction:column; justify-content:center; gap:5px; width:32px; height:32px; background:none; border:none; cursor:pointer; padding:6px;}
-  .burger span{width:20px; height:2px; background:var(--graphite); border-radius:2px; transition:transform .25s ease, opacity .25s ease;}
-  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger{display:none; flex-direction:column; justify-content:center; align-items:center; gap:6px; width:46px; height:46px; background:none; border:none; cursor:pointer; padding:0; -webkit-tap-highlight-color:transparent;}
+  .burger span{width:24px; height:2.5px; background:var(--graphite); border-radius:2px; transition:transform .25s ease, opacity .25s ease;}
+  .burger.open span:nth-child(1){transform:translateY(8.5px) rotate(45deg);}
   .burger.open span:nth-child(2){opacity:0;}
-  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .burger.open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg);}
   .nav-links-cta{display:none;}
 
   /* ---------- HERO ---------- */
@@ -89,6 +91,8 @@
   .hero-actions{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:44px;}
 
   .hero-visual{position:relative; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/5; background:linear-gradient(160deg,#FBFEFC,#EEF6F1); border:1px solid #E9EEEB;}
+  .hero-bg{position:absolute; inset:0;}
+  .hero-bg img{width:100%; height:100%; object-fit:cover;}
   .grid-dots{position:absolute; inset:0; background-image:radial-gradient(circle, rgba(26,26,26,.09) 1.5px, transparent 1.5px); background-size:26px 26px; -webkit-mask-image:radial-gradient(circle at 50% 42%, black 0%, transparent 72%); mask-image:radial-gradient(circle at 50% 42%, black 0%, transparent 72%);}
   .shape{position:absolute;}
   .shape-cube{width:58%; aspect-ratio:1/1; left:20%; top:12%; border-radius:34px; background:linear-gradient(135deg,#00E676 0%,#00A344 55%,#00792F 100%); box-shadow:0 50px 80px -22px rgba(0,140,64,.5), inset 0 -18px 30px rgba(0,0,0,.18), inset 0 18px 24px rgba(255,255,255,.3); transform:rotate(-7deg); animation:float1 6.5s ease-in-out infinite;}
@@ -113,6 +117,8 @@
   .glass-card{background:rgba(255,255,255,.85); border:1.5px solid rgba(255,255,255,.9); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-radius:var(--radius-md); padding:32px 26px; box-shadow:0 14px 34px -18px rgba(20,20,20,.3); transition:transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, border-color .3s ease;}
   .glass-card:hover{transform:translateY(-6px); box-shadow:0 26px 46px -18px rgba(20,20,20,.3); border-color:rgba(0,200,83,.6);}
   .pain-num{font-family:'Unbounded',sans-serif; font-size:14px; font-weight:600; color:var(--green-deep); letter-spacing:.04em; margin-bottom:14px; display:block;}
+  #pain .section-head{max-width:none;}
+  #pain h2{font-size:clamp(24px,3.3vw,38px); white-space:nowrap;}
 
   .pain-card{padding:0; overflow:hidden;}
   .pain-photo{aspect-ratio:16/10; position:relative; overflow:hidden;}
@@ -149,12 +155,14 @@
 
   /* ---------- TOOLS ---------- */
   .tools-list{position:relative; z-index:2;}
-  .tool-row{display:grid; grid-template-columns:56px 1fr; gap:22px; align-items:center; padding:26px 0; border-bottom:1px solid #E2E9E5; transition:padding-left .3s ease;}
+  .tool-row{display:grid; grid-template-columns:64px 1fr; gap:22px; align-items:center; padding:26px 0; border-bottom:1px solid #E2E9E5; transition:padding-left .3s ease;}
   .tool-row:first-child{border-top:1px solid #E2E9E5;}
   .tool-row:hover{padding-left:12px; background:linear-gradient(90deg, rgba(0,200,83,.08), transparent 45%);}
-  .tool-icon{position:relative; width:56px; height:56px; border-radius:16px; background:var(--green-tint); display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;}
-  .tool-icon img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
-  .tool-num{font-family:'Unbounded',sans-serif; font-size:14px; font-weight:600; color:var(--green-deep);}
+  .tool-icon{position:relative; width:64px; height:64px; border-radius:16px; overflow:hidden; flex-shrink:0; background:var(--green-tint);}
+  .tool-icon .fallback-bg{position:absolute; inset:0; background:linear-gradient(150deg,#0F2A19,#081209); padding:4px;}
+  .tool-icon .fallback-bg::after{font-size:8px; max-width:56px;}
+  .tool-icon img{position:relative; z-index:1; width:100%; height:100%; object-fit:cover;}
+  .tool-num-badge{position:absolute; z-index:2; top:-6px; left:-6px; background:var(--graphite); color:#fff; font-family:'Unbounded',sans-serif; font-size:11px; font-weight:600; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
   .tool-title{font-size:19px; font-weight:600; margin-bottom:6px; font-family:'Unbounded',sans-serif;}
   .tool-desc{max-width:600px;}
 
@@ -253,6 +261,8 @@
     .review-card{aspect-ratio:9/14;}
     .sticky-cta-text{display:none;}
     body{padding-bottom:74px;}
+    .blob{display:none;}
+    #pain h2{white-space:normal; font-size:clamp(26px,7vw,34px);}
   }
 </style>
 </head>
@@ -291,7 +301,7 @@
         <p class="lead">Неважно, крутится у вас реклама сейчас или нет. Разберёмся, почему заявок мало или они то есть, то нет — и выстроим понятную систему, которая приводит учеников каждый месяц.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary"><span>Записаться на аудит</span></a>
-          <a href="#approach" class="btn btn-secondary">Наш подход</a>
+          <a href="#approach" class="btn btn-secondary">Что мы делаем</a>
         </div>
         <div class="proof-row">
           <div class="proof-item"><div class="p-num">10–15 дней</div><div class="p-lbl">до первых заявок</div></div>
@@ -300,6 +310,12 @@
         </div>
       </div>
       <div class="hero-visual">
+        <div class="hero-bg">
+          <picture>
+            <source media="(max-width:760px)" srcset="images/hero-bg-mobile.jpg">
+            <img src="images/hero-bg-desktop.jpg" alt="" loading="eager" onerror="this.closest('.hero-bg').style.display='none'">
+          </picture>
+        </div>
         <div class="grid-dots"></div>
         <div class="shape shape-sphere"></div>
         <div class="shape shape-cube"></div>
@@ -454,27 +470,27 @@
       </div>
       <div class="tools-list">
         <div class="tool-row reveal">
-          <div class="tool-icon"><img src="images/icon-instagram.png" alt="" loading="lazy" onerror="this.style.display='none'"><span class="tool-num">01</span></div>
+          <div class="tool-icon"><span class="tool-num-badge">01</span><div class="fallback-bg" data-label="Instagram-реклама"></div><img src="images/tool-instagram.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Instagram-реклама</div><p class="tool-desc">Показываем объявления тем, кто ищет автошколу прямо сейчас, а не просто листает ленту.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><img src="images/icon-google.png" alt="" loading="lazy" onerror="this.style.display='none'"><span class="tool-num">02</span></div>
+          <div class="tool-icon"><span class="tool-num-badge">02</span><div class="fallback-bg" data-label="Google Ads"></div><img src="images/tool-google.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Google Ads</div><p class="tool-desc">Заявки от тех, кто уже вбил «автошкола + город» в поиск и сравнивает варианты.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><img src="images/icon-yandex.png" alt="" loading="lazy" onerror="this.style.display='none'"><span class="tool-num">03</span></div>
+          <div class="tool-icon"><span class="tool-num-badge">03</span><div class="fallback-bg" data-label="Яндекс Директ"></div><img src="images/tool-yandex.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Яндекс Директ</div><p class="tool-desc">Основной канал заявок для большинства регионов. Настраиваем, чистим от нецелевых кликов, ведём каждую неделю.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><img src="images/icon-seo.png" alt="" loading="lazy" onerror="this.style.display='none'"><span class="tool-num">04</span></div>
+          <div class="tool-icon"><span class="tool-num-badge">04</span><div class="fallback-bg" data-label="SEO-продвижение"></div><img src="images/tool-seo.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">SEO — продвижение сайта</div><p class="tool-desc">Чтобы школу находили не только через рекламу, но и в поиске бесплатно — через полгода-год это отдельный поток заявок.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><img src="images/icon-web.png" alt="" loading="lazy" onerror="this.style.display='none'"><span class="tool-num">05</span></div>
+          <div class="tool-icon"><span class="tool-num-badge">05</span><div class="fallback-bg" data-label="Разработка сайтов"></div><img src="images/tool-web.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Разработка сайтов</div><p class="tool-desc">Сайт, который за пять секунд объясняет, чем вы отличаетесь от школы через дорогу.</p></div>
         </div>
         <div class="tool-row reveal">
-          <div class="tool-icon"><img src="images/icon-analytics.png" alt="" loading="lazy" onerror="this.style.display='none'"><span class="tool-num">06</span></div>
+          <div class="tool-icon"><span class="tool-num-badge">06</span><div class="fallback-bg" data-label="Аналитика заявок"></div><img src="images/tool-analytics.jpg" alt="" loading="lazy" onerror="this.style.display='none'"></div>
           <div><div class="tool-title">Аналитика</div><p class="tool-desc">Считаем весь путь — от клика по рекламе до записи на экзамен. Без этого остальные пункты — просто гадание.</p></div>
         </div>
       </div>
@@ -667,10 +683,32 @@
 
   const form = document.getElementById('auditForm');
   const success = document.getElementById('formSuccess');
+  const TELEGRAM_BOT_TOKEN = "7724314363:AAG5OuDDLOTpz7DT0UjXPvWGkqdKENkGMiw";
+  const TELEGRAM_CHAT_ID = "636168342";
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    form.classList.add('hidden');
-    success.classList.add('show');
+    const name = document.getElementById('f-name').value.trim();
+    const contact = document.getElementById('f-phone').value.trim();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+
+    const message = `🚗 Новая заявка с лендинга «Координаты»\nИмя: ${name}\nТелефон/Telegram: ${contact}\nВремя: ${new Date().toLocaleString('ru-RU')}`;
+
+    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.ok) {
+          form.classList.add('hidden');
+          success.classList.add('show');
+        } else {
+          throw new Error('telegram error');
+        }
+      })
+      .catch(() => {
+        alert('Не удалось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.');
+        submitBtn.disabled = false;
+      });
   });
 </script>
 
