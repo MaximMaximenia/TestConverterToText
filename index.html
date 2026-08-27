@@ -228,6 +228,28 @@
   .sticky-cta-text{font-size:14px; font-weight:600; color:#333;}
   .sticky-cta .btn-primary{padding:13px 24px; font-size:14px;}
 
+  /* ---------- LEAD MODAL ---------- */
+  .modal-overlay{position:fixed; inset:0; z-index:500; background:rgba(10,14,12,.6); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; padding:20px; opacity:0; pointer-events:none; transition:opacity .25s ease;}
+  .modal-overlay.open{opacity:1; pointer-events:auto;}
+  .modal-card{position:relative; width:100%; max-width:440px; background:#fff; border-radius:var(--radius-lg); padding:40px; box-shadow:0 40px 80px -20px rgba(0,0,0,.4); transform:translateY(16px) scale(.98); transition:transform .3s cubic-bezier(.2,.8,.2,1);}
+  .modal-overlay.open .modal-card{transform:translateY(0) scale(1);}
+  .modal-close{position:absolute; top:18px; right:18px; width:36px; height:36px; border-radius:50%; border:none; background:var(--bg-soft); color:var(--graphite); font-size:20px; line-height:1; cursor:pointer; display:flex; align-items:center; justify-content:center;}
+  .modal-card h3{font-size:24px; margin-bottom:10px;}
+  .modal-card p{margin-bottom:22px;}
+  .modal-card .field label{color:#8A8A8A;}
+  .modal-card .field input{border:1px solid #E2E2E2; background:#F7F9F8; color:var(--graphite);}
+  .modal-card .field input::placeholder{color:#A5A5A5;}
+  .modal-card .field input:focus{border-color:var(--green); background:#fff;}
+  .modal-success{display:none; text-align:center; padding:20px 0; font-weight:700; color:var(--green-dark);}
+  .modal-success.show{display:block;}
+  .modal-card form.hidden{display:none;}
+
+  /* ---------- VIDEO INTRO ---------- */
+  .video-intro{padding:0 0 100px;}
+  .video-card{position:relative; max-width:820px; margin:0 auto; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:16/9; cursor:pointer;}
+  .video-card .fallback-bg{position:absolute; inset:0; background:linear-gradient(150deg,#123322,#0A1A11);}
+  .video-caption{position:absolute; z-index:2; left:24px; right:24px; bottom:20px; color:#fff; font-size:14px; font-weight:600;}
+
   .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);}
   .reveal.in{opacity:1; transform:translateY(0);}
 
@@ -247,7 +269,7 @@
     nav.wrap{padding:16px 20px;}
     .nav-links{position:fixed; top:0; left:0; right:0; bottom:0; height:100dvh; background:#fff; flex-direction:column; align-items:stretch; justify-content:center; gap:0; padding:90px 36px 40px; overflow-y:auto; transform:translateY(-16px); opacity:0; pointer-events:none; transition:all .25s ease; z-index:1;}
     .nav-links.open{transform:translateY(0); opacity:1; pointer-events:auto;}
-    .nav-links a{display:block; padding:22px 0; width:100%; text-align:left; border-bottom:1px solid #E2E2E2; font-size:25px; font-weight:700;}
+    .nav-links a{display:block; padding:20px 0; width:100%; text-align:left; border-bottom:1px solid #E2E2E2; font-size:21px; font-weight:700;}
     .nav-links-cta{display:block; padding-top:26px; width:100%;}
     .nav-links-cta a{border-bottom:none; padding:0;}
     .nav-links-cta .btn{padding:20px 30px; font-size:17px;}
@@ -258,6 +280,8 @@
     .hero-bg-overlay{background:linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.9) 45%, rgba(255,255,255,.55) 75%, rgba(255,255,255,.25) 100%);}
     .proof-row{grid-template-columns:1fr; gap:16px;}
     .band{padding:92px 0;}
+    .video-intro{padding:0 0 64px;}
+    .modal-card{padding:28px;}
     .grid-4{grid-template-columns:1fr;}
     .final{padding:92px 0;}
     .form-card{padding:24px;}
@@ -287,10 +311,10 @@
       <li><a href="#reviews">Отзывы</a></li>
       <li><a href="#faq">Вопросы</a></li>
       <li><a href="#contact">Контакты</a></li>
-      <li class="nav-links-cta"><a href="#contact" class="btn btn-primary btn-block"><span>Получить план по заявкам</span></a></li>
+      <li class="nav-links-cta"><a href="#contact" class="btn btn-primary btn-block js-lead-cta"><span>Получить план по заявкам</span></a></li>
     </ul>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-primary"><span>Получить план по заявкам</span></a>
+      <a href="#contact" class="btn btn-primary js-lead-cta"><span>Получить план по заявкам</span></a>
       <button class="burger" id="burgerBtn" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -312,13 +336,24 @@
       <h1>Стабильный поток заявок для вашей <span class="hl">автошколы</span> за 10–15 дней</h1>
       <p class="lead">Неважно, крутится у вас реклама сейчас или нет. Разберёмся, что мешает, и выстроим систему, которая генерирует новых учеников каждый месяц.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary"><span>Получить план по заявкам</span></a>
+        <a href="#contact" class="btn btn-primary js-lead-cta"><span>Получить план по заявкам</span></a>
         <a href="#approach" class="btn btn-secondary">Как мы работаем</a>
       </div>
       <div class="proof-row">
         <div class="proof-item"><div class="p-num">10–15 дней</div><div class="p-lbl">до первых заявок</div></div>
         <div class="proof-item"><div class="p-num">Всё в одном месте</div><div class="p-lbl">реклама, сайт, аналитика</div></div>
         <div class="proof-item"><div class="p-num">Прозрачный отчёт</div><div class="p-lbl">сколько стоит ученик</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO INTRO -->
+  <section class="video-intro">
+    <div class="wrap">
+      <div class="video-card reveal" onclick="alert('Здесь будет короткое видео о том, как мы работаем')">
+        <div class="fallback-bg" data-label="Видео: коротко о нашем подходе"></div>
+        <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
+        <div class="video-caption">Коротко о том, как мы работаем — 60 секунд</div>
       </div>
     </div>
   </section>
@@ -446,13 +481,13 @@
           <span class="path-tag">Вариант А</span>
           <h3>Уже есть сайт и реклама</h3>
           <p>Посмотрим рекламные кабинеты, сайт и то, как ученик идёт от объявления до записи на экзамен. Покажем, где именно теряются заявки.</p>
-          <a href="#contact" class="btn btn-primary btn-block"><span>Получить план по заявкам</span></a>
+          <a href="#contact" class="btn btn-primary btn-block js-lead-cta"><span>Получить план по заявкам</span></a>
         </div>
         <div class="path-card accent reveal">
           <span class="path-tag">Вариант Б</span>
           <h3>Сайта и рекламы пока нет</h3>
           <p>Соберём всё с нуля — от сайта до первых рекламных кампаний. Начнём с того, как выглядит рынок и конкуренты в вашем городе.</p>
-          <a href="#contact" class="btn btn-primary btn-block"><span>Получить план по заявкам</span></a>
+          <a href="#contact" class="btn btn-primary btn-block js-lead-cta"><span>Получить план по заявкам</span></a>
         </div>
       </div>
     </div>
@@ -678,7 +713,28 @@
 <div class="sticky-cta">
   <div class="sticky-cta-inner">
     <span class="sticky-cta-text">Проанализируем вашу ситуацию и покажем, как получать больше заявок</span>
-    <a href="#contact" class="btn btn-primary"><span>Получить план по заявкам</span></a>
+    <a href="#contact" class="btn btn-primary js-lead-cta"><span>Получить план по заявкам</span></a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="leadModal">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Закрыть">&times;</button>
+    <div class="eyebrow">Следующий шаг</div>
+    <h3>Получите план по заявкам</h3>
+    <p>Оставьте контакт — разберём вашу ситуацию и покажем, где вы теряете заявки.</p>
+    <form id="modalForm">
+      <div class="field">
+        <label for="m-name">Имя</label>
+        <input id="m-name" type="text" placeholder="Как к вам обращаться" required>
+      </div>
+      <div class="field">
+        <label for="m-phone">Телефон или Telegram</label>
+        <input id="m-phone" type="text" placeholder="+375 33 000-00-00 или @username" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block"><span>Отправить</span></button>
+    </form>
+    <div class="modal-success" id="modalSuccess">Заявка принята. Свяжемся в течение рабочего дня, чтобы согласовать время созвона.</div>
   </div>
 </div>
 
@@ -736,37 +792,56 @@
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
 
-  const form = document.getElementById('auditForm');
-  const success = document.getElementById('formSuccess');
   const TELEGRAM_BOT_TOKEN = "7724314363:AAG5OuDDLOTpz7DT0UjXPvWGkqdKENkGMiw";
   const TELEGRAM_CHAT_ID = "636168342";
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('f-name').value.trim();
-    const contact = document.getElementById('f-phone').value.trim();
-    const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
+  function wireLeadForm(formEl, nameId, phoneId, successEl) {
+    formEl.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById(nameId).value.trim();
+      const contact = document.getElementById(phoneId).value.trim();
+      const submitBtn = formEl.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
 
-    const pageUrl = window.location.href;
-    const referrer = document.referrer || 'прямой заход';
-    const message = `🚗 Новая заявка с лендинга «Координат»\nИмя: ${name}\nТелефон/Telegram: ${contact}\nСтраница (с UTM): ${pageUrl}\nПереход с: ${referrer}\nВремя: ${new Date().toLocaleString('ru-RU')}`;
+      const pageUrl = window.location.href;
+      const referrer = document.referrer || 'прямой заход';
+      const message = `🚗 Новая заявка с лендинга «Координат»\nИмя: ${name}\nТелефон/Telegram: ${contact}\nСтраница (с UTM): ${pageUrl}\nПереход с: ${referrer}\nВремя: ${new Date().toLocaleString('ru-RU')}`;
 
-    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`)
-      .then(r => r.json())
-      .then(data => {
-        if (data.ok) {
-          form.classList.add('hidden');
-          success.classList.add('show');
-        } else {
-          throw new Error('telegram error');
-        }
-      })
-      .catch(() => {
-        alert('Не удалось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.');
-        submitBtn.disabled = false;
-      });
-  });
+      fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`)
+        .then(r => r.json())
+        .then(data => {
+          if (data.ok) {
+            formEl.classList.add('hidden');
+            successEl.classList.add('show');
+          } else {
+            throw new Error('telegram error');
+          }
+        })
+        .catch(() => {
+          alert('Не удалось отправить заявку. Попробуйте ещё раз или напишите нам напрямую.');
+          submitBtn.disabled = false;
+        });
+    });
+  }
+
+  wireLeadForm(document.getElementById('auditForm'), 'f-name', 'f-phone', document.getElementById('formSuccess'));
+  wireLeadForm(document.getElementById('modalForm'), 'm-name', 'm-phone', document.getElementById('modalSuccess'));
+
+  const leadModal = document.getElementById('leadModal');
+  const modalClose = document.getElementById('modalClose');
+  function openLeadModal(e) {
+    if (e) e.preventDefault();
+    leadModal.classList.add('open');
+    lockScroll();
+  }
+  function closeLeadModal() {
+    leadModal.classList.remove('open');
+    unlockScroll();
+  }
+  document.querySelectorAll('.js-lead-cta').forEach(el => el.addEventListener('click', openLeadModal));
+  modalClose.addEventListener('click', closeLeadModal);
+  leadModal.addEventListener('click', (e) => { if (e.target === leadModal) closeLeadModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && leadModal.classList.contains('open')) closeLeadModal(); });
 </script>
 
 </body>
