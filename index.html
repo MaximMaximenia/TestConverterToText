@@ -276,7 +276,7 @@
   .modal-card form.hidden{display:none;}
 
   /* ---------- VIDEO INTRO ---------- */
-  .video-intro{padding:56px 0 72px;}
+  .video-intro{padding:56px 0 0;}
   .video-intro h2{text-align:center; max-width:600px; margin:0 auto 32px;}
   .video-card{position:relative; max-width:820px; margin:0 auto; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:16/9; cursor:pointer;}
   .video-card .fallback-bg{position:absolute; inset:0; background:linear-gradient(150deg,#123322,#0A1A11);}
@@ -317,7 +317,7 @@
     .hero-bg-overlay{background:linear-gradient(180deg, rgba(255,255,255,.97) 0%, rgba(255,255,255,.9) 45%, rgba(255,255,255,.55) 75%, rgba(255,255,255,.25) 100%);}
     .proof-row{grid-template-columns:1fr; gap:16px;}
     .band{padding:92px 0;}
-    .video-intro{padding:40px 0 32px;}
+    .video-intro{padding:40px 0 0;}
     .video-intro h2{margin-bottom:24px;}
     .modal-card{padding:28px;}
     .grid-4{grid-template-columns:1fr;}
@@ -619,8 +619,9 @@
         <div class="review-card reveal" onclick="playInlineVideo(this)">
           <div class="fallback-bg" data-label="Отзыв 1"></div>
           <video class="review-video" playsinline preload="none">
-            <source src="videos/otziv1.mov" type="video/quicktime">
+            <source src="videos/otziv1.MP4" type="video/mp4">
             <source src="videos/otziv1.mp4" type="video/mp4">
+            <source src="videos/otziv1.mov" type="video/quicktime">
           </video>
           <div class="review-scrim"></div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
