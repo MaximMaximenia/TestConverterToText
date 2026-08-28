@@ -281,6 +281,10 @@
   .video-card{position:relative; max-width:820px; margin:0 auto; border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:16/9; cursor:pointer;}
   .video-card .fallback-bg{position:absolute; inset:0; background:linear-gradient(150deg,#123322,#0A1A11);}
   .video-caption{position:absolute; z-index:2; left:24px; right:24px; bottom:20px; color:#fff; font-size:14px; font-weight:600;}
+  .review-video{display:none; position:absolute; inset:0; z-index:3; width:100%; height:100%; object-fit:cover; background:#000;}
+  .review-card.playing .play-btn, .review-card.playing .review-scrim, .review-card.playing .review-info,
+  .video-card.playing .play-btn, .video-card.playing .video-caption{display:none;}
+  .review-card.playing, .video-card.playing{cursor:default;}
 
   .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);}
   .reveal.in{opacity:1; transform:translateY(0);}
@@ -384,8 +388,9 @@
   <section class="video-intro">
     <div class="wrap">
       <h2 class="reveal">Коротко о том, как мы работаем</h2>
-      <div class="video-card reveal" onclick="alert('Здесь будет короткое видео о том, как мы работаем')">
+      <div class="video-card reveal" onclick="playInlineVideo(this)">
         <div class="fallback-bg" data-label="Видео: коротко о нашем подходе"></div>
+        <video class="review-video" src="videos/main.mp4" playsinline preload="none"></video>
         <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-caption">60 секунд</div>
       </div>
@@ -572,48 +577,29 @@
       <div class="section-head reveal">
         <div class="eyebrow">Кейсы</div>
         <h2>Наши результаты в понятных цифрах</h2>
+        <p>Показываем реальные цифры из смежных ниш — с автошколами работаем по той же методике: сначала диагностика, потом бюджет.</p>
       </div>
-      <div class="grid-3">
+      <div class="grid-2">
         <div class="case-card reveal">
           <div class="case-photo">
-            <div class="fallback-bg" data-label="Фото: руки на руле, обучение вождению"></div>
-            <picture>
-              <source media="(max-width:760px)" srcset="images/case-formula-mobile.jpg">
-              <img src="images/case-formula-desktop.jpg" alt="Обучение вождению, руки на руле" loading="lazy" onerror="this.style.display='none'">
-            </picture>
-            <span class="case-result">Заявка −41%</span>
+            <div class="fallback-bg" data-label="Иконка: рост заявок через Google"></div>
+            <img src="images/case-google-icon.jpg" alt="Результат по рекламе в Google" loading="lazy" onerror="this.style.display='none'">
+            <span class="case-result">48 заявок · $2 за заявку</span>
           </div>
           <div class="case-body">
-            <div class="school">Автошкола «Формула», Екатеринбург</div>
-            <p>Перераспределили бюджет между Директом и Instagram по данным аналитики — цена заявки упала за два месяца.</p>
+            <div class="school">Реклама в Google</div>
+            <p>За месяц настройки и ведения рекламы в Google получили 48 заявок при цене чуть больше $2 за каждую.</p>
           </div>
         </div>
         <div class="case-card reveal">
           <div class="case-photo">
-            <div class="fallback-bg" data-label="Фото: ноутбук с графиками заявок в офисе"></div>
-            <picture>
-              <source media="(max-width:760px)" srcset="images/case-vector-mobile.jpg">
-              <img src="images/case-vector-desktop.jpg" alt="Аналитика заявок на ноутбуке" loading="lazy" onerror="this.style.display='none'">
-            </picture>
-            <span class="case-result">212 заявок</span>
+            <div class="fallback-bg" data-label="Иконка: конверсия в продажу"></div>
+            <img src="images/case-conversion-icon.jpg" alt="Результат по конверсии в продажу" loading="lazy" onerror="this.style.display='none'">
+            <span class="case-result">100 заявок · 40% в продажу</span>
           </div>
           <div class="case-body">
-            <div class="school">Автошкола «Вектор», Казань</div>
-            <p>Собрали сайт и рекламу с нуля: 212 заявок за первый квартал работы при цене заявки 640 ₽.</p>
-          </div>
-        </div>
-        <div class="case-card reveal">
-          <div class="case-photo">
-            <div class="fallback-bg" data-label="Фото: дорога, экзамен по вождению"></div>
-            <picture>
-              <source media="(max-width:760px)" srcset="images/case-doroga-mobile.jpg">
-              <img src="images/case-doroga-desktop.jpg" alt="Дорога, экзамен по вождению" loading="lazy" onerror="this.style.display='none'">
-            </picture>
-            <span class="case-result">−30% слива</span>
-          </div>
-          <div class="case-body">
-            <div class="school">Сеть «Дорога», Новосибирск, 3 филиала</div>
-            <p>Подключили сквозную аналитику и нашли филиал, который «съедал» треть бюджета без единой записи на экзамен.</p>
+            <div class="school">Комплексная настройка рекламы</div>
+            <p>За полтора месяца получили 100 заявок, около 40% из которых закрылись в продажу, при цене заявки в районе $5.</p>
           </div>
         </div>
       </div>
@@ -628,26 +614,26 @@
         <h2>Что говорят наши клиенты</h2>
       </div>
       <div class="grid-3">
-        <div class="review-card reveal" onclick="alert('Видео-отзыв Игоря, автошкола «Формула»')">
-          <div class="fallback-bg" data-label="Фото: Игорь, автошкола «Формула»"></div>
-          <img src="images/review-igor.jpg" alt="Отзыв собственника автошколы «Формула»" loading="lazy" onerror="this.style.display='none'">
+        <div class="review-card reveal" onclick="playInlineVideo(this)">
+          <div class="fallback-bg" data-label="Отзыв 1"></div>
+          <video class="review-video" src="videos/otziv1.mp4" playsinline preload="none"></video>
           <div class="review-scrim"></div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="review-info"><div class="rname">Игорь Соколов</div><div class="rschool">Автошкола «Формула», Екатеринбург</div></div>
+          <div class="review-info"><div class="rname">Отзыв 1</div></div>
         </div>
-        <div class="review-card reveal" onclick="alert('Видео-отзыв Марины, автошкола «Вектор»')">
-          <div class="fallback-bg" data-label="Фото: Марина, автошкола «Вектор»"></div>
-          <img src="images/review-marina.jpg" alt="Отзыв собственницы автошколы «Вектор»" loading="lazy" onerror="this.style.display='none'">
+        <div class="review-card reveal" onclick="playInlineVideo(this)">
+          <div class="fallback-bg" data-label="Отзыв 2"></div>
+          <video class="review-video" src="videos/otziv2.mp4" playsinline preload="none"></video>
           <div class="review-scrim"></div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="review-info"><div class="rname">Марина Ефимова</div><div class="rschool">Автошкола «Вектор», Казань</div></div>
+          <div class="review-info"><div class="rname">Отзыв 2</div></div>
         </div>
-        <div class="review-card reveal" onclick="alert('Видео-отзыв Дмитрия, сеть «Дорога»')">
-          <div class="fallback-bg" data-label="Фото: Дмитрий, сеть «Дорога»"></div>
-          <img src="images/review-dmitry.jpg" alt="Отзыв собственника сети «Дорога»" loading="lazy" onerror="this.style.display='none'">
+        <div class="review-card reveal" onclick="playInlineVideo(this)">
+          <div class="fallback-bg" data-label="Отзыв 3"></div>
+          <video class="review-video" src="videos/otziv3.mp4" playsinline preload="none"></video>
           <div class="review-scrim"></div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="review-info"><div class="rname">Дмитрий Наумов</div><div class="rschool">Сеть «Дорога», Новосибирск</div></div>
+          <div class="review-info"><div class="rname">Отзыв 3</div></div>
         </div>
       </div>
     </div>
@@ -813,6 +799,19 @@
       });
     }, { threshold: 0.1 });
     ctaObserver.observe(approachSection);
+  }
+
+  function playInlineVideo(card) {
+    const video = card.querySelector('video');
+    if (!video) return;
+    card.classList.add('playing');
+    video.style.display = 'block';
+    video.setAttribute('controls', '');
+    video.play().catch(() => {
+      alert('Видео скоро будет здесь.');
+      card.classList.remove('playing');
+      video.style.display = 'none';
+    });
   }
 
   const revealEls = document.querySelectorAll('.reveal');
