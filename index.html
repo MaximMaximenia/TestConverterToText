@@ -283,9 +283,14 @@
   .video-caption{position:absolute; z-index:2; left:24px; right:24px; bottom:20px; color:#fff; font-size:14px; font-weight:600;}
   .review-video{display:none; position:absolute; inset:0; z-index:3; width:100%; height:100%; object-fit:cover; background:#000;}
   .video-poster-img{position:absolute; inset:0; z-index:1; width:100%; height:100%; object-fit:cover;}
-  .review-card.playing .play-btn, .review-card.playing .review-scrim, .review-card.playing .review-info,
+  .review-card.playing .play-btn, .review-card.playing .review-scrim, .review-card.playing .review-info, .review-card.playing .review-ribbon,
   .video-card.playing .play-btn, .video-card.playing .video-caption, .video-card.playing .video-poster-img{display:none;}
   .review-card.playing, .video-card.playing{cursor:default;}
+  .video-spinner{display:none; position:absolute; inset:0; z-index:5; align-items:center; justify-content:center; background:rgba(0,0,0,.35);}
+  .video-spinner::after{content:''; width:44px; height:44px; border-radius:50%; border:3px solid rgba(255,255,255,.3); border-top-color:#fff; animation:spin .8s linear infinite;}
+  .review-card.loading .video-spinner, .video-card.loading .video-spinner{display:flex;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .review-ribbon{position:absolute; z-index:4; top:20px; left:-40px; width:170px; padding:7px 0; background:var(--green-dark); color:#fff; font-family:'Unbounded',sans-serif; font-weight:700; font-size:13px; text-align:center; transform:rotate(-45deg); box-shadow:0 4px 10px rgba(0,0,0,.25);}
 
   .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);}
   .reveal.in{opacity:1; transform:translateY(0);}
@@ -393,9 +398,10 @@
         <div class="fallback-bg" data-label="Видео: коротко о нашем подходе"></div>
         <img class="video-poster-img" src="images/video-poster.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
         <video class="review-video" playsinline preload="none">
-          <source src="videos/main.mov" type="video/quicktime">
           <source src="videos/main.mp4" type="video/mp4">
+          <source src="videos/main.mov" type="video/quicktime">
         </video>
+        <div class="video-spinner"></div>
         <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
       </div>
     </div>
@@ -624,28 +630,31 @@
             <source src="videos/otziv1.mov" type="video/quicktime">
           </video>
           <div class="review-scrim"></div>
+          <div class="video-spinner"></div>
+          <div class="review-ribbon">Отзыв 1</div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="review-info"><div class="rname">Отзыв 1</div></div>
         </div>
         <div class="review-card reveal" onclick="playInlineVideo(this)">
           <div class="fallback-bg" data-label="Отзыв 2"></div>
           <video class="review-video" playsinline preload="none">
-            <source src="videos/otziv2.mov" type="video/quicktime">
             <source src="videos/otziv2.mp4" type="video/mp4">
+            <source src="videos/otziv2.mov" type="video/quicktime">
           </video>
           <div class="review-scrim"></div>
+          <div class="video-spinner"></div>
+          <div class="review-ribbon">Отзыв 2</div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="review-info"><div class="rname">Отзыв 2</div></div>
         </div>
         <div class="review-card reveal" onclick="playInlineVideo(this)">
           <div class="fallback-bg" data-label="Отзыв 3"></div>
           <video class="review-video" playsinline preload="none">
-            <source src="videos/otziv3.mov" type="video/quicktime">
             <source src="videos/otziv3.mp4" type="video/mp4">
+            <source src="videos/otziv3.mov" type="video/quicktime">
           </video>
           <div class="review-scrim"></div>
+          <div class="video-spinner"></div>
+          <div class="review-ribbon">Отзыв 3</div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="review-info"><div class="rname">Отзыв 3</div></div>
         </div>
       </div>
     </div>
@@ -816,14 +825,27 @@
   function playInlineVideo(card) {
     const video = card.querySelector('video');
     if (!video) return;
-    card.classList.add('playing');
+    card.classList.add('loading');
     video.style.display = 'block';
     video.setAttribute('controls', '');
-    video.play().catch(() => {
-      alert('Видео скоро будет здесь.');
-      card.classList.remove('playing');
+
+    const fail = () => {
+      card.classList.remove('loading', 'playing');
       video.style.display = 'none';
-    });
+      alert('Не удалось загрузить видео. Проверьте формат файла — надёжнее всего работает .mp4.');
+    };
+    const succeed = () => {
+      card.classList.remove('loading');
+      card.classList.add('playing');
+    };
+
+    video.addEventListener('playing', succeed, { once: true });
+    video.addEventListener('error', fail, { once: true });
+    video.play().catch(fail);
+
+    setTimeout(() => {
+      if (card.classList.contains('loading')) fail();
+    }, 12000);
   }
 
   const revealEls = document.querySelectorAll('.reveal');
