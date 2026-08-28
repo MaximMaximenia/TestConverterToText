@@ -392,9 +392,11 @@
       <div class="video-card reveal" onclick="playInlineVideo(this)">
         <div class="fallback-bg" data-label="Видео: коротко о нашем подходе"></div>
         <img class="video-poster-img" src="images/video-poster.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
-        <video class="review-video" src="videos/main.mp4" playsinline preload="none"></video>
+        <video class="review-video" playsinline preload="none">
+          <source src="videos/main.mov" type="video/quicktime">
+          <source src="videos/main.mp4" type="video/mp4">
+        </video>
         <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="video-caption">60 секунд</div>
       </div>
     </div>
   </section>
@@ -616,21 +618,30 @@
       <div class="grid-3">
         <div class="review-card reveal" onclick="playInlineVideo(this)">
           <div class="fallback-bg" data-label="Отзыв 1"></div>
-          <video class="review-video" src="videos/otziv1.mp4" playsinline preload="none"></video>
+          <video class="review-video" playsinline preload="none">
+            <source src="videos/otziv1.mov" type="video/quicktime">
+            <source src="videos/otziv1.mp4" type="video/mp4">
+          </video>
           <div class="review-scrim"></div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="review-info"><div class="rname">Отзыв 1</div></div>
         </div>
         <div class="review-card reveal" onclick="playInlineVideo(this)">
           <div class="fallback-bg" data-label="Отзыв 2"></div>
-          <video class="review-video" src="videos/otziv2.mp4" playsinline preload="none"></video>
+          <video class="review-video" playsinline preload="none">
+            <source src="videos/otziv2.mov" type="video/quicktime">
+            <source src="videos/otziv2.mp4" type="video/mp4">
+          </video>
           <div class="review-scrim"></div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="review-info"><div class="rname">Отзыв 2</div></div>
         </div>
         <div class="review-card reveal" onclick="playInlineVideo(this)">
           <div class="fallback-bg" data-label="Отзыв 3"></div>
-          <video class="review-video" src="videos/otziv3.mp4" playsinline preload="none"></video>
+          <video class="review-video" playsinline preload="none">
+            <source src="videos/otziv3.mov" type="video/quicktime">
+            <source src="videos/otziv3.mp4" type="video/mp4">
+          </video>
           <div class="review-scrim"></div>
           <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
           <div class="review-info"><div class="rname">Отзыв 3</div></div>
