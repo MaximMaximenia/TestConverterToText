@@ -282,8 +282,9 @@
   .video-card .fallback-bg{position:absolute; inset:0; background:linear-gradient(150deg,#123322,#0A1A11);}
   .video-caption{position:absolute; z-index:2; left:24px; right:24px; bottom:20px; color:#fff; font-size:14px; font-weight:600;}
   .review-video{display:none; position:absolute; inset:0; z-index:3; width:100%; height:100%; object-fit:cover; background:#000;}
+  .video-poster-img{position:absolute; inset:0; z-index:1; width:100%; height:100%; object-fit:cover;}
   .review-card.playing .play-btn, .review-card.playing .review-scrim, .review-card.playing .review-info,
-  .video-card.playing .play-btn, .video-card.playing .video-caption{display:none;}
+  .video-card.playing .play-btn, .video-card.playing .video-caption, .video-card.playing .video-poster-img{display:none;}
   .review-card.playing, .video-card.playing{cursor:default;}
 
   .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);}
@@ -390,6 +391,7 @@
       <h2 class="reveal">Коротко о том, как мы работаем</h2>
       <div class="video-card reveal" onclick="playInlineVideo(this)">
         <div class="fallback-bg" data-label="Видео: коротко о нашем подходе"></div>
+        <img class="video-poster-img" src="images/video-poster.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
         <video class="review-video" src="videos/main.mp4" playsinline preload="none"></video>
         <div class="play-btn"><svg viewBox="0 0 24 24" fill="#0E0E0E"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="video-caption">60 секунд</div>
@@ -583,8 +585,7 @@
         <div class="case-card reveal">
           <div class="case-photo">
             <div class="fallback-bg" data-label="Иконка: рост заявок через Google"></div>
-            <img src="images/case-google-icon.jpg" alt="Результат по рекламе в Google" loading="lazy" onerror="this.style.display='none'">
-            <span class="case-result">48 заявок · $2 за заявку</span>
+            <img src="images/case-google-icon.jpg" alt="48 заявок за месяц по рекламе в Google, $2 за заявку" loading="lazy" onerror="this.style.display='none'">
           </div>
           <div class="case-body">
             <div class="school">Реклама в Google</div>
@@ -594,8 +595,7 @@
         <div class="case-card reveal">
           <div class="case-photo">
             <div class="fallback-bg" data-label="Иконка: конверсия в продажу"></div>
-            <img src="images/case-conversion-icon.jpg" alt="Результат по конверсии в продажу" loading="lazy" onerror="this.style.display='none'">
-            <span class="case-result">100 заявок · 40% в продажу</span>
+            <img src="images/case-conversion-icon.jpg" alt="100 заявок за 1.5 месяца, 40% в продажу" loading="lazy" onerror="this.style.display='none'">
           </div>
           <div class="case-body">
             <div class="school">Комплексная настройка рекламы</div>
