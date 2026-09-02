@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Макс Миднайкс — клиенты через сайты</title>
+<meta name="description" content="Превращаю сайты в источник клиентов. Разберу вашу рекламу и подскажу, какой сайт вам нужен.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#00C853;
+    --green-light2:#00E676;
+    --green-dark:#00A344;
+    --green-deep:#00792F;
+    --green-tint:#E9FBF0;
+    --graphite:#1A1A1A;
+  }
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Inter', Arial, sans-serif;
+    color:var(--graphite);
+    background:#F3FBF5;
+    min-height:100vh;
+    min-height:100dvh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px 16px;
+    position:relative;
+    overflow-x:hidden;
+  }
+
+  /* декоративные "фрактальные" разводы фона */
+  body::before, body::after{
+    content:'';
+    position:fixed;
+    border-radius:50%;
+    filter:blur(60px);
+    z-index:0;
+    pointer-events:none;
+  }
+  body::before{
+    width:520px; height:520px;
+    top:-180px; left:-160px;
+    background:radial-gradient(circle at 30% 30%, rgba(0,230,118,.35), rgba(0,200,83,.08) 60%, transparent 72%);
+  }
+  body::after{
+    width:460px; height:460px;
+    bottom:-180px; right:-160px;
+    background:radial-gradient(circle at 70% 70%, rgba(0,121,47,.22), rgba(0,200,83,.06) 60%, transparent 72%);
+  }
+  .fractal-line{
+    position:fixed; z-index:0; pointer-events:none; opacity:.35;
+  }
+  .fractal-line.l1{top:8%; right:6%; width:120px; height:120px; border:1.5px solid rgba(0,163,68,.4); border-radius:50%;}
+  .fractal-line.l2{top:14%; right:11%; width:60px; height:60px; border:1.5px solid rgba(0,163,68,.3); border-radius:50%;}
+  .fractal-line.l3{bottom:9%; left:7%; width:90px; height:90px; border:1.5px solid rgba(0,163,68,.35); border-radius:50%;}
+
+  .card{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    border-radius:32px;
+    padding:44px 32px 36px;
+    box-shadow:0 30px 80px -20px rgba(0,60,25,.18), 0 2px 8px rgba(0,0,0,.03);
+    text-align:center;
+    animation:cardIn .6s cubic-bezier(.2,.8,.2,1);
+  }
+  @keyframes cardIn{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+
+  .avatar-wrap{
+    width:132px; height:132px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    padding:5px;
+    background:conic-gradient(from 220deg, var(--green-light2), var(--green-dark) 55%, var(--green-deep));
+  }
+  .avatar{
+    width:100%; height:100%;
+    border-radius:50%;
+    background:linear-gradient(160deg, var(--green-light2), var(--green-deep));
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+    border:3px solid #fff;
+  }
+  .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
+  .avatar .initials{
+    font-family:'Unbounded', sans-serif;
+    font-weight:700;
+    font-size:38px;
+    color:#fff;
+  }
+
+  .name-row{display:flex; align-items:center; justify-content:center; gap:7px; margin-bottom:4px;}
+  h1{
+    font-family:'Unbounded', sans-serif;
+    font-weight:700;
+    font-size:24px;
+    letter-spacing:-0.01em;
+  }
+  .badge{
+    width:19px; height:19px;
+    border-radius:50%;
+    background:var(--green);
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .badge svg{width:11px; height:11px;}
+
+  .role{
+    font-size:15px;
+    color:#4a4a4a;
+    margin-bottom:22px;
+  }
+
+  .bio{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+    margin-bottom:26px;
+    text-align:left;
+    background:var(--green-tint);
+    border-radius:18px;
+    padding:18px 20px;
+  }
+  .bio li{
+    font-size:14.5px;
+    line-height:1.5;
+    color:var(--graphite);
+    display:flex;
+    gap:9px;
+    align-items:flex-start;
+  }
+  .bio li b{font-weight:700;}
+
+  .proof{
+    margin-bottom:26px;
+  }
+  .proof-label{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--green-deep);
+    margin-bottom:10px;
+    display:block;
+  }
+  .proof-shot{
+    width:100%;
+    border-radius:16px;
+    border:1px solid #E4F3E9;
+    display:block;
+    box-shadow:0 10px 28px -12px rgba(0,60,25,.16);
+  }
+  .proof-placeholder{
+    width:100%;
+    aspect-ratio:16/10;
+    border-radius:16px;
+    border:1.5px dashed #BFE8CE;
+    background:#FBFEFC;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#8FAE9B;
+    font-size:13px;
+    padding:12px;
+    text-align:center;
+  }
+
+  .cta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    font-family:inherit;
+    font-weight:700;
+    font-size:16px;
+    color:#fff;
+    background:linear-gradient(135deg, var(--green-dark), var(--green-deep));
+    padding:17px 24px;
+    border-radius:100px;
+    text-decoration:none;
+    box-shadow:0 10px 26px -6px rgba(0,150,60,.5);
+    transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease;
+  }
+  .cta:hover{transform:translateY(-2px); box-shadow:0 14px 32px -6px rgba(0,150,60,.6);}
+  .cta svg{width:19px; height:19px; flex-shrink:0;}
+
+  .foot{
+    margin-top:16px;
+    font-size:12.5px;
+    color:#9AAFA1;
+  }
+
+  @media (max-width:420px){
+    .card{padding:36px 22px 28px; border-radius:26px;}
+    h1{font-size:21px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="fractal-line l1"></div>
+<div class="fractal-line l2"></div>
+<div class="fractal-line l3"></div>
+
+<div class="card">
+
+  <div class="avatar-wrap">
+    <div class="avatar">
+      <!-- TODO: заменить на реальное фото — <img src="images/max-photo.jpg" alt="Макс Миднайкс"> -->
+      <span class="initials">ММ</span>
+    </div>
+  </div>
+
+  <div class="name-row">
+    <h1>Макс Миднайкс</h1>
+    <span class="badge" title="Проверенный аккаунт">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </div>
+  <div class="role">Клиенты через сайты</div>
+
+  <ul class="bio">
+    <li>🚀 <span>Превращаю сайты в источник клиентов</span></li>
+    <li>📈 <span><b>100+ лидов</b> для клиентов каждый месяц</span></li>
+    <li>👇 <span>Разберу вашу рекламу — бесплатно, в переписке</span></li>
+  </ul>
+
+  <div class="proof">
+    <span class="proof-label">Из моего рекламного кабинета</span>
+    <!-- TODO: заменить на реальный скрин — <img class="proof-shot" src="images/ads-proof.jpg" alt="Результаты рекламного кабинета"> -->
+    <div class="proof-placeholder">сюда — скрин результатов из рекламного кабинета</div>
+  </div>
+
+  <a class="cta" href="https://t.me/midnaix" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="#fff"><path d="M21.5 4.5L2.7 11.9c-1.1.4-1.1 1.9.1 2.3l4.6 1.5 1.8 5.5c.3.9 1.4 1.1 2.1.4l2.6-2.5 4.9 3.6c.9.6 2.1.1 2.3-1L23.9 5.7c.2-1.1-.9-1.9-1.9-1.5zM8.5 15.1l9.5-6.9c.3-.2.6.2.3.4l-8 8-.3 3.4-1.5-4.9z"/></svg>
+    Написать в Telegram
+  </a>
+
+  <div class="foot">Отвечаю обычно в течение дня</div>
+
+</div>
+
+</body>
+</html>
