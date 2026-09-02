@@ -178,12 +178,6 @@
   .cta:active{transform:translateY(0);}
   .cta svg{width:18px; height:18px; flex-shrink:0;}
 
-  .foot{
-    margin-top:14px;
-    font-size:12px;
-    color:#9AA0A6;
-  }
-
   @media (max-width:420px){
     .card{padding:34px 22px 24px; border-radius:24px;}
     h1{font-size:20px;}
@@ -208,16 +202,16 @@
 
   <ul class="bio">
     <li>
-      <span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 6 6 10.5 6 14a6 6 0 0012 0c0-3.5-2-8-6-12z" stroke="var(--green-deep)" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-      <span>Превращаю сайты в источник клиентов</span>
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l6 6 4-4 8 8M15 17h6v-6" stroke="var(--green-deep)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Реклама крутится, а заявок почти нет</span>
     </li>
     <li>
-      <span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 8-8M20 8h-4v4" stroke="var(--green-deep)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      <span><b>100+ лидов</b> для клиентов каждый месяц</span>
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="var(--green-deep)" stroke-width="1.8"/><path d="M3 9h18" stroke="var(--green-deep)" stroke-width="1.8"/></svg></span>
+      <span>Сайт есть, но он не продаёт — просто визитка</span>
     </li>
     <li>
-      <span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.55L3 20l1.05-5.4A8.5 8.5 0 1121 11.5z" stroke="var(--green-deep)" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-      <span>Разберу вашу рекламу — бесплатно, в переписке</span>
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="var(--green-deep)" stroke-width="1.8"/><path d="M20 20l-4.5-4.5" stroke="var(--green-deep)" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+      <span>Разберу вашу рекламу и покажу, где теряете клиентов</span>
     </li>
   </ul>
 
@@ -227,14 +221,21 @@
     <img class="proof-shot" src="images/ads-proof.jpg" alt="Результаты рекламного кабинета: ниша кондиционеры, 121 конверсия">
   </div>
 
-  <a class="cta" href="https://t.me/midnaix" target="_blank" rel="noopener">
+  <a class="cta" id="ctaBtn" href="https://t.me/midnaix" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="#fff"><path d="M21.5 4.5L2.7 11.9c-1.1.4-1.1 1.9.1 2.3l4.6 1.5 1.8 5.5c.3.9 1.4 1.1 2.1.4l2.6-2.5 4.9 3.6c.9.6 2.1.1 2.3-1L23.9 5.7c.2-1.1-.9-1.9-1.9-1.5zM8.5 15.1l9.5-6.9c.3-.2.6.2.3.4l-8 8-.3 3.4-1.5-4.9z"/></svg>
     Написать в Telegram
   </a>
 
-  <div class="foot">Отвечаю обычно в течение дня</div>
-
 </div>
+
+<script>
+  const TELEGRAM_BOT_TOKEN = "7724314363:AAG5OuDDLOTpz7DT0UjXPvWGkqdKENkGMiw";
+  const TELEGRAM_CHAT_ID = "636168342";
+  document.getElementById('ctaBtn').addEventListener('click', () => {
+    const message = `👋 Клик "Написать в Telegram" на визитке (card.html)\nВремя: ${new Date().toLocaleString('ru-RU')}\nОткуда: ${document.referrer || 'прямой заход'}`;
+    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`).catch(() => {});
+  });
+</script>
 
 </body>
 </html>
