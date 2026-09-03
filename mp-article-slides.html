@@ -133,6 +133,14 @@
     color:var(--green-deep); margin-bottom:12px;
   }
 
+  .result-list{list-style:none; margin:16px 0 4px;}
+  .result-list li{
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:15.5px; font-weight:600; color:var(--graphite);
+    margin-bottom:10px;
+  }
+  .result-list li svg{width:20px; height:20px; flex-shrink:0; margin-top:1px;}
+
   .scroll-cue{
     display:flex; flex-direction:column; align-items:center; gap:4px;
     color:var(--gray); font-size:12px; font-weight:600;
@@ -227,7 +235,7 @@
         <img src="images/mp-problem.jpg" alt="" onerror="this.closest('.img-slot').classList.add('img-missing'); this.remove();">
       </div>
       <h2>Площадка диктует правила</h2>
-      <p class="lead-emphasis">После недавних событий многие продавцы на своём опыте поняли, как быстро можно потерять доступ к товару и продажам, если всё завязано на одну площадку и один склад. Один сбой — и весь бизнес встаёт.</p>
+      <p class="lead-emphasis">После недавних событий многие продавцы на своём опыте поняли, как быстро можно потерять доступ к товару и продажам, если всё завязано на одну площадку.</p>
       <p>Те, у кого уже есть свой канал продаж, в такой ситуации не теряют всё — и с каждым месяцем меньше зависят от площадки.</p>
     </div>
     <div class="scroll-cue">
@@ -261,6 +269,11 @@
     <div class="slide-inner">
       <div class="case-label">Реальный пример</div>
       <p class="lead">Продавец чая добавил свой интернет-магазин — свои товары, без чужих правил. За несколько месяцев часть покупателей перешла на прямые заказы, без комиссии площадки.</p>
+      <ul class="result-list">
+        <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="var(--green-tint)"/><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Снизил зависимость от маркетплейса</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="var(--green-tint)"/><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Начал больше зарабатывать — комиссия площадки больше не съедает прибыль</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="var(--green-tint)"/><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Продолжает продавать, даже если с площадкой что-то случится</li>
+      </ul>
       <!-- TODO: фото реального продавца (портрет или за работой), 16:9.
            Файл: images/mp-social-proof.jpg -->
       <div class="img-slot ratio-16-9" data-caption="Фото реального продавца — например, за работой или в своём магазине" style="margin-top:18px; margin-bottom:0;">
