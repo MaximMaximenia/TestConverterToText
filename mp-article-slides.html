@@ -86,6 +86,7 @@
     align-items:center;
     padding:100px 28px 60px;
     position:relative;
+    overflow-y:auto;
   }
   .slide-inner{max-width:520px; width:100%;}
 
@@ -104,6 +105,9 @@
     border-radius:14px; overflow:hidden; margin-bottom:22px;
     background:linear-gradient(135deg, var(--green-tint), #F5F7F6);
   }
+  .img-slot.ratio-4-3{aspect-ratio:4/3;}
+  .img-slot.ratio-16-9{aspect-ratio:16/9;}
+  .img-slot.compact{max-width:220px; margin:0 auto 18px;}
   .img-slot img{width:100%; height:100%; object-fit:cover; display:block;}
   .img-slot.img-missing::after{
     content:attr(data-caption);
@@ -122,20 +126,19 @@
   .objection-row b{display:block; font-size:14.5px; font-weight:700; color:var(--green-deep); margin-bottom:3px;}
   .objection-row span{font-size:14px; color:var(--graphite);}
 
-  .case-line{
-    font-size:14.5px; color:var(--gray);
-    border-left:3px solid var(--green);
-    padding-left:12px; margin-top:16px;
+  .case-label{
+    font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--green-deep); margin-bottom:12px;
   }
 
   .scroll-cue{
-    position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
     display:flex; flex-direction:column; align-items:center; gap:4px;
     color:var(--gray); font-size:12px; font-weight:600;
+    margin-top:28px;
     animation:bob 1.8s ease-in-out infinite;
   }
   .scroll-cue svg{width:18px; height:18px;}
-  @keyframes bob{0%,100%{transform:translate(-50%,0);} 50%{transform:translate(-50%,6px);}}
+  @keyframes bob{0%,100%{transform:translate(0,0);} 50%{transform:translate(0,6px);}}
 
   .btn-cta{
     display:inline-flex; align-items:center; gap:10px;
@@ -154,18 +157,27 @@
   @media (max-width:420px){
     .slide{padding:88px 22px 54px;}
   }
+  @media (max-height:700px){
+    .slide{padding:76px 22px 36px;}
+    .img-slot.compact{max-width:140px;}
+    .objection-row{padding:11px 14px; margin-bottom:8px;}
+    .slide h1, .slide h2{font-size:clamp(20px,5vw,26px); margin-bottom:10px;}
+    .slide p{margin-bottom:8px;}
+    .scroll-cue{margin-top:14px;}
+  }
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <div class="topbar-inner">
-    <div class="topbar-label"><b id="curNum">1</b> из 4</div>
+    <div class="topbar-label"><b id="curNum">1</b> из 5</div>
     <div class="segments" id="segments">
       <span data-i="0"><i></i></span>
       <span data-i="1"><i></i></span>
       <span data-i="2"><i></i></span>
       <span data-i="3"><i></i></span>
+      <span data-i="4"><i></i></span>
     </div>
   </div>
 </div>
@@ -202,15 +214,18 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 3 — РЕШЕНИЕ + ВОЗРАЖЕНИЯ + КЕЙС -->
+  <!-- ЭКРАН 3 — РЕШЕНИЕ + ВОЗРАЖЕНИЯ -->
   <section class="slide" data-slide="2">
     <div class="slide-inner">
+      <!-- TODO: фото рук за ноутбуком, экран — конструктор сайта. Файл: images/mp-objections.jpg -->
+      <div class="img-slot ratio-4-3 compact" data-caption="Руки на клавиатуре ноутбука, на экране — конструктор сайта">
+        <img src="images/mp-objections.jpg" alt="" onerror="this.closest('.img-slot').classList.add('img-missing'); this.remove();">
+      </div>
       <h2>Решение — второй канал, не отказ от площадки</h2>
       <p>Часть продавцов не уходит с маркетплейса: они добавляют свой интернет-магазин рядом. Он работает вместе с площадкой, не вместо неё.</p>
       <div class="objection-row"><b>«Это сложно»</b><span>Запуск — недели, не месяцы: всё из готовых решений.</span></div>
       <div class="objection-row"><b>«Это дорого»</b><span>Сопоставимо с суммой комиссий за 2–3 месяца.</span></div>
       <div class="objection-row"><b>«Не разбираюсь в сайтах»</b><span>Это берёт на себя команда — под ключ.</span></div>
-      <p class="case-line">Продавец товаров для дома добавил свой магазин рядом с карточками на маркетплейсе — часть постоянных покупателей перешла на прямые заказы без комиссии.</p>
     </div>
     <div class="scroll-cue">
       Листайте вниз
@@ -218,8 +233,25 @@
     </div>
   </section>
 
-  <!-- ЭКРАН 4 — РАЗВЯЗКА / CTA -->
-  <section class="slide final-slide" data-slide="3">
+  <!-- ЭКРАН 4 — КЕЙС / СОЦИАЛЬНОЕ ДОКАЗАТЕЛЬСТВО -->
+  <section class="slide" data-slide="3">
+    <div class="slide-inner">
+      <div class="case-label">Реальный пример</div>
+      <p class="lead">Продавец чая добавил свой интернет-магазин — свои товары, без чужих правил. За несколько месяцев часть покупателей перешла на прямые заказы, без комиссии площадки.</p>
+      <!-- TODO: фото реального продавца (портрет или за работой), 16:9.
+           Файл: images/mp-social-proof.jpg -->
+      <div class="img-slot ratio-16-9" data-caption="Фото реального продавца — например, за работой или в своём магазине" style="margin-top:18px; margin-bottom:0;">
+        <img src="images/mp-social-proof.jpg" alt="" onerror="this.closest('.img-slot').classList.add('img-missing'); this.remove();">
+      </div>
+    </div>
+    <div class="scroll-cue">
+      Листайте вниз
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- ЭКРАН 5 — РАЗВЯЗКА / CTA -->
+  <section class="slide final-slide" data-slide="4">
     <div class="slide-inner">
       <h2>Узнайте стоимость своего интернет-магазина</h2>
       <p class="subtitle">Пара вопросов о вашей нише и объёме — и вы получите точный расчёт</p>
