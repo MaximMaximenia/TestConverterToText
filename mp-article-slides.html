@@ -69,25 +69,28 @@
   .segments span.done i{width:100%;}
   .segments span.active i{width:100%;}
 
-  /* === контейнер со scroll-snap === */
-  .snap{
+  /* === контейнер: без нативного скролла, экраны переключает JS === */
+  .stage{
     height:100vh; height:100dvh;
-    overflow-y:scroll;
-    scroll-snap-type:y mandatory;
-    -webkit-overflow-scrolling:touch;
+    position:relative;
+    overflow:hidden;
   }
   .slide{
+    position:absolute; top:0; left:0; right:0; bottom:0;
     height:100vh; height:100dvh;
-    scroll-snap-align:start;
-    scroll-snap-stop:always;
-    display:flex;
+    display:none;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     padding:100px 28px 60px;
-    position:relative;
     overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .3s ease, transform .3s ease;
   }
+  .slide.active{display:flex;}
+  .slide.active.in{opacity:1; transform:translateY(0);}
   .slide-inner{max-width:520px; width:100%;}
 
   .slide h1, .slide h2{
@@ -147,6 +150,8 @@
     color:var(--gray); font-size:12px; font-weight:600;
     margin-top:18px;
     animation:bob 1.8s ease-in-out infinite;
+    cursor:pointer;
+    background:none; border:none; font-family:inherit;
   }
   .scroll-cue svg{width:18px; height:18px;}
   @keyframes bob{0%,100%{transform:translate(0,0);} 50%{transform:translate(0,6px);}}
@@ -210,7 +215,7 @@
   </div>
 </div>
 
-<div class="snap" id="snap">
+<div class="stage" id="stage">
 
   <!-- ЭКРАН 1 — ХУК -->
   <section class="slide" data-slide="0">
@@ -225,10 +230,10 @@
       <p class="lead">С каждой продажи площадка забирает комиссию, логистику и оплату за рекламу внутри каталога — а на руках у вас остаётся заметно меньше, чем должно.</p>
       <p class="lead-emphasis">До 30% с продажи уходит не вам.</p>
     </div>
-    <div class="scroll-cue">
+    <button type="button" class="scroll-cue" onclick="goNext()">
       Листайте вниз
       <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    </button>
   </section>
 
   <!-- ЭКРАН 2 — ПРОБЛЕМА И ПОСЛЕДСТВИЯ -->
@@ -243,10 +248,10 @@
       <p class="lead-emphasis">После недавних событий многие продавцы на своём опыте поняли, как быстро можно потерять доступ к товару и продажам, если всё завязано на одну площадку.</p>
       <p>Те, у кого уже есть свой канал продаж, в такой ситуации не теряют всё — и с каждым месяцем меньше зависят от площадки.</p>
     </div>
-    <div class="scroll-cue">
+    <button type="button" class="scroll-cue" onclick="goNext()">
       Листайте вниз
       <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    </button>
   </section>
 
   <!-- ЭКРАН 3 — РЕШЕНИЕ + ВОЗРАЖЕНИЯ -->
@@ -263,10 +268,10 @@
       <div class="objection-row"><b>«Это дорого»</b><span>Сопоставимо с суммой комиссий за 2–3 месяца.</span></div>
       <div class="objection-row"><b>«Не разбираюсь в сайтах»</b><span>Это берёт на себя команда — под ключ.</span></div>
     </div>
-    <div class="scroll-cue">
+    <button type="button" class="scroll-cue" onclick="goNext()">
       Листайте вниз
       <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    </button>
   </section>
 
   <!-- ЭКРАН 4 — КЕЙС / СОЦИАЛЬНОЕ ДОКАЗАТЕЛЬСТВО -->
@@ -285,10 +290,10 @@
         <img src="images/mp-social-proof.jpg" alt="" onerror="this.closest('.img-slot').classList.add('img-missing'); this.remove();">
       </div>
     </div>
-    <div class="scroll-cue">
+    <button type="button" class="scroll-cue" onclick="goNext()">
       Листайте вниз
       <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
+    </button>
   </section>
 
   <!-- ЭКРАН 5 — РАЗВЯЗКА / CTA -->
@@ -306,43 +311,78 @@
 </div>
 
 <script>
-  function goal(name){
+  function goal(name, seen){
+    if (seen && seen.has(name)) return;
+    if (seen) seen.add(name);
     try{ if (typeof ym === 'function') ym(112002479, 'reachGoal', name); }catch(e){}
   }
 
-  const snap = document.getElementById('snap');
+  const stage = document.getElementById('stage');
   const slides = Array.from(document.querySelectorAll('.slide'));
   const segments = Array.from(document.querySelectorAll('.segments span'));
   const curNum = document.getElementById('curNum');
   const firedSlideGoals = new Set();
 
-  function setActive(index){
+  let current = 0;
+
+  function showSlide(index){
+    slides.forEach(s => { s.classList.remove('active','in'); s.scrollTop = 0; });
+    const el = slides[index];
+    el.classList.add('active');
+    requestAnimationFrame(() => el.classList.add('in'));
+
     curNum.textContent = index + 1;
     segments.forEach((seg, i) => {
       seg.classList.toggle('done', i < index);
       seg.classList.toggle('active', i === index);
       if (i > index) seg.classList.remove('done','active');
     });
-    const goalName = 'article_slide_' + (index + 1);
-    if (!firedSlideGoals.has(goalName)) {
-      firedSlideGoals.add(goalName);
-      goal(goalName);
-    }
-    if (index === slides.length - 1) goal('article_read_end');
+
+    goal('article_slide_' + (index + 1), firedSlideGoals);
+    if (index === slides.length - 1) goal('article_read_end', firedSlideGoals);
   }
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-        setActive(Number(entry.target.dataset.slide));
-      }
-    });
-  }, { root: snap, threshold: [0.6] });
-  slides.forEach(s => io.observe(s));
+  function goNext(){ if (current < slides.length - 1) { current++; showSlide(current); } }
+  function goPrev(){ if (current > 0) { current--; showSlide(current); } }
+
+  function atBottom(el){ return el.scrollHeight - el.scrollTop - el.clientHeight <= 2; }
+  function atTop(el){ return el.scrollTop <= 2; }
+
+  // свайп: если экран не долистан внутри себя — сначала долистываем его,
+  // и только когда упёрлись в край, свайп переключает на следующий/предыдущий
+  let touchStartY = null;
+  stage.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive:true });
+  stage.addEventListener('touchend', (e) => {
+    if (touchStartY === null) return;
+    const dy = touchStartY - e.changedTouches[0].clientY;
+    touchStartY = null;
+    if (Math.abs(dy) < 36) return;
+    const el = slides[current];
+    if (dy > 0 && atBottom(el)) goNext();
+    else if (dy < 0 && atTop(el)) goPrev();
+  }, { passive:true });
+
+  // колесо мыши / трекпад — та же логика
+  let wheelBusy = false;
+  stage.addEventListener('wheel', (e) => {
+    const el = slides[current];
+    if (e.deltaY > 12 && atBottom(el)) {
+      e.preventDefault();
+      if (!wheelBusy) { wheelBusy = true; goNext(); setTimeout(() => wheelBusy = false, 550); }
+    } else if (e.deltaY < -12 && atTop(el)) {
+      e.preventDefault();
+      if (!wheelBusy) { wheelBusy = true; goPrev(); setTimeout(() => wheelBusy = false, 550); }
+    }
+  }, { passive:false });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); goNext(); }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); goPrev(); }
+  });
 
   document.getElementById('ctaLink').addEventListener('click', () => goal('article_cta_click'));
 
-  setActive(0);
+  showSlide(0);
 </script>
 
 </body>
