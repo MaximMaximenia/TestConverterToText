@@ -333,8 +333,8 @@
           <input type="text" id="q-name" required>
         </div>
         <div class="form-field">
-          <label for="q-contact">Телефон или Telegram</label>
-          <input type="text" id="q-contact" required>
+          <label for="q-contact">Telegram</label>
+          <input type="text" id="q-contact" placeholder="@username" required>
         </div>
         <div style="flex:1"></div>
         <button type="submit" class="btn-primary" id="submitBtn">
@@ -364,7 +364,6 @@
 
   const steps = ['niche','count','platform','pain','fill','contact','success'];
   const questionSteps = ['niche','count','platform','pain','fill','contact'];
-  const STORAGE_KEY = 'mpQuizState';
 
   let current = 0;
   let answers = {};
@@ -374,21 +373,6 @@
     if (firedGoals.has(name)) return;
     firedGoals.add(name);
     try{ if (typeof ym === 'function') ym(112002479, 'reachGoal', name); }catch(e){}
-  }
-
-  function loadState(){
-    try{
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (!raw) return;
-      const data = JSON.parse(raw);
-      answers = data.answers || {};
-      if (typeof data.current === 'number' && data.current < steps.length - 1) {
-        current = data.current;
-      }
-    }catch(e){}
-  }
-  function saveState(){
-    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify({ answers, current })); }catch(e){}
   }
 
   function restoreChipState(stepEl, field){
@@ -442,8 +426,6 @@
       : `Готово`;
 
     if (qIdx >= 0) goal('quiz_step_' + (qIdx + 1));
-
-    saveState();
   }
 
   function goNext(){ current = Math.min(current + 1, steps.length - 1); showStep(current); }
@@ -467,7 +449,6 @@
           const wrap = document.getElementById('other-' + field);
           if (wrap) wrap.classList.remove('show');
           answers[field] = chip.dataset.value;
-          saveState();
           setTimeout(goNext, 320);
         });
       });
@@ -479,7 +460,6 @@
     const val = input.value.trim();
     if (!val) { input.focus(); return; }
     answers[field] = val;
-    saveState();
     goNext();
   }
 
@@ -500,7 +480,6 @@
     if (!name || !contact) return;
     answers.name = name;
     answers.contact = contact;
-    saveState();
 
     const submitBtn = document.getElementById('submitBtn');
     const submitBtnOriginal = submitBtn.innerHTML;
@@ -535,7 +514,6 @@
       });
   });
 
-  loadState();
   wireChips();
   showStep(current);
 </script>
