@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Устали платить маркетплейсу огромные комиссии?</title>
+<meta name="description" content="До 30% с продажи уходит не вам. Что делают продавцы на Wildberries и Ozon, чтобы снизить зависимость от комиссий и правил площадки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112002479', 'ym');
+
+    ym(112002479, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/112002479" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<style>
+  :root{
+    --green:#00C853;
+    --green-dark:#00A344;
+    --green-deep:#00792F;
+    --green-tint:#EAF9EF;
+    --graphite:#1A1A1A;
+    --gray:#6E6E73;
+    --hairline:rgba(0,0,0,.08);
+  }
+  *{margin:0; padding:0; box-sizing:border-box;}
+  html, body{height:100%;}
+  body{
+    font-family:'Montserrat', -apple-system, Arial, sans-serif;
+    color:var(--graphite);
+    background:#fff;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+
+  /* === прогресс сверху: "Экран X из 4" + сегменты === */
+  .topbar{
+    position:fixed; top:0; left:0; right:0; z-index:10;
+    padding:16px 20px 12px;
+    background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,0));
+  }
+  .topbar-inner{max-width:560px; margin:0 auto;}
+  .topbar-label{
+    font-size:12px; font-weight:700; letter-spacing:.03em;
+    color:var(--gray); text-align:center; margin-bottom:8px;
+  }
+  .topbar-label b{color:var(--green-deep);}
+  .segments{display:flex; gap:6px;}
+  .segments span{
+    flex:1; height:4px; border-radius:100px;
+    background:rgba(0,0,0,.08); overflow:hidden;
+  }
+  .segments span i{
+    display:block; height:100%; width:0%;
+    background:linear-gradient(90deg, var(--green-dark), var(--green));
+    transition:width .3s ease;
+  }
+  .segments span.done i{width:100%;}
+  .segments span.active i{width:100%;}
+
+  /* === контейнер: без нативного скролла, экраны переключает JS === */
+  .stage{
+    height:100vh; height:100dvh;
+    position:relative;
+    overflow:hidden;
+  }
+  .slide{
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    height:100vh; height:100dvh;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:100px 28px 60px;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    opacity:0;
+    transform:translateY(16px);
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .slide.active{display:flex;}
+  .slide.active.in{opacity:1; transform:translateY(0);}
+  .slide-inner{max-width:520px; width:100%;}
+
+  .slide h1, .slide h2{
+    font-weight:800;
+    font-size:clamp(22px, 4.6vw, 33px);
+    line-height:1.24;
+    letter-spacing:-0.01em;
+    margin-bottom:12px;
+  }
+  .slide p{font-size:16px; color:#2B2B2E; margin-bottom:10px;}
+  .slide p.lead{font-size:17px; color:var(--graphite);}
+  .slide p.lead-emphasis{font-size:19px; font-weight:700; color:var(--graphite);}
+  .slide p.lead-2{font-size:17px; font-weight:700; color:var(--green-deep); margin-bottom:10px;}
+
+  .img-slot{
+    position:relative; width:100%; aspect-ratio:16/10;
+    border-radius:14px; overflow:hidden; margin-bottom:22px;
+    background:linear-gradient(135deg, var(--green-tint), #F5F7F6);
+  }
+  .img-slot.ratio-4-3{aspect-ratio:4/3;}
+  .img-slot.ratio-16-9{aspect-ratio:16/9;}
+  .img-slot.capped{aspect-ratio:auto; height:min(20vh, 180px);}
+  .img-slot.capped.tight{height:min(10vh, 85px); margin-bottom:12px;}
+  .img-slot img{width:100%; height:100%; object-fit:cover; display:block;}
+  .img-slot.img-missing::after{
+    content:attr(data-caption);
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:20px; font-size:12px; line-height:1.5; color:var(--green-deep);
+    background:repeating-linear-gradient(135deg, rgba(0,200,83,.06) 0 14px, transparent 14px 28px);
+    border:1.5px dashed rgba(0,163,68,.35); border-radius:14px;
+  }
+
+  .objection-row{
+    background:var(--green-tint);
+    border-radius:12px;
+    padding:10px 14px;
+    margin-bottom:6px;
+  }
+  .objection-row b{display:block; font-size:14.5px; font-weight:700; color:var(--green-deep); margin-bottom:3px; text-decoration:line-through; text-decoration-thickness:1.5px; opacity:.75;}
+  .objection-row span{font-size:14px; color:var(--graphite);}
+
+  .case-label{
+    font-size:12px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+    color:var(--green-deep); margin-bottom:12px;
+  }
+
+  .result-list{list-style:none; margin:16px 0 4px;}
+  .result-list li{
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:15.5px; font-weight:600; color:var(--graphite);
+    margin-bottom:10px;
+  }
+  .result-list li svg{width:20px; height:20px; flex-shrink:0; margin-top:1px;}
+
+  .scroll-cue{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    color:var(--gray); font-size:12px; font-weight:600;
+    margin-top:18px;
+    animation:bob 1.8s ease-in-out infinite;
+    cursor:pointer;
+    background:none; border:none; font-family:inherit;
+  }
+  .scroll-cue svg{width:18px; height:18px;}
+  @keyframes bob{0%,100%{transform:translate(0,0);} 50%{transform:translate(0,6px);}}
+
+  .btn-cta{
+    position:relative;
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:inherit; font-weight:700; font-size:16px; color:#fff;
+    background:linear-gradient(135deg, var(--green-dark), var(--green-deep));
+    padding:18px 30px; border-radius:14px; text-decoration:none; border:none; cursor:pointer;
+    box-shadow:0 10px 28px -8px rgba(0,163,68,.5);
+    transition:transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease;
+    overflow:hidden;
+  }
+  .btn-cta:hover{transform:translateY(-2px); box-shadow:0 14px 32px -8px rgba(0,163,68,.6);}
+  .btn-cta::after{
+    content:'';
+    position:absolute; top:0; left:-60%; width:40%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
+    transform:skewX(-20deg);
+    animation:shine 3.2s ease-in-out infinite;
+  }
+  @keyframes shine{
+    0%{left:-60%;}
+    35%{left:130%;}
+    100%{left:130%;}
+  }
+
+  .final-slide{align-items:center; text-align:center;}
+  .final-slide h2{font-size:clamp(24px,5.5vw,34px);}
+  .final-slide .subtitle{font-size:15px; color:var(--gray); margin-bottom:28px;}
+
+  @media (max-width:420px){
+    .slide{padding:76px 22px 40px;}
+  }
+  @media (max-height:820px){
+    .img-slot.capped{height:min(16vh, 140px);}
+    .img-slot.capped.tight{height:min(9vh, 72px);}
+  }
+  @media (max-height:700px){
+    .slide{padding:70px 22px 30px;}
+    .objection-row{padding:9px 13px; margin-bottom:5px;}
+    .slide h1, .slide h2{font-size:clamp(19px,4.8vw,25px); margin-bottom:8px;}
+    .slide p{margin-bottom:7px;}
+    .scroll-cue{margin-top:14px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-label"><b id="curNum">1</b> из 5</div>
+    <div class="segments" id="segments">
+      <span data-i="0"><i></i></span>
+      <span data-i="1"><i></i></span>
+      <span data-i="2"><i></i></span>
+      <span data-i="3"><i></i></span>
+      <span data-i="4"><i></i></span>
+    </div>
+  </div>
+</div>
+
+<div class="stage" id="stage">
+
+  <!-- ЭКРАН 1 — ХУК -->
+  <section class="slide" data-slide="0">
+    <div class="slide-inner">
+      <h1>Устали платить маркетплейсу огромные комиссии?</h1>
+      <!-- TODO: обложка 16:9 — визуал "маркетплейс забирает себе большую часть прибыли"
+           (например, донат-чарт: большая серая доля vs маленькая зелёная).
+           Файл: images/mp-cover.jpg -->
+      <div class="img-slot ratio-16-9" data-caption="Донат-чарт: большая серая доля (площадка) и маленькая зелёная (продавец), на столе рядом ноутбук">
+        <img src="images/mp-cover.jpg" alt="" onerror="this.closest('.img-slot').classList.add('img-missing'); this.remove();">
+      </div>
+      <p class="lead">С каждой продажи площадка забирает комиссию, логистику и оплату за рекламу внутри каталога — а на руках у вас остаётся заметно меньше, чем должно.</p>
+      <p class="lead-emphasis">До 30% с продажи уходит не вам.</p>
+    </div>
+    <button type="button" class="scroll-cue" onclick="goNext()">
+      Листайте вниз
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </section>
+
+  <!-- ЭКРАН 2 — ПРОБЛЕМА И ПОСЛЕДСТВИЯ -->
+  <section class="slide" data-slide="1">
+    <div class="slide-inner">
+      <!-- TODO: фото — смартфон с размытым уведомлением на столе рядом с коробками.
+           Файл: images/mp-problem.jpg -->
+      <div class="img-slot ratio-4-3 capped" data-caption="Смартфон с размытым уведомлением на столе, рядом коробки с товаром">
+        <img src="images/mp-problem.jpg" alt="" onerror="this.closest('.img-slot').classList.add('img-missing'); this.remove();">
+      </div>
+      <h2>Площадка диктует правила</h2>
+      <p class="lead-emphasis">После недавних событий многие продавцы на своём опыте поняли, как быстро можно потерять доступ к товару и продажам, если всё завязано на одну площадку.</p>
+      <p>Те, у кого уже есть свой канал продаж, в такой ситуации не теряют всё — и с каждым месяцем меньше зависят от площадки.</p>
+    </div>
+    <button type="button" class="scroll-cue" onclick="goNext()">
+      Листайте вниз
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </section>
+
+  <!-- ЭКРАН 3 — РЕШЕНИЕ + ВОЗРАЖЕНИЯ -->
+  <section class="slide" data-slide="2">
+    <div class="slide-inner">
+      <!-- TODO: фото рук за ноутбуком, экран — конструктор сайта. Файл: images/mp-objections.jpg -->
+      <div class="img-slot ratio-4-3 capped tight" data-caption="Руки на клавиатуре ноутбука, на экране — конструктор сайта">
+        <img src="images/mp-objections.jpg" alt="" onerror="this.closest('.img-slot').classList.add('img-missing'); this.remove();">
+      </div>
+      <h2>Решение — интернет-магазин</h2>
+      <p class="lead-2">Это второй канал продаж, а не отказ от площадки.</p>
+      <p>Часть продавцов не уходит с маркетплейсов — они добавляют свой интернет-магазин. Он работает вместе с площадкой и снижает зависимость от неё: если с площадкой что-то случится, вы не теряете весь бизнес разом. Это ощутимо более безопасно.</p>
+      <div class="objection-row"><b>«Это сложно»</b><span>Запуск — недели, не месяцы: всё из готовых решений.</span></div>
+      <div class="objection-row"><b>«Это дорого»</b><span>Сопоставимо с суммой комиссий за 2–3 месяца.</span></div>
+      <div class="objection-row"><b>«Не разбираюсь в сайтах»</b><span>Это берёт на себя команда — под ключ.</span></div>
+    </div>
+    <button type="button" class="scroll-cue" onclick="goNext()">
+      Листайте вниз
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </section>
+
+  <!-- ЭКРАН 4 — КЕЙС / СОЦИАЛЬНОЕ ДОКАЗАТЕЛЬСТВО -->
+  <section class="slide" data-slide="3">
+    <div class="slide-inner">
+      <div class="case-label">Реальный пример</div>
+      <p class="lead">Продавец чая добавил свой интернет-магазин — свои товары, без чужих правил. За несколько месяцев часть покупателей перешла на прямые заказы, без комиссии площадки.</p>
+      <ul class="result-list">
+        <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="var(--green-tint)"/><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Снизил зависимость от маркетплейса</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="var(--green-tint)"/><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Начал больше зарабатывать — комиссия площадки больше не съедает прибыль</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="var(--green-tint)"/><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green-deep)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Продолжает продавать, даже если с площадкой что-то случится</li>
+      </ul>
+      <!-- TODO: фото реального продавца (портрет или за работой), 16:9.
+           Файл: images/mp-social-proof.jpg -->
+      <div class="img-slot ratio-16-9" data-caption="Фото реального продавца — например, за работой или в своём магазине" style="margin-top:18px; margin-bottom:0;">
+        <img src="images/mp-social-proof.jpg" alt="" onerror="this.closest('.img-slot').classList.add('img-missing'); this.remove();">
+      </div>
+    </div>
+    <button type="button" class="scroll-cue" onclick="goNext()">
+      Листайте вниз
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </section>
+
+  <!-- ЭКРАН 5 — РАЗВЯЗКА / CTA -->
+  <section class="slide final-slide" data-slide="4">
+    <div class="slide-inner">
+      <h2>Узнайте стоимость разработки интернет-магазина под ваши критерии</h2>
+      <p class="subtitle">Пара вопросов о вашей нише, и вы получите точный расчёт</p>
+      <a class="btn-cta" id="ctaLink" href="mp-quiz.html">
+        Рассчитать стоимость
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  function goal(name, seen){
+    if (seen && seen.has(name)) return;
+    if (seen) seen.add(name);
+    try{ if (typeof ym === 'function') ym(112002479, 'reachGoal', name); }catch(e){}
+  }
+
+  const stage = document.getElementById('stage');
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const segments = Array.from(document.querySelectorAll('.segments span'));
+  const curNum = document.getElementById('curNum');
+  const firedSlideGoals = new Set();
+
+  let current = 0;
+
+  function showSlide(index){
+    slides.forEach(s => { s.classList.remove('active','in'); s.scrollTop = 0; });
+    const el = slides[index];
+    el.classList.add('active');
+    requestAnimationFrame(() => el.classList.add('in'));
+
+    curNum.textContent = index + 1;
+    segments.forEach((seg, i) => {
+      seg.classList.toggle('done', i < index);
+      seg.classList.toggle('active', i === index);
+      if (i > index) seg.classList.remove('done','active');
+    });
+
+    goal('article_slide_' + (index + 1), firedSlideGoals);
+    if (index === slides.length - 1) goal('article_read_end', firedSlideGoals);
+  }
+
+  function goNext(){ if (current < slides.length - 1) { current++; showSlide(current); } }
+  function goPrev(){ if (current > 0) { current--; showSlide(current); } }
+
+  function atBottom(el){ return el.scrollHeight - el.scrollTop - el.clientHeight <= 2; }
+  function atTop(el){ return el.scrollTop <= 2; }
+
+  // свайп: если экран не долистан внутри себя — сначала долистываем его,
+  // и только когда упёрлись в край, свайп переключает на следующий/предыдущий
+  let touchStartY = null;
+  stage.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive:true });
+  stage.addEventListener('touchend', (e) => {
+    if (touchStartY === null) return;
+    const dy = touchStartY - e.changedTouches[0].clientY;
+    touchStartY = null;
+    if (Math.abs(dy) < 36) return;
+    const el = slides[current];
+    if (dy > 0 && atBottom(el)) goNext();
+    else if (dy < 0 && atTop(el)) goPrev();
+  }, { passive:true });
+
+  // колесо мыши / трекпад — та же логика
+  let wheelBusy = false;
+  stage.addEventListener('wheel', (e) => {
+    const el = slides[current];
+    if (e.deltaY > 12 && atBottom(el)) {
+      e.preventDefault();
+      if (!wheelBusy) { wheelBusy = true; goNext(); setTimeout(() => wheelBusy = false, 550); }
+    } else if (e.deltaY < -12 && atTop(el)) {
+      e.preventDefault();
+      if (!wheelBusy) { wheelBusy = true; goPrev(); setTimeout(() => wheelBusy = false, 550); }
+    }
+  }, { passive:false });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); goNext(); }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); goPrev(); }
+  });
+
+  document.getElementById('ctaLink').addEventListener('click', () => goal('article_cta_click'));
+
+  showSlide(0);
+</script>
+
+</body>
+</html>
