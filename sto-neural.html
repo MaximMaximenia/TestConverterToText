@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚗 СТО "АвтоМастер24" — Ваш Надежный Автосервис №1! 🔧✨</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Comic Sans MS', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+    color: #222;
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.08);} }
+  @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+  @keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+  .section { max-width: 1100px; margin: 0 auto; padding: 60px 20px; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 90px 20px 70px;
+    color: #fff;
+    text-shadow: 0 3px 12px rgba(0,0,0,.35);
+  }
+  .hero .emoji-row { font-size: 40px; margin-bottom: 10px; animation: bounce 2s ease-in-out infinite; }
+  .hero h1 {
+    font-size: clamp(28px, 6vw, 56px);
+    font-weight: 900;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .hero p.subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  .btn-glow {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6a00, #ffd200);
+    color: #1a1a1a;
+    font-weight: 900;
+    font-size: 22px;
+    padding: 20px 46px;
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 0 0 0 6px rgba(255,255,255,.25), 0 10px 40px rgba(255,150,0,.7);
+    animation: pulse 1.6s ease-in-out infinite;
+    border: 4px solid #fff;
+  }
+
+  /* STATS */
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 20px;
+  }
+  .stat-card {
+    background: rgba(255,255,255,.95);
+    border-radius: 24px;
+    padding: 28px 34px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    min-width: 180px;
+    border: 3px solid #ffd200;
+  }
+  .stat-card .num { font-size: 40px; font-weight: 900; color: #ff6a00; }
+  .stat-card .label { font-size: 15px; font-weight: 700; color: #444; margin-top: 6px; }
+
+  /* WHITE CARD SECTION */
+  .white-box {
+    background: rgba(255,255,255,.97);
+    border-radius: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  }
+  h2.title {
+    text-align: center;
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 900;
+    margin-bottom: 40px;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 26px;
+  }
+  .why-card {
+    background: linear-gradient(135deg, #fff9f0, #ffe9d6);
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(0,0,0,.12);
+    border: 2px dashed #ff9a3c;
+    transition: transform .2s ease;
+  }
+  .why-card:hover { transform: translateY(-6px) rotate(-1deg); }
+  .why-card .icon { font-size: 46px; margin-bottom: 14px; animation: bounce 2.4s ease-in-out infinite; }
+  .why-card h3 { font-size: 18px; font-weight: 900; margin-bottom: 10px; color: #ee0979; }
+  .why-card p { font-size: 14.5px; color: #555; line-height: 1.5; }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 28px;
+  }
+  .service-card {
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0,0,0,.18);
+    background: #fff;
+    border: 3px solid #667eea;
+  }
+  .service-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+  .service-card .body { padding: 20px; }
+  .service-card h3 { font-size: 19px; font-weight: 900; margin-bottom: 8px; }
+  .service-card p { font-size: 14.5px; color: #555; margin-bottom: 12px; }
+  .price-tag {
+    display: inline-block;
+    background: linear-gradient(90deg,#00f2fe,#4facfe);
+    color: #fff;
+    font-weight: 900;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 14px;
+  }
+
+  /* TESTIMONIALS */
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .testi-card {
+    background: linear-gradient(135deg, #f3f0ff, #e0f7ff);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    border: 2px solid #764ba2;
+  }
+  .testi-card .stars { color: #ffb800; font-size: 20px; margin-bottom: 10px; }
+  .testi-card p.quote { font-style: italic; color: #333; margin-bottom: 14px; line-height: 1.5; font-size: 14.5px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-author img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 3px solid #ff6a00; }
+  .testi-author b { font-size: 14.5px; }
+  .testi-author span { font-size: 12.5px; color: #888; display: block; }
+
+  /* CTA BOTTOM */
+  .cta-bottom {
+    text-align: center;
+    background: linear-gradient(135deg, #ee0979, #ff6a00);
+    border-radius: 32px;
+    padding: 60px 24px;
+    color: #fff;
+    box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  }
+  .cta-bottom h2 { font-size: clamp(24px,4vw,36px); font-weight: 900; margin-bottom: 16px; text-shadow: 0 3px 10px rgba(0,0,0,.3); }
+  .cta-bottom p { font-size: 18px; font-weight: 700; margin-bottom: 26px; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 20px 50px;
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0,0,0,.3);
+  }
+  .socials { display:flex; justify-content:center; gap:18px; font-size:30px; margin-bottom:16px; }
+  .socials span { cursor:pointer; transition: transform .2s ease; display:inline-block; }
+  .socials span:hover { transform: scale(1.3) rotate(10deg); }
+
+  /* FLOATING CHAT BUBBLE */
+  .chat-bubble {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 14px 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 99;
+    border: 3px solid #4facfe;
+  }
+  .chat-bubble .dot { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#667eea,#764ba2); display:flex; align-items:center; justify-content:center; font-size:18px; animation: spin 6s linear infinite; }
+
+  @media (max-width:600px){
+    .chat-bubble { font-size:12px; padding:10px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="emoji-row">🚗💨🔧✨🛠️</div>
+  <h1>СТО "АвтоМастер24" 🏆</h1>
+  <p class="subtitle">🔥 Лучший автосервис в вашем городе! Быстро, качественно, недорого! 🔥</p>
+  <p class="subtitle" style="font-size:16px; font-weight:600;">✅ Работаем 24/7 ✅ Гарантия на все виды работ ✅ Индивидуальный подход к каждому клиенту 🤝</p>
+  <a href="#" class="btn-glow">🚀 Записаться прямо сейчас! 🚀</a>
+</div>
+
+<!-- STATS -->
+<div class="section" style="padding-top:0;">
+  <div class="stats">
+    <div class="stat-card"><div class="num">1000+</div><div class="label">😊 Довольных клиентов</div></div>
+    <div class="stat-card"><div class="num">15</div><div class="label">🏆 Лет опыта</div></div>
+    <div class="stat-card"><div class="num">24/7</div><div class="label">📞 Всегда на связи</div></div>
+    <div class="stat-card"><div class="num">100%</div><div class="label">✅ Гарантия качества</div></div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="section">
+  <div class="white-box" style="padding:50px 30px;">
+    <h2 class="title">🤔 Почему выбирают именно НАС? 👇</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">💪</div>
+        <h3>Команда профессионалов!</h3>
+        <p>Наши мастера — настоящие профессионалы своего дела с многолетним опытом работы! 🔧</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">⚡</div>
+        <h3>Быстрый сервис!</h3>
+        <p>Диагностика вашего авто займёт всего 15 минут — быстро, чётко, по делу! ⏱️</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">💰</div>
+        <h3>Честные цены!</h3>
+        <p>Никаких скрытых платежей — только честная и прозрачная цена за качественную работу! 💯</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🛡️</div>
+        <h3>Гарантия качества!</h3>
+        <p>Даём официальную гарантию на все виды выполненных работ — спите спокойно! 😴</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🤝</div>
+        <h3>Индивидуальный подход!</h3>
+        <p>К каждому клиенту у нас особенный, индивидуальный подход — вы не просто номер в очереди! ❤️</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🚗</div>
+        <h3>Любые марки авто!</h3>
+        <p>Обслуживаем автомобили любых марок и моделей — от бюджетных до премиальных! 🏎️</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+  <div class="white-box" style="padding:50px 30px;">
+    <h2 class="title">🛠️ Наши Услуги 🔥</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800" alt="Диагностика">
+        <div class="body">
+          <h3>🔍 Диагностика авто</h3>
+          <p>Полная компьютерная диагностика двигателя, подвески и электрики за считанные минуты! ⚡</p>
+          <span class="price-tag">от 1500 ₽ 💵</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?w=800" alt="Ремонт двигателя">
+        <div class="body">
+          <h3>⚙️ Ремонт двигателя</h3>
+          <p>Профессиональный ремонт двигателя любой сложности — вернём вашу машину к жизни! 🚗💨</p>
+          <span class="price-tag">от 5000 ₽ 💵</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800" alt="Шиномонтаж">
+        <div class="body">
+          <h3>🛞 Шиномонтаж</h3>
+          <p>Быстрая и аккуратная замена шин с балансировкой — как для себя! ✨</p>
+          <span class="price-tag">от 800 ₽ 💵</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800" alt="Замена масла">
+        <div class="body">
+          <h3>🛢️ Замена масла</h3>
+          <p>Замена масла и всех фильтров всего за 20 минут — быстрее, чем чашка кофе! ☕</p>
+          <span class="price-tag">от 1200 ₽ 💵</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800" alt="Кузовной ремонт">
+        <div class="body">
+          <h3>🔨 Кузовной ремонт</h3>
+          <p>Устраним любые повреждения кузова — ваша машина будет как новая! ✨🚘</p>
+          <span class="price-tag">от 3000 ₽ 💵</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800" alt="Автомойка">
+        <div class="body">
+          <h3>🧼 Автомойка</h3>
+          <p>Бережная мойка кузова и химчистка салона — блеск гарантирован! ✨🚗</p>
+          <span class="price-tag">от 500 ₽ 💵</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="section">
+  <div class="white-box" style="padding:50px 30px;">
+    <h2 class="title">⭐ Отзывы Наших Клиентов ⭐</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="quote">"Обалденный сервис! 🔥 Ребята — настоящие профессионалы своего дела! Приеду ещё сто раз!!! 💯"</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?w=200" alt="Клиент">
+          <div><b>Алексей П. 👨</b><span>Постоянный клиент</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="quote">"Лучшая СТО в городе, однозначно! 🏆 Индивидуальный подход чувствуется с первой минуты! Спасибо огромное! 🙏"</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1620891549027-942fdc95d3f5?w=200" alt="Клиент">
+          <div><b>Марина С. 👩</b><span>Довольный клиент</span></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="quote">"Быстро, качественно, недорого — всё как обещали! ✅ Теперь только сюда, друзьям тоже рассказал! 👍"</p>
+        <div class="testi-author">
+          <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=200" alt="Клиент">
+          <div><b>Дмитрий К. 👨</b><span>Новый клиент</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BOTTOM -->
+<div class="section">
+  <div class="cta-bottom">
+    <h2>🚀 Готовы Доверить Нам Свой Автомобиль? 🚗</h2>
+    <p>Запишитесь прямо сейчас и получите скидку 10% на первое посещение! 🎉🔥</p>
+    <a href="#" class="btn-glow">📞 Записаться на СТО! 📞</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="socials">
+    <span>📷</span>
+    <span>📘</span>
+    <span>💬</span>
+    <span>▶️</span>
+  </div>
+  <p>© 2026 СТО "АвтоМастер24". Сделано с ❤️ командой профессионалов! 🚗✨</p>
+  <p style="margin-top:8px; font-weight:600; font-size:13px;">📍 г. Минск, ул. Примерная, 1 &nbsp; | &nbsp; 📞 +375 (29) 000-00-00 &nbsp; | &nbsp; ✉️ info@automaster24.by</p>
+</footer>
+
+<!-- CHAT BUBBLE -->
+<div class="chat-bubble">
+  <div class="dot">💬</div>
+  <span>👋 Привет! Чем можем помочь?</span>
+</div>
+
+</body>
+</html>
