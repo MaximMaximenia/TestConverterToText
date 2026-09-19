@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const TELEGRAM_BOT_TOKEN = "7724314363:AAG5OuDDLOTpz7DT0UjXPvWGkqdKENkGMiw";
-    const TELEGRAM_CHAT_ID = "636168342";
+    // Заполняется в tg-config.js (не хранится в git — см. tg-config.example.js)
+    const TELEGRAM_BOT_TOKEN = window.TG_CONFIG && window.TG_CONFIG.botToken;
+    const TELEGRAM_CHAT_ID = window.TG_CONFIG && window.TG_CONFIG.chatId;
 
     const form = document.getElementById("consultForm");
     const submitBtn = document.getElementById("submitBtn");
@@ -27,6 +28,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
         if (!tg.startsWith("@")) tg = "@" + tg;
+
+        if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+            showStatus("Форма не настроена: не найден tg-config.js с токеном бота.", "err");
+            return;
+        }
 
         submitBtn.disabled = true;
         submitBtn.textContent = "Отправляем...";
