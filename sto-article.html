@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Механизм клиентов для СТО</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --tint:#fffaea;
+    --ink:#1b1b1b;
+    --muted:#6a6a6a;
+    --line:#ebe7dd;
+    --yellow:#ffd83d;
+    --mark:#ffe873;
+    --yellow-soft:#fff0a8;
+    --font:"Golos Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font);
+    font-size:19px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:700px;margin:0 auto;padding:0 22px}
+
+  /* ---------- ACCENTS ---------- */
+  mark{
+    background:var(--mark);
+    color:inherit;
+    padding:.14em .28em;
+    border-radius:3px;
+    -webkit-box-decoration-break:clone;
+    box-decoration-break:clone;
+  }
+  .hl{
+    background:var(--yellow);
+    padding:2px 6px;
+    border-radius:3px;
+  }
+
+  /* ---------- HERO ---------- */
+  header{padding:56px 0 8px}
+  .eyebrow{
+    display:inline-block;
+    background:var(--yellow);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border-radius:4px;
+    margin:0 0 24px;
+  }
+  h1{
+    font-weight:800;
+    font-size:clamp(30px,5.6vw,46px);
+    line-height:1.18;
+    letter-spacing:-.025em;
+    margin:0 0 20px;
+  }
+  .dek{
+    font-size:19px;
+    color:var(--muted);
+    margin:0 0 32px;
+  }
+  .hero-sub{
+    border-top:3px solid var(--yellow);
+    padding-top:26px;
+    margin-bottom:8px;
+  }
+  .hero-sub h2{
+    font-weight:700;
+    font-size:clamp(21px,3.4vw,27px);
+    line-height:1.3;
+    letter-spacing:-.015em;
+    margin:0 0 14px;
+  }
+  .hero-sub p{margin:0;color:var(--muted);font-size:18px}
+
+  /* ---------- TEXT ---------- */
+  h2.sec{
+    font-weight:800;
+    font-size:clamp(24px,4vw,32px);
+    line-height:1.25;
+    letter-spacing:-.02em;
+    margin:64px 0 20px;
+  }
+  h3.sub{
+    font-weight:700;
+    font-size:21px;
+    margin:40px 0 12px;
+  }
+  p{margin:0 0 20px}
+  strong{font-weight:600}
+
+  /* ---------- LISTS ---------- */
+  ul.check{list-style:none;padding:0;margin:0 0 24px}
+  ul.check li{
+    position:relative;
+    padding-left:32px;
+    margin-bottom:14px;
+  }
+  ul.check li::before{
+    content:"";
+    position:absolute;
+    left:2px;top:.55em;
+    width:14px;height:14px;
+    border-radius:50%;
+    background:var(--yellow);
+  }
+
+  /* ---------- CARDS ---------- */
+  .card{
+    background:var(--tint);
+    border-radius:16px;
+    padding:32px 30px;
+    margin:36px 0;
+  }
+  .card-label{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 18px;
+  }
+  .card ul.check li:last-child{margin-bottom:0}
+
+  .pull{
+    font-weight:700;
+    font-size:clamp(21px,3.5vw,27px);
+    line-height:1.38;
+    letter-spacing:-.015em;
+    border-left:5px solid var(--yellow);
+    padding:4px 0 4px 24px;
+    margin:44px 0;
+  }
+  .note{
+    font-size:18px;
+    color:var(--muted);
+  }
+
+  /* ---------- CONTINUE CTA ---------- */
+  .continue{
+    text-align:center;
+    margin:56px 0 30px;
+  }
+  .continue p{
+    color:var(--muted);
+    font-size:17px;
+    margin:0 0 20px;
+  }
+
+  .btn{
+    position:relative;
+    display:inline-block;
+    width:100%;
+    background:var(--yellow);
+    color:var(--ink);
+    font-family:inherit;
+    font-weight:800;
+    font-size:19px;
+    text-decoration:none;
+    text-align:center;
+    padding:19px 36px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    overflow:hidden;
+    isolation:isolate;
+    box-shadow:0 0 0 0 rgba(255,216,61,.6);
+    animation:btnPulse 2.2s ease-in-out infinite;
+  }
+  .btn::after{
+    content:"";
+    position:absolute;
+    top:0; left:-60%;
+    width:40%; height:100%;
+    background:linear-gradient(115deg, transparent, rgba(255,255,255,.75), transparent);
+    transform:skewX(-20deg);
+    animation:btnShine 2.6s ease-in-out infinite;
+    z-index:1;
+  }
+  .btn:active{transform:translateY(1px);}
+  @keyframes btnPulse{
+    0%, 100%{box-shadow:0 0 0 0 rgba(255,216,61,.55);}
+    50%{box-shadow:0 0 0 14px rgba(255,216,61,0);}
+  }
+  @keyframes btnShine{
+    0%{left:-60%;}
+    45%{left:130%;}
+    100%{left:130%;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .btn{animation:none;}
+    .btn::after{animation:none; display:none;}
+  }
+
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:60px 0;
+  }
+  footer{padding-bottom:100px}
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width:640px){
+    body{font-size:18px;line-height:1.65}
+    .wrap{padding:0 18px}
+    header{padding:36px 0 4px}
+    h1{font-size:29px;line-height:1.2}
+    .dek{font-size:17px;margin-bottom:26px}
+    .hero-sub{padding-top:22px}
+    .hero-sub p{font-size:17px}
+    h2.sec{font-size:24px;margin:46px 0 16px}
+    h3.sub{font-size:20px;margin-top:32px}
+    .pull{font-size:20px;margin:32px 0;padding-left:18px;border-left-width:4px}
+    .card{padding:26px 20px;border-radius:14px;margin:28px 0}
+    .continue{margin:40px 0 24px}
+    .btn{display:block;text-align:center;padding:18px 20px;font-size:18px}
+    hr.rule{margin:44px 0}
+    footer{padding-bottom:64px}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <p class="eyebrow">Владельцам СТО</p>
+  <h1>Как настроить механизм привлечения клиентов и не переживать, что завтра боксы будут пустыми</h1>
+  <p class="dek">Статья для тех, кто устал от нехватки клиентов, дешёвых записей и мысли «а может, бросить всё это и пойти самому крутить гайки».</p>
+  <div class="hero-sub">
+    <h2>Как за 2–3 месяца превратить ваш автосервис в место, которому доверяют и куда хочется возвращаться</h2>
+    <p>Система от маркетолога, который специализируется на автосервисах и понимает, чего не хватает вашим клиентам. Без миллиона вложений на тесты того, что не работает.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="card">
+    <p class="card-label">Эта система подойдёт тебе, если ты узнаёшь себя</p>
+    <ul class="check">
+      <li>Устал от сезонных провалов: клиенты то есть, то нет.</li>
+      <li>Делал попытки в привлечении клиентов, но они не дали результата.</li>
+      <li>Платишь за маркетинг, ведение соцсетей, настройку карт — а результата нет.</li>
+      <li>К тебе приезжают дешёвые клиенты, которые <mark>скорее занимают место, чем приносят прибыль</mark>.</li>
+    </ul>
+  </div>
+
+  <h2 class="sec">Почему так происходит? Ведь ты уже не первый год в этом бизнесе</h2>
+  <p>Работаешь не хуже, а может, и лучше других. Вкладываешь деньги в оборудование, в запчасти, в мастеров. Честно делаешь свою работу — но клиентов всё равно не хватает.</p>
+  <p>Думаешь о продвижении: вкладываешь деньги в рекламу, Авито, Instagram, карты.</p>
+  <p>Но в итоге это <mark>либо приносит слабый результат, либо вообще никакого</mark>.</p>
+
+  <h2 class="sec">Откуда вдруг взялась эта проблема?</h2>
+  <p>В теории всё кажется простым. Один раз правильно настраиваешь механизм по привлечению клиентов — и:</p>
+  <ul class="check">
+    <li>это даёт поток с записью на месяцы вперёд;</li>
+    <li>клиенты советуют тебя друг другу;</li>
+    <li>боксы заполнены;</li>
+    <li>ты стабильно получаешь прибыль и уверен в завтрашнем дне.</li>
+  </ul>
+
+  <p class="pull">А в реальности процесс привлечения клиентов выглядит как запуск дизельной машины в −20. Мягко говоря, непредсказуемо.</p>
+
+  <p>А попытки этот процесс настроить и сделать понятным создают ещё больше вопросов. Ты тестируешь несколько каналов, которые работают у конкурентов, но почему-то они дают слабый результат — а человек, который отвечает за настройку рекламы, разводит руками.</p>
+
+  <h2 class="sec">Что в итоге? Думаю, ты не подозревал, но…</h2>
+  <p>Отсутствие стабильного количества клиентов <mark>не даёт возможности развиваться</mark>.</p>
+  <p>Чувствуешь себя не очень, начинаешь больше работать — как итог, больше уставать и хуже высыпаться. Бизнес становится источником стресса, и ты переносишь этот стресс на родных и близких.</p>
+  <p>Ты пытаешься разобраться в сайте, в SEO, в настройке карт. Но у тебя нет на это времени.</p>
+  <p>Ты — владелец СТО, а не маркетолог. И пока ты пытаешься быть всем сразу, <mark>твой бизнес стоит на месте</mark>.</p>
+
+  <hr class="rule">
+
+  <h2 class="sec">Правда в том, что нет одного <span class="hl">механизма</span>, который решает всё</h2>
+  <p>Нельзя просто «запустить рекламу» и ждать чуда. Нельзя просто «сделать сайт» и надеяться, что клиенты придут.</p>
+  <p class="pull">Проблема не в инструментах, а в том, как их используют.</p>
+  <p>Тебе нужен не набор случайных инструментов, а <mark>простой понятный механизм привлечения клиентов</mark> — это 90% решения.</p>
+
+  <div class="continue">
+    <p>Дальше — кто я и как именно устроен этот механизм на практике.</p>
+    <a class="btn" href="sto-article-2.html">Читать далее</a>
+  </div>
+
+  <p class="note">Я уверен в том, что делаю.</p>
+</main>
+
+</body>
+</html>
