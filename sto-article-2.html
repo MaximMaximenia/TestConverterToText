@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Механизм клиентов для СТО — продолжение</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112002479', 'ym');
+
+    ym(112002479, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/112002479" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --tint:#fffaea;
+    --ink:#1b1b1b;
+    --muted:#6a6a6a;
+    --line:#ebe7dd;
+    --yellow:#ffd83d;
+    --mark:#ffe873;
+    --yellow-soft:#fff0a8;
+    --font:"Golos Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font);
+    font-size:19px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:700px;margin:0 auto;padding:0 22px}
+
+  /* ---------- ACCENTS ---------- */
+  mark{
+    background:var(--mark);
+    color:inherit;
+    padding:.14em .28em;
+    border-radius:3px;
+    -webkit-box-decoration-break:clone;
+    box-decoration-break:clone;
+  }
+  .hl{
+    background:var(--yellow);
+    padding:2px 6px;
+    border-radius:3px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{padding:44px 0 8px}
+  .eyebrow{
+    display:inline-block;
+    background:var(--yellow);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border-radius:4px;
+    margin:0 0 24px;
+  }
+  .back{
+    display:inline-block;
+    color:var(--muted);
+    font-size:14.5px;
+    text-decoration:none;
+    margin-bottom:18px;
+  }
+  .back:hover{color:var(--ink);}
+
+  /* ---------- TEXT ---------- */
+  h2.sec{
+    font-weight:800;
+    font-size:clamp(24px,4vw,32px);
+    line-height:1.25;
+    letter-spacing:-.02em;
+    margin:44px 0 20px;
+  }
+  h2.sec:first-of-type{margin-top:8px;}
+  h3.sub{
+    font-weight:700;
+    font-size:21px;
+    margin:40px 0 12px;
+  }
+  p{margin:0 0 20px}
+  strong{font-weight:600}
+
+  /* ---------- CLIENT TYPES ---------- */
+  .type{
+    border-top:1px solid var(--line);
+    padding:28px 0 10px;
+  }
+  .type .tag{
+    display:block;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+  .type h3{
+    font-weight:800;
+    font-size:24px;
+    letter-spacing:-.015em;
+    margin:0 0 12px;
+  }
+  .type.hot h3 span{
+    background:var(--yellow);
+    padding:2px 10px;
+    border-radius:4px;
+  }
+
+  .pull{
+    font-weight:700;
+    font-size:clamp(21px,3.5vw,27px);
+    line-height:1.38;
+    letter-spacing:-.015em;
+    border-left:5px solid var(--yellow);
+    padding:4px 0 4px 24px;
+    margin:44px 0;
+  }
+  .note{
+    font-size:18px;
+    color:var(--muted);
+  }
+
+  /* ---------- INLINE IMAGE ---------- */
+  .inline-img{
+    margin:32px 0;
+    text-align:center;
+  }
+  .inline-img img{
+    max-width:100%;
+    height:auto;
+    width:260px;
+    border-radius:14px;
+  }
+
+  /* ---------- THREE POINTS ---------- */
+  .points{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin:30px 0 26px;
+  }
+  .point{
+    background:var(--yellow);
+    border-radius:14px;
+    padding:26px 16px;
+    text-align:center;
+    font-weight:800;
+    font-size:20px;
+    letter-spacing:-.01em;
+  }
+
+  /* ---------- VIDEO REVIEWS ---------- */
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    margin:26px 0 20px;
+  }
+  .review-card{
+    position:relative;
+    border-radius:14px;
+    overflow:hidden;
+    aspect-ratio:9/14;
+    cursor:pointer;
+    background:linear-gradient(160deg,#2b2b2b,#161616);
+  }
+  .review-video{
+    display:none;
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:contain;
+    background:#000;
+    z-index:3;
+  }
+  .review-scrim{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(0deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 45%);
+  }
+  .review-ribbon{
+    position:absolute; z-index:4; top:16px; left:-38px;
+    width:150px; padding:6px 0;
+    background:var(--yellow); color:var(--ink);
+    font-weight:800; font-size:12px; text-align:center;
+    transform:rotate(-45deg);
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+  }
+  .play-btn{
+    position:absolute; z-index:2; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:50px; height:50px;
+    border-radius:50%;
+    background:rgba(255,255,255,.92);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .review-card:hover .play-btn{transform:translate(-50%,-50%) scale(1.08); background:var(--yellow);}
+  .play-btn svg{width:16px; height:16px; margin-left:2px;}
+  .video-spinner{
+    display:none;
+    position:absolute; inset:0; z-index:5;
+    align-items:center; justify-content:center;
+    background:rgba(0,0,0,.35);
+  }
+  .video-spinner::after{
+    content:'';
+    width:36px; height:36px;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,.3);
+    border-top-color:#fff;
+    animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .review-card.loading .video-spinner{display:flex;}
+  .review-card.playing .play-btn,
+  .review-card.playing .review-scrim,
+  .review-card.playing .review-ribbon{display:none;}
+  .review-card.playing{cursor:default;}
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:var(--tint);
+    border:2px solid var(--yellow);
+    border-radius:20px;
+    padding:38px 32px;
+    margin:56px 0 30px;
+  }
+  .cta h2{
+    font-weight:800;
+    font-size:clamp(26px,4.4vw,34px);
+    line-height:1.2;
+    letter-spacing:-.02em;
+    margin:0 0 16px;
+  }
+  .cta ul{list-style:none;padding:0;margin:26px 0 0}
+  .cta li{
+    padding:18px 0;
+    border-top:1px solid #f0e6c4;
+  }
+  .cta li b{
+    display:block;
+    font-weight:700;
+    font-size:19px;
+    margin-bottom:4px;
+  }
+  .cta li span{color:var(--muted);font-size:17px}
+
+  /* ---------- ARROW DOWN ---------- */
+  .arrow-down{
+    display:flex;
+    justify-content:center;
+    margin:8px 0 26px;
+    animation:arrowBounce 1.6s ease-in-out infinite;
+  }
+  .arrow-circle{
+    width:44px; height:44px;
+    border-radius:50%;
+    background:var(--yellow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 16px -6px rgba(0,0,0,.3);
+  }
+  .arrow-circle svg{width:20px; height:20px;}
+  @keyframes arrowBounce{
+    0%, 100%{transform:translateY(0);}
+    50%{transform:translateY(9px);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .arrow-down{animation:none;}
+  }
+
+  /* ---------- PRICE REVEAL ---------- */
+  .price-reveal{
+    background:#fff;
+    border:1.5px solid var(--yellow);
+    border-radius:14px;
+    padding:24px;
+    margin:28px 0 24px;
+    text-align:center;
+  }
+  .price-tag-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .price-tag-old{
+    position:relative;
+    font-size:24px;
+    font-weight:800;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .price-tag-old::after{
+    content:'';
+    position:absolute;
+    left:-6px; right:-6px; top:52%;
+    height:3px;
+    background:#c0392b;
+    transform:rotate(-6deg);
+    border-radius:2px;
+  }
+  .price-tag-arrow{
+    font-size:20px;
+    color:var(--muted);
+  }
+  .price-tag-new{
+    display:inline-block;
+    font-size:26px;
+    font-weight:800;
+    color:var(--ink);
+    background:var(--yellow);
+    padding:8px 20px;
+    border-radius:10px;
+    white-space:nowrap;
+  }
+  .price-reveal .urgency{
+    display:block;
+    font-size:14px;
+    font-weight:700;
+    color:#8a4b00;
+    background:#fff3d6;
+    padding:10px 14px;
+    border-radius:10px;
+    margin:0;
+  }
+
+  /* ---------- LEAD FORM ---------- */
+  .lead-form{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:30px;
+  }
+  .lead-form input{
+    width:100%;
+    font-family:inherit;
+    font-size:17px;
+    padding:16px 18px;
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    color:var(--ink);
+    outline:none;
+    transition:border-color .2s ease;
+  }
+  .lead-form input::placeholder{color:#a8a49a}
+  .lead-form input:focus{border-color:var(--yellow);}
+  #leadForm[hidden]{display:none;}
+
+  .btn{
+    position:relative;
+    display:inline-block;
+    width:100%;
+    background:var(--yellow);
+    color:var(--ink);
+    font-family:inherit;
+    font-weight:800;
+    font-size:19px;
+    text-decoration:none;
+    text-align:center;
+    padding:19px 36px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    overflow:hidden;
+    isolation:isolate;
+    box-shadow:0 0 0 0 rgba(255,216,61,.6);
+    animation:btnPulse 2.2s ease-in-out infinite;
+  }
+  .btn::after{
+    content:"";
+    position:absolute;
+    top:0; left:-60%;
+    width:40%; height:100%;
+    background:linear-gradient(115deg, transparent, rgba(255,255,255,.75), transparent);
+    transform:skewX(-20deg);
+    animation:btnShine 2.6s ease-in-out infinite;
+    z-index:1;
+  }
+  .btn:active{transform:translateY(1px);}
+  @keyframes btnPulse{
+    0%, 100%{box-shadow:0 0 0 0 rgba(255,216,61,.55);}
+    50%{box-shadow:0 0 0 14px rgba(255,216,61,0);}
+  }
+  @keyframes btnShine{
+    0%{left:-60%;}
+    45%{left:130%;}
+    100%{left:130%;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .btn{animation:none;}
+    .btn::after{animation:none; display:none;}
+  }
+
+  .form-success{
+    background:#eefbe9;
+    border:1.5px solid #bfe6ac;
+    color:#2c5c1c;
+    font-weight:600;
+    font-size:17px;
+    border-radius:12px;
+    padding:20px 22px;
+    margin-top:30px;
+  }
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(27,27,27,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    position:relative;
+    background:#fff;
+    width:100%;
+    max-width:420px;
+    max-height:88vh;
+    overflow-y:auto;
+    border-radius:20px;
+    padding:34px 28px 28px;
+  }
+  .modal-close{
+    position:absolute;
+    top:14px; right:14px;
+    width:34px; height:34px;
+    border:none;
+    background:var(--tint);
+    border-radius:50%;
+    font-size:19px;
+    line-height:1;
+    color:var(--muted);
+    cursor:pointer;
+  }
+  .modal h3{
+    font-weight:800;
+    font-size:22px;
+    letter-spacing:-.015em;
+    margin:0 0 8px;
+  }
+  .modal-sub{
+    color:var(--muted);
+    font-size:15.5px;
+    margin:0 0 22px;
+  }
+
+  /* ---------- ANTI-BOT SHAPE CHECK ---------- */
+  .shape-check{margin:4px 0 2px;}
+  .shape-check p{
+    font-size:14.5px;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  .shapes{display:flex; gap:10px;}
+  .shape-btn{
+    flex:1;
+    aspect-ratio:1;
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    font-size:26px;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .shape-btn.selected{border-color:var(--yellow); background:var(--tint);}
+  .shape-error{
+    color:#c0392b;
+    font-size:13.5px;
+    margin-top:8px;
+    display:none;
+  }
+  .shape-error.show{display:block;}
+
+  .ps{
+    font-size:17px;
+    color:var(--muted);
+    border-left:3px solid var(--yellow);
+    padding-left:22px;
+    margin-bottom:0;
+  }
+  hr.rule{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:60px 0;
+  }
+  footer{padding-bottom:100px}
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width:640px){
+    body{font-size:18px;line-height:1.65}
+    .wrap{padding:0 18px}
+    header{padding:28px 0 4px}
+    h2.sec{font-size:24px;margin:36px 0 16px}
+    h3.sub{font-size:20px;margin-top:32px}
+    .pull{font-size:20px;margin:32px 0;padding-left:18px;border-left-width:4px}
+    .cta{padding:26px 20px;border-radius:14px;margin:40px 0 24px}
+    .arrow-down{margin:4px 0 20px;}
+    .arrow-circle{width:38px;height:38px;}
+    .arrow-circle svg{width:17px;height:17px;}
+    .price-reveal{padding:18px 16px;}
+    .price-tag-row{gap:10px;}
+    .price-tag-old{font-size:19px;}
+    .price-tag-arrow{font-size:16px;}
+    .price-tag-new{font-size:20px;padding:6px 14px;}
+    .price-reveal .urgency{font-size:13px;padding:9px 12px;}
+    .points{grid-template-columns:1fr;gap:10px}
+    .point{padding:20px 16px;font-size:19px}
+    .reviews-grid{grid-template-columns:1fr; gap:16px;}
+    .review-card{aspect-ratio:9/13;}
+    .type{padding:24px 0 6px}
+    .type h3{font-size:22px}
+    .btn{display:block;text-align:center;padding:18px 20px;font-size:18px}
+    .lead-form{gap:10px;margin-top:24px}
+    .lead-form input{padding:15px 16px;font-size:16px}
+    .form-success{margin-top:24px;padding:18px}
+    hr.rule{margin:44px 0}
+    footer{padding-bottom:64px}
+    .modal{padding:28px 20px 22px; border-radius:16px; max-height:92vh;}
+    .modal h3{font-size:20px;}
+    .shape-btn{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <a class="back" href="sto-article.html">← Назад к статье</a>
+  <p class="eyebrow">Владельцам СТО</p>
+</header>
+
+<main class="wrap">
+
+  <h2 class="sec">Привет, меня зовут Макс</h2>
+  <p>Я занимаюсь маркетингом для автосервисов. И я знаю, каково это — когда ты вкладываешь деньги, а результата нет.</p>
+
+  <div class="inline-img">
+    <img src="images/max-portrait.jpg" alt="Макс, маркетолог для автосервисов" loading="lazy">
+  </div>
+
+  <p>Я видел десятки СТО, которые пробовали разные подходы. И опускали руки, когда очередная гипотеза не давала результата.</p>
+  <p>Проблема не в инструментах, которыми вы пользуетесь, а в том, что <mark>никто не меряет результат и не отвечает за прибыль компании</mark>.</p>
+  <p>И тогда я собрал систему, которая работает иначе.</p>
+
+  <h2 class="sec">Как это работает</h2>
+  <p>Давай представим, как люди ищут автосервис. Есть три типа клиентов, и каждый на своей ступени осознания.</p>
+
+  <div class="type">
+    <span class="tag">Тип 1</span>
+    <h3>«Холодный»</h3>
+    <p>У него ещё нет проблемы. Машина ездит, он никого не ищет. Но рано или поздно что-то случится — и он начнёт искать. С ним можно работать через контент, который заставляет запомнить тебя: чтобы, когда что-то произойдёт, он не думая обратился к тебе.</p>
+  </div>
+
+  <div class="type">
+    <span class="tag">Тип 2</span>
+    <h3>«Тёплый»</h3>
+    <p>Он уже знает, что проблема есть, но не горит. В целом не против что-то сделать, давно собирается на ТО. Но откладывает: то времени нет, то денег, то «потом как-нибудь». С ним хорошо работать, показывая, что будет, если откладывать. Что будет с машиной. Что будет с бюджетом. Что будет, если проблема вырастет.</p>
+  </div>
+
+  <div class="type hot">
+    <span class="tag">Тип 3</span>
+    <h3><span>«Горячий»</span></h3>
+    <p>Он уже знает, что ему нужно, и ищет конкретную услугу. Забивает в поиск: «замена ремня ГРМ цена», «развал-схождение рядом». Сравнивает сайты. Смотрит, где понятнее, где цены, где запись. С ним работают через сайт и рекламу в поиске и на картах — <mark>он уже готов платить</mark>.</p>
+  </div>
+
+  <h3 class="sub">А теперь главное</h3>
+  <p>Многие делают расфокус на все сегменты сразу, вместо того чтобы начать с самого горячего и платёжеспособного.</p>
+  <p>Почему? Потому что горячий клиент <mark>уже ищет</mark>. Ему нужно просто показать тебя в момент, когда он ищет.</p>
+
+  <h2 class="sec">Что это даёт</h2>
+  <p>Такой подход помогает раз и навсегда забыть про нехватку клиентов.</p>
+  <p>Ты закрываешь три точки: поиск, карты, сайт. Дальше <mark>клиент сам тебя находит и звонит</mark>.</p>
+  <p>Формируется правильное присутствие — тебя видно там, где ищут. Благодаря этому растёт поток горячих клиентов, загрузка подъёмников, выручка.</p>
+  <p>Вместе с заявками на место встают и другие процессы: механики перестают простаивать, запись становится плотнее, средний чек растёт.</p>
+
+  <hr class="rule">
+
+  <h2 class="sec">Весь секрет в том, чтобы закрыть три главные точки</h2>
+  <div class="points">
+    <div class="point">Сайт</div>
+    <div class="point">Поиск</div>
+    <div class="point">Карты</div>
+  </div>
+  <p>Именно там твой клиент принимает решение — <mark>ехать к тебе или к конкуренту</mark>.</p>
+  <p>Я реализую этот механизм под ключ — так, чтобы на фоне конкурентов вас было просто глупо не выбрать.</p>
+  <p class="pull">А главное — я делаю этот процесс измеримым, прозрачным и предсказуемым.</p>
+
+  <h2 class="sec">Вот кому я уже помог</h2>
+  <div class="reviews-grid">
+    <div class="review-card" onclick="playInlineVideo(this)">
+      <video class="review-video" playsinline preload="none">
+        <source src="videos/otziv1.mp4" type="video/mp4">
+        <source src="videos/otziv1.mov" type="video/quicktime">
+      </video>
+      <div class="review-scrim"></div>
+      <div class="video-spinner"></div>
+      <div class="review-ribbon">Отзыв 1</div>
+      <div class="play-btn"><svg viewBox="0 0 24 24" fill="#1b1b1b"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+    <div class="review-card" onclick="playInlineVideo(this)">
+      <video class="review-video" playsinline preload="none">
+        <source src="videos/otziv2.mp4" type="video/mp4">
+        <source src="videos/otziv2.mov" type="video/quicktime">
+      </video>
+      <div class="review-scrim"></div>
+      <div class="video-spinner"></div>
+      <div class="review-ribbon">Отзыв 2</div>
+      <div class="play-btn"><svg viewBox="0 0 24 24" fill="#1b1b1b"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+    <div class="review-card" onclick="playInlineVideo(this)">
+      <video class="review-video" playsinline preload="none">
+        <source src="videos/otziv3.mp4" type="video/mp4">
+        <source src="videos/otziv3.mov" type="video/quicktime">
+      </video>
+      <div class="review-scrim"></div>
+      <div class="video-spinner"></div>
+      <div class="review-ribbon">Отзыв 3</div>
+      <div class="play-btn"><svg viewBox="0 0 24 24" fill="#1b1b1b"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+  </div>
+
+  <p>Сейчас ты можешь записаться на консультацию со мной. Это Zoom-встреча на 30 минут, где мы разберём именно твою ситуацию.</p>
+
+  <div class="arrow-down" aria-hidden="true">
+    <span class="arrow-circle">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v13M6 13l6 6 6-6" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </div>
+
+  <div class="cta" id="contact">
+    <h2>Консультация, где разберём твой бизнес</h2>
+
+    <ul>
+      <li><b>Анализ конкурентов</b><span>К кому уезжают твои клиенты.</span></li>
+      <li><b>Аудит твоих карт</b><span>Как ты выглядишь в Яндекс.Картах и 2ГИС.</span></li>
+      <li><b>Аудит сайта</b><span>Что мешает клиенту записаться.</span></li>
+      <li><b>План действий</b><span>Что чинить в первую очередь, чтобы получить больше клиентов уже на этой неделе.</span></li>
+    </ul>
+
+    <div class="price-reveal">
+      <div class="price-tag-row">
+        <span class="price-tag-old">4 990 ₽</span>
+        <span class="price-tag-arrow">→</span>
+        <span class="price-tag-new">Бесплатно</span>
+      </div>
+      <p class="urgency">⏳ Ещё 2 дня провожу такие консультации бесплатно.</p>
+    </div>
+
+    <button type="button" class="btn" id="openModalBtn">Записаться на консультацию</button>
+  </div>
+
+  <p class="note">Я уверен в том, что делаю.</p>
+</main>
+
+<footer class="wrap">
+  <p class="ps">P.S. Если тебе понравится консультация и ты решишь, что я тот человек, которому можно доверить маркетинг твоего автосервиса, — мы обсудим первые шаги. Если нет — ты уйдёшь с чётким планом действий. В любом случае ты получишь больше, чем вложил: время, которое ты потратишь на консультацию, — это инвестиция в твой бизнес.</p>
+</footer>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
+    <h3>Оставьте заявку</h3>
+    <p class="modal-sub">Напишу вам в Telegram в течение дня — оставьте свой юзернейм, чтобы я мог связаться именно там, а не по телефону.</p>
+
+    <form id="leadForm" class="lead-form">
+      <input type="text" id="leadName" name="name" placeholder="Ваше имя" autocomplete="name" required>
+      <input type="text" id="leadTelegram" name="telegram" placeholder="@username в Telegram" required>
+
+      <div class="shape-check">
+        <p>Подтвердите, что вы не бот — выберите треугольник</p>
+        <div class="shapes" id="shapeRow"></div>
+        <div class="shape-error" id="shapeError">Выберите треугольник ▲, чтобы отправить заявку</div>
+      </div>
+
+      <button type="submit" class="btn" id="ctaBtn">Отправить заявку</button>
+    </form>
+    <div class="form-success" id="formSuccess" hidden>Спасибо! Заявка отправлена — напишу вам в Telegram в течение дня.</div>
+  </div>
+</div>
+
+<script>
+  const TELEGRAM_BOT_TOKEN = "7724314363:AAG5OuDDLOTpz7DT0UjXPvWGkqdKENkGMiw";
+  const TELEGRAM_CHAT_ID = "636168342";
+
+  /* видеоотзывы */
+  function playInlineVideo(card){
+    const video = card.querySelector('video');
+    if (!video) return;
+    if (card.classList.contains('playing') || card.classList.contains('loading')) return;
+    card.classList.add('loading');
+    video.style.display = 'block';
+    video.setAttribute('controls', '');
+
+    const fail = () => {
+      card.classList.remove('loading', 'playing');
+      video.style.display = 'none';
+      alert('Не удалось загрузить видео. Проверьте формат файла — надёжнее всего работает .mp4.');
+    };
+    const succeed = () => {
+      card.classList.remove('loading');
+      card.classList.add('playing');
+    };
+
+    video.addEventListener('playing', succeed, { once: true });
+    video.addEventListener('error', fail, { once: true });
+    video.play().catch(fail);
+
+    setTimeout(() => {
+      if (card.classList.contains('loading')) fail();
+    }, 12000);
+  }
+
+  /* попап */
+  const overlay = document.getElementById('modalOverlay');
+  document.getElementById('openModalBtn').addEventListener('click', () => overlay.classList.add('open'));
+  document.getElementById('modalClose').addEventListener('click', () => overlay.classList.remove('open'));
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('open'); });
+
+  /* простая защита от ботов — выбрать треугольник среди фигур */
+  const shapes = [
+    { icon: '●', name: 'circle' },
+    { icon: '■', name: 'square' },
+    { icon: '▲', name: 'triangle' },
+    { icon: '★', name: 'star' }
+  ];
+  for (let i = shapes.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shapes[i], shapes[j]] = [shapes[j], shapes[i]];
+  }
+  const shapeRow = document.getElementById('shapeRow');
+  const shapeError = document.getElementById('shapeError');
+  let selectedShape = null;
+  shapes.forEach((s) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'shape-btn';
+    btn.textContent = s.icon;
+    btn.setAttribute('aria-label', s.name);
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.shape-btn').forEach((b) => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedShape = s.name;
+      shapeError.classList.remove('show');
+    });
+    shapeRow.appendChild(btn);
+  });
+
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    if (selectedShape !== 'triangle') {
+      shapeError.classList.add('show');
+      return;
+    }
+
+    const name = document.getElementById('leadName').value.trim();
+    const telegram = document.getElementById('leadTelegram').value.trim();
+    if(!name || !telegram) return;
+
+    const message = `🔧 Заявка со статьи "Механизм клиентов для СТО" (стр. 2)\nИмя: ${name}\nTelegram: ${telegram}\nВремя: ${new Date().toLocaleString('ru-RU')}\nОткуда: ${document.referrer || 'прямой заход'}`;
+    fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`)
+      .catch(() => {});
+
+    document.getElementById('leadForm').hidden = true;
+    document.getElementById('formSuccess').hidden = false;
+  });
+</script>
+
+</body>
+</html>
