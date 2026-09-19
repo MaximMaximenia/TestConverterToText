@@ -141,6 +141,18 @@
     color:var(--muted);
   }
 
+  /* ---------- INLINE IMAGE ---------- */
+  .inline-img{
+    margin:32px 0;
+    text-align:center;
+  }
+  .inline-img img{
+    max-width:100%;
+    height:auto;
+    width:260px;
+    border-radius:14px;
+  }
+
   /* ---------- THREE POINTS ---------- */
   .points{
     display:grid;
@@ -158,28 +170,72 @@
     letter-spacing:-.01em;
   }
 
-  /* ---------- CASES ---------- */
-  .case{
-    display:flex;
-    align-items:center;
-    gap:16px;
-    border:1px solid var(--line);
+  /* ---------- VIDEO REVIEWS ---------- */
+  .reviews-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    margin:26px 0 20px;
+  }
+  .review-card{
+    position:relative;
     border-radius:14px;
-    padding:22px;
-    margin-bottom:14px;
-    color:var(--muted);
-    font-size:17px;
+    overflow:hidden;
+    aspect-ratio:9/14;
+    cursor:pointer;
+    background:linear-gradient(160deg,#2b2b2b,#161616);
   }
-  .case b{
-    flex:none;
-    width:38px;height:38px;
-    display:flex;align-items:center;justify-content:center;
-    background:var(--yellow);
+  .review-video{
+    display:none;
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:contain;
+    background:#000;
+    z-index:3;
+  }
+  .review-scrim{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(0deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 45%);
+  }
+  .review-ribbon{
+    position:absolute; z-index:4; top:16px; left:-38px;
+    width:150px; padding:6px 0;
+    background:var(--yellow); color:var(--ink);
+    font-weight:800; font-size:12px; text-align:center;
+    transform:rotate(-45deg);
+    box-shadow:0 4px 10px rgba(0,0,0,.25);
+  }
+  .play-btn{
+    position:absolute; z-index:2; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:50px; height:50px;
     border-radius:50%;
-    color:var(--ink);
-    font-weight:800;
-    font-size:16px;
+    background:rgba(255,255,255,.92);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .2s ease, background .2s ease;
   }
+  .review-card:hover .play-btn{transform:translate(-50%,-50%) scale(1.08); background:var(--yellow);}
+  .play-btn svg{width:16px; height:16px; margin-left:2px;}
+  .video-spinner{
+    display:none;
+    position:absolute; inset:0; z-index:5;
+    align-items:center; justify-content:center;
+    background:rgba(0,0,0,.35);
+  }
+  .video-spinner::after{
+    content:'';
+    width:36px; height:36px;
+    border-radius:50%;
+    border:3px solid rgba(255,255,255,.3);
+    border-top-color:#fff;
+    animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .review-card.loading .video-spinner{display:flex;}
+  .review-card.playing .play-btn,
+  .review-card.playing .review-scrim,
+  .review-card.playing .review-ribbon{display:none;}
+  .review-card.playing{cursor:default;}
 
   /* ---------- CTA ---------- */
   .cta{
@@ -390,13 +446,14 @@
     .cta{padding:26px 20px;border-radius:14px;margin:40px 0 24px}
     .points{grid-template-columns:1fr;gap:10px}
     .point{padding:20px 16px;font-size:19px}
+    .reviews-grid{grid-template-columns:1fr; gap:16px;}
+    .review-card{aspect-ratio:9/13;}
     .type{padding:24px 0 6px}
     .type h3{font-size:22px}
     .btn{display:block;text-align:center;padding:18px 20px;font-size:18px}
     .lead-form{gap:10px;margin-top:24px}
     .lead-form input{padding:15px 16px;font-size:16px}
     .form-success{margin-top:24px;padding:18px}
-    .case{padding:18px;gap:14px}
     hr.rule{margin:44px 0}
     footer{padding-bottom:64px}
     .modal{padding:28px 20px 22px; border-radius:16px; max-height:92vh;}
@@ -416,6 +473,11 @@
 
   <h2 class="sec">Привет, меня зовут Макс</h2>
   <p>Я занимаюсь маркетингом для автосервисов. И я знаю, каково это — когда ты вкладываешь деньги, а результата нет.</p>
+
+  <div class="inline-img">
+    <img src="images/max-portrait.jpg" alt="Макс, маркетолог для автосервисов" loading="lazy">
+  </div>
+
   <p>Я видел десятки СТО, которые пробовали разные подходы. И каждый раз на вопрос «что пробовали и что давало результат» слышал одно и то же:</p>
   <p class="pull">«Ну, там вроде… наверное… скорее всего, вот это работало».</p>
   <p>Проблема не в инструментах, которыми вы пользуетесь, а в том, что <mark>никто не меряет результат и не отвечает за прибыль компании</mark>.</p>
@@ -464,9 +526,38 @@
   <p>Я реализую этот механизм под ключ.</p>
 
   <h2 class="sec">Вот кому я реализовал этот механизм под ключ</h2>
-  <div class="case"><b>01</b>Кейс — добавить</div>
-  <div class="case"><b>02</b>Кейс — добавить</div>
-  <div class="case"><b>03</b>Кейс — добавить</div>
+  <div class="reviews-grid">
+    <div class="review-card" onclick="playInlineVideo(this)">
+      <video class="review-video" playsinline preload="none">
+        <source src="videos/otziv1.mp4" type="video/mp4">
+        <source src="videos/otziv1.mov" type="video/quicktime">
+      </video>
+      <div class="review-scrim"></div>
+      <div class="video-spinner"></div>
+      <div class="review-ribbon">Отзыв 1</div>
+      <div class="play-btn"><svg viewBox="0 0 24 24" fill="#1b1b1b"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+    <div class="review-card" onclick="playInlineVideo(this)">
+      <video class="review-video" playsinline preload="none">
+        <source src="videos/otziv2.mp4" type="video/mp4">
+        <source src="videos/otziv2.mov" type="video/quicktime">
+      </video>
+      <div class="review-scrim"></div>
+      <div class="video-spinner"></div>
+      <div class="review-ribbon">Отзыв 2</div>
+      <div class="play-btn"><svg viewBox="0 0 24 24" fill="#1b1b1b"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+    <div class="review-card" onclick="playInlineVideo(this)">
+      <video class="review-video" playsinline preload="none">
+        <source src="videos/otziv3.mp4" type="video/mp4">
+        <source src="videos/otziv3.mov" type="video/quicktime">
+      </video>
+      <div class="review-scrim"></div>
+      <div class="video-spinner"></div>
+      <div class="review-ribbon">Отзыв 3</div>
+      <div class="play-btn"><svg viewBox="0 0 24 24" fill="#1b1b1b"><path d="M8 5v14l11-7z"/></svg></div>
+    </div>
+  </div>
 
   <div class="cta" id="contact">
     <h2>Бесплатная консультация</h2>
@@ -513,6 +604,34 @@
 <script>
   const TELEGRAM_BOT_TOKEN = "7724314363:AAG5OuDDLOTpz7DT0UjXPvWGkqdKENkGMiw";
   const TELEGRAM_CHAT_ID = "636168342";
+
+  /* видеоотзывы */
+  function playInlineVideo(card){
+    const video = card.querySelector('video');
+    if (!video) return;
+    if (card.classList.contains('playing') || card.classList.contains('loading')) return;
+    card.classList.add('loading');
+    video.style.display = 'block';
+    video.setAttribute('controls', '');
+
+    const fail = () => {
+      card.classList.remove('loading', 'playing');
+      video.style.display = 'none';
+      alert('Не удалось загрузить видео. Проверьте формат файла — надёжнее всего работает .mp4.');
+    };
+    const succeed = () => {
+      card.classList.remove('loading');
+      card.classList.add('playing');
+    };
+
+    video.addEventListener('playing', succeed, { once: true });
+    video.addEventListener('error', fail, { once: true });
+    video.play().catch(fail);
+
+    setTimeout(() => {
+      if (card.classList.contains('loading')) fail();
+    }, 12000);
+  }
 
   /* попап */
   const overlay = document.getElementById('modalOverlay');
