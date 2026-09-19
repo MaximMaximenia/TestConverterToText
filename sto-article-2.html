@@ -7,6 +7,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=112002479', 'ym');
+
+    ym(112002479, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/112002479" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 <style>
   :root{
     --bg:#ffffff;
@@ -215,6 +230,7 @@
   }
   .lead-form input::placeholder{color:#a8a49a}
   .lead-form input:focus{border-color:var(--yellow);}
+  #leadForm[hidden]{display:none;}
 
   .btn{
     position:relative;
@@ -272,6 +288,83 @@
     margin-top:30px;
   }
 
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(27,27,27,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:100;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    position:relative;
+    background:#fff;
+    width:100%;
+    max-width:420px;
+    max-height:88vh;
+    overflow-y:auto;
+    border-radius:20px;
+    padding:34px 28px 28px;
+  }
+  .modal-close{
+    position:absolute;
+    top:14px; right:14px;
+    width:34px; height:34px;
+    border:none;
+    background:var(--tint);
+    border-radius:50%;
+    font-size:19px;
+    line-height:1;
+    color:var(--muted);
+    cursor:pointer;
+  }
+  .modal h3{
+    font-weight:800;
+    font-size:22px;
+    letter-spacing:-.015em;
+    margin:0 0 8px;
+  }
+  .modal-sub{
+    color:var(--muted);
+    font-size:15.5px;
+    margin:0 0 22px;
+  }
+
+  /* ---------- ANTI-BOT SHAPE CHECK ---------- */
+  .shape-check{margin:4px 0 2px;}
+  .shape-check p{
+    font-size:14.5px;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  .shapes{display:flex; gap:10px;}
+  .shape-btn{
+    flex:1;
+    aspect-ratio:1;
+    border:1.5px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    font-size:26px;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .shape-btn.selected{border-color:var(--yellow); background:var(--tint);}
+  .shape-error{
+    color:#c0392b;
+    font-size:13.5px;
+    margin-top:8px;
+    display:none;
+  }
+  .shape-error.show{display:block;}
+
   .ps{
     font-size:17px;
     color:var(--muted);
@@ -306,6 +399,9 @@
     .case{padding:18px;gap:14px}
     hr.rule{margin:44px 0}
     footer{padding-bottom:64px}
+    .modal{padding:28px 20px 22px; border-radius:16px; max-height:92vh;}
+    .modal h3{font-size:20px;}
+    .shape-btn{font-size:22px;}
   }
 </style>
 </head>
@@ -382,12 +478,7 @@
       <li><b>План действий</b><span>Что чинить в первую очередь, чтобы получить больше клиентов уже на этой неделе.</span></li>
     </ul>
 
-    <form id="leadForm" class="lead-form">
-      <input type="text" id="leadName" name="name" placeholder="Ваше имя" autocomplete="name" required>
-      <input type="tel" id="leadPhone" name="phone" placeholder="Телефон" autocomplete="tel" required>
-      <button type="submit" class="btn" id="ctaBtn">Записаться на консультацию</button>
-    </form>
-    <div class="form-success" id="formSuccess" hidden>Спасибо! Заявка отправлена — свяжусь с вами в ближайшее время.</div>
+    <button type="button" class="btn" id="openModalBtn">Записаться на консультацию</button>
   </div>
 
   <p class="note">Я уверен в том, что делаю.</p>
@@ -397,17 +488,81 @@
   <p class="ps">P.S. Если тебе понравится консультация и ты решишь, что я тот человек, которому можно доверить маркетинг твоего автосервиса, — мы обсудим первые шаги. Если нет — ты уйдёшь с чётким планом действий. В любом случае ты получишь больше, чем вложил: время, которое ты потратишь на консультацию, — это инвестиция в твой бизнес.</p>
 </footer>
 
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button type="button" class="modal-close" id="modalClose" aria-label="Закрыть">×</button>
+    <h3>Оставьте заявку</h3>
+    <p class="modal-sub">Напишу вам в Telegram в течение дня — оставьте свой юзернейм, чтобы я мог связаться именно там, а не по телефону.</p>
+
+    <form id="leadForm" class="lead-form">
+      <input type="text" id="leadName" name="name" placeholder="Ваше имя" autocomplete="name" required>
+      <input type="text" id="leadTelegram" name="telegram" placeholder="@username в Telegram" required>
+
+      <div class="shape-check">
+        <p>Подтвердите, что вы не бот — выберите треугольник</p>
+        <div class="shapes" id="shapeRow"></div>
+        <div class="shape-error" id="shapeError">Выберите треугольник ▲, чтобы отправить заявку</div>
+      </div>
+
+      <button type="submit" class="btn" id="ctaBtn">Отправить заявку</button>
+    </form>
+    <div class="form-success" id="formSuccess" hidden>Спасибо! Заявка отправлена — напишу вам в Telegram в течение дня.</div>
+  </div>
+</div>
+
 <script>
   const TELEGRAM_BOT_TOKEN = "7724314363:AAG5OuDDLOTpz7DT0UjXPvWGkqdKENkGMiw";
   const TELEGRAM_CHAT_ID = "636168342";
 
+  /* попап */
+  const overlay = document.getElementById('modalOverlay');
+  document.getElementById('openModalBtn').addEventListener('click', () => overlay.classList.add('open'));
+  document.getElementById('modalClose').addEventListener('click', () => overlay.classList.remove('open'));
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('open'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('open'); });
+
+  /* простая защита от ботов — выбрать треугольник среди фигур */
+  const shapes = [
+    { icon: '●', name: 'circle' },
+    { icon: '■', name: 'square' },
+    { icon: '▲', name: 'triangle' },
+    { icon: '★', name: 'star' }
+  ];
+  for (let i = shapes.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shapes[i], shapes[j]] = [shapes[j], shapes[i]];
+  }
+  const shapeRow = document.getElementById('shapeRow');
+  const shapeError = document.getElementById('shapeError');
+  let selectedShape = null;
+  shapes.forEach((s) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'shape-btn';
+    btn.textContent = s.icon;
+    btn.setAttribute('aria-label', s.name);
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.shape-btn').forEach((b) => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedShape = s.name;
+      shapeError.classList.remove('show');
+    });
+    shapeRow.appendChild(btn);
+  });
+
   document.getElementById('leadForm').addEventListener('submit', function(e){
     e.preventDefault();
-    const name = document.getElementById('leadName').value.trim();
-    const phone = document.getElementById('leadPhone').value.trim();
-    if(!name || !phone) return;
 
-    const message = `🔧 Заявка со статьи "Механизм клиентов для СТО" (стр. 2)\nИмя: ${name}\nТелефон: ${phone}\nВремя: ${new Date().toLocaleString('ru-RU')}\nОткуда: ${document.referrer || 'прямой заход'}`;
+    if (selectedShape !== 'triangle') {
+      shapeError.classList.add('show');
+      return;
+    }
+
+    const name = document.getElementById('leadName').value.trim();
+    const telegram = document.getElementById('leadTelegram').value.trim();
+    if(!name || !telegram) return;
+
+    const message = `🔧 Заявка со статьи "Механизм клиентов для СТО" (стр. 2)\nИмя: ${name}\nTelegram: ${telegram}\nВремя: ${new Date().toLocaleString('ru-RU')}\nОткуда: ${document.referrer || 'прямой заход'}`;
     fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`)
       .catch(() => {});
 
