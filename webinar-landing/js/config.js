@@ -32,11 +32,11 @@ window.SITE_CONFIG = {
   // Цены
   priceOld: "4 990 ₽",
   priceNew: "Бесплатно",
-  freeUntilText: "Бесплатный доступ ещё 2 дня — дальше по полной цене",
+  freeUntilText: "Только на этом запуске — дальше по полной цене",
 
   // Видео на главном экране
   videoSrc: "assets/webinar-preview.mp4",
-  videoPoster: "assets/video-poster.svg",
+  videoPoster: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
 
   // Имя эксперта
   expertName: "Мейнард Скринда",
