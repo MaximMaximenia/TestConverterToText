@@ -265,35 +265,84 @@
   }
   .cta li span{color:var(--muted);font-size:17px}
 
-  .price-trigger{
+  /* ---------- ARROW DOWN ---------- */
+  .arrow-down{
     display:flex;
-    align-items:baseline;
-    flex-wrap:wrap;
-    gap:12px;
-    margin:2px 0 14px;
+    justify-content:center;
+    margin:8px 0 26px;
+    animation:arrowBounce 1.6s ease-in-out infinite;
+  }
+  .arrow-circle{
+    width:44px; height:44px;
+    border-radius:50%;
+    background:var(--yellow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 6px 16px -6px rgba(0,0,0,.3);
+  }
+  .arrow-circle svg{width:20px; height:20px;}
+  @keyframes arrowBounce{
+    0%, 100%{transform:translateY(0);}
+    50%{transform:translateY(9px);}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .arrow-down{animation:none;}
+  }
+
+  /* ---------- VALUE CARD ---------- */
+  .value-card{
+    background:#fff;
+    border:1.5px solid var(--yellow);
+    border-radius:14px;
+    padding:22px 24px;
+    margin:2px 0 24px;
+  }
+  .value-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+  }
+  .value-row + .value-row{
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .value-label{
+    font-size:14.5px;
+    color:var(--muted);
+  }
+  .value-label-strong{
+    font-size:16.5px;
+    font-weight:700;
+    color:var(--ink);
   }
   .price-old{
-    font-size:17px;
+    font-size:18px;
     color:var(--muted);
     text-decoration:line-through;
+    white-space:nowrap;
   }
-  .price-new{
-    font-size:19px;
+  .price-new-badge{
+    display:inline-block;
+    font-size:21px;
     font-weight:800;
     color:var(--ink);
-    background:#fff;
-    padding:5px 12px;
-    border-radius:8px;
+    background:var(--yellow);
+    padding:7px 18px;
+    border-radius:9px;
+    white-space:nowrap;
   }
-  .urgency{
-    display:inline-block;
-    font-size:14.5px;
+  .value-card .urgency{
+    display:block;
+    font-size:14px;
     font-weight:700;
     color:#8a4b00;
     background:#fff3d6;
-    padding:9px 14px;
+    padding:10px 14px;
     border-radius:10px;
-    margin:0 0 22px;
+    margin:16px 0 0;
   }
 
   /* ---------- LEAD FORM ---------- */
@@ -475,8 +524,16 @@
     h3.sub{font-size:20px;margin-top:32px}
     .pull{font-size:20px;margin:32px 0;padding-left:18px;border-left-width:4px}
     .cta{padding:26px 20px;border-radius:14px;margin:40px 0 24px}
-    .price-new{font-size:17px;padding:4px 10px;}
-    .urgency{font-size:13.5px;padding:8px 12px;}
+    .arrow-down{margin:4px 0 20px;}
+    .arrow-circle{width:38px;height:38px;}
+    .arrow-circle svg{width:17px;height:17px;}
+    .value-card{padding:18px 16px;}
+    .value-row{gap:8px;}
+    .value-label{font-size:13.5px;}
+    .value-label-strong{font-size:15px;}
+    .price-old{font-size:16px;}
+    .price-new-badge{font-size:18px;padding:6px 14px;}
+    .value-card .urgency{font-size:13px;padding:9px 12px;}
     .points{grid-template-columns:1fr;gap:10px}
     .point{padding:20px 16px;font-size:19px}
     .reviews-grid{grid-template-columns:1fr; gap:16px;}
@@ -594,13 +651,27 @@
 
   <p>Сейчас ты можешь записаться на консультацию со мной. Это Zoom-встреча на 30 минут, где мы разберём именно твою ситуацию.</p>
 
+  <div class="arrow-down" aria-hidden="true">
+    <span class="arrow-circle">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v13M6 13l6 6 6-6" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </div>
+
   <div class="cta" id="contact">
     <h2>Бесплатная консультация</h2>
-    <div class="price-trigger">
-      <span class="price-old">4 990 ₽</span>
-      <span class="price-new">Сегодня бесплатно</span>
+
+    <div class="value-card">
+      <div class="value-row">
+        <span class="value-label">Обычная цена такого разбора</span>
+        <span class="price-old">4 990 ₽</span>
+      </div>
+      <div class="value-row">
+        <span class="value-label-strong">Для тебя сегодня</span>
+        <span class="price-new-badge">Бесплатно</span>
+      </div>
+      <p class="urgency">⏳ Ещё 2 дня провожу такие консультации бесплатно — дальше только платно.</p>
     </div>
-    <p class="urgency">⏳ Ещё 2 дня провожу такие консультации бесплатно — дальше только платно.</p>
+
     <ul>
       <li><b>Анализ конкурентов</b><span>К кому уезжают твои клиенты.</span></li>
       <li><b>Аудит твоих карт</b><span>Как ты выглядишь в Яндекс.Картах и 2ГИС.</span></li>
