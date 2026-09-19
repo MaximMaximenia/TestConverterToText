@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мейнард Скринда — Система продаж для экспертов</title>
+<meta name="description" content="Бесплатный вебинар по продажам для экспертов. Разбор системы, по которой клиенты покупают сами.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== ТАЙМЕР СВЕРХУ ===== -->
+<div class="timer-bar" id="timerBar">
+  <div class="timer-bar__inner">
+    <span class="timer-bar__text">До начала бесплатного вебинара:</span>
+    <div class="timer-bar__clock" id="countdown">
+      <div class="timer-unit"><span id="cd-days">00</span><small>дн</small></div>
+      <div class="timer-unit"><span id="cd-hours">00</span><small>ч</small></div>
+      <div class="timer-unit"><span id="cd-mins">00</span><small>мин</small></div>
+      <div class="timer-unit"><span id="cd-secs">00</span><small>сек</small></div>
+    </div>
+    <a href="#signup" class="timer-bar__cta">Записаться</a>
+  </div>
+</div>
+
+<!-- ===== ХЕДЕР ===== -->
+<header class="site-header">
+  <div class="container site-header__inner">
+    <div class="brand">MEINARD <span>SCRINDA</span></div>
+    <nav class="site-nav">
+      <a href="#about">Обо мне</a>
+      <a href="#who">Кому помогаю</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#signup" class="site-nav__cta">Записаться</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO + ВИДЕО ===== -->
+<section class="hero">
+  <div class="hero__glow"></div>
+  <div class="container hero__inner">
+    <p class="eyebrow">Бесплатный обучающий вебинар для экспертов</p>
+    <h1 class="hero__title">Продажи без «впаривания» —<br> система, после которой <span>клиенты покупают сами</span></h1>
+    <p class="hero__subtitle">Разберём, почему эксперты теряют клиентов на созвонах, как перестать бояться называть цену и выстроить продажи, которые не стыдно вести.</p>
+
+    <div class="video-block">
+      <div class="video-frame" id="videoFrame">
+        <video id="webinarVideo" playsinline controls poster="assets/video-poster.svg">
+          <source id="webinarVideoSrc" src="assets/webinar-preview.mp4" type="video/mp4">
+        </video>
+        <button class="video-play" id="videoPlayBtn" aria-label="Смотреть видео">
+          <span class="video-play__ring"></span>
+          <span class="video-play__icon">▶</span>
+        </button>
+        <div class="video-caption">
+          <strong>12 минут</strong> — и вы поймёте, почему сейчас продажи идут тяжело
+        </div>
+      </div>
+    </div>
+
+    <div class="price-callout">
+      <div class="price-callout__row">
+        <span class="price-old" id="priceOld">4 990 ₽</span>
+        <span class="price-new" id="priceNew">Бесплатно</span>
+      </div>
+      <p class="price-callout__note" id="priceNote">Бесплатный доступ ещё 2 дня — дальше по полной цене</p>
+    </div>
+
+    <a href="#signup" class="btn btn--gold btn--lg">Записаться на вебинар бесплатно</a>
+  </div>
+</section>
+
+<!-- ===== КОМУ ПОМОГАЮ ===== -->
+<section class="who" id="who">
+  <div class="container">
+    <p class="eyebrow eyebrow--center">Кому подойдёт вебинар</p>
+    <h2 class="section-title section-title--center">Помогаю, если вы —</h2>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-card__num">01</div>
+        <h3>Эксперт или консультант</h3>
+        <p>Разбираетесь в своём деле, но на созвонах теряетесь и «сливаете» клиента, который уже почти был готов купить.</p>
+      </div>
+      <div class="who-card who-card--accent">
+        <div class="who-card__num">02</div>
+        <h3>Продаёте через диагностики / созвоны</h3>
+        <p>Проводите много бесплатных консультаций, но конверсия в оплату низкая, а объяснить почему — не получается.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card__num">03</div>
+        <h3>Боитесь называть цену</h3>
+        <p>Занижаете чек, оправдываетесь, соглашаетесь на скидки — и в итоге работаете много, а зарабатываете мало.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card__num">04</div>
+        <h3>Растёте и хотите продавать системно</h3>
+        <p>Готовы выйти из ручных продаж «на харизме» и выстроить понятную систему, которая работает без выгорания.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ОБО МНЕ ===== -->
+<section class="about" id="about">
+  <div class="container about__inner">
+    <div class="about__photo">
+      <div class="about__photo-frame">
+        <span class="about__photo-placeholder">Фото эксперта<br><small>(заменить на своё)</small></span>
+      </div>
+      <div class="about__badge">
+        <strong>7+ лет</strong>
+        <span>в продажах и обучении</span>
+      </div>
+    </div>
+
+    <div class="about__content">
+      <p class="eyebrow">Обо мне</p>
+      <h2 class="section-title">Мейнард Скринда</h2>
+      <p class="about__lead">Практик продаж, который обучает экспертов закрывать сделки без давления и скриптов «впаривания».</p>
+
+      <p>За плечами — сотни личных продаж и работа с экспертами из ниш обучения, консалтинга, красоты и услуг. Я не даю теорию из книг: только то, что проверено на своих и чужих клиентах и реально увеличивает конверсию в оплату.</p>
+
+      <p>Моя система построена на одном принципе: человек должен захотеть купить сам, а не почувствовать, что его «дожимают». Именно поэтому у моих учеников выше средний чек и меньше отказов после созвона.</p>
+
+      <ul class="about__facts">
+        <li><span>200+</span>обученных экспертов</li>
+        <li><span>×2–3</span>средний рост конверсии в оплату</li>
+        <li><span>100%</span>без скриптов-«впариваний»</li>
+      </ul>
+
+      <a href="#signup" class="btn btn--dark">Хочу на вебинар</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ОТЗЫВЫ ===== -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <p class="eyebrow eyebrow--center">Отзывы</p>
+    <h2 class="section-title section-title--center">Что говорят те, кто уже работал со мной</h2>
+
+    <div class="reviews-grid">
+      <article class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p>«За месяц после разбора конверсия с созвонов выросла почти вдвое. Раньше боялась называть цену — теперь делаю это спокойно и без оправданий».</p>
+        <div class="review-card__author">
+          <span class="review-card__avatar">АК</span>
+          <div>
+            <strong>Анна К.</strong>
+            <small>эксперт по нутрициологии</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card review-card--accent">
+        <div class="review-card__stars">★★★★★</div>
+        <p>«Понял, почему клиенты уходили «подумать» и не возвращались. Изменил структуру созвона — из 10 диагностик стало закрываться 6 вместо 2».</p>
+        <div class="review-card__author">
+          <span class="review-card__avatar">ДМ</span>
+          <div>
+            <strong>Дмитрий М.</strong>
+            <small>консультант по маркетингу</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p>«Впервые продажи перестали ощущаться как что-то неприятное. Появилась система — и чувство, что я веду сделку, а не выпрашиваю оплату».</p>
+        <div class="review-card__author">
+          <span class="review-card__avatar">ЕС</span>
+          <div>
+            <strong>Елена С.</strong>
+            <small>коуч по отношениям</small>
+          </div>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="review-card__stars">★★★★★</div>
+        <p>«Поднял чек на 40% и не потерял ни одного клиента. До этого казалось, что дороже — значит будут отказываться. Оказалось — дело было не в цене».</p>
+        <div class="review-card__author">
+          <span class="review-card__avatar">ИВ</span>
+          <div>
+            <strong>Игорь В.</strong>
+            <small>эксперт по продажам в найм</small>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ЗАПИСЬ НА ВЕБИНАР ===== -->
+<section class="signup" id="signup">
+  <div class="signup__glow"></div>
+  <div class="container signup__inner">
+    <p class="eyebrow eyebrow--gold-on-dark">Осталось несколько мест</p>
+    <h2 class="signup__title">Забронируйте место на бесплатном вебинаре</h2>
+    <p class="signup__subtitle" id="signupSubtitle">Обычная цена — 4 990 ₽. Сейчас доступ бесплатный ещё 2 дня.</p>
+
+    <div class="signup__countdown" id="countdown2">
+      <div class="timer-unit timer-unit--light"><span id="cd2-days">00</span><small>дн</small></div>
+      <div class="timer-unit timer-unit--light"><span id="cd2-hours">00</span><small>ч</small></div>
+      <div class="timer-unit timer-unit--light"><span id="cd2-mins">00</span><small>мин</small></div>
+      <div class="timer-unit timer-unit--light"><span id="cd2-secs">00</span><small>сек</small></div>
+    </div>
+
+    <form class="signup-form" id="signupForm">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
+      <button type="submit" class="btn btn--gold btn--lg">Записаться бесплатно</button>
+    </form>
+    <p class="signup-form__note" id="formSuccess" hidden>Заявка принята — свяжемся с вами перед стартом вебинара.</p>
+    <p class="signup-form__privacy">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+  </div>
+</section>
+
+<!-- ===== ФУТЕР ===== -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="brand brand--footer">MEINARD <span>SCRINDA</span></div>
+    <p>© <span id="year"></span> Мейнард Скринда. Обучение продажам для экспертов.</p>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
