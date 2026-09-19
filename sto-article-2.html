@@ -265,6 +265,37 @@
   }
   .cta li span{color:var(--muted);font-size:17px}
 
+  .price-trigger{
+    display:flex;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:2px 0 14px;
+  }
+  .price-old{
+    font-size:17px;
+    color:var(--muted);
+    text-decoration:line-through;
+  }
+  .price-new{
+    font-size:19px;
+    font-weight:800;
+    color:var(--ink);
+    background:#fff;
+    padding:5px 12px;
+    border-radius:8px;
+  }
+  .urgency{
+    display:inline-block;
+    font-size:14.5px;
+    font-weight:700;
+    color:#8a4b00;
+    background:#fff3d6;
+    padding:9px 14px;
+    border-radius:10px;
+    margin:0 0 22px;
+  }
+
   /* ---------- LEAD FORM ---------- */
   .lead-form{
     display:flex;
@@ -444,6 +475,8 @@
     h3.sub{font-size:20px;margin-top:32px}
     .pull{font-size:20px;margin:32px 0;padding-left:18px;border-left-width:4px}
     .cta{padding:26px 20px;border-radius:14px;margin:40px 0 24px}
+    .price-new{font-size:17px;padding:4px 10px;}
+    .urgency{font-size:13.5px;padding:8px 12px;}
     .points{grid-template-columns:1fr;gap:10px}
     .point{padding:20px 16px;font-size:19px}
     .reviews-grid{grid-template-columns:1fr; gap:16px;}
@@ -478,8 +511,7 @@
     <img src="images/max-portrait.jpg" alt="Макс, маркетолог для автосервисов" loading="lazy">
   </div>
 
-  <p>Я видел десятки СТО, которые пробовали разные подходы. И каждый раз на вопрос «что пробовали и что давало результат» слышал одно и то же:</p>
-  <p class="pull">«Ну, там вроде… наверное… скорее всего, вот это работало».</p>
+  <p>Я видел десятки СТО, которые пробовали разные подходы. И опускали руки, когда очередная гипотеза не давала результата.</p>
   <p>Проблема не в инструментах, которыми вы пользуетесь, а в том, что <mark>никто не меряет результат и не отвечает за прибыль компании</mark>.</p>
   <p>И тогда я собрал систему, которая работает иначе.</p>
 
@@ -501,7 +533,7 @@
   <div class="type hot">
     <span class="tag">Тип 3</span>
     <h3><span>«Горячий»</span></h3>
-    <p>Он уже знает, что ему нужно, и ищет конкретную услугу. Забивает в поиск: «замена ремня ГРМ цена», «развал-схождение рядом». Сравнивает сайты. Смотрит, где понятнее, где цены, где запись. С ним работают через сайт и рекламу в поиске — <mark>он уже готов звонить</mark>.</p>
+    <p>Он уже знает, что ему нужно, и ищет конкретную услугу. Забивает в поиск: «замена ремня ГРМ цена», «развал-схождение рядом». Сравнивает сайты. Смотрит, где понятнее, где цены, где запись. С ним работают через сайт и рекламу в поиске и на картах — <mark>он уже готов платить</mark>.</p>
   </div>
 
   <h3 class="sub">А теперь главное</h3>
@@ -523,9 +555,10 @@
     <div class="point">Карты</div>
   </div>
   <p>Именно там твой клиент принимает решение — <mark>ехать к тебе или к конкуренту</mark>.</p>
-  <p>Я реализую этот механизм под ключ.</p>
+  <p>Я реализую этот механизм под ключ — так, чтобы на фоне конкурентов вас было просто глупо не выбрать.</p>
+  <p class="pull">А главное — я делаю этот процесс измеримым, прозрачным и предсказуемым.</p>
 
-  <h2 class="sec">Вот кому я реализовал этот механизм под ключ</h2>
+  <h2 class="sec">Вот кому я уже помог</h2>
   <div class="reviews-grid">
     <div class="review-card" onclick="playInlineVideo(this)">
       <video class="review-video" playsinline preload="none">
@@ -559,9 +592,15 @@
     </div>
   </div>
 
+  <p>Сейчас ты можешь записаться на консультацию со мной. Это Zoom-встреча на 30 минут, где мы разберём именно твою ситуацию.</p>
+
   <div class="cta" id="contact">
     <h2>Бесплатная консультация</h2>
-    <p>Сейчас ты можешь записаться на бесплатную консультацию со мной. Это Zoom-встреча на 30 минут, где мы разберём именно твою ситуацию.</p>
+    <div class="price-trigger">
+      <span class="price-old">4 990 ₽</span>
+      <span class="price-new">Сегодня бесплатно</span>
+    </div>
+    <p class="urgency">⏳ Ещё 2 дня провожу такие консультации бесплатно — дальше только платно.</p>
     <ul>
       <li><b>Анализ конкурентов</b><span>К кому уезжают твои клиенты.</span></li>
       <li><b>Аудит твоих карт</b><span>Как ты выглядишь в Яндекс.Картах и 2ГИС.</span></li>
