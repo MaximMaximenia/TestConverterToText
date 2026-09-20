@@ -164,6 +164,18 @@
       gaEvent("generate_lead", { webinar_date: cfg.webinarDate || "" });
       ymGoal("lead_submit");
 
+      if (cfg.telegramBotToken && cfg.telegramChatId) {
+        var tgText = "🎯 Новая заявка на вебинар!\n" +
+          "Имя: " + data.name + "\n" +
+          "Телефон/Telegram: " + data.phone + "\n" +
+          "Дата вебинара: " + (cfg.webinarDate || "не указана");
+        var tgUrl = "https://api.telegram.org/bot" + cfg.telegramBotToken +
+          "/sendMessage?chat_id=" + cfg.telegramChatId + "&text=" + encodeURIComponent(tgText);
+        fetch(tgUrl).catch(function () {
+          /* если Telegram недоступен, заявку всё равно не теряем — форма ниже покажет подтверждение */
+        });
+      }
+
       if (cfg.formEndpoint) {
         fetch(cfg.formEndpoint, {
           method: "POST",
