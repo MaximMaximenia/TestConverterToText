@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -90,7 +90,6 @@
 <!-- ===== БОЛИ ===== -->
 <section class="pains" id="pains">
   <div class="container">
-    <p class="eyebrow eyebrow--center">Возможно, это про тебя</p>
     <h2 class="section-title section-title--center">Узнаёшь себя?</h2>
 
     <div class="pains-grid">
@@ -268,7 +267,7 @@
 <section class="signup" id="signup">
   <div class="signup__glow"></div>
   <div class="container signup__inner">
-    <p class="eyebrow eyebrow--gold-on-dark">Осталось 6 мест</p>
+    <span class="scarcity-badge">Осталось 6 мест</span>
     <h2 class="signup__title">Забронируйте место на вебинаре</h2>
     <p class="signup__subtitle" id="signupSubtitle">Обычная цена — 4 990 ₽. Сейчас доступ бесплатный ещё 2 дня.</p>
 
@@ -279,12 +278,13 @@
       <div class="timer-unit timer-unit--light"><span id="cd2-secs">00</span><small>сек</small></div>
     </div>
 
-    <form class="signup-form" id="signupForm">
-      <input type="text" name="name" placeholder="Ваше имя" required>
-      <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
+    <form class="signup-form" id="signupForm" novalidate>
+      <input type="text" name="name" id="signupName" placeholder="Ваше имя" required>
+      <input type="text" name="username" id="signupUsername" placeholder="Юзернейм в Telegram (@ivanov)" required>
       <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit" class="btn btn--gold btn--lg btn--shine">Записаться на вебинар</button>
     </form>
+    <p class="signup-form__error" id="formError" hidden>Проверь юзернейм — он должен выглядеть как @ivanov (5–32 символа, латиница/цифры/_)</p>
     <p class="signup-form__note" id="formSuccess" hidden>Заявка принята — свяжемся с вами перед стартом вебинара.</p>
     <p class="signup-form__privacy">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
   </div>
@@ -298,7 +298,7 @@
   </div>
 </footer>
 
-<script src="js/config.js?v=4"></script>
-<script src="js/script.js?v=4"></script>
+<script src="js/config.js?v=5"></script>
+<script src="js/script.js?v=5"></script>
 </body>
 </html>

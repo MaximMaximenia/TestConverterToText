@@ -144,10 +144,13 @@
   /* ---------- форма записи ---------- */
   var form = document.getElementById("signupForm");
   var successEl = document.getElementById("formSuccess");
+  var errorEl = document.getElementById("formError");
+  var usernamePattern = /^@?[A-Za-z0-9_]{5,32}$/;
 
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      if (errorEl) errorEl.hidden = true;
 
       /* поле-ловушка: настоящий человек его не видит и не заполняет.
          если оно заполнено — это бот, тихо игнорируем отправку */
@@ -155,9 +158,19 @@
         return;
       }
 
+      var name = form.elements["name"].value.trim();
+      var username = form.elements["username"].value.trim();
+
+      /* проверка формата юзернейма Telegram — реальные заявки, а не любой набор символов */
+      if (!usernamePattern.test(username)) {
+        if (errorEl) errorEl.hidden = false;
+        return;
+      }
+      if (username.charAt(0) !== "@") username = "@" + username;
+
       var data = {
-        name: form.elements["name"].value.trim(),
-        phone: form.elements["phone"].value.trim(),
+        name: name,
+        username: username,
         webinarDate: cfg.webinarDate || ""
       };
 
@@ -167,7 +180,7 @@
       if (cfg.telegramBotToken && cfg.telegramChatId) {
         var tgText = "🎯 Новая заявка на вебинар!\n" +
           "Имя: " + data.name + "\n" +
-          "Телефон/Telegram: " + data.phone + "\n" +
+          "Telegram: " + data.username + "\n" +
           "Дата вебинара: " + (cfg.webinarDate || "не указана");
         var tgUrl = "https://api.telegram.org/bot" + cfg.telegramBotToken +
           "/sendMessage?chat_id=" + cfg.telegramChatId + "&text=" + encodeURIComponent(tgText);
