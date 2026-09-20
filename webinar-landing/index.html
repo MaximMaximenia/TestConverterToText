@@ -15,7 +15,7 @@
 <!-- ===== ТАЙМЕР СВЕРХУ ===== -->
 <div class="timer-bar" id="timerBar">
   <div class="timer-bar__inner">
-    <span class="timer-bar__text">До начала вебинара:</span>
+    <span class="timer-bar__text">Успей записаться — старт через:</span>
     <div class="timer-bar__clock" id="countdown">
       <div class="timer-unit"><span id="cd-days">00</span><small>дн</small></div>
       <div class="timer-unit"><span id="cd-hours">00</span><small>ч</small></div>
@@ -43,19 +43,17 @@
 <section class="hero">
   <div class="hero__glow"></div>
   <div class="container hero__inner">
-    <p class="eyebrow">Обычно этот вебинар стоит 4 990 ₽ — на этом запуске бесплатно</p>
-    <h1 class="hero__title">Вебинар про продажи от эксперта с <span>10-летним опытом</span>, который продавал на чеки $30 000</h1>
-    <p class="hero__subtitle">Разберём, почему эксперты теряют клиентов на созвонах, как перестать бояться называть цену и выстроить продажи, которые не стыдно вести.</p>
+    <h1 class="hero__title">Вебинар по продажам от эксперта с <span>10-летним опытом</span>, который продавал на чеки $30 000+</h1>
+    <p class="hero__subtitle">Большинство экспертов теряют деньги не потому, что плохо разбираются в своём деле — а потому, что боятся продавать и сливают клиентов, которые уже были готовы купить.</p>
 
     <div class="video-block">
-      <svg class="hint-arrow hint-arrow--to-video" viewBox="0 0 140 120" aria-hidden="true">
-        <path d="M10 8 C 40 5, 95 15, 118 60 C 128 82, 118 98, 96 108" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 8"/>
-        <path d="M96 108 L78 100 M96 108 L92 88" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="hint-arrow hint-arrow--to-video" viewBox="0 0 130 100" aria-hidden="true">
+        <path d="M14 10 C 55 4, 108 22, 112 68" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        <path d="M112 68 L98 52 M112 68 L92 74" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-      <span class="hint-arrow-label hint-arrow-label--video">жми и смотри</span>
+      <span class="hint-arrow-label hint-arrow-label--video">После вебинара ты поймёшь, почему большинство людей никогда не научатся продавать</span>
 
       <div class="video-frame" id="videoFrame">
-        <div class="video-price-tag">Обычно 4 990 ₽ · сейчас бесплатно</div>
         <video id="webinarVideo" playsinline controls poster="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80">
           <source id="webinarVideoSrc" src="assets/webinar-preview.mp4" type="video/mp4">
         </video>
@@ -63,23 +61,19 @@
           <span class="video-play__ring"></span>
           <span class="video-play__icon">▶</span>
         </button>
-        <div class="video-caption">
-          <strong>12 минут</strong> — и вы поймёте, почему сейчас продажи идут тяжело
-        </div>
       </div>
     </div>
 
     <div class="price-tag">
-      <span class="price-tag__ribbon">−100%</span>
       <span class="price-tag__old" id="priceOld">4 990 ₽</span>
-      <span class="price-tag__new" id="priceNew">Бесплатно</span>
+      <span class="price-tag__new" id="priceNew">Сегодня бесплатно</span>
       <span class="price-tag__note" id="priceNote">только на этом запуске</span>
     </div>
 
     <div class="hero__cta-wrap">
-      <svg class="hint-arrow hint-arrow--to-cta" viewBox="0 0 90 90" aria-hidden="true">
-        <path d="M45 6 C 44 30, 44 52, 45 74" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="7 8"/>
-        <path d="M45 74 L31 60 M45 74 L59 60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg class="hint-arrow hint-arrow--to-cta" viewBox="0 0 80 80" aria-hidden="true">
+        <path d="M40 4 C 39 26, 39 46, 40 64" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        <path d="M40 64 L27 51 M40 64 L53 51" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <a href="#signup" class="btn btn--gold btn--lg btn--shine">Записаться на вебинар</a>
     </div>
@@ -125,21 +119,25 @@
 
     <div class="who-grid">
       <div class="who-card">
+        <img class="who-card__img" src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&fit=crop&w=500&q=80" alt="">
         <div class="who-card__num">01</div>
         <h3>Эксперт или консультант</h3>
         <p>Разбираетесь в своём деле, но на созвонах теряетесь и «сливаете» клиента, который уже почти был готов купить.</p>
       </div>
       <div class="who-card who-card--accent">
+        <img class="who-card__img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=80" alt="">
         <div class="who-card__num">02</div>
         <h3>Продаёте через диагностики / созвоны</h3>
         <p>Проводите много бесплатных консультаций, но конверсия в оплату низкая, а объяснить почему — не получается.</p>
       </div>
       <div class="who-card">
+        <img class="who-card__img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80" alt="">
         <div class="who-card__num">03</div>
         <h3>Боитесь называть цену</h3>
         <p>Занижаете чек, оправдываетесь, соглашаетесь на скидки — и в итоге работаете много, а зарабатываете мало.</p>
       </div>
       <div class="who-card">
+        <img class="who-card__img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=500&q=80" alt="">
         <div class="who-card__num">04</div>
         <h3>Растёте и хотите продавать системно</h3>
         <p>Готовы выйти из ручных продаж «на харизме» и выстроить понятную систему, которая работает без выгорания.</p>
@@ -153,20 +151,20 @@
   <div class="container about__inner">
     <div class="about__content">
       <p class="eyebrow">Обо мне</p>
-      <h2 class="section-title">Мейнард Скринда</h2>
-      <p class="about__lead">Практик продаж, который обучает экспертов закрывать сделки без давления и скриптов «впаривания».</p>
+      <h2 class="about__name">MEINARD <span>SCRINDA</span></h2>
 
-      <p>За плечами — сотни личных продаж и работа с экспертами из ниш обучения, консалтинга, красоты и услуг. Я не даю теорию из книг: только то, что проверено на своих и чужих клиентах и реально увеличивает конверсию в оплату.</p>
+      <p class="about__lead">Я тоже когда-то не понимал, как продавать. Смотрел десятки видео на YouTube, которые не давали результата — только путали и создавали ложное чувство прогресса. Общей картины не было.</p>
 
-      <p>Моя система построена на одном принципе: человек должен захотеть купить сам, а не почувствовать, что его «дожимают». Именно поэтому у моих учеников выше средний чек и меньше отказов после созвона.</p>
+      <p>А потом я поразился, насколько легко на самом деле освоить продажи — если получать <strong>нужную</strong> информацию, а не всё подряд. Поэтому я собрал всё в один вебинар, где расскажу все секреты и фишки: как продавать и чувствовать себя комфортно, как закрывать чеки от $2 000+ без давления и стыда за свою цену.</p>
 
-      <ul class="about__facts">
-        <li><span>200+</span>обученных экспертов</li>
-        <li><span>×2–3</span>средний рост конверсии в оплату</li>
-        <li><span>100%</span>без скриптов-«впариваний»</li>
+      <ul class="about__bullets">
+        <li>1000+ личных продаж на чеки от $500 до $30 000+</li>
+        <li>200+ обученных экспертов и консультантов</li>
+        <li>Средний рост конверсии учеников — ×2–3</li>
+        <li>Система продаж без давления и «впаривания»</li>
       </ul>
 
-      <a href="#signup" class="btn btn--dark">Хочу на вебинар</a>
+      <a href="#signup" class="btn btn--gold btn--shine">Хочу на вебинар</a>
     </div>
 
     <div class="about__photo">
@@ -277,6 +275,7 @@
     <form class="signup-form" id="signupForm">
       <input type="text" name="name" placeholder="Ваше имя" required>
       <input type="tel" name="phone" placeholder="Телефон или Telegram" required>
+      <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button type="submit" class="btn btn--gold btn--lg btn--shine">Записаться на вебинар</button>
     </form>
     <p class="signup-form__note" id="formSuccess" hidden>Заявка принята — свяжемся с вами перед стартом вебинара.</p>

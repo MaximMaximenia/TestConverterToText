@@ -3,6 +3,23 @@
 
   var cfg = window.SITE_CONFIG || {};
 
+  /* ---------- Google Analytics 4 ---------- */
+  function gaEvent(name, params) {
+    if (typeof window.gtag === "function") window.gtag("event", name, params || {});
+  }
+
+  if (cfg.gaMeasurementId) {
+    var gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + cfg.gaMeasurementId;
+    document.head.appendChild(gaScript);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", cfg.gaMeasurementId);
+  }
+
   /* ---------- цены ---------- */
   var priceOldEl = document.getElementById("priceOld");
   var priceNewEl = document.getElementById("priceNew");
@@ -76,8 +93,25 @@
   if (playBtn && video && frame) {
     playBtn.addEventListener("click", function () {
       frame.classList.add("is-playing");
+      gaEvent("video_play", { video_title: "webinar_preview" });
       video.play().catch(function () {
         /* автоплей может быть заблокирован — пользователь нажмёт play на самом видео */
+      });
+    });
+  }
+
+  /* ---------- прогресс просмотра видео (для целей в GA4) ---------- */
+  if (video) {
+    var reachedMarks = {};
+    var marks = [25, 50, 75, 95];
+    video.addEventListener("timeupdate", function () {
+      if (!video.duration) return;
+      var percent = (video.currentTime / video.duration) * 100;
+      marks.forEach(function (mark) {
+        if (percent >= mark && !reachedMarks[mark]) {
+          reachedMarks[mark] = true;
+          gaEvent("video_progress", { video_title: "webinar_preview", percent_watched: mark });
+        }
       });
     });
   }
@@ -90,11 +124,19 @@
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
+      /* поле-ловушка: настоящий человек его не видит и не заполняет.
+         если оно заполнено — это бот, тихо игнорируем отправку */
+      if (form.elements["company"] && form.elements["company"].value.trim() !== "") {
+        return;
+      }
+
       var data = {
         name: form.elements["name"].value.trim(),
         phone: form.elements["phone"].value.trim(),
         webinarDate: cfg.webinarDate || ""
       };
+
+      gaEvent("generate_lead", { webinar_date: cfg.webinarDate || "" });
 
       if (cfg.formEndpoint) {
         fetch(cfg.formEndpoint, {
