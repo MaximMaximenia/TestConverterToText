@@ -20,6 +20,29 @@
     window.gtag("config", cfg.gaMeasurementId);
   }
 
+  /* ---------- Яндекс.Метрика ---------- */
+  function ymGoal(name) {
+    if (cfg.yandexMetrikaId && typeof window.ym === "function") {
+      window.ym(cfg.yandexMetrikaId, "reachGoal", name);
+    }
+  }
+
+  if (cfg.yandexMetrikaId) {
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+      m[i].l = 1 * new Date();
+      k = e.createElement(t); a = e.getElementsByTagName(t)[0];
+      k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    window.ym(cfg.yandexMetrikaId, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  }
+
   /* ---------- цены ---------- */
   var priceOldEl = document.getElementById("priceOld");
   var priceNewEl = document.getElementById("priceNew");
@@ -94,6 +117,7 @@
     playBtn.addEventListener("click", function () {
       frame.classList.add("is-playing");
       gaEvent("video_play", { video_title: "webinar_preview" });
+      ymGoal("video_play");
       video.play().catch(function () {
         /* автоплей может быть заблокирован — пользователь нажмёт play на самом видео */
       });
@@ -111,6 +135,7 @@
         if (percent >= mark && !reachedMarks[mark]) {
           reachedMarks[mark] = true;
           gaEvent("video_progress", { video_title: "webinar_preview", percent_watched: mark });
+          ymGoal("video_" + mark);
         }
       });
     });
@@ -137,6 +162,7 @@
       };
 
       gaEvent("generate_lead", { webinar_date: cfg.webinarDate || "" });
+      ymGoal("lead_submit");
 
       if (cfg.formEndpoint) {
         fetch(cfg.formEndpoint, {
