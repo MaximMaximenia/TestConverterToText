@@ -43,18 +43,19 @@
     });
   }
 
-  /* ---------- цены ---------- */
-  var priceOldEl = document.getElementById("priceOld");
-  var priceNewEl = document.getElementById("priceNew");
-  var priceNoteEl = document.getElementById("priceNote");
-  var signupSubtitleEl = document.getElementById("signupSubtitle");
-
-  if (cfg.priceOld && priceOldEl) priceOldEl.textContent = cfg.priceOld;
-  if (cfg.priceNew && priceNewEl) priceNewEl.textContent = cfg.priceNew;
-  if (cfg.freeUntilText && priceNoteEl) priceNoteEl.textContent = cfg.freeUntilText;
-  if (signupSubtitleEl && cfg.priceOld) {
-    signupSubtitleEl.textContent = "Обычная цена — " + cfg.priceOld + ". " + (cfg.freeUntilText || "");
-  }
+  /* ---------- цены (в hero и в блоке записи — оба набора элементов) ---------- */
+  ["priceOld", "priceOld2"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (cfg.priceOld && el) el.textContent = cfg.priceOld;
+  });
+  ["priceNew", "priceNew2"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (cfg.priceNew && el) el.textContent = cfg.priceNew;
+  });
+  ["priceNote", "priceNote2"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (cfg.freeUntilText && el) el.textContent = cfg.freeUntilText;
+  });
 
   /* ---------- имя эксперта в title/шапке при желании ---------- */
   if (cfg.expertName) {
@@ -141,10 +142,46 @@
     });
   }
 
+  /* ---------- капча из фигур (нажми на треугольник) ---------- */
+  var captchaShapesEl = document.getElementById("captchaShapes");
+  var captchaOk = false;
+
+  if (captchaShapesEl) {
+    var shapes = ["circle", "square", "triangle", "star"];
+    for (var i = shapes.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = shapes[i]; shapes[i] = shapes[j]; shapes[j] = tmp;
+    }
+    shapes.forEach(function (shape) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "captcha__shape captcha__shape--" + shape;
+      btn.setAttribute("aria-label", shape);
+      btn.addEventListener("click", function () {
+        if (captchaOk) return;
+        if (shape === "triangle") {
+          captchaOk = true;
+          btn.classList.add("is-correct");
+          captchaShapesEl.querySelectorAll(".captcha__shape").forEach(function (el) {
+            if (el !== btn) el.disabled = true;
+          });
+        } else {
+          btn.classList.add("is-wrong");
+          setTimeout(function () { btn.classList.remove("is-wrong"); }, 400);
+        }
+      });
+      captchaShapesEl.appendChild(btn);
+    });
+  } else {
+    /* если блок капчи почему-то не отрисовался, не блокируем форму */
+    captchaOk = true;
+  }
+
   /* ---------- форма записи ---------- */
   var form = document.getElementById("signupForm");
   var successEl = document.getElementById("formSuccess");
   var errorEl = document.getElementById("formError");
+  var defaultErrorText = errorEl ? errorEl.textContent : "";
   var usernamePattern = /^@?[A-Za-z0-9_]{5,32}$/;
 
   if (form) {
@@ -163,7 +200,11 @@
 
       /* проверка формата юзернейма Telegram — реальные заявки, а не любой набор символов */
       if (!usernamePattern.test(username)) {
-        if (errorEl) errorEl.hidden = false;
+        if (errorEl) { errorEl.textContent = defaultErrorText; errorEl.hidden = false; }
+        return;
+      }
+      if (!captchaOk) {
+        if (errorEl) { errorEl.textContent = "Подтверди, что ты не бот — нажми на треугольник выше"; errorEl.hidden = false; }
         return;
       }
       if (username.charAt(0) !== "@") username = "@" + username;

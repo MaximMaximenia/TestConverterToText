@@ -8,14 +8,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
 
 <!-- ===== ТАЙМЕР СВЕРХУ ===== -->
 <div class="timer-bar" id="timerBar">
   <div class="timer-bar__inner">
-    <span class="timer-bar__text">Успей записаться — старт через:</span>
+    <span class="timer-bar__text">Старт вебинара через:</span>
     <div class="timer-bar__clock" id="countdown">
       <div class="timer-unit"><span id="cd-days">00</span><small>дн</small></div>
       <div class="timer-unit"><span id="cd-hours">00</span><small>ч</small></div>
@@ -49,10 +49,10 @@
 
     <div class="video-block">
       <div class="nudge nudge--video">
-        <span class="nudge__text">Смотри — почему большинство людей никогда не научатся продавать</span>
-        <svg class="nudge__arrow nudge__arrow--video" viewBox="0 0 90 90" aria-hidden="true">
-          <path d="M10 12 C 34 20, 56 34, 64 62" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-          <polygon points="48,58 78,58 64,86" fill="currentColor"/>
+        <span class="nudge__text nudge__text--framed">Почему большинство людей никогда не научатся продавать</span>
+        <svg class="nudge__arrow nudge__arrow--video nudge__arrow--gold" viewBox="0 0 90 90" aria-hidden="true">
+          <path d="M10 12 C 34 20, 56 34, 64 62" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="52,56 76,56 64,82" fill="currentColor"/>
         </svg>
       </div>
 
@@ -67,6 +67,11 @@
       </div>
     </div>
 
+    <svg class="nudge__arrow nudge__arrow--gold nudge__arrow--to-price" viewBox="0 0 60 50" aria-hidden="true">
+      <path d="M30 4 C 29 16, 29 24, 30 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      <polygon points="18,28 42,28 30,46" fill="currentColor"/>
+    </svg>
+
     <div class="hero__offer">
       <div class="price-tag">
         <span class="price-tag__old" id="priceOld">4 990 ₽</span>
@@ -76,9 +81,9 @@
 
       <div class="nudge nudge--cta">
         <span class="nudge__text">Разберись в продажах раз и навсегда</span>
-        <svg class="nudge__arrow nudge__arrow--cta" viewBox="0 0 60 50" aria-hidden="true">
-          <path d="M30 4 C 29 16, 29 24, 30 32" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-          <polygon points="16,28 44,28 30,48" fill="currentColor"/>
+        <svg class="nudge__arrow nudge__arrow--cta nudge__arrow--gold" viewBox="0 0 60 50" aria-hidden="true">
+          <path d="M30 4 C 29 16, 29 24, 30 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="18,28 42,28 30,46" fill="currentColor"/>
         </svg>
       </div>
 
@@ -87,50 +92,20 @@
   </div>
 </section>
 
-<!-- ===== БОЛИ ===== -->
-<section class="pains" id="pains">
-  <div class="container">
-    <h2 class="section-title section-title--center">Узнаёшь себя?</h2>
-
-    <div class="pains-grid">
-      <div class="pain-card">
-        <div class="pain-card__num">1</div>
-        <h3>Проводишь звонки, но продаж нет</h3>
-        <p>Созвон за созвоном — а результата нет. Время потрачено, а денег не прибавилось.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-card__num">2</div>
-        <h3>Нет чёткой ясности, как продавать</h3>
-        <p>Смотрел разные материалы про продажи, но в голове — набор случайных советов, а не понятная система действий.</p>
-      </div>
-      <div class="pain-card pain-card--accent">
-        <div class="pain-card__num">3</div>
-        <h3>Неловко называть цену</h3>
-        <p>Озвучивая стоимость, чувствуешь себя неудобно — будто оправдываешься за то, что твоя работа вообще что-то стоит.</p>
-      </div>
-      <div class="pain-card">
-        <div class="pain-card__num">4</div>
-        <h3>Некомфортно при продаже</h3>
-        <p>Хочется избежать самого момента предложения — кажется, что это давление на человека, а не помощь ему.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ===== КОМУ ПОМОГАЮ ===== -->
 <section class="who" id="who">
   <div class="container">
     <p class="eyebrow eyebrow--center">Кому подойдёт вебинар</p>
-    <h2 class="section-title section-title--center">Помогаю, если вы —</h2>
+    <h2 class="section-title section-title--center">Вебинар для вас, если:</h2>
 
     <div class="who-grid">
-      <div class="who-card">
+      <div class="who-card who-card--accent">
         <img class="who-card__img" src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&fit=crop&w=500&q=80" alt="">
         <div class="who-card__num">01</div>
         <h3>Созвон заканчивается — а денег нет</h3>
         <p>Клиент говорит «мне надо подумать», выходит из чата — и пропадает навсегда. А вы прокручиваете разговор в голове, пытаясь понять, что сказали не так.</p>
       </div>
-      <div class="who-card who-card--accent">
+      <div class="who-card">
         <img class="who-card__img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=80" alt="">
         <div class="who-card__num">02</div>
         <h3>Устали проводить звонки, которые не ведут к продаже</h3>
@@ -166,10 +141,11 @@
       <ul class="about__bullets">
         <li>1000+ личных продаж на чеки от $10 000 до $30 000+</li>
         <li>200+ обученных экспертов и консультантов</li>
+        <li>Средний рост конверсии учеников — ×2–3</li>
         <li>Система продаж без давления и «впаривания»</li>
       </ul>
 
-      <a href="#signup" class="btn btn--gold btn--shine">Хочу на вебинар</a>
+      <a href="#signup" class="btn btn--gold btn--shine about__cta">Хочу на вебинар</a>
     </div>
 
     <div class="about__photo">
@@ -179,6 +155,36 @@
       <div class="about__badge">
         <strong>7+ лет</strong>
         <span>в продажах и обучении</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== БОЛИ ===== -->
+<section class="pains" id="pains">
+  <div class="container">
+    <h2 class="section-title section-title--center">Узнаёшь себя?</h2>
+
+    <div class="pains-grid">
+      <div class="pain-card">
+        <div class="pain-card__num">1</div>
+        <h3>Проводишь звонки, но продаж нет</h3>
+        <p>Созвон за созвоном — а результата нет. Время потрачено, а денег не прибавилось.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card__num">2</div>
+        <h3>Нет чёткой ясности, как продавать</h3>
+        <p>Смотрел разные материалы про продажи, но в голове — набор случайных советов, а не понятная система действий.</p>
+      </div>
+      <div class="pain-card pain-card--accent">
+        <div class="pain-card__num">3</div>
+        <h3>Неловко называть цену</h3>
+        <p>Озвучивая стоимость, чувствуешь себя неудобно — будто оправдываешься за то, что твоя работа вообще что-то стоит.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-card__num">4</div>
+        <h3>Некомфортно при продаже</h3>
+        <p>Хочется избежать самого момента предложения — кажется, что это давление на человека, а не помощь ему.</p>
       </div>
     </div>
   </div>
@@ -267,8 +273,22 @@
   <div class="signup__glow"></div>
   <div class="container signup__inner">
     <span class="scarcity-badge">Осталось 6 мест</span>
+
+    <div class="nudge nudge--cta nudge--light">
+      <span class="nudge__text">Разберись в продажах раз и навсегда</span>
+      <svg class="nudge__arrow nudge__arrow--cta nudge__arrow--gold" viewBox="0 0 60 50" aria-hidden="true">
+        <path d="M30 4 C 29 16, 29 24, 30 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="18,28 42,28 30,46" fill="currentColor"/>
+      </svg>
+    </div>
+
     <h2 class="signup__title">Забронируйте место на вебинаре</h2>
-    <p class="signup__subtitle" id="signupSubtitle">Обычная цена — 4 990 ₽. Сейчас доступ бесплатный ещё 2 дня.</p>
+
+    <div class="price-tag price-tag--on-dark">
+      <span class="price-tag__old" id="priceOld2">4 990 ₽</span>
+      <span class="price-tag__new" id="priceNew2">Сегодня бесплатно</span>
+      <span class="price-tag__note" id="priceNote2">только на этом запуске</span>
+    </div>
 
     <div class="signup__countdown" id="countdown2">
       <div class="timer-unit timer-unit--light"><span id="cd2-days">00</span><small>дн</small></div>
@@ -281,6 +301,10 @@
       <input type="text" name="name" id="signupName" placeholder="Ваше имя" required>
       <input type="text" name="username" id="signupUsername" placeholder="Юзернейм в Telegram (@ivanov)" required>
       <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="captcha" id="captcha">
+        <span class="captcha__label">Нажми на треугольник — так мы отсекаем ботов:</span>
+        <div class="captcha__shapes" id="captchaShapes"></div>
+      </div>
       <button type="submit" class="btn btn--gold btn--lg btn--shine">Записаться на вебинар</button>
     </form>
     <p class="signup-form__error" id="formError" hidden>Проверь юзернейм — он должен выглядеть как @ivanov (5–32 символа, латиница/цифры/_)</p>
@@ -297,7 +321,7 @@
   </div>
 </footer>
 
-<script src="js/config.js?v=6"></script>
-<script src="js/script.js?v=6"></script>
+<script src="js/config.js?v=7"></script>
+<script src="js/script.js?v=7"></script>
 </body>
 </html>
