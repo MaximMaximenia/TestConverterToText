@@ -230,10 +230,10 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
       <label for="ch">Средний чек, BYN: <span id="chv" class="num">70</span></label>
       <input id="ch" type="range" min="50" max="150" step="5" value="70">
       <div class="out">
-        <div><div class="v num" id="o-rev">—</div><div class="l">выручка за сезон</div></div>
-        <div><div class="v num" id="o-ads">—</div><div class="l">затраты на рекламу</div></div>
+        <div><div class="v num" id="o-rev">—</div><div class="l">выручка за сезон (2 мес.): <span id="l-rev"></span></div></div>
+        <div><div class="v num" id="o-ads">—</div><div class="l">реклама за сезон (2 мес.): <span id="l-ads"></span></div></div>
         <div><div class="v num">5&nbsp;250&nbsp;BYN</div><div class="l">мои услуги: запуск + 2 мес.</div></div>
-        <div class="win"><div class="v num" id="o-net">—</div><div class="l">остаётся вам</div></div>
+        <div class="win"><div class="v num" id="o-net">—</div><div class="l">остаётся вам за сезон</div></div>
       </div>
       <p class="note" style="margin:12px 0 0">Заявка ~$2, доезжает 50% → клиент ~$4 (~12 BYN). Курс ~3 BYN за $1.</p>
     </div>
@@ -297,6 +297,8 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
     var rev=n*k, ads=n*perClient;
     document.getElementById('o-rev').textContent=f(rev);
     document.getElementById('o-ads').textContent=f(ads);
+    document.getElementById('l-rev').textContent=n+' клиентов × '+k+' BYN';
+    document.getElementById('l-ads').textContent=n+' клиентов × 12 BYN';
     document.getElementById('o-net').textContent=f(rev-ads-SERV);
   }
   cl.addEventListener('input',upd); ch.addEventListener('input',upd); upd();
