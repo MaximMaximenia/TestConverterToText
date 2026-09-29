@@ -111,6 +111,17 @@ section.white .link span{background:#fff}
 .cta{background:var(--dark);color:#fff;text-align:center;padding:64px 0}
 .cta h2 span{color:var(--green-light)}
 .cta p{color:#c8cbd0;max-width:640px;margin:0 auto 12px}
+.deal{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;max-width:760px;margin:0 auto 28px;text-align:left}
+.deal .side{background:#22252a;border-radius:var(--radius);padding:24px}
+.deal .side.win{background:var(--green)}
+.deal .h{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#a9adb3;margin-bottom:12px}
+.deal .win .h,.deal .win .sub,.deal .win .bl{color:#e3f6ea}
+.deal .row{display:flex;justify-content:space-between;gap:12px;font-size:18px;padding-top:10px}
+.deal .row b{white-space:nowrap}
+.deal .row.tot{border-top:1px solid rgba(255,255,255,.2);margin-top:14px;padding-top:14px;font-size:22px;font-weight:800}
+.deal .sub{font-size:13px;color:#a9adb3}
+.deal .big{font-size:clamp(56px,10vw,80px);font-weight:800;line-height:1}
+.deal .bl{font-size:17px;margin-top:6px}
 footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 @media (max-width:560px){
   section{padding:40px 0}
@@ -275,8 +286,24 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 <!-- CTA -->
 <section class="cta">
   <div class="wrap">
-    <h2>Вкладываете <span>~7 400 BYN</span> — получаете <span>12 600 BYN</span> за сезон</h2>
-    <p class="note" style="color:#a9adb3">с учётом рекламного бюджета и моей работы</p>
+    <div class="tag" style="color:#a9adb3">Октябрь + ноябрь</div>
+    <div class="deal">
+      <div class="side">
+        <div class="h">Вы вкладываете</div>
+        <div class="row"><span>Моя работа</span><b>3 750 BYN</b></div>
+        <div class="sub">$500 × 2 мес. + сайт $250</div>
+        <div class="row"><span>Реклама</span><b>2 160 BYN</b></div>
+        <div class="sub">180 клиентов × 12 BYN</div>
+        <div class="row tot"><span>Итого</span><b>~5 900 BYN</b></div>
+      </div>
+      <div class="side win">
+        <div class="h">Вы получаете</div>
+        <div class="big">180</div>
+        <div class="bl">новых лояльных клиентов<br>(90 в месяц)</div>
+        <div class="row tot"><span>Выручка</span><b>12 600 BYN</b></div>
+        <div class="sub">и они вернутся к вам весной</div>
+      </div>
+    </div>
     <p style="margin-top:16px">Каждая неделя промедления — это клиенты, которые уедут к конкурентам. Пик в ноябре ждать не будет.</p>
     <p style="color:#fff;font-weight:700;font-size:20px;margin-top:20px">Подписываем договор — и через неделю к вам едут первые клиенты из Google.</p>
   </div>
