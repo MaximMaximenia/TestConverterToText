@@ -222,7 +222,7 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 <!-- CALC -->
 <section class="white">
   <div class="wrap">
-    <div class="tag">Октябрь + ноябрь</div>
+    <div class="tag">За 1 месяц</div>
     <h2>Калькулятор прибыли</h2>
     <div class="card calc">
       <label for="cl">Новых клиентов в месяц: <span id="clv" class="num">90</span></label>
@@ -230,12 +230,12 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
       <label for="ch">Средний чек, BYN: <span id="chv" class="num">70</span></label>
       <input id="ch" type="range" min="50" max="150" step="5" value="70">
       <div class="out">
-        <div><div class="v num" id="o-rev">—</div><div class="l">выручка за сезон (2 мес.): <span id="l-rev"></span></div></div>
-        <div><div class="v num" id="o-ads">—</div><div class="l">реклама за сезон (2 мес.): <span id="l-ads"></span></div></div>
-        <div><div class="v num">5&nbsp;250&nbsp;BYN</div><div class="l">мои услуги: запуск + 2 мес.</div></div>
-        <div class="win"><div class="v num" id="o-net">—</div><div class="l">остаётся вам за сезон</div></div>
+        <div><div class="v num" id="o-rev">—</div><div class="l">выручка в месяц: <span id="l-rev"></span></div></div>
+        <div><div class="v num" id="o-ads">—</div><div class="l">реклама в месяц: <span id="l-ads"></span></div></div>
+        <div><div class="v num">1&nbsp;500&nbsp;BYN</div><div class="l">мои услуги в месяц ($500)</div></div>
+        <div class="win"><div class="v num" id="o-net">—</div><div class="l">остаётся вам в месяц</div></div>
       </div>
-      <p class="note" style="margin:12px 0 0">Заявка ~$2, доезжает 50% → клиент ~$4 (~12 BYN). Курс ~3 BYN за $1.</p>
+      <p class="note" style="margin:12px 0 0">Заявка ~$2, доезжает 50% → клиент ~$4 (~12 BYN). Запуск $750 — разово, отдельно. Курс ~3 BYN за $1.</p>
     </div>
   </div>
 </section>
@@ -287,11 +287,11 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 <script>
 (function(){
   var cl=document.getElementById('cl'), ch=document.getElementById('ch');
-  var LEAD=2, SHOW=0.5, RATE=3, SERV=(750+500*2)*RATE;
+  var LEAD=2, SHOW=0.5, RATE=3, SERV=500*RATE;
   var perClient=LEAD/SHOW*RATE; // 12 BYN
   function f(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' BYN'}
   function upd(){
-    var c=+cl.value, k=+ch.value, n=c*2;
+    var c=+cl.value, k=+ch.value, n=c;
     document.getElementById('clv').textContent=c;
     document.getElementById('chv').textContent=k;
     var rev=n*k, ads=n*perClient;
