@@ -128,8 +128,8 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
     <div class="kpis">
       <div class="kpi"><div class="v num">26 000</div><div class="l">запросов «шиномонтаж» в Google за ноябрь</div></div>
       <div class="kpi"><div class="v num">~180</div><div class="l">новых клиентов за октябрь–ноябрь</div></div>
-      <div class="kpi"><div class="v num">~7 BYN</div><div class="l">стоимость одного клиента</div></div>
-      <div class="kpi"><div class="v num">x10</div><div class="l">выручки на каждый рубль рекламы</div></div>
+      <div class="kpi"><div class="v num">~12 BYN</div><div class="l">стоимость одного клиента</div></div>
+      <div class="kpi"><div class="v num">x6</div><div class="l">выручки на каждый рубль рекламы</div></div>
     </div>
   </div>
 </header>
@@ -179,19 +179,19 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
     <h2>Откуда берутся 90 клиентов в месяц</h2>
     <div class="funnel">
       <div class="step"><div class="t">Ищут шиномонтаж в Google</div><div class="v num">26 000</div></div>
-      <div class="link"><span>~4% кликают на наше объявление · клик ~$0,20</span></div>
-      <div class="step"><div class="t">Переходят на сайт</div><div class="v num">~1 100</div></div>
-      <div class="link"><span>12% оставляют заявку или звонят</span></div>
-      <div class="step"><div class="t">Звонки и заявки</div><div class="v num">~130</div></div>
-      <div class="link"><span>~70% реально приезжают</span></div>
+      <div class="link"><span>кликают на наше объявление</span></div>
+      <div class="step"><div class="t">Переходят на сайт</div><div class="v num">~1 800</div></div>
+      <div class="link"><span>~10% оставляют заявку или звонят · заявка ~$2</span></div>
+      <div class="step"><div class="t">Звонки и заявки</div><div class="v num">~180</div></div>
+      <div class="link"><span>~50% реально приезжают</span></div>
       <div class="step"><div class="t">Клиенты у вас в боксе</div><div class="v num">~90</div></div>
       <div class="link"><span>× средний чек 70 BYN</span></div>
       <div class="step final"><div class="t">Выручка за месяц</div><div class="v num">~6 300 BYN</div></div>
     </div>
     <div class="unit">
-      <div class="card"><div class="v num">~7 BYN</div><div class="l">стоит вам клиент</div></div>
+      <div class="card"><div class="v num">~12 BYN</div><div class="l">стоит вам клиент</div></div>
       <div class="card"><div class="v num">70 BYN</div><div class="l">он вам платит</div></div>
-      <div class="card"><div class="v num" style="color:var(--green)">10%</div><div class="l">уходит на рекламу</div></div>
+      <div class="card"><div class="v num" style="color:var(--green)">17%</div><div class="l">уходит на рекламу</div></div>
     </div>
   </div>
 </section>
@@ -235,7 +235,7 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
         <div><div class="v num">5&nbsp;250&nbsp;BYN</div><div class="l">мои услуги: запуск + 2 мес.</div></div>
         <div class="win"><div class="v num" id="o-net">—</div><div class="l">остаётся вам</div></div>
       </div>
-      <p class="note" style="margin:12px 0 0">Клиент ~7 BYN (клик $0,20 · сайт 12% · доезжают 70%). Курс ~3 BYN за $1.</p>
+      <p class="note" style="margin:12px 0 0">Заявка ~$2, доезжает 50% → клиент ~$4 (~12 BYN). Курс ~3 BYN за $1.</p>
     </div>
   </div>
 </section>
@@ -275,7 +275,7 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 <!-- CTA -->
 <section class="cta">
   <div class="wrap">
-    <h2>Вкладываете <span>~6 500 BYN</span> — получаете <span>12 600 BYN</span> за сезон</h2>
+    <h2>Вкладываете <span>~7 400 BYN</span> — получаете <span>12 600 BYN</span> за сезон</h2>
     <p class="note" style="color:#a9adb3">с учётом рекламного бюджета и моей работы</p>
     <p style="margin-top:16px">Каждая неделя промедления — это клиенты, которые уедут к конкурентам. Пик в ноябре ждать не будет.</p>
     <p style="color:#fff;font-weight:700;font-size:20px;margin-top:20px">Подписываем договор — и через неделю к вам едут первые клиенты из Google.</p>
@@ -287,8 +287,8 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 <script>
 (function(){
   var cl=document.getElementById('cl'), ch=document.getElementById('ch');
-  var CPC=0.2, CONV=0.12, SHOW=0.7, RATE=3, SERV=(750+500*2)*RATE;
-  var perClient=CPC/CONV/SHOW*RATE; // ~7.1 BYN
+  var LEAD=2, SHOW=0.5, RATE=3, SERV=(750+500*2)*RATE;
+  var perClient=LEAD/SHOW*RATE; // 12 BYN
   function f(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' BYN'}
   function upd(){
     var c=+cl.value, k=+ch.value, n=c*2;
