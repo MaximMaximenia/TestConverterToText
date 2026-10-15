@@ -114,6 +114,13 @@ img.shot{display:block;width:100%;height:auto;border-radius:12px;border:1px soli
 .final-q{background:var(--accent);color:#fff;text-align:center;padding:64px 0}
 .final-q h2{color:#fff;max-width:800px;margin:0 auto 12px}
 .final-q p{color:#dbe7ff;max-width:640px;margin:0 auto}
+.pstep{padding:24px}
+.pstep .pl{font-size:15px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.pstep .pv{font-size:clamp(44px,8vw,64px);font-weight:800;line-height:1.1;margin-top:6px}
+.pstep.now{background:var(--accent);border-color:var(--accent);color:#fff}
+.pstep.now .pl,.pstep.now .pd{color:#dbe7ff}
+.pstep .pd{font-weight:700;margin-top:6px}
+.inc .bonus{margin-top:16px}
 footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 svg text{font-family:Manrope,system-ui,sans-serif}
 @media (max-width:560px){section{padding:40px 0}.link{padding-left:20px}.link::before{left:20px}}
@@ -176,27 +183,6 @@ svg text{font-family:Manrope,system-ui,sans-serif}
   </div>
 </section>
 
-<!-- 5. CALC -->
-<section class="white">
-  <div class="wrap">
-    <div class="tag">Посчитайте под себя</div>
-    <h2>Калькулятор на месяц</h2>
-    <div class="card calc">
-      <label for="cl">Новых клиентов в месяц: <span id="clv" class="num">10</span></label>
-      <div class="rng"><button type="button" data-t="cl" data-d="-1" aria-label="Меньше">−</button><input id="cl" type="range" min="5" max="40" step="1" value="10"><button type="button" data-t="cl" data-d="1" aria-label="Больше">+</button></div>
-      <label for="ch">Средний чек, BYN: <span id="chv" class="num">400</span></label>
-      <div class="rng"><button type="button" data-t="ch" data-d="-1" aria-label="Меньше">−</button><input id="ch" type="range" min="100" max="2000" step="50" value="400"><button type="button" data-t="ch" data-d="1" aria-label="Больше">+</button></div>
-      <div class="out">
-        <div><div class="v num" id="o-leads">—</div><div class="l">заявок нужно</div></div>
-        <div><div class="v num" id="o-ads">—</div><div class="l">рекламный бюджет</div></div>
-        <div><div class="v num" id="o-rev">—</div><div class="l">выручка в месяц</div></div>
-        <div class="win"><div class="v num" id="o-x">—</div><div class="l">каждый $ рекламы возвращается</div></div>
-      </div>
-      <p class="small" style="margin:12px 0 0">Клик ~$0,30 · сайт 10% · каждая 3-я заявка — клиент · курс ~3 BYN за $1.</p>
-    </div>
-  </div>
-</section>
-
 <!-- 6. CASE -->
 <section>
   <div class="wrap">
@@ -239,21 +225,6 @@ svg text{font-family:Manrope,system-ui,sans-serif}
   </div>
 </section>
 
-<!-- 8. HOW WE WORK -->
-<section class="dark">
-  <div class="wrap">
-    <div class="tag">Как работаем</div>
-    <h2>Запуск за 10 дней. Дальше — <span>больше заявок и дешевле каждая</span></h2>
-    <div class="tl">
-      <div><div class="d">Первые 10 дней</div><b>Запуск</b><span>Сайт, реклама, Google Карты. Получаем первые заявки.</span></div>
-      <div><div class="d">Дальше — $500 / мес</div><b>Ведение рекламы</b><span>Постоянно улучшаем: больше заявок, каждая дешевле.</span></div>
-      <div><div class="d">Каждый месяц</div><b>Новые страницы на сайт</b><span>Поднимают сайт в поиске Google.</span></div>
-    </div>
-    <p class="lead" style="margin-top:24px">В будущем заявки будут приходить из поиска без рекламы — рекламный бюджет (~$100/мес) можно будет вообще отключить.</p>
-    <p style="margin:0;font-weight:700">Я нацелен на долгосрочное сотрудничество.</p>
-  </div>
-</section>
-
 <!-- 9. WHY NOW -->
 <section>
   <div class="wrap">
@@ -271,16 +242,8 @@ svg text{font-family:Manrope,system-ui,sans-serif}
 <section class="white">
   <div class="wrap">
     <div class="tag">Стоимость</div>
-    <div class="grid g2" style="align-items:start">
-      <div>
-        <div class="price-old">$1 200</div>
-        <div class="price-new">$950</div>
-        <div class="deadline">при фиксации условий до воскресенья, 18 октября</div>
-        <div class="bonus">
-          🎁 <b>Бонус: оценка ремонта по фото.</b><br>
-          Человек прикладывает фото — оно сразу приходит вам в Telegram. Звоните: «Вижу по фото, можно сделать вот так».
-        </div>
-      </div>
+    <h2>Сайт + реклама + карты — под ключ</h2>
+    <div class="grid g2" style="align-items:start;margin-top:20px">
       <div class="card inc">
         <h3>Входит</h3>
         <div class="row"><span class="ok">✓</span>Сайт под кузовной ремонт</div>
@@ -288,13 +251,63 @@ svg text{font-family:Manrope,system-ui,sans-serif}
         <div class="row"><span class="ok">✓</span>Добавление на Google Карты</div>
         <div class="row"><span class="ok">✓</span><span><b>Год техобслуживания сайта</b> — отвечаю за то, что всё будет исправно</span></div>
         <div class="row"><span class="ok">✓</span><span><b>Все доступы и пароли — у вас.</b> Не будет такого, что мы перестали работать, а я пропал в туман.</span></div>
+        <div class="bonus">
+          🎁 <b>Бонус: оценка ремонта по фото.</b><br>
+          Человек прикладывает фото — оно сразу приходит вам в Telegram. Звоните: «Вижу по фото, можно сделать вот так».
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card pstep">
+          <div class="pl">Обычно такая работа стоит</div>
+          <div class="pv">$1 200</div>
+        </div>
+        <div class="card pstep now">
+          <div class="pl">Но для вас — до 18 октября</div>
+          <div class="pv">$950</div>
+          <div class="pd">Фиксируем условия — и стартуем</div>
+        </div>
       </div>
     </div>
     <div class="terms">
-      <div><b>Дальше — $500 / мес</b><span>Ведение и улучшение рекламы + новые страницы на сайт</span></div>
-      <div><b>Рекламный бюджет — отдельно</b><span>~$100 в месяц, идёт напрямую в Google</span></div>
       <div><b>50% предоплата</b><span>Работаем по договору. Можно наличными в Минске.</span></div>
+      <div><b>Рекламный бюджет — отдельно</b><span>~$100 в месяц, идёт напрямую в Google</span></div>
       <div><b>Остановиться — в любой момент</b><span>Доступы остаются у вас</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. HOW WE WORK -->
+<section class="dark">
+  <div class="wrap">
+    <div class="tag">Как работаем</div>
+    <h2>Запуск за 10 дней. Дальше — <span>больше заявок и дешевле каждая</span></h2>
+    <div class="tl">
+      <div><div class="d">Первые 10 дней</div><b>Запуск</b><span>Сайт, реклама, Google Карты. Получаем первые заявки.</span></div>
+      <div><div class="d">Дальше — $500 / мес</div><b>Ведение рекламы</b><span>Постоянно улучшаем: больше заявок, каждая дешевле.</span></div>
+      <div><div class="d">Каждый месяц</div><b>Новые страницы на сайт</b><span>Поднимают сайт в поиске Google.</span></div>
+    </div>
+    <p class="lead" style="margin-top:24px">В будущем заявки будут приходить из поиска без рекламы — рекламный бюджет (~$100/мес) можно будет вообще отключить.</p>
+    <p style="margin:0;font-weight:700">Я нацелен на долгосрочное сотрудничество.</p>
+  </div>
+</section>
+
+<!-- 5. CALC -->
+<section class="white">
+  <div class="wrap">
+    <div class="tag">Посчитайте под себя</div>
+    <h2>Калькулятор на месяц</h2>
+    <div class="card calc">
+      <label for="cl">Новых клиентов в месяц: <span id="clv" class="num">10</span></label>
+      <div class="rng"><button type="button" data-t="cl" data-d="-1" aria-label="Меньше">−</button><input id="cl" type="range" min="5" max="40" step="1" value="10"><button type="button" data-t="cl" data-d="1" aria-label="Больше">+</button></div>
+      <label for="ch">Средний чек, BYN: <span id="chv" class="num">400</span></label>
+      <div class="rng"><button type="button" data-t="ch" data-d="-1" aria-label="Меньше">−</button><input id="ch" type="range" min="100" max="2000" step="50" value="400"><button type="button" data-t="ch" data-d="1" aria-label="Больше">+</button></div>
+      <div class="out">
+        <div><div class="v num" id="o-leads">—</div><div class="l">заявок нужно</div></div>
+        <div><div class="v num" id="o-ads">—</div><div class="l">рекламный бюджет</div></div>
+        <div><div class="v num" id="o-rev">—</div><div class="l">выручка в месяц</div></div>
+        <div class="win"><div class="v num" id="o-x">—</div><div class="l">каждый $ рекламы возвращается</div></div>
+      </div>
+      <p class="small" style="margin:12px 0 0">Клик ~$0,30 · сайт 10% · каждая 3-я заявка — клиент · курс ~3 BYN за $1.</p>
     </div>
   </div>
 </section>
