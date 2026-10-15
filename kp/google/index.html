@@ -34,8 +34,8 @@ p{margin:0 0 12px}
 .grid{display:grid;gap:12px}
 .g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 img.art{display:block;width:100%;height:auto;border-radius:24px;margin-top:28px}
-img.art{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;border-radius:28px;margin:28px 0 8px}
-@media (max-width:560px){img.art{aspect-ratio:4/3;border-radius:20px}}
+img.art{display:block;width:100%;max-width:100%;height:auto;border-radius:28px;margin:28px 0 8px}
+@media (max-width:560px){img.art{aspect-ratio:4/3;object-fit:cover;border-radius:20px}}
 img.shot{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px -18px rgba(20,22,26,.25);border:1px solid var(--line);background:#fff;margin-top:20px}
 .small{font-size:14px;color:var(--muted)}
 .btn{transition:transform .15s ease,box-shadow .15s ease;box-shadow:0 8px 24px -10px rgba(37,99,235,.6);display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:800;font-size:18px;padding:16px 26px;border-radius:14px}
@@ -59,7 +59,7 @@ img.shot{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 12
 .hme b{display:block;font-size:18px}
 .hme span{font-size:14px;color:#9ca1a8}
 .hero .photo{width:100%;height:auto;aspect-ratio:1;border-radius:28px;border:0;object-fit:cover;box-shadow:0 30px 60px -30px rgba(37,99,235,.55)}
-@media (max-width:720px){.hgrid{grid-template-columns:1fr;gap:24px}.hme{order:0}.hero .photo{aspect-ratio:4/3;object-position:50% 20%}}
+@media (max-width:720px){.hgrid{grid-template-columns:1fr;gap:24px}.hme{order:0;flex-direction:row;align-items:center;gap:16px}.hero .photo{width:112px;flex:none;margin:0;border-radius:22px;object-position:50% 15%}}
 /* ABOUT */
 .about{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
 .photo{width:180px;height:180px;border-radius:50%;object-fit:cover;background:var(--accent-soft);display:grid;place-items:center;font-size:56px;font-weight:800;color:var(--accent);border:4px solid #fff;box-shadow:0 4px 18px rgba(0,0,0,.08)}
@@ -88,7 +88,7 @@ img.shot{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 12
 .cstats .v{font-size:clamp(26px,4vw,34px);font-weight:800}
 .cstats .l{font-size:14px;color:var(--muted)}
 /* trust */
-.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:20px}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:20px}
 .trust>div{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
 .trust .i{width:48px;height:48px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:14px}
 .trust b{display:block;font-size:18px;margin-bottom:4px}
@@ -122,9 +122,56 @@ img.shot{display:block;width:100%;height:auto;border-radius:16px;box-shadow:0 12
 .out .win .l{color:#dcfce7}
 
 /* final */
-.final-q{background:var(--accent);color:#fff;text-align:center;padding:64px 0}
+.final-q{background:radial-gradient(700px 300px at 50% 0%,rgba(255,255,255,.18),transparent 70%),var(--accent);color:#fff;text-align:center;padding:96px 0}
 .final-q h2{color:#fff;max-width:820px;margin:0 auto 12px}
 .final-q p{color:#dbe7ff;max-width:640px;margin:0 auto 24px;font-size:19px}
+
+/* about */
+.about-c{text-align:center;max-width:820px;margin:0 auto}
+.about-c .lead{margin:0 auto 32px}
+.cta-wrap{position:relative;display:inline-block}
+.curl{position:absolute;right:calc(100% + 8px);top:-34px;width:110px;height:auto;color:var(--accent)}
+@media (max-width:560px){.curl{width:64px;top:-40px;right:calc(100% - 18px)}}
+.btn.big{font-size:20px;padding:20px 34px;border-radius:18px}
+.shine{position:relative;overflow:hidden;isolation:isolate}
+.shine::after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:shine 3s ease-in-out infinite;z-index:1;pointer-events:none}
+@keyframes shine{0%{left:-70%}55%,100%{left:140%}}
+.pulse{animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,99,235,.55)}70%{box-shadow:0 0 0 18px rgba(37,99,235,0)}100%{box-shadow:0 0 0 0 rgba(37,99,235,0)}}
+.btn.light.pulse{animation-name:pulsew}
+@keyframes pulsew{0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}70%{box-shadow:0 0 0 18px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+/* flow */
+.flow{display:flex;align-items:stretch;gap:10px;margin-top:24px}
+.flow .st{flex:1;min-width:0}
+.flow .st.win{background:var(--green);border-color:var(--green);color:#fff}
+.flow .st.win span{color:#dcfce7}
+.flow .st.win .n{background:#fff;color:var(--green)}
+.arr{flex:none;display:grid;place-items:center;color:var(--accent);font-size:26px;font-weight:800}
+.arr::before{content:"→"}
+@media (max-width:820px){.flow{flex-direction:column}.arr{height:28px}.arr::before{content:"↓"}}
+@media (max-width:720px){img.desk-only{display:none}}
+/* cases */
+.cases{display:grid;gap:36px;margin-top:28px}
+.case{background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:0 1px 2px rgba(20,22,26,.04),0 20px 50px -28px rgba(20,22,26,.25)}
+.case-img{display:block;width:100%;height:auto;aspect-ratio:21/8;object-fit:cover}
+.case-body{padding:32px}
+@media (max-width:560px){.case-img{aspect-ratio:16/10}.case-body{padding:22px}}
+.case-n{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.case-n i{font-style:normal;background:var(--accent);color:#fff;border-radius:999px;padding:4px 10px}
+.case h3{font-size:clamp(26px,4vw,38px);font-weight:800;letter-spacing:-.03em;margin:4px 0 0}
+.case h3 span{color:var(--accent)}
+.case .cstats>div{background:var(--bg)}
+.sh{font-size:17px;font-weight:700;margin:24px 0 0}
+/* bounce arrow */
+.down{display:flex;justify-content:center;margin-top:48px;color:var(--accent)}
+.down svg{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(10px);opacity:1}}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.st,.trust>div,.cstats>div{transition:transform .25s ease,box-shadow .25s ease}
+.st:hover,.trust>div:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(20,22,26,.3)}
+@media (prefers-reduced-motion:reduce){.shine::after,.pulse,.down svg{animation:none}.js .rv{transform:none;transition:opacity .3s}}
 footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 .btn:hover{transform:translateY(-1px)}
 .btn:focus-visible{outline:3px solid var(--accent-light);outline-offset:3px}
@@ -156,11 +203,11 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 <!-- ABOUT -->
 <section class="white">
   <div class="wrap">
-    <div>
+    <div class="about-c">
       <div class="tag">Кто я</div>
       <h2>Максим — привожу клиентов из Google</h2>
-      <p class="lead">Делаю сайт, настраиваю рекламу и сам её веду. Работаю с локальным бизнесом и B2B: автосервисы, тонировка, кузовной ремонт, инженерные сети. Вы общаетесь напрямую со мной — без менеджеров и посредников.</p>
-      <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.5 0 1.8l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.6.1 1.8-.7l3.1-14.6c.2-1-.7-1.8-1.8-1.4zM9.6 14.1l8.4-6.2-6.7 7.3-.3 3.2z"/></svg> Написать в Telegram</a>
+      <p class="lead">Делаю сайт, настраиваю рекламу и сам её веду. Работаю с B2C и B2B бизнесами: автосервисы, тонировка, кузовной ремонт, инженерные сети, мебельные и строительные компании. Вы общаетесь напрямую со мной — без менеджеров и посредников.</p>
+      <div class="cta-wrap"><svg class="curl" viewBox="0 0 120 90" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 12c18-6 40 2 38 20-2 14-22 14-20 2 3-16 34-12 50 6 10 11 17 22 28 30"/><path d="M92 58l14 13-18 3"/></svg><a class="btn big shine pulse" href="https://t.me/midnaix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.5 0 1.8l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.6.1 1.8-.7l3.1-14.6c.2-1-.7-1.8-1.8-1.4zM9.6 14.1l8.4-6.2-6.7 7.3-.3 3.2z"/></svg> Написать в Telegram</a></div>
     </div>
   </div>
 </section>
@@ -170,14 +217,19 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
   <div class="wrap">
     <div class="tag">Как это работает</div>
     <h2>Человек ищет → видит вас → звонит → приезжает</h2>
-    <img class="art" src="img/art-search.jpg" alt="Смартфон с результатами поиска, первый результат подсвечен">
-    <div class="steps">
+    <img class="art" src="img/art-how.jpg" alt="Входящий звонок от клиента на смартфоне">
+    <div class="flow">
       <div class="st"><div class="n">1</div><b>Ищет</b><span>Пишет в Google: «СТО Минск», «ремонт подвески»</span></div>
+      <div class="arr" aria-hidden="true"></div>
       <div class="st"><div class="n">2</div><b>Видит вас</b><span>Первым — в рекламе наверху и на Google Картах</span></div>
-      <div class="st"><div class="n">3</div><b>Заходит на сайт</b><span>Видит цены, работы и как до вас доехать</span></div>
-      <div class="st"><div class="n">4</div><b>Звонит</b><span>Заявка сразу приходит вам в Telegram</span></div>
+      <div class="arr" aria-hidden="true"></div>
+      <div class="st"><div class="n">3</div><b>Звонит</b><span>Или оставляет заявку на сайте — она сразу приходит вам в Telegram</span></div>
+      <div class="arr" aria-hidden="true"></div>
+      <div class="st"><div class="n">4</div><b>Приезжает</b><span>К вам на сервис или в офис</span></div>
+      <div class="arr" aria-hidden="true"></div>
+      <div class="st win"><div class="n">5</div><b>Вы получаете прибыль</b><span>А клиент остаётся в вашей базе</span></div>
     </div>
-    <img class="shot" src="img/scheme.png" alt="Схема: спрос → объявление → сайт → звонок/заявка → база и повторные продажи">
+    <img class="shot desk-only" src="img/scheme.png" alt="Схема: спрос → объявление → сайт → звонок/заявка → база и повторные продажи">
   </div>
 </section>
 
@@ -190,8 +242,8 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
     <div class="days">
       <div class="day"><div class="d">Дни 1–2</div><div><b>Собираем семантическое ядро</b><span>Находим, как вас ищут самые целевые клиенты. Убираем запросы, которые сливают деньги.</span></div></div>
       <div class="day"><div class="d">Дни 2–3</div><div><b>Разбираем конкурентов</b><span>Кто показывается, что предлагает, сколько стоит клик — и как сделать лучше.</span></div></div>
-      <div class="day"><div class="d">Дни 3–7</div><div><b>Делаем сайт под ваши услуги</b><span>Цены, фото работ, ответы на главные вопросы, кнопка звонка, заявки в Telegram.</span></div></div>
-      <div class="day"><div class="d">Дни 7–9</div><div><b>Настраиваем рекламу и Google Карты</b><span>Объявления, ставки, отсечение лишнего, учёт каждого звонка и заявки.</span></div></div>
+      <div class="day"><div class="d">Дни 3–7</div><div><b>Делаем сайт под ваши услуги</b><span>Под боли, переживания и желания ваших клиентов: цены, фото работ, ответы на главные вопросы, кнопка звонка, заявки в Telegram.</span></div></div>
+      <div class="day"><div class="d">Дни 7–9</div><div><b>Настраиваем рекламу и Google Карты, если нужны</b><span>Объявления, ставки, отсечение лишнего, учёт каждого звонка и заявки.</span></div></div>
       <div class="day go"><div class="d">День 10</div><div><b>Запуск — первые заявки</b><span>Дальше каждую неделю улучшаем: больше заявок, каждая дешевле.</span></div></div>
     </div>
   </div>
@@ -200,73 +252,59 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 <!-- CASES -->
 <section class="white">
   <div class="wrap">
-    <div class="tag">Кейс 1 · СТО в Минске</div>
-    <h2><span>2 830 заявок по $2</span></h2>
-    <div class="cstats">
-      <div><div class="v">2 830</div><div class="l">заявок и звонков</div></div>
-      <div><div class="v">$2,01</div><div class="l">за заявку</div></div>
-      <div><div class="v">10,6%</div><div class="l">посетителей оставляют заявку</div></div>
-      <div><div class="v">22 мес.</div><div class="l">работаем без перерыва</div></div>
-    </div>
-    <p class="lead" style="margin-top:16px">С января 2025 года: 26,7 тыс. переходов на сайт, бюджет $5,7 тыс. за всё время.</p>
-    <img class="shot" src="img/sto2-ads.png" alt="Google Ads СТО: 26,7 тыс. кликов, 2,83 тыс. конверсий, 2,01 $ за конверсию, расходы 5,69 тыс. $">
-
-    <div class="tag" style="margin-top:56px">Кейс 2 · Другое СТО в Минске, новый запуск</div>
-    <h2><span>26 заявок за 3 дня</span></h2>
-    <div class="cstats">
-      <div><div class="v">313</div><div class="l">кликов</div></div>
-      <div><div class="v">26</div><div class="l">заявок и звонков</div></div>
-      <div><div class="v">$4,39</div><div class="l">за заявку</div></div>
-      <div><div class="v">$114</div><div class="l">весь бюджет за 3 дня</div></div>
-    </div>
-    <img class="shot" src="img/sto-ads.png" alt="Google Ads СТО: 313 кликов, 26 конверсий, 4,39 $ за конверсию, расходы 114 $">
-    <h3 style="margin-top:28px">Что пишет клиент</h3>
-    <div class="grid g2" style="align-items:start">
-      <img class="shot" src="img/sto-msg1.png" alt="Сообщение клиента: по сводке 26 звонков" style="margin-top:0">
-      <img class="shot" src="img/sto-msg2.png" alt="Сообщение клиента: я уже вчера была удивлена результатами" style="margin-top:0">
-    </div>
-
-    <div class="tag" style="margin-top:56px">Кейс 3 · B2B, монтаж инженерных сетей</div>
-    <h2><span>7–8 целевых заявок за 3 дня</span></h2>
-    <div class="cstats">
-      <div><div class="v">39</div><div class="l">кликов</div></div>
-      <div><div class="v">7–8</div><div class="l">целевых заявок с сайта</div></div>
-      <div><div class="v">~$5,5</div><div class="l">за заявку</div></div>
-      <div><div class="v">$40</div><div class="l">весь бюджет</div></div>
-    </div>
-    <p class="lead" style="margin-top:16px">Даже в B2B, где клик стоит $1, заявка выходит в несколько долларов. Пришли запросы на КП по всем направлениям.</p>
-    <div class="grid g2" style="align-items:start">
-      <div>
-        <h3 style="margin-top:20px">Результат рекламы</h3>
-        <img class="shot" src="img/b2b-ads.png" alt="Google Ads: 39 кликов, 291 показ, 1,04 $ за клик, расходы 40,39 $" style="margin-top:8px">
+    <div class="tag">Кейсы</div>
+    <h2>Результаты <span>моих клиентов</span></h2>
+    <div class="cases">
+    <article class="case">
+      <img class="case-img" src="img/art-case-sto.jpg" alt="">
+      <div class="case-body">
+        <div class="case-n"><i>Кейс 01</i>СТО в Минске</div>
+        <h3><span>2 830 заявок</span> по $2</h3>
+        <div class="cstats"><div><div class="v">2 830</div><div class="l">заявок и звонков</div></div><div><div class="v">$2,01</div><div class="l">за заявку</div></div><div><div class="v">10,6%</div><div class="l">посетителей оставляют заявку</div></div><div><div class="v">22 мес.</div><div class="l">работаем без перерыва</div></div></div>
+        <p class="lead" style="margin-top:16px">С января 2025 года: 26,7 тыс. переходов на сайт, бюджет $5,7 тыс. за всё время.</p>
+        <img class="shot" src="img/sto2-ads.png" alt="Google Ads СТО: 26,7 тыс. кликов, 2,83 тыс. конверсий, 2,01 $ за конверсию">
       </div>
-      <div>
-        <h3 style="margin-top:20px">Что пишет клиент</h3>
-        <img class="shot" src="img/b2b-msg.webp" alt="Сообщение клиента: я даже подумать не мог, с сайта 7-8 заявок целевых за 3 дня, по всем направлениям" style="margin-top:8px">
+    </article>
+    <article class="case">
+      <img class="case-img" src="img/art-case-sto2.jpg" alt="">
+      <div class="case-body">
+        <div class="case-n"><i>Кейс 02</i>Другое СТО в Минске · новый запуск</div>
+        <h3><span>26 заявок</span> за 3 дня</h3>
+        <div class="cstats"><div><div class="v">313</div><div class="l">кликов</div></div><div><div class="v">26</div><div class="l">заявок и звонков</div></div><div><div class="v">$4,39</div><div class="l">за заявку</div></div><div><div class="v">$114</div><div class="l">весь бюджет за 3 дня</div></div></div>
+        
+        <img class="shot" src="img/sto-ads.png" alt="Google Ads СТО: 313 кликов, 26 конверсий"><h4 class="sh">Что пишет клиент</h4><div class="grid g2" style="align-items:start"><div><img class="shot" src="img/sto-msg1.png" alt="Сообщение клиента: по сводке 26 звонков"></div><div><img class="shot" src="img/sto-msg2.png" alt="Сообщение клиента: я уже вчера была удивлена результатами"></div></div>
       </div>
-    </div>
-
-    <div class="tag" style="margin-top:56px">Кейс 4 · Продажа и установка кондиционеров</div>
-    <h2><span>129 заявок по $8,53</span></h2>
-    <div class="cstats">
-      <div><div class="v">129</div><div class="l">заявок</div></div>
-      <div><div class="v">10%</div><div class="l">посетителей оставляют заявку</div></div>
-      <div><div class="v">$8,53</div><div class="l">за заявку</div></div>
-      <div><div class="v">5 мес.</div><div class="l">стабильной работы, май–октябрь</div></div>
-    </div>
-    <img class="shot" src="img/ac-ads.png" alt="Google Ads кондиционеры: 129 конверсий, 8,53 $ за конверсию, расходы 1,1 тыс. $, коэффициент конверсии 10,07%">
-
-    <div class="tag" style="margin-top:56px">Кейс 5 · Тонировка CarFace.by</div>
-    <h2><span>12% конверсия, заявка $2,69</span></h2>
-    <div class="grid g2" style="align-items:start">
-      <div>
-        <h3 style="margin-top:20px">Результат рекламы</h3>
-        <img class="shot" src="img/ads-tint.png" alt="Google Ads CarFace: 17 конверсий, 142 клика, 2,69 $ за конверсию, 11,97%" style="margin-top:8px">
+    </article>
+    <article class="case">
+      <img class="case-img" src="img/art-case-b2b.jpg" alt="">
+      <div class="case-body">
+        <div class="case-n"><i>Кейс 03</i>B2B · монтаж инженерных сетей</div>
+        <h3><span>7–8 целевых заявок</span> за 3 дня</h3>
+        <div class="cstats"><div><div class="v">39</div><div class="l">кликов</div></div><div><div class="v">7–8</div><div class="l">целевых заявок с сайта</div></div><div><div class="v">~$5,5</div><div class="l">за заявку</div></div><div><div class="v">$40</div><div class="l">весь бюджет</div></div></div>
+        <p class="lead" style="margin-top:16px">Даже в B2B, где клик стоит $1, заявка выходит в несколько долларов. Пришли запросы на КП по всем направлениям.</p>
+        <div class="grid g2" style="align-items:start"><div><h4 class="sh">Результат рекламы</h4><img class="shot" src="img/b2b-ads.png" alt="Google Ads: 39 кликов, 1,04 $ за клик, расходы 40,39 $"></div><div><h4 class="sh">Что пишет клиент</h4><img class="shot" src="img/b2b-msg.webp" alt="Сообщение клиента: с сайта 7-8 заявок целевых за 3 дня"></div></div>
       </div>
-      <div>
-        <h3 style="margin-top:20px">Заявки — сразу в Telegram</h3>
-        <img class="shot" src="img/leads.webp" alt="Telegram-канал с заявками CarFace.by" style="margin-top:8px">
+    </article>
+    <article class="case">
+      <img class="case-img" src="img/art-case-ac.jpg" alt="">
+      <div class="case-body">
+        <div class="case-n"><i>Кейс 04</i>Продажа и установка кондиционеров</div>
+        <h3><span>129 заявок</span> по $8,53</h3>
+        <div class="cstats"><div><div class="v">129</div><div class="l">заявок</div></div><div><div class="v">10%</div><div class="l">посетителей оставляют заявку</div></div><div><div class="v">$8,53</div><div class="l">за заявку</div></div><div><div class="v">5 мес.</div><div class="l">стабильной работы, май–октябрь</div></div></div>
+        
+        <img class="shot" src="img/ac-ads.png" alt="Google Ads кондиционеры: 129 конверсий, 8,53 $ за конверсию">
       </div>
+    </article>
+    <article class="case">
+      <img class="case-img" src="img/art-case-tint.jpg" alt="">
+      <div class="case-body">
+        <div class="case-n"><i>Кейс 05</i>Тонировка CarFace.by</div>
+        <h3><span>12% конверсия</span>, заявка $2,69</h3>
+        <div class="cstats"><div><div class="v">142</div><div class="l">клика</div></div><div><div class="v">17</div><div class="l">заявок</div></div><div><div class="v">11,97%</div><div class="l">конверсия сайта</div></div><div><div class="v">$2,69</div><div class="l">за заявку</div></div></div>
+        
+        <div class="grid g2" style="align-items:start"><div><h4 class="sh">Результат рекламы</h4><img class="shot" src="img/ads-tint.png" alt="Google Ads CarFace: 17 конверсий, 2,69 $ за конверсию"></div><div><h4 class="sh">Заявки — сразу в Telegram</h4><img class="shot" src="img/leads.webp" alt="Telegram-канал с заявками CarFace.by"></div></div>
+      </div>
+    </article>
     </div>
   </div>
 </section>
@@ -275,12 +313,14 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
 <section>
   <div class="wrap">
     <div class="tag">Почему мне можно доверять</div>
-    <h2>Всё прозрачно</h2>
+    <h2>Всё прозрачно — <span>и работаю на вашу прибыль</span></h2>
     <div class="trust">
       <div><div class="i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19M6.5 15h4"/></svg></div><b>Бюджет — напрямую в Google</b><span>Платите с вашей карты. Деньги на рекламу через меня не проходят.</span></div>
       <div><div class="i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l8.5-8.5M16 7l2.5 2.5M14 9l2 2"/></svg></div><b>Все доступы — у вас</b><span>Сайт, рекламный кабинет, пароли. Всё ваше, в любой момент.</span></div>
       <div><div class="i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><b>Отчёт каждую неделю</b><span>Сколько заявок пришло и сколько стоила каждая.</span></div>
       <div><div class="i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M8.5 13h7M8.5 17h5"/></svg></div><b>Только по договору</b><span>Все условия и обязательства — на бумаге.</span></div>
+      <div><div class="i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/></svg></div><b>Работаю на вашу прибыль, а не на заявки</b><span>Постоянно беру от вас обратную связь и докручиваю сайт в моменте, чтобы он приносил деньги.</span></div>
+      <div><div class="i"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><b>Аналитика поведения на сайте</b><span>Вижу, куда люди кликают и где уходят. По этим данным улучшаю сайт.</span></div>
     </div>
   </div>
 </section>
@@ -313,21 +353,34 @@ footer{padding:24px 0;font-size:13px;color:var(--muted);text-align:center}
       </div>
       <p class="small" style="margin:12px 0 0">Это пример для СТО. В каждой нише свои цифры — точно посчитаем на созвоне под ваш бизнес.</p>
     </div>
+    <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/><path d="M6 4l6 6 6-6" opacity=".5"/></svg></div>
   </div>
 </section>
 
 <!-- FINAL -->
 <section class="final-q">
   <div class="wrap">
-    <h2>Давайте созвонимся на 15 минут</h2>
+    <h2>Давайте созвонимся на 15 минут в Telegram</h2>
     <p>Посмотрю, как ищут именно вашу услугу, посчитаю цифры на вашем примере и отвечу на вопросы. Стоимость тоже обсудим на созвоне.</p>
-    <a class="btn light" href="https://t.me/midnaix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.5 0 1.8l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.6.1 1.8-.7l3.1-14.6c.2-1-.7-1.8-1.8-1.4zM9.6 14.1l8.4-6.2-6.7 7.3-.3 3.2z"/></svg> Написать в Telegram</a>
+    <a class="btn light big shine pulse" href="https://t.me/midnaix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.5 0 1.8l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.6.1 1.8-.7l3.1-14.6c.2-1-.7-1.8-1.8-1.4zM9.6 14.1l8.4-6.2-6.7 7.3-.3 3.2z"/></svg> Написать в Telegram</a>
   </div>
 </section>
 
-<footer>Цифры — по данным Google Ads и результатам наших проектов. Курс ~3 BYN за $1.</footer>
+<footer>Цифры — по данным из Google Ads. Курс ~3 BYN за $1.</footer>
 
 <script>
+(function(){
+  try{
+    var R=document.documentElement; R.classList.add('js');
+    var els=document.querySelectorAll('section .wrap > *:not(.cases), .case, .flow > .st, .trust > div, .days > .day');
+    els.forEach(function(e){e.classList.add('rv')});
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:0.08});
+      els.forEach(function(e){io.observe(e)});
+      setTimeout(function(){els.forEach(function(e){var b=e.getBoundingClientRect();if(b.top<innerHeight)e.classList.add('in')})},50);
+    } else els.forEach(function(e){e.classList.add('in')});
+  }catch(e){document.querySelectorAll('.rv').forEach(function(x){x.classList.add('in')})}
+})();
 (function(){
   var $=function(id){return document.getElementById(id)};
   var CPC=5690/26700, CONV=2830/26700, CLOSE=1/3, RATE=3;
