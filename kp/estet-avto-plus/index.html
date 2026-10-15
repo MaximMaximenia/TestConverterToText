@@ -367,7 +367,7 @@ svg text{font-family:Manrope,system-ui,sans-serif}
 
 <script>
 (function(){
-  try{ if(/[?&]notes\b/.test(location.search)) document.body.classList.add('notes'); }catch(e){}
+  try{ if(/notes/.test(location.hash)||/[?&]notes\b/.test(location.search)) document.body.classList.add('notes'); }catch(e){}
   document.addEventListener('keydown',function(e){ if((e.key==='n'||e.key==='т')&&!e.ctrlKey&&!e.metaKey) document.body.classList.toggle('notes'); });
   var cl=document.getElementById('cl'), ch=document.getElementById('ch');
   var CPC=0.30, CONV=0.10, CLOSE=1/3, RATE=3;
