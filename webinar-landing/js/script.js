@@ -165,6 +165,18 @@
         /* автоплей может быть заблокирован — пользователь нажмёт play на самом видео */
       });
     });
+
+    /* клик по самому видео переключает play/pause — не трогаем нижнюю
+       полосу ~36px, там нативный бар перемотки/звука браузера */
+    reviewVideo.addEventListener("click", function (e) {
+      var barHeight = 36;
+      if (e.offsetY > reviewVideo.clientHeight - barHeight) return;
+      if (reviewVideo.paused || reviewVideo.ended) {
+        reviewVideo.play().catch(function () {});
+      } else {
+        reviewVideo.pause();
+      }
+    });
   });
 
   /* ---------- капча из фигур (нажми на треугольник) ---------- */
