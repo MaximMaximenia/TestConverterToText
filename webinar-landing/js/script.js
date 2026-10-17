@@ -20,27 +20,13 @@
     window.gtag("config", cfg.gaMeasurementId);
   }
 
-  /* ---------- Яндекс.Метрика ---------- */
+  /* ---------- Яндекс.Метрика ----------
+     Счётчик уже подключен и инициализирован напрямую в <head> страницы
+     (index.html) — здесь только отправляем в него цели по ходу визита. */
   function ymGoal(name) {
     if (cfg.yandexMetrikaId && typeof window.ym === "function") {
       window.ym(cfg.yandexMetrikaId, "reachGoal", name);
     }
-  }
-
-  if (cfg.yandexMetrikaId) {
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
-      m[i].l = 1 * new Date();
-      k = e.createElement(t); a = e.getElementsByTagName(t)[0];
-      k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
-    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-    window.ym(cfg.yandexMetrikaId, "init", {
-      clickmap: true,
-      trackLinks: true,
-      accurateTrackBounce: true,
-      webvisor: true
-    });
   }
 
   /* ---------- цены (в hero и в блоке записи — оба набора элементов) ---------- */
@@ -66,8 +52,11 @@
 
   /* ---------- таймер ---------- */
   function getEvergreenTarget() {
-    var hours = cfg.evergreenHours || 24;
-    var durationMs = hours * 60 * 60 * 1000;
+    var days = cfg.evergreenDays || 0;
+    var hours = cfg.evergreenHours || 0;
+    var minutes = cfg.evergreenMinutes || 0;
+    var durationMs = (days * 24 * 60 + hours * 60 + minutes) * 60 * 1000;
+    if (durationMs <= 0) durationMs = 24 * 60 * 60 * 1000;
     var stored = null;
     try { stored = Number(localStorage.getItem("webinarTimerDeadline")); } catch (e) { /* приватный режим и т.п. — просто считаем заново каждый раз */ }
 
@@ -157,6 +146,26 @@
       });
     });
   }
+
+  /* ---------- видео-отзывы ---------- */
+  document.querySelectorAll(".review-video[data-video-src]").forEach(function (frameEl) {
+    var reviewVideo = frameEl.querySelector(".review-video__el");
+    var reviewPlayBtn = frameEl.querySelector(".video-play");
+    if (!reviewVideo || !reviewPlayBtn) return;
+
+    var src = frameEl.getAttribute("data-video-src");
+    var poster = frameEl.getAttribute("data-video-poster");
+    if (src) reviewVideo.innerHTML = '<source src="' + src + '" type="video/mp4">';
+    if (poster) reviewVideo.setAttribute("poster", poster);
+
+    reviewPlayBtn.addEventListener("click", function () {
+      frameEl.classList.add("is-playing");
+      reviewVideo.setAttribute("controls", "");
+      reviewVideo.play().catch(function () {
+        /* автоплей может быть заблокирован — пользователь нажмёт play на самом видео */
+      });
+    });
+  });
 
   /* ---------- капча из фигур (нажми на треугольник) ---------- */
   var captchaShapesEl = document.getElementById("captchaShapes");

@@ -9,7 +9,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113657567', 'ym');
+
+    ym(113657567, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113657567" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yyyl8oxkxm");
+</script>
+<!-- /Microsoft Clarity -->
 </head>
 <body>
 
@@ -101,25 +125,25 @@
 
     <div class="who-grid">
       <div class="who-card">
-        <img class="who-card__img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=500&q=80" alt="">
+        <img class="who-card__img" src="assets/who-01.jpg" alt="">
         <div class="who-card__num">01</div>
         <h3>Устали проводить звонки, которые не ведут к продаже</h3>
         <p>Диагностики, консультации, созвоны — конвейер отнимает часы, а до оплаты доходят единицы. Силы тратятся, а результата не видно.</p>
       </div>
       <div class="who-card who-card--accent">
-        <img class="who-card__img" src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?auto=format&fit=crop&w=500&q=80" alt="">
+        <img class="who-card__img" src="assets/who-02.jpg" alt="">
         <div class="who-card__num">02</div>
         <h3>Созвон заканчивается — а денег нет</h3>
         <p>Клиент говорит «мне надо подумать», выходит из чата — и пропадает навсегда. А вы прокручиваете разговор в голове, пытаясь понять, что сказали не так.</p>
       </div>
       <div class="who-card">
-        <img class="who-card__img" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80" alt="">
+        <img class="who-card__img" src="assets/who-03.jpg" alt="">
         <div class="who-card__num">03</div>
         <h3>Занижаете чек, хотя понимаете, что можно продавать дороже</h3>
         <p>Внутри — тот же продукт и та же экспертиза, но называть настоящую цену страшно. Поэтому берёте меньше, чем стоите на самом деле.</p>
       </div>
       <div class="who-card">
-        <img class="who-card__img" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=500&q=80" alt="">
+        <img class="who-card__img" src="assets/who-04.jpg" alt="">
         <div class="who-card__num">04</div>
         <h3>Выросли — но всё ещё продаёте лично, за каждого клиента</h3>
         <p>Нет процесса, который продаёт без вас: без личного участия в каждом созвоне заявки не превращаются в оплаты.</p>
@@ -199,70 +223,64 @@
 
     <div class="reviews-grid">
       <article class="review-card">
-        <div class="review-video video-frame" data-review-video>
-          <img class="review-video__img" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80" alt="Отзыв — Анна К.">
-          <button class="video-play video-play--sm" aria-label="Смотреть отзыв Анны">
+        <div class="review-video video-frame" data-video-src="assets/ot1.mp4" data-video-poster="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80">
+          <video class="review-video__el" playsinline poster="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=700&q=80"></video>
+          <button class="video-play video-play--sm" aria-label="Смотреть отзыв">
             <span class="video-play__ring"></span>
             <span class="video-play__icon">▶</span>
           </button>
-          <span class="review-video__name">Анна К.</span>
         </div>
         <div class="review-card__stars">★★★★★</div>
-        <p>«За месяц после разбора конверсия с созвонов выросла почти вдвое. Раньше боялась называть цену — теперь делаю это спокойно и без оправданий».</p>
+        <p>«Провёл 20 созвонов — ни одной продажи. Разобрали структуру диалога, научился слышать клиента и делать точный оффер. Уже в первый месяц закрыл продаж больше чем на $3 000».</p>
         <div class="review-card__author">
-          <strong>Анна К.</strong>
-          <small>эксперт по нутрициологии</small>
+          <strong>Эксперт по продажам на созвонах</strong>
         </div>
       </article>
 
       <article class="review-card review-card--accent">
-        <div class="review-video video-frame" data-review-video>
-          <img class="review-video__img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80" alt="Отзыв — Дмитрия М.">
-          <button class="video-play video-play--sm" aria-label="Смотреть отзыв Дмитрия">
+        <div class="review-video video-frame" data-video-src="assets/ot2.mp4" data-video-poster="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80">
+          <video class="review-video__el" playsinline poster="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=700&q=80"></video>
+          <button class="video-play video-play--sm" aria-label="Смотреть отзыв">
             <span class="video-play__ring"></span>
             <span class="video-play__icon">▶</span>
           </button>
-          <span class="review-video__name">Дмитрий М.</span>
         </div>
         <div class="review-card__stars">★★★★★</div>
-        <p>«Понял, почему клиенты уходили «подумать» и не возвращались. Изменил структуру созвона — из 10 диагностик стало закрываться 6 вместо 2».</p>
+        <p>«Звонки были хаотичными — не понимал, на каком этапе что говорить. Выстроили структуру диалога, и сделал первую продажу на $1 500, хотя до этого продавал максимум на $600–700. Главное — стало комфортно вести созвоны».</p>
         <div class="review-card__author">
-          <strong>Дмитрий М.</strong>
-          <small>консультант по маркетингу</small>
+          <strong>Консультант</strong>
         </div>
       </article>
 
       <article class="review-card">
-        <div class="review-video video-frame" data-review-video>
-          <img class="review-video__img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80" alt="Отзыв — Елены С.">
-          <button class="video-play video-play--sm" aria-label="Смотреть отзыв Елены">
+        <div class="review-video video-frame" data-video-src="assets/ot3.mp4" data-video-poster="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80">
+          <video class="review-video__el" playsinline poster="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=80"></video>
+          <button class="video-play video-play--sm" aria-label="Смотреть отзыв Никиты">
             <span class="video-play__ring"></span>
             <span class="video-play__icon">▶</span>
           </button>
-          <span class="review-video__name">Елена С.</span>
+          <span class="review-video__name">Никита</span>
         </div>
         <div class="review-card__stars">★★★★★</div>
-        <p>«Впервые продажи перестали ощущаться как что-то неприятное. Появилась система — и чувство, что я веду сделку, а не выпрашиваю оплату».</p>
+        <p>«4 месяца без единой продажи, 3–4 созвона в день — и тишина. Разобрали записи звонков, внедрили систему выявления потребностей и отработки возражений. Уже на второй месяц — продажи больше чем на 300 000 ₽, закрыл клиента с аудиторией 1,5 млн подписчиков на 150 000 ₽».</p>
         <div class="review-card__author">
-          <strong>Елена С.</strong>
-          <small>коуч по отношениям</small>
+          <strong>Никита</strong>
         </div>
       </article>
 
       <article class="review-card">
-        <div class="review-video video-frame" data-review-video>
-          <img class="review-video__img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=700&q=80" alt="Отзыв — Игоря В.">
-          <button class="video-play video-play--sm" aria-label="Смотреть отзыв Игоря">
+        <div class="review-video video-frame" data-video-src="assets/ot4.mp4" data-video-poster="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=700&q=80">
+          <video class="review-video__el" playsinline poster="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=700&q=80"></video>
+          <button class="video-play video-play--sm" aria-label="Смотреть отзыв Максима">
             <span class="video-play__ring"></span>
             <span class="video-play__icon">▶</span>
           </button>
-          <span class="review-video__name">Игорь В.</span>
+          <span class="review-video__name">Максим</span>
         </div>
         <div class="review-card__stars">★★★★★</div>
-        <p>«Поднял чек на 40% и не потерял ни одного клиента. До этого казалось, что дороже — значит будут отказываться. Оказалось — дело было не в цене».</p>
+        <p>«Вёл много созвонов, но конверсия была 5% — клиенты не доверяли и пропадали. Прокачали контакт с клиентом и отработку возражений. Конверсия выросла до 14%, а из последних 5 созвонов — 2 брони и оплата на $1 600+».</p>
         <div class="review-card__author">
-          <strong>Игорь В.</strong>
-          <small>эксперт по продажам в найм</small>
+          <strong>Максим</strong>
         </div>
       </article>
     </div>
@@ -322,7 +340,7 @@
   </div>
 </footer>
 
-<script src="js/config.js?v=9"></script>
-<script src="js/script.js?v=9"></script>
+<script src="js/config.js?v=10"></script>
+<script src="js/script.js?v=10"></script>
 </body>
 </html>
