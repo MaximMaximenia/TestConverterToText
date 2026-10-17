@@ -3,6 +3,33 @@
 
   var cfg = window.SITE_CONFIG || {};
 
+  /* ---------- UTM-метки ----------
+     Если человек пришёл по ссылке с ?utm_source=...&utm_campaign=... —
+     запоминаем эти метки на весь визит (на случай, если он кликнет не
+     сразу по форме, а погуляет по странице) и подставляем их в заявку,
+     которая летит в Telegram. */
+  function captureUtm() {
+    var keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+    var params = new URLSearchParams(window.location.search);
+    var hasAny = false;
+    var utm = {};
+    keys.forEach(function (key) {
+      var value = params.get(key);
+      if (value) hasAny = true;
+      utm[key] = value || "";
+    });
+    try {
+      if (hasAny) {
+        sessionStorage.setItem("webinarUtm", JSON.stringify(utm));
+      } else {
+        var stored = sessionStorage.getItem("webinarUtm");
+        if (stored) utm = JSON.parse(stored);
+      }
+    } catch (e) { /* приватный режим и т.п. — просто не запомнится между переходами по странице */ }
+    return utm;
+  }
+  var utmData = captureUtm();
+
   /* ---------- Google Analytics 4 ---------- */
   function gaEvent(name, params) {
     if (typeof window.gtag === "function") window.gtag("event", name, params || {});
@@ -249,17 +276,28 @@
       var data = {
         name: name,
         username: username,
-        webinarDate: cfg.webinarDate || ""
+        webinarDate: cfg.webinarDate || "",
+        utm: utmData
       };
 
       gaEvent("generate_lead", { webinar_date: cfg.webinarDate || "" });
       ymGoal("lead_submit");
 
       if (cfg.telegramBotToken && cfg.telegramChatId) {
+        var utmLines = "";
+        if (utmData.utm_source || utmData.utm_medium || utmData.utm_campaign || utmData.utm_content || utmData.utm_term) {
+          utmLines = "\n\nUTM-метки:\n" +
+            (utmData.utm_source ? "source: " + utmData.utm_source + "\n" : "") +
+            (utmData.utm_medium ? "medium: " + utmData.utm_medium + "\n" : "") +
+            (utmData.utm_campaign ? "campaign: " + utmData.utm_campaign + "\n" : "") +
+            (utmData.utm_content ? "content: " + utmData.utm_content + "\n" : "") +
+            (utmData.utm_term ? "term: " + utmData.utm_term + "\n" : "");
+        }
         var tgText = "🎯 Новая заявка на вебинар!\n" +
           "Имя: " + data.name + "\n" +
           "Telegram: " + data.username + "\n" +
-          "Дата вебинара: " + (cfg.webinarDate || "не указана");
+          "Дата вебинара: " + (cfg.webinarDate || "не указана") +
+          utmLines;
         var tgUrl = "https://api.telegram.org/bot" + cfg.telegramBotToken +
           "/sendMessage?chat_id=" + cfg.telegramChatId + "&text=" + encodeURIComponent(tgText);
         fetch(tgUrl).catch(function () {
