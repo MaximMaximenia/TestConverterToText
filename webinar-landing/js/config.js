@@ -108,7 +108,7 @@ window.SITE_CONFIG = {
 
   // Видео на главном экране
   videoSrc: "assets/main.mp4",
-  videoPoster: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80",
+  videoPoster: "assets/video-poster.jpg",
 
   // Имя эксперта
   expertName: "Мейнард Скринда",
