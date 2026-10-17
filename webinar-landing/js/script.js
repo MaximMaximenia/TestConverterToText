@@ -65,7 +65,23 @@
   }
 
   /* ---------- таймер ---------- */
-  var target = cfg.webinarDate ? new Date(cfg.webinarDate) : null;
+  function getEvergreenTarget() {
+    var hours = cfg.evergreenHours || 24;
+    var durationMs = hours * 60 * 60 * 1000;
+    var stored = null;
+    try { stored = Number(localStorage.getItem("webinarTimerDeadline")); } catch (e) { /* приватный режим и т.п. — просто считаем заново каждый раз */ }
+
+    var now = Date.now();
+    if (!stored || isNaN(stored) || stored <= now) {
+      stored = now + durationMs;
+      try { localStorage.setItem("webinarTimerDeadline", String(stored)); } catch (e) { /* ничего страшного, таймер просто не запомнится между визитами */ }
+    }
+    return new Date(stored);
+  }
+
+  var target = cfg.timerMode === "fixedDate"
+    ? (cfg.webinarDate ? new Date(cfg.webinarDate) : null)
+    : getEvergreenTarget();
 
   function pad(n) { return String(n).padStart(2, "0"); }
 
