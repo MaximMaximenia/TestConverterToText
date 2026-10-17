@@ -157,10 +157,10 @@
     var poster = frameEl.getAttribute("data-video-poster");
     if (src) reviewVideo.innerHTML = '<source src="' + src + '" type="video/mp4">';
     if (poster) reviewVideo.setAttribute("poster", poster);
+    reviewVideo.load();
 
     reviewPlayBtn.addEventListener("click", function () {
       frameEl.classList.add("is-playing");
-      reviewVideo.setAttribute("controls", "");
       reviewVideo.play().catch(function () {
         /* автоплей может быть заблокирован — пользователь нажмёт play на самом видео */
       });
