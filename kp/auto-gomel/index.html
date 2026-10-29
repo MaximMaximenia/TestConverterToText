@@ -292,6 +292,17 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   .lane.l1,.lane.l2{grid-column:1}
   .got{grid-template-columns:1fr}
 }
+/* owner */
+.owner{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:28px;background:var(--accent);border-radius:var(--r);padding:32px}
+.owner .label{color:#FFE2D6}
+.owner h3{font-size:clamp(26px,3.2vw,40px);font-weight:800;margin:10px 0 12px}
+.owner p{color:#FFEDE5;max-width:460px}
+.ow-r{display:grid;gap:12px}
+.ow-r>div{background:var(--dark);border-radius:16px;padding:20px;display:grid;gap:6px}
+.ow-r .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.ow-r b{font-family:var(--f-display);font-weight:700;font-size:19px}
+.ow-r span:last-child{color:var(--dark-muted);font-size:15px}
+@media (max-width:860px){.owner{grid-template-columns:1fr;padding:22px}}
 /* kpi */
 .kpi{margin-top:14px;background:var(--accent);color:#fff;border-radius:var(--r);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
 .kpi .k{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#FFE2D6;margin-bottom:6px}
@@ -645,7 +656,8 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   <div class="wrap">
     <div class="head">
       <span class="label">Что вы получаете</span>
-      <h2>Не набор услуг, а <span class="acc">система продаж</span></h2>
+      <h2>Ставим продажи <span class="acc">на рельсы</span></h2>
+      <p class="lead">Не набор услуг, а система, которая дальше едет сама и даёт предсказуемый результат — в цифрах, а не на ощущениях.</p>
     </div>
     <div class="vals">
       <div><span class="vn">01</span><b>Номера людей, которые хотят купить машину</b><span>Каждый день, с ответами квиза: что ищут и какой бюджет.</span></div>
@@ -654,6 +666,17 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <div><span class="vn">04</span><b>Отчёт в цифрах</b><span>Какой креатив, какой менеджер и какая машина приносят деньги.</span></div>
       <div><span class="vn">05</span><b>Специалист по продажам</b><span>Каждую неделю разбирает звонки и говорит, что исправить.</span></div>
       <div><span class="vn">06</span><b>Понятный путь к 30 продажам</b><span>Видно, на каком шаге воронки сейчас узкое место и что докручиваем.</span></div>
+    </div>
+    <div class="owner">
+      <div class="ow-l">
+        <span class="label">Один ответственный</span>
+        <h3>За всё отвечаю я</h3>
+        <p>Вам не нужно общаться с таргетологом, специалистом по продажам и сопоставлять данные из разных мест. Вся информация собирается у меня — вы получаете готовую картину.</p>
+      </div>
+      <div class="ow-r">
+        <div><span class="vn">Каждую неделю</span><b>Отчёт о проделанной работе</b><span>Что сделали, цифры по обеим воронкам, что изменилось за неделю.</span></div>
+        <div><span class="vn">Каждую неделю</span><b>Созвон с вами</b><span>Показываю все данные, обсуждаем вектор, в котором движемся, и строим план на следующую неделю.</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -821,7 +844,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   /* reveal on scroll */
   try{
     document.documentElement.classList.add('js');
-    var els=document.querySelectorAll('.head, .rv-card, .now > div, .jr-h, .thread li, .crm > *, .math > *, .loop > div, .vals > div, .why > div, .tl, .got > div, .sv, .total, .kpi, .extra, .fut > div, .contact');
+    var els=document.querySelectorAll('.head, .rv-card, .owner, .now > div, .jr-h, .thread li, .crm > *, .math > *, .loop > div, .vals > div, .why > div, .tl, .got > div, .sv, .total, .kpi, .extra, .fut > div, .contact');
     els.forEach(function(e){e.classList.add('rv')});
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
