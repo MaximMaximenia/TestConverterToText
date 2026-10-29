@@ -241,6 +241,8 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
 .fut b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
 .fut span:last-child{color:var(--muted);font-size:15.5px}
 @media (max-width:900px){.fut{grid-template-columns:1fr}}
+.foot{padding-block:8px 32px}
+.foot .contact{margin-top:0}
 .white .contact{border-top-color:var(--line);color:var(--muted)}
 .white .contact a{color:var(--ink)}
 /* why */
@@ -338,8 +340,14 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
 .jr-h img{border-radius:18px;aspect-ratio:16/10;object-fit:cover;width:100%}
 @media (max-width:760px){.jr-h{grid-template-columns:1fr}.jr-h img{order:-1;max-height:200px}}
 .thread{list-style:none;margin:0;padding:0;position:relative}
-.thread::before{content:"";position:absolute;left:50%;top:24px;bottom:24px;width:2px;margin-left:-1px;background:repeating-linear-gradient(180deg,var(--accent) 0 8px,transparent 8px 14px)}
-.thread li{display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;gap:0 20px;padding:22px 0}
+.thread-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.thread-svg .trunk{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round}
+.thread-svg .br{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;opacity:.35}
+.thread-svg .lf{fill:var(--accent)}
+.thread-svg .draw{transition:stroke-dashoffset 1.8s cubic-bezier(.4,.1,.2,1)}
+.thread li:nth-of-type(odd) .nd span{transform:translateX(-28px)}
+.thread li:nth-of-type(even) .nd span{transform:translateX(28px)}
+.thread li{display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;gap:0 48px;padding:22px 0}
 .th{text-align:right}
 .th .who,.actor{display:block;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .th q{quotes:"«" "»";font-size:clamp(17px,1.7vw,20px);font-style:italic;font-weight:300;line-height:1.4}
@@ -361,7 +369,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
 .qf em{font-style:normal;font-family:var(--f-mono);text-align:right}
 .qf small{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
 @media (max-width:760px){
-  .thread::before{left:21px}
+  .thread li .nd span{transform:none !important}
   .thread li{grid-template-columns:44px 1fr;gap:10px 16px;align-items:start;padding:18px 0}
   .nd{grid-row:1/3;grid-column:1;align-self:start}
   .th{text-align:left;grid-column:2}
@@ -459,7 +467,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <li class="js-step fin">
         <div class="th"><span class="who">Клиент думает</span><q>Машину купили, деньги получил.</q></div>
         <div class="nd" aria-hidden="true"><span>6</span></div>
-        <div class="ac"><span class="actor">Результат</span><p>Вы продаёте машину и получаете комиссию.</p><span class="mt"><i></i>Замер · комиссия с каждой машины</span></div>
+        <div class="ac"><span class="actor">Результат</span><p>Вы продаёте машину и получаете комиссию.</p><span class="mt"><i></i>Замер · машин продано с комиссии</span></div>
       </li>
       </ol>
     </div>
@@ -505,7 +513,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <li class="js-step fin">
         <div class="th"><span class="who">Клиент думает</span><q>Беру.</q></div>
         <div class="nd" aria-hidden="true"><span>6</span></div>
-        <div class="ac"><span class="actor">Результат</span><p>Сделка. Видно, с какого креатива и через какого менеджера пришёл покупатель.</p><span class="mt"><i></i>Замер · продаж и выручка по креативу и менеджеру</span></div>
+        <div class="ac"><span class="actor">Результат</span><p>Сделка. Видно, с какого креатива и через какого менеджера пришёл покупатель.</p><span class="mt"><i></i>Замер · продажи</span></div>
       </li>
       </ol>
     </div>
@@ -557,8 +565,9 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   <div class="wrap">
     <div class="head">
       <span class="label">Раскладка</span>
-      <h2>Как прийти к <span class="acc">30 продажам</span></h2>
-      <p class="lead">Идём от цели назад: сколько нужно просмотров, дозвонов и заявок. Стартуем примерно с 200 заявок в месяц, меряем реальные конверсии и масштабируем то, что приводит продажи.</p>
+      <h2>Сколько чего нужно для <span class="acc">30 продаж</span></h2>
+      <p class="lead">Сейчас это расчёт на типичных конверсиях. С первого месяца собираем ваши реальные цифры по каждому шагу — и видим, сколько заявок, дозвонов и просмотров нужно на самом деле и какой шаг улучшать.</p>
+      <p class="lead">Если в какой-то момент упрёмся в объём рынка Гомеля, это тоже будет видно в цифрах — не на ощущениях.</p>
     </div>
     <div class="math">
       <div class="fun">
@@ -596,7 +605,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
     <div class="loop">
       <div><b>Слушает звонки</b><span>Записи каждого менеджера из CRM.</span></div>
       <div><b>Разбирает ошибки</b><span>Где клиент ушёл, что сказали не так, что не дожали.</span></div>
-      <div><b>Созвон 2 раза в неделю</b><span>С каждым менеджером отдельно, 15–20 минут: что исправить в разговоре.</span></div>
+      <div><b>Созвон и отыгровка</b><span>2 раза в неделю с каждым отдельно: разбор ошибок и отыгровка сложных моментов по ролям — навык ставится только в практике.</span></div>
       <div><b>Докручивает скрипт</b><span>Сильные фразы остаются, слабые меняем. Круг повторяется.</span></div>
     </div>
   </div>
@@ -623,7 +632,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
           <div><b>Сдаётся на первом «нет» в закупе</b><em>звонок 03</em><p>Возражение можно отработать по скрипту.</p></div>
         </div>
         <div class="todo"><span class="k">Задание до следующего созвона</span>
-          <ol><li>Спрашивать бюджет в первые 2 минуты</li><li>Заканчивать каждый звонок датой просмотра</li><li>На «я подумаю» — перезвон через 2 дня, задача в CRM</li></ol>
+          <ol><li>Спрашивать бюджет в первые 2 минуты</li><li>Заканчивать каждый звонок датой просмотра</li><li>На «я подумаю» — перезвон через 2 дня, задача в CRM</li><li>Отыгровка на созвоне: специалист — клиент, менеджер проходит возражение «дорого» 3 раза подряд</li></ol>
           <div class="ok"><span class="k">Что сохранить</span><p>Быстрый перезвон и ссылка на av.by прямо в разговоре — это работает.</p></div>
         </div>
       </div>
@@ -701,7 +710,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <p class="lead">Нажмите на услугу — откроется, что в неё входит, и её цена. Все три вместе — пакетом дешевле. Цена — за первый месяц работы под ключ.</p>
     </div>
     <div class="svc" id="svc">
-      <div class="sv" data-price="450">
+      <div class="sv" data-price="290">
         <button class="sv-h" type="button" aria-expanded="false">
           <span class="box" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
           <span class="nm">Таргет и квиз<span class="ds">Поток номеров тех, кто хочет купить</span></span>
@@ -716,10 +725,10 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
           <li>Воронка квиза: сколько дошли до каждого вопроса</li>
         </ul></div></div>
       </div>
-      <div class="sv" data-price="400">
+      <div class="sv" data-price="390">
         <button class="sv-h" type="button" aria-expanded="false">
           <span class="box" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
-          <span class="nm">CRM Битрикс24 и оцифровка<span class="ds">Закуп и продажа — в цифрах</span></span>
+          <span class="nm">Настройка CRM, воронок и скриптов<span class="ds">Закуп и продажа — в цифрах</span></span>
           <span class="pr"><span class="hid">нажмите</span></span>
         </button>
         <div class="sv-b"><div><ul>
@@ -727,23 +736,23 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
           <li>Воронка «Закуп» и воронка «Продажа»</li>
           <li>Подключение телефонии с записью звонков</li>
           <li>Отчёт по каждому менеджеру и шагу воронки</li>
-          <li>Задачи и напоминания по клиентам</li>
-          <li>Обучение команды работе в CRM</li>
+          <li>Задачи, напоминания и обучение команды работе в CRM</li>
+          <li>Скрипты продажи и закупа — готовые, из этой ниши, адаптированные под AutoPartner</li>
         </ul></div></div>
       </div>
-      <div class="sv" data-price="300">
+      <div class="sv" data-price="450">
         <button class="sv-h" type="button" aria-expanded="false">
           <span class="box" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
-          <span class="nm">Скрипт и контроль продаж<span class="ds">Менеджеры, которые закрывают сделки</span></span>
+          <span class="nm">Контроль продаж и всей воронки<span class="ds">Каждую неделю — разбор и докрутка</span></span>
           <span class="pr"><span class="hid">нажмите</span></span>
         </button>
         <div class="sv-b"><div><ul>
-          <li>Готовые скрипты продажи и закупа от компании из Минска</li>
-          <li>Адаптация скриптов под AutoPartner</li>
-          <li>Норматив 60–70 звонков в день</li>
           <li>2 созвона в неделю с каждым менеджером</li>
-          <li>Структурная обратная связь менеджерам</li>
+          <li>Разбор звонков: таблица ошибок и повторяющихся паттернов</li>
+          <li>Отыгровка сложных моментов по ролям</li>
           <li>Постоянная докрутка скрипта</li>
+          <li>Контроль всей воронки: квиз, дозвон, просмотры, продажи</li>
+          <li>Отчёт каждую неделю и подробный итог месяца</li>
         </ul></div></div>
       </div>
     </div>
@@ -766,25 +775,48 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   </div>
 </section>
 
-<!-- FUTURE -->
-<section class="white">
-  <div class="wrap">
-    <div class="head">
-      <span class="label">Можно сделать дальше</span>
-      <h2>Свой сайт — <span class="acc">больше доверия</span></h2>
-      <p class="lead">Когда воронки заработают, усиливаем доверие к AutoPartner собственными инструментами.</p>
-    </div>
-    <div class="fut">
-      <div><span class="vn">01</span><b>Каталог машин на вашем сайте</b><span>Все машины в наличии с фильтрами: марка, цена, год. Человек сам выбирает и понимает, что у вас есть.</span></div>
-      <div><span class="vn">02</span><b>Автовыкладка</b><span>Загрузили фото и данные — машина сразу появилась в каталоге. Без программиста.</span></div>
-      <div><span class="vn">03</span><b>Telegram-бот с новинками</b><span>Человек подписывается и получает новые машины в Telegram, как только они появились.</span></div>
-    </div>
-    <div class="contact"><span>Максим</span><a href="https://t.me/midnaix" target="_blank" rel="noopener">@midnaix в Telegram</a></div>
-  </div>
-</section>
+<!-- CONTACT -->
+<footer class="foot"><div class="wrap"><div class="contact"><span>Максим</span><a href="https://t.me/midnaix" target="_blank" rel="noopener">@midnaix в Telegram</a></div></div></footer>
 
 
 <script>
+/* branching path through journey steps */
+(function(){
+  var NS='http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e}
+  function draw(th){
+    var old=th.querySelector('.thread-svg');if(old)old.remove();
+    var R=th.getBoundingClientRect(),mob=innerWidth<=760,pts=[],brs=[];
+    th.querySelectorAll('li').forEach(function(li){
+      var n=li.querySelector('.nd span'),a=li.querySelector('.ac');if(!n||!a)return;
+      var b=n.getBoundingClientRect(),c=a.getBoundingClientRect(),y=b.top+b.height/2-R.top,x=b.left+b.width/2-R.left;
+      pts.push([x,y]);
+      if(!mob)brs.push([x+b.width/2,y,c.left-R.left,c.top+c.height/2-R.top]);
+    });
+    if(pts.length<2)return;
+    var s=el('svg',{class:'thread-svg','aria-hidden':'true'});
+    var d='M'+pts[0][0]+' '+(pts[0][1]-30)+' L'+pts[0][0]+' '+pts[0][1];
+    for(var i=1;i<pts.length;i++){var p=pts[i-1],q=pts[i],m=(p[1]+q[1])/2;d+=' C'+p[0]+' '+m+' '+q[0]+' '+m+' '+q[0]+' '+q[1]}
+    var tr=el('path',{d:d,class:'trunk draw'});s.appendChild(tr);
+    brs.forEach(function(b){
+      var mx=(b[0]+b[2])/2;
+      s.appendChild(el('path',{class:'br',d:'M'+b[0]+' '+b[1]+' C'+mx+' '+b[1]+' '+mx+' '+b[3]+' '+(b[2]-6)+' '+b[3]}));
+      s.appendChild(el('circle',{class:'lf',cx:b[2]-6,cy:b[3],r:3.5}));
+    });
+    th.insertBefore(s,th.firstChild);
+    var L=tr.getTotalLength();tr.style.strokeDasharray=L;
+    if(th.dataset.drawn){tr.style.strokeDashoffset=0;return}
+    tr.style.strokeDashoffset=L;
+    var go=function(){th.dataset.drawn=1;requestAnimationFrame(function(){tr.style.strokeDashoffset=0})};
+    if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){go();io.disconnect()}},{threshold:.15});io.observe(th)}else go();
+  }
+  function all(){document.querySelectorAll('.thread').forEach(draw)}
+  var tm;function later(){clearTimeout(tm);tm=setTimeout(all,120)}
+  addEventListener('resize',later);addEventListener('load',all);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(later);
+  document.addEventListener('transitionend',function(e){if(e.target.closest&&e.target.closest('.thread li'))later()});
+  later();
+})();
 (function(){
   /* reveal on scroll */
   try{
