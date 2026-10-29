@@ -206,7 +206,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
 /* extra costs */
 .extra{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .extra .k{grid-column:1/-1;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
-.extra>div{background:var(--paper);border-radius:16px;padding:16px 18px;display:grid;gap:2px}
+.extra>div{background:var(--card);border-radius:16px;padding:16px 18px;display:grid;gap:2px}
 .extra b{font-weight:600}.extra span{color:var(--muted);font-size:14.5px}
 @media (max-width:760px){.extra{grid-template-columns:1fr}}
 /* roadmap */
@@ -235,6 +235,59 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
 @media (max-width:900px){.fut{grid-template-columns:1fr}}
 .white .contact{border-top-color:var(--line);color:var(--muted)}
 .white .contact a{color:var(--ink)}
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.why>div{background:var(--card);border-radius:18px;padding:24px;display:grid;gap:8px;align-content:start}
+.why>div:last-child{background:var(--accent);color:#fff}
+.why>div:last-child .vn,.why>div:last-child span:last-child{color:#FFE7DD}
+.why .vn{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.why b{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.2}
+.why span:last-child{color:var(--muted);font-size:15.5px}
+@media (max-width:900px){.why{grid-template-columns:1fr}}
+/* timeline */
+.tl{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px 14px;padding-top:28px}
+.tl-axis{position:absolute;left:0;right:0;top:6px;height:2px;background:var(--dark-line)}
+.tl-axis::after{content:"";position:absolute;left:0;top:0;height:2px;width:100%;background:var(--accent);transform-origin:left;transform:scaleX(1);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.js .tl .tl-axis::after{transform:scaleX(0)}
+.js .tl.in .tl-axis::after{transform:scaleX(1)}
+.tc{position:relative;display:grid;gap:8px;align-content:start}
+.tc::before{content:"";position:absolute;top:-28px;left:0;width:14px;height:14px;border-radius:50%;background:var(--dark);border:2px solid var(--accent)}
+.tc.s::before,.tc.f::before{background:var(--accent)}
+.tc .dy{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.tc b{font-family:var(--f-display);font-weight:700;font-size:19px}
+.tc ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.tc li{font-size:14.5px;color:var(--dark-muted);padding-left:14px;position:relative}
+.tc li::before{content:"";position:absolute;left:0;top:10px;width:7px;height:2px;background:var(--dark-muted)}
+.tc.f{background:var(--dark2);border:1px solid var(--accent);border-radius:16px;padding:14px}
+.tc.f::before{left:14px}
+.tc.f li{color:#fff}
+.lane{display:flex;align-items:center;gap:10px;background:var(--dark2);border-radius:999px;padding:10px 16px;font-size:13.5px;color:#fff;flex-wrap:wrap}
+.lane span{font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;margin-right:auto}
+.lane i{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.lane.l1{grid-column:3/7}
+.lane.l2{grid-column:3/7}
+.lane.l2 i{background:#fff}
+.got{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:48px}
+.got .label{grid-column:1/-1}
+.got>div{border-top:2px solid var(--accent);padding-top:14px;display:grid;gap:4px}
+.got b{font-family:var(--f-display);font-weight:700;font-size:20px}
+.got span{color:var(--dark-muted);font-size:15px}
+@media (max-width:980px){
+  .tl{grid-template-columns:1fr;padding-top:0;padding-left:28px;gap:22px}
+  .tl-axis{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .tl-axis::after{width:2px;height:100%;transform-origin:top;transform:scaleY(1)}
+  .js .tl .tl-axis::after{transform:scaleY(0)} .js .tl.in .tl-axis::after{transform:scaleY(1)}
+  .tc::before{top:2px;left:-28px}
+  .tc.f::before{left:-28px}
+  .lane.l1,.lane.l2{grid-column:1}
+  .got{grid-template-columns:1fr}
+}
+/* kpi */
+.kpi{margin-top:14px;background:var(--accent);color:#fff;border-radius:var(--r);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.kpi .k{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#FFE2D6;margin-bottom:6px}
+.kpi b{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,2.4vw,28px);line-height:1.15}
+.kpi p{color:#FFEDE5;max-width:460px}
+@media (max-width:760px){.kpi{grid-template-columns:1fr;gap:12px}}
 /* journeys */
 .jr{margin-top:56px}
 .jr+.jr{margin-top:96px}
@@ -495,12 +548,12 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
     <div class="head">
       <span class="label">Контроль качества</span>
       <h2>Человек, который <span class="acc">слушает продажи</span></h2>
-      <p class="lead">С вашими менеджерами постоянно работает специалист: отсматривает звонки и даёт чёткую обратную связь по структуре, что исправить, чтобы продаж стало больше.</p>
+      <p class="lead">С вашими менеджерами постоянно работает специалист с опытом именно в продаже машин. Два раза в неделю — короткий созвон с каждым менеджером отдельно: конкретные ошибки из его звонков и что сделать уже сегодня.</p>
     </div>
     <div class="loop">
-      <div><b>Слушает звонки</b><span>Каждую неделю — выборка звонков каждого менеджера.</span></div>
+      <div><b>Слушает звонки</b><span>Записи каждого менеджера из CRM.</span></div>
       <div><b>Разбирает ошибки</b><span>Где клиент ушёл, что сказали не так, что не дожали.</span></div>
-      <div><b>Даёт обратную связь</b><span>По пунктам: что поменять в разговоре на этой неделе.</span></div>
+      <div><b>Созвон 2 раза в неделю</b><span>С каждым менеджером отдельно, 15–20 минут: что исправить в разговоре.</span></div>
       <div><b>Докручивает скрипт</b><span>Сильные фразы остаются, слабые меняем. Круг повторяется.</span></div>
     </div>
   </div>
@@ -524,13 +577,56 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   </div>
 </section>
 
+<!-- WHY -->
+<section>
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Почему это сработает</span>
+      <h2>Экспертиза <span class="acc">именно в вашей нише</span></h2>
+    </div>
+    <div class="why">
+      <div><span class="vn">01</span><b>Опыт в продаже машин</b><span>У меня и у специалиста, который слушает звонки, есть опыт именно с автосалонами. Не общие советы, а то, что уже работает в этой нише.</span></div>
+      <div><span class="vn">02</span><b>Готовые скрипты и данные</b><span>Берём скрипты компании из Минска из этой же ниши и цифры, которые у нас уже есть. Не начинаем с нуля.</span></div>
+      <div><span class="vn">03</span><b>Я зарабатываю, когда вы продаёте</b><span>Со второго месяца часть оплаты — 100 BYN за каждую машину, проданную с таргета. Мне выгодно, чтобы продаж было больше.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="dark">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Первый месяц</span>
+      <h2>Что и когда <span class="acc">делаем</span></h2>
+      <p class="lead">Каждый шаг виден заранее. Каждую неделю — отчёт, в конце месяца — подробный разбор.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-axis" aria-hidden="true"></div>
+      <div class="tc s"><span class="dy">День 0</span><b>Старт</b><ul><li>Договор и доступы</li><li>Созвон: вопросы квиза и этапы обеих воронок</li></ul></div>
+      <div class="tc"><span class="dy">Дни 1–3</span><b>Подготовка</b><ul><li>Квиз и креативы на первое касание</li><li>Скрипты продажи и закупа</li><li>Битрикс24: две воронки</li></ul></div>
+      <div class="tc"><span class="dy">Дни 4–7</span><b>Запуск</b><ul><li>Квиз опубликован, заявки падают в CRM</li><li>Телефония и запись звонков</li><li>Запуск рекламы, обучение менеджеров</li></ul></div>
+      <div class="tc"><span class="dy">Неделя 2</span><b>Первые цифры</b><ul><li>Первые заявки и звонки</li><li>Отключаем слабые креативы</li><li>Первые правки скрипта</li></ul></div>
+      <div class="tc"><span class="dy">Неделя 3</span><b>Докрутка</b><ul><li>Скрипт, версия 2</li><li>Правим вопросы квиза, где люди уходят</li><li>Закуп: звонки считаются в CRM</li></ul></div>
+      <div class="tc f"><span class="dy">День 30</span><b>Итог месяца</b><ul><li>Подробный отчёт: что сделано</li><li>Цифры по обеим воронкам</li><li>План на второй месяц</li></ul></div>
+      <div class="lane l1"><span>Разбор звонков · 2 созвона в неделю с каждым менеджером</span><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="lane l2"><span>Отчёт вам · каждую неделю</span><i></i><i></i><i></i><i></i></div>
+    </div>
+    <div class="got">
+      <span class="label">Через месяц у вас</span>
+      <div><b>Отлаженный скрипт</b><span>Для продажи и для закупа — проверенный на ваших звонках.</span></div>
+      <div><b>Прозрачная статистика</b><span>По каждому шагу обеих воронок и по каждому менеджеру.</span></div>
+      <div><b>Поток заявок</b><span>Номера людей, которые хотят купить машину, — каждый день в CRM.</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
-<section class="white" id="price">
+<section id="price">
   <div class="wrap">
     <div class="head">
       <span class="label">Стоимость</span>
       <h2>Из чего складывается <span class="acc">цена</span></h2>
-      <p class="lead">Нажмите на услугу — откроется, что в неё входит, и её цена. Все три вместе — пакетом дешевле. Цена за месяц работы.</p>
+      <p class="lead">Нажмите на услугу — откроется, что в неё входит, и её цена. Все три вместе — пакетом дешевле. Цена — за первый месяц работы под ключ.</p>
     </div>
     <div class="svc" id="svc">
       <div class="sv" data-price="450">
@@ -573,7 +669,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
           <li>Готовые скрипты продажи и закупа от компании из Минска</li>
           <li>Адаптация скриптов под ваш автохаус</li>
           <li>Норматив 60–70 звонков в день</li>
-          <li>Еженедельное прослушивание звонков</li>
+          <li>2 созвона в неделю с каждым менеджером</li>
           <li>Структурная обратная связь менеджерам</li>
           <li>Постоянная докрутка скрипта</li>
         </ul></div></div>
@@ -583,6 +679,10 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <div><div class="k">Итого</div><div class="hint" id="t-hint">Выберите услуги выше</div></div>
       <div class="sum" id="t-sum"></div>
     </div>
+    <div class="kpi">
+      <div><span class="k">Со второго месяца</span><b>+100 BYN за каждую машину,<br>проданную с таргета</b></div>
+      <p>Продажу считаем по CRM: сделка с источником «квиз». Я зарабатываю больше, только когда вы продаёте больше.</p>
+    </div>
     <div class="extra">
       <span class="k">Учитываем заранее · оплачивается отдельно</span>
       <div><b>Битрикс24 «Базовый»</b><span>80 BYN в месяц на 5 сотрудников, 64 BYN при оплате за год</span></div>
@@ -590,23 +690,6 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <div><b>Рекламный бюджет</b><span>идёт напрямую в рекламный кабинет. Хостинг квиза — бесплатно</span></div>
     </div>
 </div>
-  </div>
-</section>
-
-<!-- ROADMAP -->
-<section class="dark">
-  <div class="wrap">
-    <div class="head">
-      <span class="label">План по месяцам</span>
-      <h2>От запуска до <span class="acc">30 продаж</span></h2>
-      <p class="lead">Каждый месяц смотрим на цифры воронки и решаем, что усиливать дальше.</p>
-    </div>
-    <div class="road">
-      <div class="rs"><div class="bar2" style="--h:22%"></div><span class="m">Месяц 1</span><b>Запуск</b><span>Квиз, креативы, CRM, скрипты. Первые заявки и первые цифры: цена заявки, процент дозвона.</span></div>
-      <div class="rs"><div class="bar2" style="--h:45%"></div><span class="m">Месяц 2</span><b>Цифры по каждому шагу</b><span>Видим, сколько дозвонились, приехали и купили. Отключаем креативы, которые не продают.</span></div>
-      <div class="rs"><div class="bar2" style="--h:70%"></div><span class="m">Месяц 3</span><b>Докрутка</b><span>Разбор звонков меняет скрипт, растёт конверсия в просмотр и в сделку.</span></div>
-      <div class="rs fin"><div class="bar2" style="--h:100%"></div><span class="m">Месяц 4+</span><b>Масштаб — 30 продаж</b><span>Вкладываем бюджет в то, что приводит продажи, и выходим на 30 машин в месяц.</span></div>
-    </div>
   </div>
 </section>
 
@@ -633,7 +716,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   /* reveal on scroll */
   try{
     document.documentElement.classList.add('js');
-    var els=document.querySelectorAll('.head, .now > div, .jr-h, .thread li, .crm > *, .math > *, .loop > div, .vals > div, .sv, .total, .extra, .road, .fut > div, .contact');
+    var els=document.querySelectorAll('.head, .now > div, .jr-h, .thread li, .crm > *, .math > *, .loop > div, .vals > div, .why > div, .tl, .got > div, .sv, .total, .kpi, .extra, .fut > div, .contact');
     els.forEach(function(e){e.classList.add('rv')});
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
