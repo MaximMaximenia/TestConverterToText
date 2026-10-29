@@ -51,6 +51,7 @@ p{margin:0}
 .hero .wrap{position:relative;z-index:1;padding-block:72px 64px;display:grid;gap:40px}
 .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
 .hero h1{font-weight:800;font-size:clamp(44px,8vw,112px);line-height:.92;max-width:900px}
+.hero h1 .pre{display:block;font-size:clamp(22px,3vw,40px);font-weight:500;color:#C9CED5;letter-spacing:-.01em;margin-bottom:10px}
 .hero h1 .big{display:block;font-size:clamp(120px,22vw,300px);line-height:.8;color:var(--accent);letter-spacing:-.05em}
 .hero .lead{color:#C9CED5;max-width:560px}
 .spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18);margin-top:8px}
@@ -194,6 +195,37 @@ p{margin:0}
 @media (max-width:720px){.cta .wrap{grid-template-columns:1fr;gap:24px}.me{width:120px;border-radius:22px}}
 footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
 
+/* value */
+.vals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--dark-line)}
+.vals>div{padding:28px 28px 30px 0;border-bottom:1px solid var(--dark-line);display:grid;gap:8px;align-content:start}
+.vals>div:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--dark-line)}
+.vals .vn{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.vals b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
+.vals span:last-child{color:var(--dark-muted);font-size:15.5px}
+@media (max-width:900px){.vals{grid-template-columns:1fr}.vals>div,.vals>div:not(:nth-child(3n+1)){padding:22px 0;border-left:0}}
+/* extra costs */
+.extra{margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.extra .k{grid-column:1/-1;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.extra>div{background:var(--paper);border-radius:16px;padding:16px 18px;display:grid;gap:2px}
+.extra b{font-weight:600}.extra span{color:var(--muted);font-size:14.5px}
+@media (max-width:760px){.extra{grid-template-columns:1fr}}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
+.rs{display:grid;gap:8px;align-content:start}
+.rs .bar2{height:220px;position:relative;border-radius:14px;background:var(--dark2);overflow:hidden;margin-bottom:10px}
+.rs .bar2::after{content:"";position:absolute;left:0;right:0;bottom:0;height:var(--h);background:linear-gradient(180deg,#3A414C,#2A3039);border-radius:14px;transform-origin:bottom;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rs.fin .bar2::after{background:linear-gradient(180deg,#FF7A47,var(--accent))}
+.js .road .bar2::after{transform:scaleY(0)}
+.js .road.in .bar2::after{transform:scaleY(1)}
+.rs .m{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.rs b{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.2}
+.rs span:last-child{color:var(--dark-muted);font-size:15px}
+@media (max-width:900px){.road{grid-template-columns:1fr 1fr}.rs .bar2{height:140px}}
+@media (max-width:520px){.road{grid-template-columns:1fr}.rs .bar2{height:56px}.rs .bar2::after{top:0;right:auto;height:auto;width:var(--h);transform-origin:left}.js .road .bar2::after{transform:scaleX(0)}.js .road.in .bar2::after{transform:scaleX(1)}}
+.contact{margin-top:56px;padding-top:24px;border-top:1px solid var(--dark-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:14px;color:var(--dark-muted)}
+.contact a{color:#fff;text-decoration:none;border-bottom:1px solid var(--accent)}
+.contact a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.ticks b{font-weight:600}
 /* reveal */
 .js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;transform:none}
@@ -210,7 +242,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <span class="label">Коммерческое предложение · <b>автохаус, Гомель</b></span>
       <span class="label">Максим · @midnaix</span>
     </div>
-    <h1><span class="big num">30</span> продаж в месяц</h1>
+    <h1><span class="pre">Как прийти к</span> <span class="big num">30</span> продажам в месяц</h1>
     <p class="lead">Соберём систему, в которой каждая заявка доходит до менеджера, каждый звонок записан, а вы в цифрах видите, где деньги и где они теряются.</p>
     <div class="spec">
       <div><div class="k">Этап 01</div><div class="v">Таргет → квиз</div></div>
@@ -228,9 +260,9 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <h2>Машины продаются. <span class="acc">Цифр нет.</span></h2>
     </div>
     <div class="now">
-      <div><span class="st"><i class="dot ok"></i>Работает</span><h3>Таргет про рассрочку</h3><p>Креативы приводят людей, которые хотят купить машину в рассрочку.</p></div>
-      <div><span class="st"><i class="dot bad"></i>Не видно</span><h3>Закуп через холодные звонки</h3><p>Звонки идут, но никто не считает: сколько набрали, сколько дозвонились, сколько машин выкупили.</p></div>
-      <div><span class="st"><i class="dot bad"></i>Теряется</span><h3>Путь от заявки до сделки</h3><p>Без CRM непонятно, на каком шаге уходят клиенты и какой менеджер продаёт лучше.</p></div>
+      <div><span class="st"><i class="dot ok"></i>Работает</span><h3>Таргет</h3><p>Креативы приводят людей, которые хотят купить машину.</p></div>
+      <div><span class="st"><i class="dot bad"></i>Не видно</span><h3>Статистика по закупу</h3><p>Холодные звонки идут, но никто не считает: сколько набрали, сколько дозвонились, сколько машин поставили к себе.</p></div>
+      <div><span class="st"><i class="dot bad"></i>Теряется</span><h3>Путь от заявки до сделки</h3><p>Без CRM непонятно, на каком шаге уходит клиент и какой менеджер продаёт лучше.</p></div>
     </div>
   </div>
 </section>
@@ -247,10 +279,11 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <div>
         <div class="no">01</div>
         <h3>Таргет приводит человека в квиз</h3>
-        <p class="lead">Человек видит креатив «машина в рассрочку», нажимает и проходит короткий квиз. Менеджер получает не просто телефон, а готовую картину: что человек хочет и сколько готов платить.</p>
+        <p class="lead">Креатив ведёт не сразу к покупке, а к первому простому шагу — так человеку легче решиться. Он отвечает на несколько простых вопросов о своей ситуации и оставляет номер.</p>
+        <p class="lead" style="color:var(--ink);font-weight:500">Главное: у вас номер человека, который точно хочет купить машину. С ним уже можно работать.</p>
         <ul class="ticks">
-          <li>Креативы под рассрочку, trade-in и конкретные модели</li>
-          <li>Квиз из 5–6 вопросов: тип авто, бюджет, первый взнос, срок, trade-in</li>
+          <li>Креативы, которые ведут на первое касание, а не сразу на сделку</li>
+          <li>Квиз из простых вопросов: какое авто, бюджет, есть ли машина на обмен</li>
           <li>Ответы сразу попадают в CRM вместе с контактом</li>
         </ul>
       </div>
@@ -261,10 +294,8 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
           <dl>
             <dt>Авто</dt><dd>Кроссовер</dd>
             <dt>Бюджет</dt><dd>до 25 000 $</dd>
-            <dt>Первый взнос</dt><dd>20%</dd>
-            <dt>Срок</dt><dd>3 года</dd>
             <dt>Trade-in</dt><dd>Да, Golf 2014</dd>
-            <dt>Звонить</dt><dd>сегодня после 18:00</dd>
+            <dt>Телефон</dt><dd>+375 29 999-99-99</dd>
           </dl>
           <div class="ex">пример карточки в CRM</div>
         </div>
@@ -275,13 +306,14 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <div>
         <div class="no">02</div>
         <h3>Менеджер доводит заявку до просмотра</h3>
-        <p class="lead">Звонок в первые минуты, пока человек ещё горячий. Разговор по скрипту, который уже продаёт машины: берём готовый скрипт нашей компании из Минска, она работает в этой же нише.</p>
+        <p class="lead">Звонок в первые минуты, пока человек ещё горячий. Менеджер предлагает варианты из наличия и сразу отправляет ссылку на av.by, где машина уже размещена: человек смотрит фото, выбирает и едет на просмотр.</p>
+        <p class="lead">Разговор идёт по скрипту, который уже продаёт машины. Берём готовые скрипты компании из Минска, с которой работали, и адаптируем под ваш автохаус.</p>
         <ul class="ticks">
-          <li>Норматив — 60–70 звонков в день на менеджера</li>
-          <li>Скрипт адаптируем под ваш автохаус и докручиваем по итогам звонков</li>
-          <li>Каждый звонок записывается — видно, что сказали и почему клиент отказался</li>
+          <li><span><b>Скрипт продажи</b> — для тех, кто хочет купить машину</span></li>
+          <li><span><b>Скрипт закупа</b> — холодные звонки тем, кто продаёт машину: ставим её к вам и берём комиссию</span></li>
+          <li>Каждый звонок записан: что сказали, почему отказались, откуда пришёл клиент и какой менеджер звонил</li>
         </ul>
-        <div class="chips"><span class="chip o">60–70 звонков / день</span><span class="chip">скрипт из Минска</span><span class="chip">запись звонков</span></div>
+        <div class="chips"><span class="chip o">60–70 звонков / день</span><span class="chip">2 скрипта: продажа и закуп</span><span class="chip">запись звонков</span></div>
       </div>
       <div class="media"><img src="img/manager.jpg" alt="Менеджер автосалона разговаривает с клиентом по гарнитуре"></div>
     </div>
@@ -324,7 +356,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
     <div class="head">
       <span class="label">Математика</span>
       <h2>Откуда берутся <span class="acc">30 продаж</span></h2>
-      <p class="lead">Ориентир по воронке. Точные конверсии посчитаем на ваших данных после первого месяца в CRM.</p>
+      <p class="lead">Эти цифры нам предстоит пройти. Начинаем примерно с 200 заявок в месяц, видим, сколько дозвонились, сколько приехали и сколько купили, — и масштабируем то, что приводит продажи.</p>
     </div>
     <div class="math">
       <div class="fun">
@@ -368,12 +400,30 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   </div>
 </section>
 
+<!-- VALUE -->
+<section class="dark">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Что вы получаете</span>
+      <h2>Не набор услуг, а <span class="acc">система продаж</span></h2>
+    </div>
+    <div class="vals">
+      <div><span class="vn">01</span><b>Номера людей, которые хотят купить машину</b><span>Каждый день, с ответами квиза: что ищут и какой бюджет.</span></div>
+      <div><span class="vn">02</span><b>Два рабочих скрипта</b><span>Продажа покупателям и закуп машин на комиссию — оба уже проверены в нише.</span></div>
+      <div><span class="vn">03</span><b>Запись каждого звонка</b><span>Слышно, что сказал менеджер и почему клиент отказался.</span></div>
+      <div><span class="vn">04</span><b>Отчёт в цифрах</b><span>Какой креатив, какой менеджер и какая машина приносят деньги.</span></div>
+      <div><span class="vn">05</span><b>Специалист по продажам</b><span>Каждую неделю разбирает звонки и говорит, что исправить.</span></div>
+      <div><span class="vn">06</span><b>Понятный путь к 30 продажам</b><span>Видно, на каком шаге воронки сейчас узкое место и что докручиваем.</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="white" id="price">
   <div class="wrap">
     <div class="head">
       <span class="label">Стоимость</span>
-      <h2>Соберите свой <span class="acc">набор</span></h2>
+      <h2>Из чего складывается <span class="acc">цена</span></h2>
       <p class="lead">Нажмите на услугу — откроется, что в неё входит, и её цена. Все три вместе — пакетом дешевле.</p>
     </div>
     <div class="svc" id="svc">
@@ -384,8 +434,8 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
           <span class="pr"><span class="hid">нажмите</span></span>
         </button>
         <div class="sv-b"><div><ul>
-          <li>Креативы под рассрочку, trade-in и модели</li>
-          <li>Квиз-страница из 5–6 вопросов</li>
+          <li>Креативы, которые ведут на первое касание</li>
+          <li>Квиз из простых вопросов о ситуации клиента</li>
           <li>Настройка таргетированной рекламы</li>
           <li>Передача ответов квиза в CRM</li>
           <li>Аналитика: цена заявки по каждому креативу</li>
@@ -414,8 +464,8 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
           <span class="pr"><span class="hid">нажмите</span></span>
         </button>
         <div class="sv-b"><div><ul>
-          <li>Готовый скрипт от компании из Минска в этой нише</li>
-          <li>Адаптация скрипта под ваш автохаус</li>
+          <li>Готовые скрипты продажи и закупа от компании из Минска</li>
+          <li>Адаптация скриптов под ваш автохаус</li>
           <li>Норматив 60–70 звонков в день</li>
           <li>Еженедельное прослушивание звонков</li>
           <li>Структурная обратная связь менеджерам</li>
@@ -427,31 +477,40 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <div><div class="k">Итого</div><div class="hint" id="t-hint">Выберите услуги выше</div></div>
       <div class="sum" id="t-sum"></div>
     </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="wrap">
-    <img class="me" src="img/me.jpg" alt="Максим">
-    <div>
-      <span class="label" style="color:#FFE2D6">Следующий шаг</span>
-      <h2 style="margin-top:14px">Созвонимся на 15 минут</h2>
-      <p>Разберу вашу текущую рекламу и звонки, покажу, где сейчас теряются продажи, и посчитаю план на 30 машин в месяц на ваших цифрах.</p>
-      <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.5 0 1.8l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.6.1 1.8-.7l3.1-14.6c.2-1-.7-1.8-1.8-1.4zM9.6 14.1l8.4-6.2-6.7 7.3-.3 3.2z"/></svg>Написать в Telegram</a>
-      <span class="handle">@midnaix</span>
+    <div class="extra">
+      <span class="k">Учитываем заранее · оплачивается отдельно</span>
+      <div><b>CRM</b><span>подписка ~$20 в месяц за каждого менеджера</span></div>
+      <div><b>Телефония и запись звонков</b><span>по тарифу оператора, ~$10–20 в месяц</span></div>
+      <div><b>Рекламный бюджет</b><span>идёт напрямую в рекламный кабинет</span></div>
     </div>
   </div>
 </section>
 
-<footer>Цифры воронки — ориентир. Точный план считаем на данных вашего автохауса.</footer>
+<!-- ROADMAP -->
+<section class="dark">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">План</span>
+      <h2>Как придём к <span class="acc">30 продажам</span></h2>
+      <p class="lead">Каждый месяц смотрим на цифры воронки и решаем, что усиливать дальше.</p>
+    </div>
+    <div class="road">
+      <div class="rs"><div class="bar2" style="--h:22%"></div><span class="m">Месяц 1</span><b>Запуск</b><span>Квиз, креативы, CRM, скрипты. Первые заявки и первые цифры: цена заявки, процент дозвона.</span></div>
+      <div class="rs"><div class="bar2" style="--h:45%"></div><span class="m">Месяц 2</span><b>Цифры по каждому шагу</b><span>Видим, сколько дозвонились, приехали и купили. Отключаем креативы, которые не продают.</span></div>
+      <div class="rs"><div class="bar2" style="--h:70%"></div><span class="m">Месяц 3</span><b>Докрутка</b><span>Разбор звонков меняет скрипт, растёт конверсия в просмотр и в сделку.</span></div>
+      <div class="rs fin"><div class="bar2" style="--h:100%"></div><span class="m">Месяц 4+</span><b>Масштаб — 30 продаж</b><span>Вкладываем бюджет в то, что приводит продажи, и выходим на 30 машин в месяц.</span></div>
+    </div>
+    <div class="contact"><span>Максим</span><a href="https://t.me/midnaix" target="_blank" rel="noopener">@midnaix в Telegram</a></div>
+  </div>
+</section>
+
 
 <script>
 (function(){
   /* reveal on scroll */
   try{
     document.documentElement.classList.add('js');
-    var els=document.querySelectorAll('.head, .now > div, .stage, .math > *, .loop > div, .sv, .total, .cta .wrap > *');
+    var els=document.querySelectorAll('.head, .now > div, .stage, .math > *, .loop > div, .vals > div, .sv, .total, .extra, .road, .contact');
     els.forEach(function(e){e.classList.add('rv')});
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
