@@ -347,6 +347,35 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
 .pb-forever b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.2}
 .pb-forever span{color:var(--muted);font-size:15px}
 @media (max-width:860px){.pb-forever{grid-template-columns:1fr}}
+/* together */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cmp-c{background:var(--dark2);border:1px solid var(--dark-line);border-radius:18px;padding:24px}
+.cmp-c .k,.yr .k{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:12px}
+.cmp-c ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cmp-c li{padding-left:18px;position:relative;color:var(--dark-muted);font-size:15.5px}
+.cmp-c li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:2px;background:var(--dark-muted)}
+.cmp-c.on{border-color:var(--accent)}
+.cmp-c.on .k{color:var(--accent)}
+.cmp-c.on li{color:#fff}.cmp-c.on li::before{background:var(--accent)}
+@media (max-width:760px){.cmp{grid-template-columns:1fr}}
+.yr{margin-top:16px;background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:26px}
+.yr-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.yr-h b{font-family:var(--f-display);font-weight:700;font-size:clamp(18px,2vw,24px);display:block;max-width:560px}
+.lg{display:flex;gap:16px;font-size:14px;color:var(--dark-muted)}
+.lg span{display:inline-flex;align-items:center;gap:8px}
+.lg i{width:18px;height:3px;border-radius:2px;display:inline-block}
+.lg i.a{background:var(--accent)}.lg i.g{background:repeating-linear-gradient(90deg,#98A0AA 0 5px,transparent 5px 8px)}
+.yr-c{position:relative;width:100%}
+.yr-c svg{display:block;width:100%;height:auto;overflow:visible}
+.yr-c text{font-family:var(--f-mono);font-size:12px;fill:var(--dark-muted)}
+.yr-c .lbl{font-family:var(--f-display);font-weight:700;font-size:14px;fill:#fff}
+.yr-tip{position:absolute;pointer-events:none;background:#fff;color:var(--ink);border-radius:10px;padding:8px 10px;font-size:13px;line-height:1.35;box-shadow:0 10px 24px -10px rgba(0,0,0,.6);transform:translate(-50%,-110%);white-space:nowrap;opacity:0;transition:opacity .12s}
+.yr-tip b{font-family:var(--f-mono)}
+.yr-n{display:block;margin-top:10px;font-size:13px;color:var(--dark-muted)}
+.js .yr .ln-a{stroke-dashoffset:var(--L);transition:stroke-dashoffset 1.8s cubic-bezier(.4,.1,.2,1)}
+.js .yr.in .ln-a{stroke-dashoffset:0}
+@media (max-width:560px){.yr{padding:18px}}
 /* kpi */
 .kpi{margin-top:14px;background:var(--accent);color:#fff;border-radius:var(--r);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
 .kpi .k{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#FFE2D6;margin-bottom:6px}
@@ -812,6 +841,30 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   </div>
 </section>
 
+<!-- TOGETHER -->
+<section class="dark">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Важно понимать</span>
+      <h2>Можно только таргет. <span class="acc">Но вместе — сильнее</span></h2>
+      <p class="lead">Я могу настроить вам только рекламу. Но тогда я вижу лишь заявки — и не вижу, что с ними происходит дальше. Когда мы работаем вместе, я вижу весь путь от рекламы до денег и докручиваю каждый шаг.</p>
+    </div>
+    <div class="cmp">
+      <div class="cmp-c"><span class="k">Только таргет</span><ul><li>Видно: сколько заявок и почём</li><li>Не видно: дозвонились ли, приехали ли, купили ли</li><li>Реклама оптимизируется под заявки, а не под продажи</li><li>Менеджеры работают так же, как раньше</li></ul></div>
+      <div class="cmp-c on"><span class="k">Вся система вместе</span><ul><li>Видно каждый шаг: заявка → звонок → просмотр → продажа</li><li>Реклама усиливается там, где приходят покупатели, а не просто заявки</li><li>Менеджеры каждую неделю понимают, как говорить с клиентом лучше</li><li>Продажи растут месяц за месяцем</li></ul></div>
+    </div>
+    <div class="yr">
+      <div class="yr-h">
+        <div><span class="k">Продажи из воронки за год</span><b>Как растут продажи, когда менеджер знает, что говорить</b></div>
+        <div class="lg" aria-hidden="true"><span><i class="a"></i>Вся система</span><span><i class="g"></i>Только таргет</span></div>
+      </div>
+      <div class="yr-c" id="yr" role="img" aria-label="Иллюстрация: продажи в месяц за 12 месяцев. Вся система: с 3 до 30. Только таргет: около 5–7."></div>
+      <small class="yr-n">Иллюстрация, не обещание: реальные цифры зависят от рынка и бюджета. Мы увидим их уже в первый месяц.</small>
+      <table class="sr-only"><caption>Продажи в месяц, иллюстрация</caption><thead><tr><th>Месяц</th><th>Вся система</th><th>Только таргет</th></tr></thead><tbody id="yr-t"></tbody></table>
+    </div>
+  </div>
+</section>
+
 <!-- TIMELINE -->
 <section class="dark">
   <div class="wrap">
@@ -901,7 +954,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   /* reveal on scroll */
   try{
     document.documentElement.classList.add('js');
-    var els=document.querySelectorAll('.head, .rv-card, .owner, .offer, .payback, .now > div, .jr-h, .thread li, .crm > *, .math > *, .loop > div, .vals > div, .why > div, .tl, .got > div, .sv, .total, .kpi, .extra, .fut > div');
+    var els=document.querySelectorAll('.head, .rv-card, .owner, .offer, .payback, .cmp-c, .yr, .now > div, .jr-h, .thread li, .crm > *, .math > *, .loop > div, .vals > div, .why > div, .tl, .got > div, .sv, .total, .kpi, .extra, .fut > div');
     els.forEach(function(e){e.classList.add('rv')});
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
@@ -927,6 +980,41 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   ['c-goal','c-p1','c-p2','c-p3'].forEach(function(id){$(id).addEventListener('input',calc)});
   calc();
 
+  /* year chart */
+  (function(){
+    var box=$('yr');if(!box)return;
+    var A=[3,6,9,12,15,18,21,23,25,27,28,30],G=[4,5,5,6,6,6,6,7,6,7,6,7],M=['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+    var tb=$('yr-t');A.forEach(function(v,i){tb.insertAdjacentHTML('beforeend','<tr><td>Месяц '+(i+1)+'</td><td>'+v+'</td><td>'+G[i]+'</td></tr>')});
+    var NS='http://www.w3.org/2000/svg';
+    function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+    var tip=document.createElement('div');tip.className='yr-tip';box.appendChild(tip);
+    function draw(){
+      var old=box.querySelector('svg');if(old)old.remove();
+      var W=box.clientWidth,H=Math.max(220,Math.min(340,W*.42)),pl=34,pr=W<520?16:110,pt=16,pb=30,iw=W-pl-pr,ih=H-pt-pb,mx=30;
+      var X=function(i){return pl+iw*i/11},Y=function(v){return pt+ih*(1-v/mx)};
+      var s=el('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H});
+      [0,10,20,30].forEach(function(v){el('line',{x1:pl,x2:pl+iw,y1:Y(v),y2:Y(v),stroke:'#262B33','stroke-width':1},s);var tx=el('text',{x:pl-8,y:Y(v)+4,'text-anchor':'end'},s);tx.textContent=v});
+      for(var i=0;i<12;i++){if(W<520&&i%2)continue;var t=el('text',{x:X(i),y:H-8,'text-anchor':'middle'},s);t.textContent=(i+1)+' мес'}
+      function path(d){return d.map(function(v,i){return(i?'L':'M')+X(i).toFixed(1)+' '+Y(v).toFixed(1)}).join(' ')}
+      el('path',{d:path(G),fill:'none',stroke:'#98A0AA','stroke-width':2,'stroke-dasharray':'5 4','stroke-linejoin':'round'},s);
+      var area=el('path',{d:path(A)+' L'+X(11)+' '+Y(0)+' L'+X(0)+' '+Y(0)+' Z',fill:'rgba(255,90,31,.12)'},s);
+      var la=el('path',{d:path(A),fill:'none',stroke:'#FF5A1F','stroke-width':2.5,'stroke-linejoin':'round','stroke-linecap':'round',class:'ln-a'},s);
+      el('circle',{cx:X(11),cy:Y(30),r:5,fill:'#FF5A1F',stroke:'#171B21','stroke-width':2},s);
+      if(W>=520){var a=el('text',{x:X(11)+12,y:Y(30)+5,class:'lbl'},s);a.textContent='30 продаж';var g=el('text',{x:X(11)+12,y:Y(7)+4},s);g.textContent='~7 продаж'}
+      var cross=el('line',{y1:pt,y2:pt+ih,stroke:'#98A0AA','stroke-width':1,opacity:0},s);
+      var da=el('circle',{r:5,fill:'#FF5A1F',stroke:'#171B21','stroke-width':2,opacity:0},s),dg=el('circle',{r:4,fill:'#98A0AA',stroke:'#171B21','stroke-width':2,opacity:0},s);
+      var hit=el('rect',{x:pl,y:pt,width:iw,height:ih,fill:'transparent'},s);
+      function show(e){var r=s.getBoundingClientRect(),cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left,i=Math.max(0,Math.min(11,Math.round((cx-pl)/iw*11)));
+        cross.setAttribute('x1',X(i));cross.setAttribute('x2',X(i));cross.setAttribute('opacity',.5);
+        da.setAttribute('cx',X(i));da.setAttribute('cy',Y(A[i]));da.setAttribute('opacity',1);dg.setAttribute('cx',X(i));dg.setAttribute('cy',Y(G[i]));dg.setAttribute('opacity',1);
+        tip.innerHTML='Месяц '+(i+1)+'<br>Вся система: <b>'+A[i]+'</b><br>Только таргет: <b>'+G[i]+'</b>';tip.style.left=Math.max(70,Math.min(W-70,X(i)))+'px';tip.style.top=Y(A[i])+'px';tip.style.opacity=1}
+      function hide(){tip.style.opacity=0;cross.setAttribute('opacity',0);da.setAttribute('opacity',0);dg.setAttribute('opacity',0)}
+      hit.addEventListener('pointermove',show);hit.addEventListener('pointerdown',show);hit.addEventListener('pointerleave',hide);
+      box.insertBefore(s,tip);
+      var L=la.getTotalLength();la.style.setProperty('--L',L);la.style.strokeDasharray=L;
+    }
+    draw();var tm;addEventListener('resize',function(){clearTimeout(tm);tm=setTimeout(draw,150)});
+  })();
   /* payback */
   (function(){
     var FIX=590*3, FEE=250, m=$('pb-m');
