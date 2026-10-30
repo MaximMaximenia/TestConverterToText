@@ -167,6 +167,7 @@ p{margin:0}
 .box{width:30px;height:30px;border-radius:9px;border:2px solid var(--ink);display:grid;place-items:center;transition:background .2s,border-color .2s}
 .box svg{opacity:0;transition:opacity .2s}
 .sv.on .box{background:var(--accent);border-color:var(--accent)} .sv.on .box svg{opacity:1}
+.box{border-radius:50%}.box svg{display:none}.box::before{content:"+";font-weight:700;font-size:18px;line-height:1}.sv.on .box::before{content:"−";color:#fff}
 .sv-h .nm{font-family:var(--f-display);font-weight:700;font-size:clamp(18px,2.2vw,24px);line-height:1.15}
 .sv-h .ds{display:block;font-family:var(--f-body);font-weight:400;font-size:15px;color:var(--muted);margin-top:4px}
 .sv-h .pr{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,2.6vw,30px);white-space:nowrap}
@@ -304,6 +305,21 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
 .ow-r b{font-family:var(--f-display);font-weight:700;font-size:19px}
 .ow-r span:last-child{color:var(--dark-muted);font-size:15px}
 @media (max-width:860px){.owner{grid-template-columns:1fr;padding:22px}}
+/* offer */
+.offer{margin-top:18px;background:var(--ink);color:#fff;border-radius:var(--r);padding:30px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:32px;align-items:center}
+.offer .k{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:6px}
+.of-old s{font-family:var(--f-display);font-size:22px;color:var(--dark-muted);text-decoration-color:var(--accent);text-decoration-thickness:3px}
+.of-row{display:flex;align-items:flex-start;gap:16px;margin-top:22px;flex-wrap:nowrap}
+.of-row b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(40px,4.4vw,58px);line-height:1;white-space:nowrap}
+.of-row>div:last-child b{color:var(--accent)}
+.of-row em{display:block;font-style:normal;color:var(--dark-muted);font-size:15px;margin-top:8px;max-width:220px}
+.of-row .plus{font-family:var(--f-display);font-size:40px;color:var(--dark-muted);padding-top:26px}
+.of-terms{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.of-terms li{padding-left:18px;position:relative;color:var(--dark-muted);font-size:15.5px}
+.of-terms li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:2px;background:var(--accent)}
+.of-terms b{color:#fff;font-weight:600}
+@media (max-width:900px){.offer{grid-template-columns:1fr;padding:22px}}
+@media (max-width:520px){.of-row{flex-wrap:wrap}.of-row .plus{padding-top:0;width:100%}}
 /* kpi */
 .kpi{margin-top:14px;background:var(--accent);color:#fff;border-radius:var(--r);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
 .kpi .k{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#FFE2D6;margin-bottom:6px}
@@ -538,7 +554,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
     <div class="head">
       <span class="label">Все замеры — в одном месте</span>
       <h2>CRM: закуп и продажа <span class="acc">в цифрах</span></h2>
-      <p class="lead">Обе воронки в Битрикс24. Заявка из квиза сразу падает в CRM вместе с ответами. Каждый звонок записан, у каждого клиента есть задача и напоминание.</p>
+      <p class="lead">Обе воронки — в вашей CRM. Заявка из квиза сразу падает в CRM вместе с ответами. Каждый звонок записан, у каждого клиента есть задача и напоминание.</p>
     </div>
     <div class="crm">
       <div class="crm-l"><div class="leadcard static" aria-label="Пример заявки из квиза">
@@ -687,15 +703,15 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   <div class="wrap">
     <div class="head">
       <span class="label">Стоимость</span>
-      <h2>Из чего складывается <span class="acc">цена</span></h2>
-      <p class="lead">Нажмите на услугу — откроется, что в неё входит, и её цена. Все три вместе — пакетом дешевле. Цена — за первый месяц работы под ключ.</p>
+      <h2>Партнёрский <span class="acc">формат</span></h2>
+      <p class="lead">Небольшой фикс закрывает работу команды. Основное я зарабатываю с каждой проданной машины — только когда продаёте вы. Нажмите на блок, чтобы увидеть, что в него входит.</p>
     </div>
     <div class="svc" id="svc">
       <div class="sv" data-price="290">
         <button class="sv-h" type="button" aria-expanded="false">
           <span class="box" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
           <span class="nm">Таргет и квиз<span class="ds">Поток номеров тех, кто хочет купить</span></span>
-          <span class="pr"><span class="hid">нажмите</span></span>
+          <span class="pr"><span class="hid">что входит</span></span>
         </button>
         <div class="sv-b"><div><ul>
           <li>Концепции креативов и ТЗ на съёмку — что и как снять</li>
@@ -709,11 +725,11 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
       <div class="sv" data-price="390">
         <button class="sv-h" type="button" aria-expanded="false">
           <span class="box" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
-          <span class="nm">Настройка CRM, воронок и скриптов<span class="ds">Закуп и продажа — в цифрах</span></span>
-          <span class="pr"><span class="hid">нажмите</span></span>
+          <span class="nm">Воронки в CRM и скрипты<span class="ds">Закуп и продажа — в цифрах</span></span>
+          <span class="pr"><span class="hid">что входит</span></span>
         </button>
         <div class="sv-b"><div><ul>
-          <li>Настройка Битрикс24 под AutoPartner</li>
+          <li>Доработка вашей CRM под две воронки</li>
           <li>Воронка «Закуп» и воронка «Продажа»</li>
           <li>Подключение телефонии с записью звонков</li>
           <li>Отчёт по каждому менеджеру и шагу воронки</li>
@@ -725,7 +741,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
         <button class="sv-h" type="button" aria-expanded="false">
           <span class="box" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span>
           <span class="nm">Контроль продаж и всей воронки<span class="ds">Каждую неделю — разбор и докрутка</span></span>
-          <span class="pr"><span class="hid">нажмите</span></span>
+          <span class="pr"><span class="hid">что входит</span></span>
         </button>
         <div class="sv-b"><div><ul>
           <li>2 созвона в неделю с каждым менеджером</li>
@@ -737,17 +753,25 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
         </ul></div></div>
       </div>
     </div>
-    <div class="total" aria-live="polite">
-      <div><div class="k">Итого</div><div class="hint" id="t-hint">Выберите услуги выше</div></div>
-      <div class="sum" id="t-sum"></div>
-    </div>
-    <div class="kpi">
-      <div><span class="k">Входит в пакет · с первого дня</span><b>+100 BYN за каждую машину,<br>проданную с таргета</b></div>
-      <p>Продажу считаем по CRM: сделка с источником «квиз». Я зарабатываю больше, только когда вы продаёте больше.</p>
+    <div class="offer">
+      <div class="of-main">
+        <div class="of-old"><span class="k">Обычно</span><s>$990 в месяц</s></div>
+        <div class="of-row">
+          <div><span class="k">Фикс</span><b class="num">$490</b><em>в месяц</em></div>
+          <span class="plus" aria-hidden="true">+</span>
+          <div><span class="k">За результат</span><b class="num">300 BYN</b><em>за каждую машину из нашей воронки</em></div>
+        </div>
+      </div>
+      <ul class="of-terms">
+        <li><b>Договор на 3 месяца.</b> Первые продажи из воронки появляются на 3–4 неделе — нужен срок, чтобы система заработала.</li>
+        <li><b>В конце каждого месяца — статистика.</b> Смотрим цифры вместе и при необходимости пересматриваем условия.</li>
+        <li><b>Считаем по CRM.</b> «Наша» машина — сделка, которая пришла из квиза или с наших звонков. Все сделки ведутся в CRM.</li>
+        <li><b>Оплата за машины — раз в месяц</b> по отчёту из CRM.</li>
+      </ul>
     </div>
     <div class="extra">
-      <span class="k">Не входит в стоимость · оплачивается отдельно</span>
-      <div><b>Битрикс24 «Базовый»</b><span>80 BYN в месяц на 5 сотрудников, 64 BYN при оплате за год</span></div>
+      <span class="k">Не входит · оплачивается отдельно</span>
+      <div><b>CRM</b><span>ваша, уже настроена — дорабатываем под воронки</span></div>
       <div><b>Телефония с записью звонков</b><span>по тарифу белорусского оператора</span></div>
       <div><b>Производство креативов</b><span>снимаете вы — что и как снять, даём готовым ТЗ</span></div>
       <div><b>Рекламный бюджет</b><span>идёт напрямую в рекламный кабинет. Хостинг квиза — бесплатно</span></div>
@@ -767,7 +791,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
     <div class="tl">
       <div class="tl-axis" aria-hidden="true"></div>
       <div class="tc s"><span class="dy">День 0</span><b>Старт</b><ul><li>Договор и доступы</li><li>Созвон: вопросы квиза и этапы обеих воронок</li></ul></div>
-      <div class="tc"><span class="dy">Дни 1–3</span><b>Подготовка</b><ul><li>Квиз и ТЗ на креативы</li><li>Скрипты продажи и закупа</li><li>Битрикс24: две воронки</li></ul></div>
+      <div class="tc"><span class="dy">Дни 1–3</span><b>Подготовка</b><ul><li>Квиз и ТЗ на креативы</li><li>Скрипты продажи и закупа</li><li>CRM: две воронки</li></ul></div>
       <div class="tc"><span class="dy">Дни 4–7</span><b>Запуск</b><ul><li>Квиз опубликован, заявки падают в CRM</li><li>Телефония и запись звонков</li><li>Запуск рекламы, обучение менеджеров</li></ul></div>
       <div class="tc"><span class="dy">Неделя 2</span><b>Первые цифры</b><ul><li>Первые заявки и звонки</li><li>Отключаем слабые креативы</li><li>Первые правки скрипта</li></ul></div>
       <div class="tc"><span class="dy">Неделя 3</span><b>Докрутка</b><ul><li>Скрипт, версия 2</li><li>Правим вопросы квиза, где люди уходят</li><li>Закуп: звонки считаются в CRM</li></ul></div>
@@ -794,7 +818,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
     <div class="why">
       <div><span class="vn">01</span><b>Опыт в продаже машин</b><span>У меня и у специалиста, который слушает звонки, есть опыт именно с автосалонами. Не общие советы, а то, что уже работает в этой нише.</span></div>
       <div><span class="vn">02</span><b>Готовые скрипты и данные</b><span>Берём скрипты компании из Минска из этой же ниши и цифры, которые у нас уже есть. Не начинаем с нуля.</span></div>
-      <div><span class="vn">03</span><b>Я зарабатываю, когда вы продаёте</b><span>В пакет сразу входит 100 BYN за каждую машину, проданную с таргета. Мне выгодно, чтобы продаж было больше.</span></div>
+      <div><span class="vn">03</span><b>Я зарабатываю, когда вы продаёте</b><span>Основная часть оплаты — 300 BYN за каждую машину, проданную через нашу воронку. Мне выгодно, чтобы продаж было больше.</span></div>
     </div>
   </div>
 </section>
@@ -845,7 +869,7 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   /* reveal on scroll */
   try{
     document.documentElement.classList.add('js');
-    var els=document.querySelectorAll('.head, .rv-card, .owner, .now > div, .jr-h, .thread li, .crm > *, .math > *, .loop > div, .vals > div, .why > div, .tl, .got > div, .sv, .total, .kpi, .extra, .fut > div');
+    var els=document.querySelectorAll('.head, .rv-card, .owner, .offer, .now > div, .jr-h, .thread li, .crm > *, .math > *, .loop > div, .vals > div, .why > div, .tl, .got > div, .sv, .total, .kpi, .extra, .fut > div');
     els.forEach(function(e){e.classList.add('rv')});
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
@@ -871,30 +895,13 @@ footer{padding-block:28px;font-size:13px;color:var(--muted);text-align:center}
   ['c-goal','c-p1','c-p2','c-p3'].forEach(function(id){$(id).addEventListener('input',calc)});
   calc();
 
-  /* pricing */
-  var PACK=990, cards=[].slice.call(document.querySelectorAll('.sv'));
-  function money(n){return '$'+f(n)}
-  function total(){
-    var on=cards.filter(function(c){return c.classList.contains('on')});
-    var sum=on.reduce(function(s,c){return s+ +c.dataset.price},0);
-    var box=$('t-sum'),hint=$('t-hint');
-    if(!on.length){box.innerHTML='';hint.textContent='Выберите услуги выше';return}
-    if(on.length===cards.length){
-      box.innerHTML='<span class="old">'+money(sum)+'</span><span class="new">'+money(PACK)+'</span><span class="save">выгода '+money(sum-PACK)+'</span>';
-      hint.textContent='Пакет из трёх услуг';
-    }else{
-      box.innerHTML='<span class="new">'+money(sum)+'</span>';
-      var rest=cards.length-on.length; hint.textContent=(rest===1?'Добавьте третью услугу':'Добавьте ещё услуги')+' — все три вместе за '+money(PACK)+' вместо '+money(cards.reduce(function(s,c){return s+ +c.dataset.price},0));
-    }
-    box.classList.remove('pop');void box.offsetWidth;box.classList.add('pop');
-  }
-  cards.forEach(function(c){
+  /* services: expand to show contents */
+  [].slice.call(document.querySelectorAll('.sv')).forEach(function(c){
     var b=c.querySelector('.sv-h'),pr=c.querySelector('.pr');
     b.addEventListener('click',function(){
       var on=c.classList.toggle('on');
       b.setAttribute('aria-expanded',on);
-      pr.innerHTML=on?money(+c.dataset.price):'<span class="hid">нажмите</span>';
-      total();
+      pr.innerHTML='<span class="hid">'+(on?'свернуть':'что входит')+'</span>';
     });
   });
 })();
