@@ -204,6 +204,16 @@
         reviewVideo.pause();
       }
     });
+
+    var reviewReached50 = false;
+    reviewVideo.addEventListener("timeupdate", function () {
+      if (!reviewVideo.duration || reviewReached50) return;
+      var percent = (reviewVideo.currentTime / reviewVideo.duration) * 100;
+      if (percent >= 50) {
+        reviewReached50 = true;
+        ymGoal("review_video_50");
+      }
+    });
   });
 
   /* ---------- капча из фигур (нажми на треугольник) ---------- */
