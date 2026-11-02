@@ -72,6 +72,39 @@ p{margin:0}
 .inherit{background:var(--dark2);border-radius:14px;padding:12px 16px;font-size:15px;color:var(--dark-muted)}
 .inherit b{color:#fff;font-weight:600}
 
+/* groups */
+:root{--cold:#3D7BE0;--cold-soft:#E3ECFB}
+.grp{border-radius:16px;padding:16px 18px 18px;display:grid;gap:12px;border:1px solid var(--line);background:#fff}
+.plan.full .grp{background:var(--dark2);border-color:var(--dark-line)}
+.gh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:999px}
+.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.gs{font-size:13px;color:var(--muted)}
+.plan.full .gs{color:var(--dark-muted)}
+.hot .tag{background:var(--accent-soft);color:#C23D0C}
+.cold .tag{background:var(--cold-soft);color:#1F57B5}
+.team .tag{background:#E4E7EB;color:var(--ink)}
+.plan.full .hot .tag{background:rgba(255,90,31,.16);color:#FF8A5C}
+.plan.full .cold .tag{background:rgba(61,123,224,.2);color:#8DB4F5}
+.plan.full .team .tag{background:#262B33;color:#fff}
+.grp.hot{border-left:4px solid var(--accent)}
+.grp.cold{border-left:4px solid var(--cold)}
+.grp.team{border-left:4px solid var(--muted)}
+.cold .list .y i{background:var(--cold)}
+.team .list .y i{background:var(--ink)}
+.plan.full .team .list .y i{background:#fff;color:var(--ink)}
+.grp.off{background:transparent;border-left-color:var(--line)}
+.grp.off .tag{opacity:.6}
+.plan{gap:16px}
+tr.sec td{background:var(--paper);padding:10px 18px}
+tr.sec.hot td{box-shadow:inset 4px 0 0 var(--accent)}
+tr.sec.cold td{box-shadow:inset 4px 0 0 var(--cold)}
+tr.sec.team td{box-shadow:inset 4px 0 0 var(--muted)}
+tr.sec.cost td{box-shadow:inset 4px 0 0 var(--ink)}
+tr.sec td{background:var(--paper) !important;border-bottom:1px solid var(--line)}
+tr.sec.cost .tag{background:var(--ink);color:#fff}
+tr.sec.cost .tag::before{background:var(--accent)}
+tr.sec td:not(:first-child){display:none}
 /* table */
 .cmp{padding-block:32px 72px}
 .cmp h3{font-size:clamp(22px,2.6vw,30px);font-weight:800;margin-bottom:18px}
@@ -116,22 +149,18 @@ td.pr{font-family:var(--f-display);font-weight:700}
         <span class="pl">+</span>
         <div class="car"><b class="num">200 BYN</b><em>за каждую проданную машину</em></div>
       </div>
-      <span class="lab">Входит</span>
-      <ul class="list">
-        <li class="y"><i>✓</i><span>Таргет под ключ, заявки сразу в CRM</span></li>
-        <li class="y"><i>✓</i><span>Креативы (ТЗ на съёмку)</span></li>
-        <li class="y"><i>✓</i><span>Отдельная воронка в CRM для заявок с таргета</span></li>
-        <li class="y"><i>✓</i><span>Скрипт для горячих звонков</span></li>
-        <li class="y"><i>✓</i><span>Контроль звонков с таргета</span></li>
-        <li class="y"><i>✓</i><span>Обратная связь менеджерам — в чат</span></li>
-      </ul>
-      <span class="lab">Не входит</span>
-      <ul class="list">
-        <li class="n"><i>—</i><span>Холодные звонки и скрипт для них</span></li>
-        <li class="n"><i>—</i><span>Созвоны с менеджерами</span></li>
-        <li class="n"><i>—</i><span>Разбор холодных звонков</span></li>
-        <li class="n"><i>—</i><span>Еженедельный отчёт и созвон с вами</span></li>
-      </ul>
+      <div class="grp hot">
+        <div class="gh"><span class="tag">Звонки с таргета</span><span class="gs">покупатели</span></div>
+        <ul class="list"><li class="y"><i>✓</i><span>Таргет под ключ, заявки сразу в CRM</span></li><li class="y"><i>✓</i><span>Креативы (ТЗ на съёмку)</span></li><li class="y"><i>✓</i><span>Отдельная воронка в CRM для заявок с таргета</span></li><li class="y"><i>✓</i><span>Скрипт для горячих звонков</span></li><li class="y"><i>✓</i><span>Контроль звонков с таргета</span></li><li class="y"><i>✓</i><span>Обратная связь менеджерам — в чат</span></li></ul>
+      </div>
+      <div class="grp cold off">
+        <div class="gh"><span class="tag">Холодные звонки</span><span class="gs">не входит</span></div>
+        <ul class="list"><li class="n"><i>—</i><span>Скрипт для холодных звонков</span></li><li class="n"><i>—</i><span>Воронка холодных звонков в CRM</span></li><li class="n"><i>—</i><span>Разбор холодных звонков</span></li></ul>
+      </div>
+      <div class="grp team off">
+        <div class="gh"><span class="tag">Работа с командой</span><span class="gs">не входит</span></div>
+        <ul class="list"><li class="n"><i>—</i><span>Созвон с каждым менеджером каждую неделю</span></li><li class="n"><i>—</i><span>Еженедельный отчёт и созвон с вами</span></li></ul>
+      </div>
     </article>
 
     <article class="plan full">
@@ -142,15 +171,18 @@ td.pr{font-family:var(--f-display);font-weight:700}
         <span class="pl">+</span>
         <div class="car"><b class="num">250 BYN</b><em>за каждую проданную машину</em></div>
       </div>
-      <div class="inherit"><b>Всё из варианта 1</b> + то, что ниже</div>
-      <span class="lab">Дополнительно входит</span>
-      <ul class="list">
-        <li class="y"><i>✓</i><span>Скрипт для холодных звонков — постановка машин</span></li>
-        <li class="y"><i>✓</i><span>Воронка холодных звонков в CRM</span></li>
-        <li class="y"><i>✓</i><span>Созвон каждую неделю с каждым менеджером</span></li>
-        <li class="y"><i>✓</i><span>Разбор ошибок — горячие и холодные звонки</span></li>
-        <li class="y"><i>✓</i><span>Отчёт и созвон с вами каждую неделю</span></li>
-      </ul>
+      <div class="grp hot">
+        <div class="gh"><span class="tag">Звонки с таргета</span><span class="gs">покупатели</span></div>
+        <ul class="list"><li class="y"><i>✓</i><span>Всё из варианта 1</span></li><li class="y"><i>✓</i><span>Разбор ошибок в звонках с таргета</span></li></ul>
+      </div>
+      <div class="grp cold">
+        <div class="gh"><span class="tag">Холодные звонки</span><span class="gs">постановка машин</span></div>
+        <ul class="list"><li class="y"><i>✓</i><span>Скрипт для холодных звонков</span></li><li class="y"><i>✓</i><span>Воронка холодных звонков в CRM</span></li><li class="y"><i>✓</i><span>Разбор ошибок в холодных звонках</span></li></ul>
+      </div>
+      <div class="grp team">
+        <div class="gh"><span class="tag">Работа с командой</span><span class="gs">менеджеры и отчёты</span></div>
+        <ul class="list"><li class="y"><i>✓</i><span>Созвон каждую неделю с каждым менеджером</span></li><li class="y"><i>✓</i><span>Отчёт и созвон с вами каждую неделю</span></li></ul>
+      </div>
     </article>
 
   </div>
@@ -162,17 +194,7 @@ td.pr{font-family:var(--f-display);font-weight:700}
     <div class="tw"><table>
       <thead><tr><th></th><th>Вариант 1</th><th>Вариант 2</th></tr></thead>
       <tbody>
-        <tr><td>Таргет под ключ, заявки в CRM</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
-        <tr><td>Креативы (ТЗ на съёмку)</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
-        <tr><td>Скрипт для горячих звонков</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
-        <tr><td>Контроль звонков с таргета</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
-        <tr><td>Обратная связь менеджерам</td><td>в чат</td><td>в чат + созвон</td></tr>
-        <tr><td>Скрипт и воронка холодных звонков</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr>
-        <tr><td>Созвон с каждым менеджером каждую неделю</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr>
-        <tr><td>Разбор ошибок в холодных звонках</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr>
-        <tr><td>Отчёт и созвон с вами каждую неделю</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr>
-        <tr><td>Фикс в месяц</td><td class="pr">$450</td><td class="pr">$590</td></tr>
-        <tr><td>За каждую проданную машину</td><td class="pr">200 BYN</td><td class="pr">250 BYN</td></tr>
+        <tr class="sec hot"><td colspan="3"><span class="tag">Звонки с таргета</span></td></tr><tr><td>Таргет под ключ, заявки в CRM</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Креативы (ТЗ на съёмку)</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Скрипт для горячих звонков</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Контроль звонков с таргета</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Разбор ошибок в звонках с таргета</td><td>в чат</td><td><span class="y">✓</span></td></tr><tr class="sec cold"><td colspan="3"><span class="tag">Холодные звонки</span></td></tr><tr><td>Скрипт для холодных звонков</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Воронка холодных звонков в CRM</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Разбор ошибок в холодных звонках</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr class="sec team"><td colspan="3"><span class="tag">Работа с командой</span></td></tr><tr><td>Созвон с каждым менеджером каждую неделю</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Отчёт и созвон с вами каждую неделю</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr class="sec cost"><td colspan="3"><span class="tag">Цена</span></td></tr><tr><td>Фикс в месяц</td><td class="pr">$450</td><td class="pr">$590</td></tr><tr><td>За каждую проданную машину</td><td class="pr">200 BYN</td><td class="pr">250 BYN</td></tr>
       </tbody>
     </table></div>
   </div>
