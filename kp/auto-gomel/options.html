@@ -105,6 +105,10 @@ tr.sec td{background:var(--paper) !important;border-bottom:1px solid var(--line)
 tr.sec.cost .tag{background:var(--ink);color:#fff}
 tr.sec.cost .tag::before{background:var(--accent)}
 tr.sec td:not(:first-child){display:none}
+.xp{position:relative;border-radius:16px;padding:18px 18px 18px;background:linear-gradient(135deg,var(--cold) 0%,#2B5FB8 100%);color:#fff;display:grid;gap:8px;box-shadow:0 16px 34px -18px rgba(61,123,224,.7)}
+.xp-k{justify-self:start;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#1F57B5;border-radius:999px;padding:5px 10px;font-weight:600}
+.xp b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
+.xp p{font-size:15px;color:#E3ECFB}.xp strong{color:#fff}
 /* table */
 .cmp{padding-block:32px 72px}
 .cmp h3{font-size:clamp(22px,2.6vw,30px);font-weight:800;margin-bottom:18px}
@@ -153,8 +157,13 @@ td.pr{font-family:var(--f-display);font-weight:700}
         <div class="gh"><span class="tag">Звонки с таргета</span><span class="gs">покупатели</span></div>
         <ul class="list"><li class="y"><i>✓</i><span>Таргет под ключ, заявки сразу в CRM</span></li><li class="y"><i>✓</i><span>Креативы (ТЗ на съёмку)</span></li><li class="y"><i>✓</i><span>Отдельная воронка в CRM для заявок с таргета</span></li><li class="y"><i>✓</i><span>Скрипт для горячих звонков</span></li><li class="y"><i>✓</i><span>Контроль звонков с таргета</span></li><li class="y"><i>✓</i><span>Обратная связь менеджерам — в чат</span></li></ul>
       </div>
+      <div class="xp">
+        <span class="xp-k">Входит в пакет</span>
+        <b>Консультация эксперта по холодным звонкам</b>
+        <p>Человек с 5 годами опыта в продаже автомобилей проводит по <strong>1 часу с каждым менеджером</strong>: как звонить, что говорить, как ставить машины к вам.</p>
+      </div>
       <div class="grp cold off">
-        <div class="gh"><span class="tag">Холодные звонки</span><span class="gs">не входит</span></div>
+        <div class="gh"><span class="tag">Холодные звонки</span><span class="gs">кроме консультации — не входит</span></div>
         <ul class="list"><li class="n"><i>—</i><span>Скрипт для холодных звонков</span></li><li class="n"><i>—</i><span>Воронка холодных звонков в CRM</span></li><li class="n"><i>—</i><span>Разбор холодных звонков</span></li></ul>
       </div>
       <div class="grp team off">
@@ -194,7 +203,7 @@ td.pr{font-family:var(--f-display);font-weight:700}
     <div class="tw"><table>
       <thead><tr><th></th><th>Вариант 1</th><th>Вариант 2</th></tr></thead>
       <tbody>
-        <tr class="sec hot"><td colspan="3"><span class="tag">Звонки с таргета</span></td></tr><tr><td>Таргет под ключ, заявки в CRM</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Креативы (ТЗ на съёмку)</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Скрипт для горячих звонков</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Контроль звонков с таргета</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Разбор ошибок в звонках с таргета</td><td>в чат</td><td><span class="y">✓</span></td></tr><tr class="sec cold"><td colspan="3"><span class="tag">Холодные звонки</span></td></tr><tr><td>Скрипт для холодных звонков</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Воронка холодных звонков в CRM</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Разбор ошибок в холодных звонках</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr class="sec team"><td colspan="3"><span class="tag">Работа с командой</span></td></tr><tr><td>Созвон с каждым менеджером каждую неделю</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Отчёт и созвон с вами каждую неделю</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr class="sec cost"><td colspan="3"><span class="tag">Цена</span></td></tr><tr><td>Фикс в месяц</td><td class="pr">$450</td><td class="pr">$590</td></tr><tr><td>За каждую проданную машину</td><td class="pr">200 BYN</td><td class="pr">250 BYN</td></tr>
+        <tr class="sec hot"><td colspan="3"><span class="tag">Звонки с таргета</span></td></tr><tr><td>Таргет под ключ, заявки в CRM</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Креативы (ТЗ на съёмку)</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Скрипт для горячих звонков</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Контроль звонков с таргета</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Разбор ошибок в звонках с таргета</td><td>в чат</td><td><span class="y">✓</span></td></tr><tr class="sec cold"><td colspan="3"><span class="tag">Холодные звонки</span></td></tr><tr><td>Консультация эксперта (5 лет в нише): 1 час с каждым менеджером</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr><tr><td>Скрипт для холодных звонков</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Воронка холодных звонков в CRM</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Разбор ошибок в холодных звонках</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr class="sec team"><td colspan="3"><span class="tag">Работа с командой</span></td></tr><tr><td>Созвон с каждым менеджером каждую неделю</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr><td>Отчёт и созвон с вами каждую неделю</td><td><span class="n">—</span></td><td><span class="y">✓</span></td></tr><tr class="sec cost"><td colspan="3"><span class="tag">Цена</span></td></tr><tr><td>Фикс в месяц</td><td class="pr">$450</td><td class="pr">$590</td></tr><tr><td>За каждую проданную машину</td><td class="pr">200 BYN</td><td class="pr">250 BYN</td></tr>
       </tbody>
     </table></div>
   </div>
