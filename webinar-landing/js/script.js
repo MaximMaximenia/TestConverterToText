@@ -216,11 +216,11 @@
       var j = Math.floor(Math.random() * (i + 1));
       var tmp = shapes[i]; shapes[i] = shapes[j]; shapes[j] = tmp;
     }
-    shapes.forEach(function (shape) {
+    shapes.forEach(function (shape, idx) {
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "captcha__shape captcha__shape--" + shape;
-      btn.setAttribute("aria-label", shape);
+      btn.setAttribute("aria-label", "вариант " + (idx + 1));
       btn.addEventListener("click", function () {
         if (captchaOk) return;
         if (shape === "triangle") {
@@ -236,10 +236,9 @@
       });
       captchaShapesEl.appendChild(btn);
     });
-  } else {
-    /* если блок капчи почему-то не отрисовался, не блокируем форму */
-    captchaOk = true;
   }
+  /* если блок капчи почему-то не отрисовался — captchaOk остаётся false,
+     отправка формы заблокирована (а не наоборот) */
 
   /* ---------- форма записи ---------- */
   var form = document.getElementById("signupForm");
@@ -277,48 +276,35 @@
         name: name,
         username: username,
         webinarDate: cfg.webinarDate || "",
-        utm: utmData
+        utm: utmData,
+        company: form.elements["company"] ? form.elements["company"].value : ""
       };
 
-      gaEvent("generate_lead", { webinar_date: cfg.webinarDate || "" });
-      ymGoal("lead_submit");
+      var submitBtn = form.querySelector("button[type=submit]");
+      if (submitBtn) submitBtn.disabled = true;
 
-      if (cfg.telegramBotToken && cfg.telegramChatId) {
-        var utmLines = "";
-        if (utmData.utm_source || utmData.utm_medium || utmData.utm_campaign || utmData.utm_content || utmData.utm_term) {
-          utmLines = "\n\nUTM-метки:\n" +
-            (utmData.utm_source ? "source: " + utmData.utm_source + "\n" : "") +
-            (utmData.utm_medium ? "medium: " + utmData.utm_medium + "\n" : "") +
-            (utmData.utm_campaign ? "campaign: " + utmData.utm_campaign + "\n" : "") +
-            (utmData.utm_content ? "content: " + utmData.utm_content + "\n" : "") +
-            (utmData.utm_term ? "term: " + utmData.utm_term + "\n" : "");
-        }
-        var tgText = "🎯 Новая заявка на вебинар!\n" +
-          "Имя: " + data.name + "\n" +
-          "Telegram: " + data.username + "\n" +
-          "Дата вебинара: " + (cfg.webinarDate || "не указана") +
-          utmLines;
-        var tgUrl = "https://api.telegram.org/bot" + cfg.telegramBotToken +
-          "/sendMessage?chat_id=" + cfg.telegramChatId + "&text=" + encodeURIComponent(tgText);
-        fetch(tgUrl).catch(function () {
-          /* если Telegram недоступен, заявку всё равно не теряем — форма ниже покажет подтверждение */
+      fetch(cfg.leadEndpoint || "/api/lead.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(function (res) { return res.json().catch(function () { return { ok: false }; }); })
+        .then(function (res) {
+          if (!res || !res.ok) {
+            throw new Error(res && res.error ? res.error : "request_failed");
+          }
+          gaEvent("generate_lead", { webinar_date: cfg.webinarDate || "" });
+          ymGoal("lead_submit");
+          try { sessionStorage.setItem("leadToken", res.token || "1"); } catch (e) { /* без sessionStorage просто не будет защиты от прямого захода на /thanks/ */ }
+          window.location.href = "/thanks/";
+        })
+        .catch(function () {
+          if (submitBtn) submitBtn.disabled = false;
+          if (errorEl) {
+            errorEl.textContent = "Не получилось отправить заявку — попробуй ещё раз через минуту.";
+            errorEl.hidden = false;
+          }
         });
-      }
-
-      if (cfg.formEndpoint) {
-        fetch(cfg.formEndpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        }).catch(function () {
-          /* даже если отправка на сервер не удалась, показываем пользователю подтверждение,
-             чтобы не терять заявку на глазах у человека — свяжитесь с ним вручную при необходимости */
-        });
-      }
-
-      form.reset();
-      form.hidden = true;
-      if (successEl) successEl.hidden = false;
     });
   }
 
