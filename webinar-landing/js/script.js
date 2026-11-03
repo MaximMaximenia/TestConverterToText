@@ -169,6 +169,7 @@
           reachedMarks[mark] = true;
           gaEvent("video_progress", { video_title: "webinar_preview", percent_watched: mark });
           ymGoal("video_" + mark);
+          if (window.clarity) window.clarity("set", "video", String(mark));
         }
       });
     });
@@ -305,6 +306,7 @@
           }
           gaEvent("generate_lead", { webinar_date: cfg.webinarDate || "" });
           ymGoal("lead_submit");
+          if (window.clarity) window.clarity("set", "lead", "confirmed");
           try { sessionStorage.setItem("leadToken", res.token || "1"); } catch (e) { /* без sessionStorage просто не будет защиты от прямого захода на /thanks/ */ }
           window.location.href = "/thanks/";
         })
