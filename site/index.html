@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Максим — заявки из Google для бизнеса в Беларуси</title>
+<meta name="description" content="Реклама в Google Ads для СТО, автобизнеса, B2B и услуг в Беларуси. Кейсы с цифрами из кабинетов: 3 000+ заявок.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E8EAED;--card:#F7F8F9;--ink:#0D1014;--muted:#59606A;--line:#CDD2D8;
+  --accent:#FF5A1F;--accent-deep:#E2470F;--accent-soft:#FFE6DC;
+  --dark:#0D1014;--dark2:#171B21;--dark-line:#262B33;--dark-muted:#98A0AA;--ok:#14A35A;
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:22px;color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-left:28px;padding-right:28px}}
+section{padding-block:104px}
+@media (max-width:640px){section{padding-block:64px}}
+.dark{background:var(--dark);color:#fff}
+.white{background:var(--card)}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-.02em;line-height:1.04;margin:0;text-wrap:balance;overflow-wrap:break-word;hyphens:manual}
+h2{font-size:clamp(28px,5.2vw,60px);font-weight:800}
+h3{font-size:clamp(20px,2.2vw,26px);font-weight:700;line-height:1.15}
+p{margin:0}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dark .label{color:var(--dark-muted)}
+.label b{color:var(--accent);font-weight:600}
+.lead{font-size:clamp(17px,1.6vw,20px);font-weight:300;color:var(--muted);max-width:640px}
+.dark .lead{color:var(--dark-muted)}
+.acc{color:var(--accent)}
+.num{font-variant-numeric:tabular-nums}
+.head{display:grid;gap:16px;margin-bottom:52px}
+@media (max-width:640px){.head{margin-bottom:32px}}
+.nw{white-space:nowrap}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:18px;padding:18px 28px;border-radius:999px;position:relative;overflow:hidden;transition:transform .2s ease,background .2s;-webkit-tap-highlight-color:transparent}
+.btn:hover{transform:translateY(-2px);background:var(--accent-deep)}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn svg{flex:none}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:shine 3.4s ease-in-out infinite}
+@keyframes shine{0%{left:-60%}55%,100%{left:130%}}
+.btn.ink{background:var(--ink)}
+@media (max-width:520px){.btn{width:100%}}
+
+/* HERO */
+.hero{position:relative;background:var(--dark);color:#fff;overflow:hidden;padding-block:0}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 50%;opacity:.5}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,16,20,.96) 0%,rgba(13,16,20,.8) 45%,rgba(13,16,20,.2) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-block:28px 56px;display:grid;gap:34px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar a{text-decoration:none}
+.hero h1{font-weight:800;font-size:clamp(34px,7.4vw,92px);line-height:.98;max-width:980px;margin-top:40px}
+.hero .lead{color:#C9CED5;max-width:560px}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18)}
+.spec>div{padding:20px 18px 4px 0;min-width:0}
+.spec>div+div{padding-left:18px;border-left:1px solid rgba(255,255,255,.18)}
+.spec .v{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,4.6vw,60px);line-height:1;letter-spacing:-.04em;white-space:nowrap}
+.spec>div:first-child .v{color:var(--accent)}
+.spec .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted);margin-top:10px;line-height:1.45}
+.hero-cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero-cta .label{color:var(--dark-muted)}
+@media (max-width:640px){
+  .hero h1{margin-top:18px}
+  .spec{grid-template-columns:1fr}.spec>div{padding:16px 0;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:16px}
+  .spec>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.18)}
+  .spec .k{margin:0}.spec .v{font-size:38px;min-width:150px}
+  .hero-img{object-position:78% 50%;opacity:.38}
+  .hero::after{background:linear-gradient(180deg,rgba(13,16,20,.7),rgba(13,16,20,.92))}
+}
+
+/* DIFF */
+.why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;counter-reset:w}
+.why>div{background:var(--paper);border-radius:18px;padding:24px;display:grid;gap:10px;align-content:start}
+.why .vn{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.why b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
+.why span:last-child{color:var(--muted);font-size:15.5px}
+.why>div:last-child{background:var(--ink);color:#fff}.why>div:last-child span:last-child{color:var(--dark-muted)}
+@media (max-width:980px){.why{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.why{grid-template-columns:1fr}}
+.flowline{margin-top:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--f-mono);font-size:13px}
+.flowline span{padding:8px 13px;border-radius:999px;background:var(--paper)}
+.flowline i{width:14px;height:2px;background:var(--accent)}
+.flowline span:last-child{background:var(--accent);color:#fff}
+@media (max-width:560px){.flowline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.flowline i{display:none}.flowline span{text-align:center;padding:8px 4px;font-size:12px}}
+
+/* CASES */
+.cpl{background:var(--dark);color:#fff;border-radius:var(--r);padding:26px;margin-bottom:28px}
+.cpl-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.cpl-h b{font-family:var(--f-display);font-weight:700;font-size:clamp(18px,2vw,22px)}
+.cpl-c{position:relative}
+.cpl-c svg{display:block;width:100%;height:auto;overflow:visible}
+.cpl-c .nm{font-family:var(--f-mono);font-size:12px;fill:var(--dark-muted);letter-spacing:.04em}
+.cpl-c .vl{font-family:var(--f-display);font-weight:700;font-size:15px;fill:#fff}
+.cpl-c .row{cursor:pointer}
+.cpl-c .row:hover .bg,.cpl-c .row.on .bg{fill:#1E232A}
+.tip{position:absolute;pointer-events:none;background:#fff;color:var(--ink);border-radius:10px;padding:8px 11px;font-size:13px;line-height:1.4;box-shadow:0 10px 24px -10px rgba(0,0,0,.6);transform:translate(-50%,-110%);white-space:nowrap;opacity:0;transition:opacity .12s;z-index:2}
+.tip b{font-family:var(--f-mono)}
+.js .cpl .bar{transform:scaleX(0);transform-box:fill-box;transform-origin:left;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .cpl.in .bar{transform:scaleX(1)}
+@media (max-width:560px){.cpl{padding:18px}}
+
+.ctabs{display:none}
+.cases{display:grid;gap:22px}
+.case{border-radius:var(--r);padding:34px;background:var(--card);scroll-margin-top:84px}
+.case.dk{background:var(--dark);color:#fff}
+.c-top{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:36px;align-items:start}
+.case h3{font-size:clamp(28px,3.6vw,46px);font-weight:800;margin:12px 0 22px;line-height:1.02}
+.c-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:18px}
+.c-meta{margin:0;display:grid;gap:14px}
+.c-meta div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding-top:14px;border-top:1px solid var(--line)}
+.dk .c-meta div{border-top-color:var(--dark-line)}
+.c-meta dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.dk .c-meta dt{color:var(--dark-muted)}
+.c-meta dd{margin:0}
+.ph{font-family:var(--f-mono);font-size:13px;background:var(--accent-soft);color:#9A3410;border-radius:6px;padding:2px 7px}
+.dk .ph{background:#3A2015;color:#FFB08F}
+.c-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:28px}
+.c-stats>div{background:var(--paper);border-radius:16px;padding:16px 16px 14px;min-width:0}
+.dk .c-stats>div{background:var(--dark2)}
+.c-stats .v{font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2.6vw,32px);line-height:1.05;letter-spacing:-.03em;white-space:nowrap}
+.c-stats>div:first-child{background:var(--accent);color:#fff}
+.c-stats>div:first-child .l{color:#FFE2D6}
+.c-stats .l{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.4}
+.dk .c-stats .l{color:var(--dark-muted)}
+.c-bot{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:22px;margin-top:22px;align-items:start}
+.dots{background:var(--paper);border-radius:16px;padding:18px}
+.dk .dots{background:var(--dark2)}
+.dots .label{display:block;margin-bottom:12px}
+.dg{display:grid;grid-template-columns:repeat(20,1fr);gap:4px}
+.dg i{aspect-ratio:1;border-radius:3px;background:var(--line);transition:background .3s}
+.dk .dg i{background:var(--dark-line)}
+.dg i.f{background:var(--accent)}
+.dots p{margin-top:12px;font-size:15px}
+.dots p b{font-family:var(--f-display);font-weight:700}
+.shot{margin:0}
+.shot img{border-radius:14px;width:100%;border:1px solid var(--line)}
+.dk .shot img{border-color:var(--dark-line)}
+.shot figcaption{margin-top:8px}
+.msgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px;align-items:start}
+.msgs.one{grid-template-columns:minmax(0,1fr)}
+.msgs img{border-radius:14px;width:100%}
+.c-nav{display:none}
+@media (max-width:900px){
+  .c-top{grid-template-columns:1fr;gap:0}
+  .c-img{order:-1;aspect-ratio:16/9;margin-bottom:18px;max-height:200px}
+  .c-stats{grid-template-columns:1fr 1fr}
+  .c-bot{grid-template-columns:1fr}
+  .case{padding:22px 18px}
+  .cases.tabbed .case{display:none}.cases.tabbed .case.on{display:block;animation:fade .35s ease}
+  .ctabs{display:flex;gap:8px;overflow-x:auto;position:sticky;top:0;z-index:5;background:var(--paper);padding:10px 16px;margin:0 -16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .ctabs::-webkit-scrollbar{display:none}
+  .ctabs button{flex:none;font:inherit;font-family:var(--f-mono);font-size:13px;border:0;border-radius:999px;padding:10px 14px;background:var(--card);color:var(--ink);cursor:pointer}
+  .ctabs button.on{background:var(--ink);color:#fff}
+  .ctabs button b{color:var(--accent);font-weight:600;margin-right:6px}
+  .c-nav{display:flex;margin-top:20px}
+  .c-nav button{width:100%;font:inherit;font-weight:600;border:1px solid var(--line);background:transparent;color:inherit;border-radius:999px;padding:14px;cursor:pointer}
+  .dk .c-nav button{border-color:var(--dark-line)}
+  .c-meta div{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:420px){.c-stats .v{font-size:22px}.msgs{grid-template-columns:1fr}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* HOW */
+.tl{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px 14px;padding-top:28px}
+.tl-axis{position:absolute;left:0;right:0;top:6px;height:2px;background:var(--dark-line)}
+.tl-axis::after{content:"";position:absolute;inset:0;background:var(--accent);transform-origin:left;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.js .tl .tl-axis::after{transform:scaleX(0)}.js .tl.in .tl-axis::after{transform:scaleX(1)}
+.tc{position:relative;display:grid;gap:8px;align-content:start}
+.tc::before{content:"";position:absolute;top:-28px;left:0;width:14px;height:14px;border-radius:50%;background:var(--dark);border:2px solid var(--accent)}
+.tc.f::before{background:var(--accent)}
+.tc .dy{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.tc b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.2}
+.tc span:last-child{font-size:15px;color:var(--dark-muted)}
+.tc.f{background:var(--dark2);border:1px solid var(--accent);border-radius:16px;padding:14px}
+.tc.f::before{left:14px}.tc.f span:last-child{color:#fff}
+.got{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:52px}
+.got>div{border-top:2px solid var(--accent);padding-top:14px;display:grid;gap:4px}
+.got b{font-family:var(--f-display);font-weight:700;font-size:19px}
+.got span{color:var(--dark-muted);font-size:15px}
+@media (max-width:980px){
+  .tl{grid-template-columns:1fr;padding-top:0;padding-left:30px;gap:22px}
+  .tl-axis{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .tl-axis::after{transform-origin:top}
+  .js .tl .tl-axis::after{transform:scaleY(0)}.js .tl.in .tl-axis::after{transform:scaleY(1)}
+  .tc::before,.tc.f::before{top:2px;left:-30px}
+  .tc.f::before{top:16px}
+  .got{grid-template-columns:1fr;margin-top:40px}
+}
+
+/* CALC */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.cbox{background:var(--paper);border-radius:var(--r);padding:26px}
+.niche{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.niche button{font:inherit;font-family:var(--f-mono);font-size:13px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 13px;cursor:pointer}
+.niche button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.fld{margin-top:20px}
+.fld label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:500}
+.fld output{font-family:var(--f-display);font-weight:700;font-size:19px;color:var(--accent);white-space:nowrap}
+.rng{display:flex;align-items:center;gap:10px;margin-top:6px}
+.rng button{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);font-size:22px;font-weight:600;line-height:1;color:var(--ink);cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.rng button:active{background:var(--ink);color:#fff}
+.rng input{flex:1;min-width:0;height:44px;margin:0;-webkit-appearance:none;appearance:none;background:transparent;touch-action:none;cursor:pointer}
+.rng input::-webkit-slider-runnable-track{height:6px;border-radius:4px;background:linear-gradient(90deg,var(--accent) var(--p,50%),var(--line) 0)}
+.rng input::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-10px;border-radius:50%;background:var(--accent);border:4px solid var(--paper);box-shadow:0 0 0 1px var(--accent)}
+.rng input::-moz-range-track{height:6px;border-radius:4px;background:var(--line)}
+.rng input::-moz-range-progress{height:6px;border-radius:4px;background:var(--accent)}
+.rng input::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);border:3px solid var(--paper)}
+.rng input:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.res{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.res>div{background:var(--ink);color:#fff;border-radius:18px;padding:20px;min-width:0}
+.res .v{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,4vw,48px);line-height:1;letter-spacing:-.03em;white-space:nowrap}
+.res .l{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-muted);margin-top:10px}
+.res .hot{background:var(--accent);grid-column:1/-1}.res .hot .l{color:#FFE2D6}
+.res .hot .v{font-size:clamp(40px,6vw,72px)}
+.cnote{font-size:14px;color:var(--muted);margin-top:14px}
+@media (max-width:900px){.calc{grid-template-columns:1fr}.cbox{padding:18px}}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:300px minmax(0,1fr);gap:48px;align-items:center}
+.about img{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 20%;border-radius:var(--r);filter:saturate(.85)}
+.about h2{margin:14px 0 18px}
+.facts{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px}
+.facts li{display:grid;grid-template-columns:22px 1fr;gap:10px}
+.facts li::before{content:"";width:14px;height:2px;background:var(--accent);margin-top:12px}
+@media (max-width:760px){.about{grid-template-columns:1fr;gap:24px}.about img{width:150px;border-radius:20px}}
+
+/* CTA */
+.cta{background:var(--accent);color:#fff}
+.cta h2{font-size:clamp(28px,4.8vw,58px);max-width:900px}
+.cta p{font-size:clamp(17px,1.6vw,20px);margin-top:18px;max-width:600px;color:#FFEDE5}
+.cta .btn{background:var(--ink);margin-top:30px;font-size:19px;padding:20px 32px}
+.cta .handle{display:block;margin-top:14px;font-family:var(--f-mono);font-size:14px;color:#FFEDE5}
+footer{padding-block:26px 90px;font-size:13px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+
+/* floating tg */
+.fab{position:fixed;right:16px;bottom:16px;z-index:20;display:none;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:14px 20px;border-radius:999px;box-shadow:0 14px 30px -12px rgba(226,71,15,.7);transform:translateY(120%);opacity:0;transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s}
+.fab.on{transform:none;opacity:1}
+@media (max-width:900px){.fab{display:inline-flex}}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{transform:none;transition:opacity .2s}.btn::after{animation:none}.js .cpl .bar{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="hero-img" src="img/hero.jpg" alt="">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="label">Google Ads · <b>Беларусь</b></span>
+      <a class="label" href="https://t.me/midnaix" target="_blank" rel="noopener">Максим · @midnaix</a>
+    </div>
+    <h1>Заявки из Google для бизнеса в&nbsp;<span class="acc">Беларуси</span></h1>
+    <p class="lead">Настраиваю рекламу и слежу, чтобы заявки доходили до продажи: скрипты, звонки, CRM.</p>
+    <div class="spec">
+      <div><div class="v num" data-count="3000" data-suf="+">3 000+</div><div class="k">заявок в кабинетах<br>моих клиентов</div></div>
+      <div><div class="v num">$2,32</div><div class="k">средняя цена заявки<br>по 5 кейсам</div></div>
+      <div><div class="v num" data-count="22">22</div><div class="k">месяца веду один<br>кабинет без перерыва</div></div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.5 0 1.8l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.6.1 1.8-.7l3.1-14.6c.2-1-.7-1.8-1.8-1.4zM9.6 14.1l8.4-6.2-6.7 7.3-.3 3.2z"/></svg>Написать в Telegram</a>
+      <a class="label" href="#cases" style="text-decoration:none">Смотреть кейсы ↓</a>
+    </div>
+  </div>
+</header>
+
+<section class="white">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Чем я отличаюсь</span>
+      <h2>Заявка ещё не деньги. <span class="acc">Слежу, чтобы она стала продажей</span></h2>
+    </div>
+    <div class="why">
+      <div><span class="vn">01</span><b>Реклама в Google</b><span>Показываю вас тем, кто уже ищет услугу. Отсекаю запросы, которые сливают бюджет.</span></div>
+      <div><span class="vn">02</span><b>Скрипты звонков</b><span>Менеджер знает, что сказать, чтобы человек записался, а не ушёл «подумать».</span></div>
+      <div><span class="vn">03</span><b>Контроль звонков</b><span>Слушаю записи. Вижу, где теряется клиент и какой менеджер продаёт лучше.</span></div>
+      <div><span class="vn">04</span><b>CRM</b><span>Ни одна заявка не теряется. Видно, сколько стоил клиент, а не клик.</span></div>
+    </div>
+    <div class="flowline" aria-label="Путь клиента"><span>Поиск</span><i></i><span>Заявка</span><i></i><span>Звонок</span><i></i><span>Продажа</span></div>
+  </div>
+</section>
+
+<section id="cases">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Кейсы</span>
+      <h2>Цифры из кабинетов <span class="acc">Google&nbsp;Ads</span></h2>
+    </div>
+
+    <div class="cpl">
+      <div class="cpl-h"><b>Цена одной заявки по нишам</b><span class="label">нажмите на строку</span></div>
+      <div class="cpl-c" id="cpl"></div>
+    </div>
+
+    <div class="ctabs" role="tablist" aria-label="Кейсы">
+      <button class="on" data-i="0"><b>01</b>СТО</button>
+      <button data-i="1"><b>02</b>СТО, запуск</button>
+      <button data-i="2"><b>03</b>Кондиционеры</button>
+      <button data-i="3"><b>04</b>Тонировка</button>
+      <button data-i="4"><b>05</b>B2B</button>
+    </div>
+
+    <div class="cases tabbed">
+      <article class="case dk on" id="c1">
+        <div class="c-top">
+          <div>
+            <span class="label"><b>Кейс 01</b> · СТО · Минск</span>
+            <h3><span class="acc">2 830 заявок</span> по&nbsp;$2,01</h3>
+            <dl class="c-meta">
+              <div><dt>Задача</dt><dd><span class="ph">[ЗАДАЧА]</span></dd></div>
+              <div><dt>Что сделал</dt><dd><span class="ph">[ЧТО СДЕЛАЛ]</span></dd></div>
+            </dl>
+          </div>
+          <img class="c-img" src="img/case-sto.jpg" alt="Автосервис с машиной на подъёмнике" loading="lazy">
+        </div>
+        <div class="c-stats">
+          <div><div class="v num">2 830</div><div class="l">заявок и звонков</div></div>
+          <div><div class="v num">$2,01</div><div class="l">за заявку</div></div>
+          <div><div class="v num">$5 690</div><div class="l">бюджет за всё время</div></div>
+          <div><div class="v num">22 мес.</div><div class="l">янв 2025 — окт 2026</div></div>
+        </div>
+        <div class="c-bot">
+          <div class="dots" data-p="10.6"><span class="label">Из 100 переходов на сайт</span><div class="dg"></div><p><b>11 заявок.</b> 26&nbsp;700 переходов дали 2&nbsp;830&nbsp;заявок.</p></div>
+          <figure class="shot"><img src="img/shot-sto.jpg" alt="Google Ads: 26,7 тыс. кликов, 2,83 тыс. конверсий, 2,01 $ за конверсию, расходы 5,69 тыс. $" loading="lazy"><figcaption class="label">Кабинет Google Ads</figcaption></figure>
+        </div>
+        <div class="c-nav"><button data-go="1">Следующий кейс →</button></div>
+      </article>
+
+      <article class="case" id="c2">
+        <div class="c-top">
+          <div>
+            <span class="label"><b>Кейс 02</b> · СТО · Минск · новый запуск</span>
+            <h3><span class="acc">26 заявок</span> за&nbsp;3&nbsp;дня</h3>
+            <dl class="c-meta">
+              <div><dt>Задача</dt><dd><span class="ph">[ЗАДАЧА]</span></dd></div>
+              <div><dt>Что сделал</dt><dd><span class="ph">[ЧТО СДЕЛАЛ]</span></dd></div>
+            </dl>
+          </div>
+          <img class="c-img" src="img/case-sto2.jpg" alt="Мастер снимает колесо" loading="lazy">
+        </div>
+        <div class="c-stats">
+          <div><div class="v num">26</div><div class="l">заявок и звонков</div></div>
+          <div><div class="v num">$4,39</div><div class="l">за заявку</div></div>
+          <div><div class="v num">$114</div><div class="l">весь бюджет</div></div>
+          <div><div class="v num">3 дня</div><div class="l">12–15 окт 2026</div></div>
+        </div>
+        <div class="c-bot">
+          <div class="dots" data-p="8.3"><span class="label">Из 100 переходов на сайт</span><div class="dg"></div><p><b>8 заявок.</b> 313 переходов дали 26 заявок.</p></div>
+          <div>
+            <figure class="shot"><img src="img/shot-sto2.jpg" alt="Google Ads: 313 кликов, 26 конверсий, 4,39 $ за конверсию, 114 $" loading="lazy"><figcaption class="label">Кабинет Google Ads</figcaption></figure>
+            <div class="msgs"><img src="img/msg-sto2a.jpg" alt="Сообщение клиента: по сводке 26 звонков" loading="lazy"><img src="img/msg-sto2b.jpg" alt="Сообщение клиента: я уже вчера была удивлена результатами" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="c-nav"><button data-go="2">Следующий кейс →</button></div>
+      </article>
+
+      <article class="case dk" id="c3">
+        <div class="c-top">
+          <div>
+            <span class="label"><b>Кейс 03</b> · Кондиционеры · <span class="ph">[ГОРОД]</span></span>
+            <h3><span class="acc">129 заявок</span> по&nbsp;$8,53</h3>
+            <dl class="c-meta">
+              <div><dt>Задача</dt><dd><span class="ph">[ЗАДАЧА]</span></dd></div>
+              <div><dt>Что сделал</dt><dd><span class="ph">[ЧТО СДЕЛАЛ]</span></dd></div>
+            </dl>
+          </div>
+          <img class="c-img" src="img/case-ac.jpg" alt="Кондиционер в светлой гостиной" loading="lazy">
+        </div>
+        <div class="c-stats">
+          <div><div class="v num">129</div><div class="l">заявок</div></div>
+          <div><div class="v num">$8,53</div><div class="l">за заявку</div></div>
+          <div><div class="v num">$1 100</div><div class="l">бюджет</div></div>
+          <div><div class="v num">5 мес.</div><div class="l">май — окт 2026</div></div>
+        </div>
+        <div class="c-bot">
+          <div class="dots" data-p="10.07"><span class="label">Из 100 переходов на сайт</span><div class="dg"></div><p><b>10 заявок.</b> Конверсия сайта 10,07%.</p></div>
+          <figure class="shot"><img src="img/shot-ac.jpg" alt="Google Ads: 8,53 $ за конверсию, 129 конверсий, расходы 1,1 тыс. $, коэффициент конверсии 10,07%" loading="lazy"><figcaption class="label">Кабинет Google Ads</figcaption></figure>
+        </div>
+        <div class="c-nav"><button data-go="3">Следующий кейс →</button></div>
+      </article>
+
+      <article class="case" id="c4">
+        <div class="c-top">
+          <div>
+            <span class="label"><b>Кейс 04</b> · Тонировка CarFace.by · <span class="ph">[ГОРОД]</span></span>
+            <h3><span class="acc">17 заявок</span> по&nbsp;$2,69</h3>
+            <dl class="c-meta">
+              <div><dt>Задача</dt><dd><span class="ph">[ЗАДАЧА]</span></dd></div>
+              <div><dt>Что сделал</dt><dd>Заявки с сайта сразу приходят в Telegram-канал. <span class="ph">[ЧТО ЕЩЁ]</span></dd></div>
+            </dl>
+          </div>
+          <img class="c-img" src="img/case-tint.jpg" alt="Чёрный седан в студии" loading="lazy">
+        </div>
+        <div class="c-stats">
+          <div><div class="v num">17</div><div class="l">заявок</div></div>
+          <div><div class="v num">$2,69</div><div class="l">за заявку</div></div>
+          <div><div class="v num">11,97%</div><div class="l">конверсия сайта</div></div>
+          <div><div class="v num">142</div><div class="l">клика · сент 2026</div></div>
+        </div>
+        <div class="c-bot">
+          <div class="dots" data-p="11.97"><span class="label">Из 100 переходов на сайт</span><div class="dg"></div><p><b>12 заявок.</b> Лучшая конверсия среди кейсов.</p></div>
+          <div>
+            <figure class="shot"><img src="img/shot-tint.jpg" alt="Google Ads CarFace: 17 конверсий, 142 клика, 2,69 $ за конверсию, 11,97%" loading="lazy"><figcaption class="label">Кабинет Google Ads</figcaption></figure>
+            <div class="msgs one"><img src="img/msg-tint.jpg" alt="Telegram-канал с заявками CarFace.by" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="c-nav"><button data-go="4">Следующий кейс →</button></div>
+      </article>
+
+      <article class="case dk" id="c5">
+        <div class="c-top">
+          <div>
+            <span class="label"><b>Кейс 05</b> · B2B · инженерные сети · <span class="ph">[ГОРОД]</span></span>
+            <h3><span class="acc">7–8 целевых заявок</span> за&nbsp;3&nbsp;дня</h3>
+            <dl class="c-meta">
+              <div><dt>Задача</dt><dd><span class="ph">[ЗАДАЧА]</span></dd></div>
+              <div><dt>Что сделал</dt><dd><span class="ph">[ЧТО СДЕЛАЛ]</span></dd></div>
+            </dl>
+          </div>
+          <img class="c-img" src="img/case-b2b.jpg" alt="Технический коридор с трубами" loading="lazy">
+        </div>
+        <div class="c-stats">
+          <div><div class="v num">7–8</div><div class="l">заявок на КП</div></div>
+          <div><div class="v num">~$5,4</div><div class="l">за заявку</div></div>
+          <div><div class="v num">$40</div><div class="l">весь бюджет</div></div>
+          <div><div class="v num">$1,04</div><div class="l">за клик · 39 кликов</div></div>
+        </div>
+        <div class="c-bot">
+          <div class="dots" data-p="19"><span class="label">Из 100 переходов на сайт</span><div class="dg"></div><p><b>~19 заявок.</b> В B2B клик дороже, но и заявка крупнее.</p></div>
+          <div>
+            <figure class="shot"><img src="img/shot-b2b.jpg" alt="Google Ads: 39 кликов, 291 показ, 1,04 $ за клик, 40,39 $" loading="lazy"><figcaption class="label">Кабинет Google Ads</figcaption></figure>
+            <div class="msgs one"><img src="img/msg-b2b.jpg" alt="Сообщение клиента: с сайта 7-8 заявок целевых за 3 дня, по всем направлениям" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="c-nav"><button data-go="0">К первому кейсу ↑</button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Как работаю</span>
+      <h2>От созвона до первых заявок <span class="acc">за 10 дней</span></h2>
+    </div>
+    <div class="tl">
+      <div class="tl-axis"></div>
+      <div class="tc"><span class="dy">День 0</span><b>Созвон</b><span>15 минут. Смотрю, как ищут вашу услугу, считаю цифры.</span></div>
+      <div class="tc"><span class="dy">Дни 1–2</span><b>Запросы</b><span>Собираю, как вас ищут целевые клиенты. Лишнее в минус.</span></div>
+      <div class="tc"><span class="dy">Дни 2–3</span><b>Конкуренты</b><span>Кто показывается, что предлагает, сколько стоит клик.</span></div>
+      <div class="tc"><span class="dy">Дни 3–7</span><b>Сайт</b><span>Цены, работы, кнопка звонка, заявки в Telegram.</span></div>
+      <div class="tc"><span class="dy">Дни 7–9</span><b>Реклама</b><span>Объявления, ставки, Google Карты, учёт каждого звонка.</span></div>
+      <div class="tc f"><span class="dy">День 10</span><b>Первые заявки</b><span>Дальше каждую неделю: больше заявок, каждая дешевле.</span></div>
+    </div>
+    <div class="got">
+      <div><b>Отчёт каждую неделю</b><span>Сколько заявок и сколько стоила каждая.</span></div>
+      <div><b>Бюджет напрямую в Google</b><span>Платите со своей карты. Деньги через меня не идут.</span></div>
+      <div><b>Доступы у вас</b><span>Кабинет, сайт, пароли. Всё ваше.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="white">
+  <div class="wrap">
+    <div class="head">
+      <span class="label">Калькулятор</span>
+      <h2>Сколько клиентов даст <span class="acc">ваш бюджет</span></h2>
+    </div>
+    <div class="calc">
+      <div class="cbox">
+        <span class="label">Цена заявки из кейсов</span>
+        <div class="niche" id="niche">
+          <button data-v="2" class="on">СТО · $2</button>
+          <button data-v="2.7">Тонировка · $2,7</button>
+          <button data-v="5.4">B2B · $5,4</button>
+          <button data-v="8.5">Кондиционеры · $8,5</button>
+        </div>
+        <div class="fld"><label for="k-b">Бюджет в месяц <output id="o-b"></output></label>
+          <div class="rng"><button type="button" data-t="k-b" data-d="-1" aria-label="Меньше">−</button><input id="k-b" type="range" min="100" max="3000" step="50" value="500"><button type="button" data-t="k-b" data-d="1" aria-label="Больше">+</button></div></div>
+        <div class="fld"><label for="k-c">Цена заявки <output id="o-c"></output></label>
+          <div class="rng"><button type="button" data-t="k-c" data-d="-1" aria-label="Меньше">−</button><input id="k-c" type="range" min="1" max="20" step="0.5" value="2"><button type="button" data-t="k-c" data-d="1" aria-label="Больше">+</button></div></div>
+        <div class="fld"><label for="k-p">Из заявки в клиента <output id="o-p"></output></label>
+          <div class="rng"><button type="button" data-t="k-p" data-d="-1" aria-label="Меньше">−</button><input id="k-p" type="range" min="5" max="70" step="1" value="33"><button type="button" data-t="k-p" data-d="1" aria-label="Больше">+</button></div></div>
+      </div>
+      <div>
+        <div class="res">
+          <div><div class="v num" id="r-l">—</div><div class="l">заявок в месяц</div></div>
+          <div><div class="v num" id="r-cc">—</div><div class="l">цена клиента</div></div>
+          <div class="hot"><div class="v num" id="r-c">—</div><div class="l">новых клиентов в месяц</div></div>
+        </div>
+        <p class="cnote">На СТО в кейсе 01 клиентом становится примерно каждая третья заявка. Ваши цифры посчитаю на созвоне.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="about">
+      <img src="img/me.jpg" alt="Максим" loading="lazy">
+      <div>
+        <span class="label">Обо мне</span>
+        <h2>Максим</h2>
+        <p class="lead">Веду рекламу в Google и таргет для малого и среднего бизнеса в Беларуси. Каждый кабинет веду сам, без менеджеров и посредников.</p>
+        <ul class="facts">
+          <li><span>СТО, шиномонтаж, кузовной ремонт, автохаусы, тонировка, кондиционеры, B2B.</span></li>
+          <li><span>Кроме рекламы ставлю систему продаж: скрипты, контроль звонков, CRM, разбор работы менеджеров.</span></li>
+          <li><span>Пишите напрямую в Telegram, отвечаю сам.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <div class="wrap">
+    <h2>Посчитаю заявки для вашей ниши за 15 минут</h2>
+    <p>Напишите в Telegram: посмотрю, как ищут вашу услугу, и скажу, сколько заявок реально получить на ваш бюджет.</p>
+    <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.5 0 1.8l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.6.1 1.8-.7l3.1-14.6c.2-1-.7-1.8-1.8-1.4zM9.6 14.1l8.4-6.2-6.7 7.3-.3 3.2z"/></svg>Написать в Telegram</a>
+    <span class="handle">@midnaix</span>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>Цифры из кабинетов Google Ads клиентов. Средняя цена заявки посчитана по 5 кейсам.</span><a href="https://t.me/midnaix" target="_blank" rel="noopener">@midnaix</a></div></footer>
+
+<a class="fab" id="fab" href="https://t.me/midnaix" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M21.4 4.2 2.9 11.3c-1 .4-1 1.5 0 1.8l4.6 1.4 1.8 5.5c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.7.5 1.6.1 1.8-.7l3.1-14.6c.2-1-.7-1.8-1.8-1.4zM9.6 14.1l8.4-6.2-6.7 7.3-.3 3.2z"/></svg>Написать</a>
+
+<script>
+(function(){
+  var D=document,$=function(id){return D.getElementById(id)};
+  function f(n,d){var s=(d?n.toFixed(d):Math.round(n).toString()).replace('.',',');return s.replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+  var mob=matchMedia('(max-width:900px)');
+
+  /* reveal */
+  try{
+    D.documentElement.classList.add('js');
+    var els=D.querySelectorAll('.head,.why>div,.flowline,.cpl,.c-stats,.c-bot,.tl,.got>div,.cbox,.res,.about>*,.cta .wrap>*');
+    els.forEach(function(e){e.classList.add('rv')});
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    els.forEach(function(e){io.observe(e)});
+  }catch(e){D.querySelectorAll('.rv').forEach(function(x){x.classList.add('in')})}
+
+  /* hero counters */
+  D.querySelectorAll('[data-count]').forEach(function(el){
+    var to=+el.dataset.count,suf=el.dataset.suf||'',t0=null;
+    function step(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),e=1-Math.pow(1-k,3);el.textContent=f(to*e)+suf;if(k<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step);
+  });
+
+  /* case tabs */
+  var tabs=[].slice.call(D.querySelectorAll('.ctabs button')),cs=[].slice.call(D.querySelectorAll('.case'));
+  function show(i,scroll){
+    tabs.forEach(function(b,j){b.classList.toggle('on',i===j);b.setAttribute('aria-selected',i===j)});
+    cs.forEach(function(c,j){c.classList.toggle('on',i===j)});
+    tabs[i].scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    if(scroll){var y=D.querySelector('.ctabs').getBoundingClientRect().top+scrollY-4;if(!mob.matches)y=cs[i].getBoundingClientRect().top+scrollY-24;scrollTo({top:y,behavior:'smooth'})}
+  }
+  tabs.forEach(function(b,i){b.addEventListener('click',function(){show(i,true)})});
+  D.querySelectorAll('.c-nav button').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.go,true)})});
+
+  /* dots 10x... */
+  D.querySelectorAll('.dots').forEach(function(d){
+    var g=d.querySelector('.dg'),n=Math.round(+d.dataset.p),h='';
+    for(var i=0;i<100;i++)h+='<i></i>';g.innerHTML=h;
+    var dots=g.children,done=false;
+    function fill(){if(done)return;done=true;for(var i=0;i<n;i++)(function(i){setTimeout(function(){dots[i].className='f'},120+i*45)})(i)}
+    new IntersectionObserver(function(es,o){if(es[0].isIntersecting){fill();o.disconnect()}},{threshold:.3}).observe(d);
+  });
+
+  /* CPL chart */
+  (function(){
+    var box=$('cpl');if(!box)return;
+    var R=[['СТО · Минск',2.01,'2 830 заявок','$5 690',0],['Тонировка',2.69,'17 заявок','$46',3],['СТО · запуск',4.39,'26 заявок','$114',1],['B2B',5.4,'7–8 заявок','$40',4],['Кондиционеры',8.53,'129 заявок','$1 100',2]];
+    var NS='http://www.w3.org/2000/svg',tip=D.createElement('div');tip.className='tip';box.appendChild(tip);
+    function el(n,a,p){var e=D.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+    function draw(){
+      var o=box.querySelector('svg');if(o)o.remove();
+      var W=box.clientWidth,narrow=W<560,lw=narrow?0:150,rh=narrow?54:46,bh=narrow?16:20,H=R.length*rh,vw=70,iw=W-lw-vw,mx=9;
+      var s=el('svg',{viewBox:'0 0 '+W+' '+H,width:W,height:H,role:'img','aria-label':'Цена заявки по кейсам'});
+      R.forEach(function(r,i){
+        var y=i*rh,g=el('g',{class:'row'},s),by=narrow?y+24:y+(rh-bh)/2;
+        el('rect',{class:'bg',x:0,y:y+2,width:W,height:rh-4,rx:10,fill:'transparent'},g);
+        var t=el('text',{class:'nm',x:narrow?0:12,y:narrow?y+16:y+rh/2+4},g);t.textContent=r[0];
+        var w=Math.max(6,iw*r[1]/mx);
+        el('rect',{x:lw,y:by,width:iw,height:bh,rx:bh/2,fill:'#1E232A'},g);
+        el('rect',{class:'bar',x:lw,y:by,width:w,height:bh,rx:bh/2,fill:i===0?'#FF5A1F':i<2?'#FF8A5C':'#5B636E',style:'transition-delay:'+(i*.08)+'s'},g);
+        var v=el('text',{class:'vl',x:lw+w+10,y:by+bh/2+5},g);v.textContent='$'+f(r[1],2);
+        function on(e){
+          s.querySelectorAll('.row').forEach(function(x){x.classList.remove('on')});g.classList.add('on');
+          tip.innerHTML=r[0]+'<br>'+r[2]+' · бюджет <b>'+r[3]+'</b>';
+          tip.style.left=Math.max(90,Math.min(W-90,lw+w/2+20))+'px';tip.style.top=by+'px';tip.style.opacity=1;
+        }
+        g.addEventListener('pointerenter',on);
+        g.addEventListener('pointerleave',function(){tip.style.opacity=0;g.classList.remove('on')});
+        g.addEventListener('click',function(e){on(e);show(r[4],true)});
+      });
+      box.insertBefore(s,tip);
+    }
+    draw();var tm;addEventListener('resize',function(){clearTimeout(tm);tm=setTimeout(draw,150)});
+  })();
+
+  /* calculator */
+  var B=$('k-b'),C=$('k-c'),P=$('k-p');
+  function paint(el){el.style.setProperty('--p',((el.value-el.min)/(el.max-el.min)*100)+'%')}
+  function calc(){
+    var b=+B.value,c=+C.value,p=+P.value/100,l=b/c,cl=l*p;
+    $('o-b').textContent='$'+f(b);$('o-c').textContent='$'+f(c,c%1?1:0);$('o-p').textContent=P.value+'%';
+    $('r-l').textContent=f(l);$('r-c').textContent=f(cl);$('r-cc').textContent='$'+f(c/p,c/p<10?1:0);
+    [B,C,P].forEach(paint);
+    D.querySelectorAll('#niche button').forEach(function(x){x.classList.toggle('on',+x.dataset.v===c)});
+  }
+  [B,C,P].forEach(function(el){
+    el.addEventListener('input',calc);
+    function set(x){var r=el.getBoundingClientRect(),mn=+el.min,mx=+el.max,st=+el.step,v=mn+Math.min(1,Math.max(0,(x-r.left)/r.width))*(mx-mn);el.value=Math.round(v/st)*st;calc()}
+    el.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse')return;set(e.clientX);try{el.setPointerCapture(e.pointerId)}catch(_){}});
+    el.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse'&&e.pressure>0)set(e.clientX)});
+  });
+  D.querySelectorAll('.rng button').forEach(function(b){b.addEventListener('click',function(){var el=$(b.dataset.t);el.value=+el.value+(+b.dataset.d)*(+el.step);calc()})});
+  D.querySelectorAll('#niche button').forEach(function(b){b.addEventListener('click',function(){C.value=b.dataset.v;calc()})});
+  calc();
+
+  /* floating button */
+  var fab=$('fab'),heroV=true,ctaV=false;
+  function upd(){fab.classList.toggle('on',!heroV&&!ctaV)}
+  new IntersectionObserver(function(e){heroV=e[0].isIntersecting;upd()}).observe(D.querySelector('.hero'));
+  new IntersectionObserver(function(e){ctaV=e[0].isIntersecting;upd()}).observe($('cta'));
+})();
+</script>
+</body>
+</html>
