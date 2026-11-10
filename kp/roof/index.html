@@ -49,14 +49,14 @@ p{margin:0}
 .hero h1{font-weight:800;font-size:clamp(27px,4.8vw,62px);line-height:1}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .lead{color:#C9CED5;max-width:580px}
-.spec{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18)}
+.spec{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18)}
 .spec>div{padding:18px 18px 4px 0}
 .spec>div+div{padding-left:18px;border-left:1px solid rgba(255,255,255,.18)}
 .spec .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dark-muted)}
 .spec .v{font-family:var(--f-display);font-weight:700;font-size:clamp(18px,2.2vw,26px);margin-top:6px}
 .spec .v.o{color:var(--accent)}
 @media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.roof{max-width:420px}}
-@media (max-width:640px){.spec{grid-template-columns:1fr 1fr}.spec>div:nth-child(3){padding-left:0;border-left:0}.spec>div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.18)}}
+@media (max-width:640px){.spec{grid-template-columns:1fr}.spec>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.18)}}
 /* roof layers */
 .roof{width:100%}
 .roof .ly{transform-origin:center;opacity:1}
@@ -172,7 +172,8 @@ p{margin:0}
 .sched{list-style:none;margin:26px 0 0;padding:0;display:grid}
 .sched li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--dark-line);font-size:15px;color:var(--dark-muted)}
 .sched li b{font-family:var(--f-mono);font-weight:600;color:#fff;white-space:nowrap}
-.sched li.f{border-bottom:0;color:#fff}
+.sched li.f{color:#fff}
+.sched li.bd{border-bottom:0;font-size:14px}.sched li.bd b{color:var(--ya);font-weight:400}
 .sched li.f b{color:var(--accent)}
 .ticks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .ticks li{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;font-size:16px}
@@ -187,11 +188,18 @@ p{margin:0}
 .split{margin-top:26px}
 .split .bar{display:flex;height:54px;border-radius:14px;overflow:hidden;gap:3px}
 .split .bar div{display:grid;place-items:center;font-family:var(--f-mono);font-size:12.5px;color:#fff;background:#3A414C;min-width:0}
-.split .bar div:first-child{flex:4;background:var(--accent);font-weight:600}
+.split .bar div:first-child{flex:3.75;background:var(--accent);font-weight:600}
 .split .bar div:not(:first-child){flex:1}
 .split .lg{display:flex;justify-content:space-between;gap:10px;margin-top:10px;font-family:var(--f-mono);font-size:12px;color:var(--dark-muted)}
 @media (max-width:420px){.split .bar div{font-size:10.5px}}
 
+.alt{margin-top:14px;border:2px dashed var(--line);border-radius:var(--r);padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.alt .k{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.alt b{display:block;font-family:var(--f-display);font-weight:700;font-size:clamp(19px,2.2vw,24px);margin:6px 0 14px;line-height:1.2}
+.alt .ap{text-align:right}
+.alt .ap .num{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,4.4vw,52px);line-height:1;white-space:nowrap}
+.alt .ap span{display:block;margin-top:8px;font-size:14px;color:var(--muted)}
+@media (max-width:720px){.alt{grid-template-columns:1fr;padding:20px}.alt .ap{text-align:left}}
 /* CTA */
 .cta{background:var(--accent);color:#fff}
 .cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -233,7 +241,6 @@ p{margin:0}
       <div><div class="k">Канал 1</div><div class="v">Яндекс Директ</div></div>
       <div><div class="k">Канал 2</div><div class="v">500 звонков</div></div>
       <div><div class="k">Срок</div><div class="v">1 месяц</div></div>
-      <div><div class="k">Стоимость</div><div class="v o">130 000 ₽</div></div>
     </div>
   </div>
 </header>
@@ -348,33 +355,33 @@ p{margin:0}
     <div class="head rv">
       <div class="label"><b>04</b> · План и оплата</div>
       <h2>Месяц работы по неделям</h2>
-      <p class="lead">Оплата идёт по мере работы: половина на старте, остальное каждую неделю за сделанные звонки.</p>
+      <p class="lead">Оплата идёт по мере работы: первый платёж на старте, дальше каждую неделю за сделанные звонки. Рекламный бюджет Яндекса оплачивается отдельно.</p>
     </div>
     <div class="weeks rv">
       <div class="wk s">
         <div class="n">Старт<b>День 1</b></div>
         <div class="w"><b>Запуск Яндекса, база и скрипт</b><span>Собираем 500 компаний, пишем скрипт, запускаем рекламу</span></div>
-        <div class="pay"><span class="k">Оплата 50%</span><b class="num">65 000 ₽</b></div>
+        <div class="pay"><span class="k">Первый платёж</span><b class="num">75 000 ₽</b></div>
       </div>
       <div class="wk">
         <div class="n">Неделя<b>1</b></div>
         <div class="w"><b>125 компаний</b><span>Звонки, первые заявки из Яндекса, отчёт</span><div class="prog"><i style="--w:25%"></i></div></div>
-        <div class="pay"><span class="k">Оплата</span><b class="num">16 250 ₽</b></div>
+        <div class="pay"><span class="k">Оплата</span><b class="num">20 000 ₽</b></div>
       </div>
       <div class="wk">
         <div class="n">Неделя<b>2</b></div>
         <div class="w"><b>250 компаний</b><span>Правим скрипт и рекламу по итогам первой недели</span><div class="prog"><i style="--w:50%"></i></div></div>
-        <div class="pay"><span class="k">Оплата</span><b class="num">16 250 ₽</b></div>
+        <div class="pay"><span class="k">Оплата</span><b class="num">20 000 ₽</b></div>
       </div>
       <div class="wk">
         <div class="n">Неделя<b>3</b></div>
         <div class="w"><b>375 компаний</b><span>Повторные звонки тем, кто просил перезвонить</span><div class="prog"><i style="--w:75%"></i></div></div>
-        <div class="pay"><span class="k">Оплата</span><b class="num">16 250 ₽</b></div>
+        <div class="pay"><span class="k">Оплата</span><b class="num">20 000 ₽</b></div>
       </div>
       <div class="wk">
         <div class="n">Неделя<b>4</b></div>
         <div class="w"><b>500 компаний</b><span>Итоговая таблица и отчёт по Яндексу</span><div class="prog"><i style="--w:100%"></i></div></div>
-        <div class="pay"><span class="k">Оплата</span><b class="num">16 250 ₽</b></div>
+        <div class="pay"><span class="k">Оплата</span><b class="num">20 000 ₽</b></div>
       </div>
     </div>
   </div>
@@ -384,24 +391,25 @@ p{margin:0}
   <div class="wrap">
     <div class="head rv">
       <div class="label"><b>05</b> · Стоимость</div>
-      <h2>Всё за 130 000 ₽</h2>
+      <h2>Всё за 155 000 ₽</h2>
     </div>
     <div class="price">
       <div class="pc ink rv">
-        <span class="k">Итого за месяц</span>
-        <div class="sum num">130 000 <small>₽</small></div>
-        <p>Яндекс и холодные звонки вместе.</p>
+        <span class="k">Итого за месяц работы</span>
+        <div class="sum num">155 000 <small>₽</small></div>
+        <p>Настройка и ведение Яндекса и холодные звонки. Рекламный бюджет оплачивается отдельно.</p>
         <div class="split">
-          <div class="bar"><div>50% · 65 000 ₽</div><div>Н1</div><div>Н2</div><div>Н3</div><div>Н4</div></div>
-          <div class="lg"><span>на старте</span><span>4 × 16 250 ₽ раз в неделю</span></div>
+          <div class="bar"><div>75 000 ₽</div><div>Н1</div><div>Н2</div><div>Н3</div><div>Н4</div></div>
+          <div class="lg"><span>на старте</span><span>4 × 20 000 ₽ раз в неделю</span></div>
         </div>
         <ul class="sched">
-          <li><span>Старт, 50%</span><b>65 000 ₽</b></li>
-          <li><span>Конец недели 1</span><b>16 250 ₽</b></li>
-          <li><span>Конец недели 2</span><b>16 250 ₽</b></li>
-          <li><span>Конец недели 3</span><b>16 250 ₽</b></li>
-          <li><span>Конец недели 4</span><b>16 250 ₽</b></li>
-          <li class="f"><span>Итого</span><b>130 000 ₽</b></li>
+          <li><span>Старт</span><b>75 000 ₽</b></li>
+          <li><span>Конец недели 1</span><b>20 000 ₽</b></li>
+          <li><span>Конец недели 2</span><b>20 000 ₽</b></li>
+          <li><span>Конец недели 3</span><b>20 000 ₽</b></li>
+          <li><span>Конец недели 4</span><b>20 000 ₽</b></li>
+          <li class="f"><span>Итого за работу</span><b>155 000 ₽</b></li>
+          <li class="bd"><span>Рекламный бюджет</span><b>отдельно, в Яндекс</b></li>
         </ul>
       </div>
       <div class="pc rv">
@@ -424,8 +432,19 @@ p{margin:0}
         <ul class="ticks">
           <li><span>Еженедельный отчёт по обоим каналам</span></li>
         </ul>
-        <p class="nope"><b>Не входит:</b> рекламный бюджет в Яндексе. Его вы пополняете напрямую в Яндекс.</p>
+        <p class="nope"><b>Рекламный бюджет — отдельно.</b> Вы пополняете его напрямую в Яндекс, он не входит в 155 000 ₽. Сумму подберём под ваш регион.</p>
       </div>
+    </div>
+    <div class="alt rv">
+      <div class="at">
+        <span class="k">Если нужен только Яндекс</span>
+        <b>Страница и настройка рекламы</b>
+        <ul class="ticks">
+          <li class="y"><span>Создание страницы под рекламу</span></li>
+          <li class="y"><span>Подбор запросов, объявления, настройка целей</span></li>
+        </ul>
+      </div>
+      <div class="ap"><div class="num">80 000 ₽</div><span>рекламный бюджет отдельно</span></div>
     </div>
   </div>
 </section>
@@ -435,7 +454,7 @@ p{margin:0}
     <img class="me rv" src="img/me.jpg" alt="Максим" width="190" height="190">
     <div class="rv">
       <h2>Запускаемся на этой неделе</h2>
-      <p>Напишите, обсудим регион, ваши цены и объекты. После оплаты первой части через день стартуем с базой и рекламой.</p>
+      <p>Напишите, обсудим регион, ваши цены и объекты. После первого платежа через день стартуем с базой и рекламой.</p>
       <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener">Написать в Telegram</a>
       <span class="handle">Максим · @midnaix</span>
     </div>
