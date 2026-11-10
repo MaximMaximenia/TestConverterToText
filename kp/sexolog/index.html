@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Продвижение услуг сексолога</title>
+<meta name="description" content="Четыре связки для привлечения клиентов на консультации и вебинары сексолога: Instagram и Яндекс, Беларусь, Казахстан и зарубежье.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEE9E5; --card:#FAF7F4; --ink:#1A1216; --muted:#6B5F64; --line:#DDD3CE;
+  --accent:#E0506E; --accent-deep:#C43D5A; --accent-soft:#FBE0E6;
+  --ya:#F2B230;
+  --dark:#1A1216; --dark2:#251B20; --dark-line:#3A2E34; --dark-muted:#AE9FA6;
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:22px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+section{padding-block:104px}
+@media (max-width:640px){section{padding-block:64px}}
+.dark{background:var(--dark);color:#fff}
+.white{background:var(--card)}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-.02em;line-height:1.04;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,5vw,60px);font-weight:800}
+h3{font-size:clamp(20px,2.2vw,26px);font-weight:700;line-height:1.15}
+p{margin:0}
+.label{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dark .label{color:var(--dark-muted)}
+.label b{color:var(--accent);font-weight:600}
+.lead{font-size:clamp(17px,1.6vw,20px);font-weight:300;color:var(--muted);max-width:660px}
+.dark .lead{color:var(--dark-muted)}
+.acc{color:var(--accent)}
+.head{display:grid;gap:18px;margin-bottom:52px}
+@media (max-width:640px){.head{margin-bottom:34px}}
+
+/* HERO */
+.hero{position:relative;background:var(--dark);color:#fff;overflow:hidden;padding-block:0}
+.hero::before{content:"";position:absolute;width:780px;height:780px;right:-260px;top:-220px;border-radius:50%;background:radial-gradient(circle,rgba(224,80,110,.38) 0%,rgba(224,80,110,0) 62%)}
+.hero::after{content:"";position:absolute;width:560px;height:560px;right:120px;bottom:-330px;border-radius:50%;background:radial-gradient(circle,rgba(242,178,48,.18) 0%,rgba(242,178,48,0) 62%)}
+.hero .wrap{position:relative;z-index:1;padding-block:68px 60px;display:grid;gap:38px}
+.hero h1{font-weight:800;font-size:clamp(27px,7.2vw,92px);line-height:.98;max-width:980px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{color:#D6CBD0;max-width:600px}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18)}
+.spec>div{padding:18px 18px 4px 0}
+.spec>div+div{padding-left:18px;border-left:1px solid rgba(255,255,255,.18)}
+.spec .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dark-muted)}
+.spec .v{font-family:var(--f-display);font-weight:700;font-size:clamp(17px,2vw,24px);margin-top:6px}
+@media (max-width:640px){.spec{grid-template-columns:1fr}.spec>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.18)}}
+.hero-paths{display:flex;flex-wrap:wrap;gap:8px}
+.tagc{font-family:var(--f-mono);font-size:12.5px;padding:8px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#fff;display:inline-flex;align-items:center;gap:8px}
+.tagc i{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.tagc.y i{background:var(--ya)}
+
+/* NICHE */
+.cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--ink)}
+.cols>div{padding:28px 28px 6px 0;display:grid;gap:10px;align-content:start}
+.cols>div+div{padding-left:28px;border-left:1px solid var(--line)}
+.cols .vn{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.cols b{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.2}
+.cols span:last-child{color:var(--muted);font-size:16px}
+@media (max-width:860px){.cols{grid-template-columns:1fr}.cols>div{padding:24px 0}.cols>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}}
+
+/* DEMAND */
+.dem{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.dm{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:28px;display:grid;gap:14px;align-content:start}
+.dm .ch{display:flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted)}
+.dm .ch i{width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.dm.y .ch i{background:var(--ya)}
+.dm h3{font-size:clamp(24px,3vw,34px);font-weight:800}
+.dm p{color:var(--dark-muted)}
+.dm q{display:block;quotes:none;font-family:var(--f-mono);font-size:14px;color:#fff;background:var(--dark);border-radius:12px;padding:12px 14px}
+.meter{display:grid;gap:8px;margin-top:4px}
+.meter div{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;font-size:14px;color:var(--dark-muted)}
+.meter .tr{height:8px;background:var(--dark-line);border-radius:6px;overflow:hidden}
+.meter .fl{display:block;height:100%;background:var(--accent);border-radius:6px;transform-origin:left;transform:scaleX(var(--w))}
+.dm.y .meter .fl{background:var(--ya)}
+.js .meter .fl{transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .in .meter .fl{transform:scaleX(var(--w))}
+@media (max-width:860px){.dem{grid-template-columns:1fr}.dm{padding:22px}}
+@media (max-width:420px){.meter div{grid-template-columns:1fr;gap:4px}}
+
+/* PATHS */
+.paths{display:grid;gap:18px}
+.pth{background:var(--card);border-radius:var(--r);padding:34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px}
+.pth .no{font-family:var(--f-display);font-weight:800;font-size:clamp(60px,8vw,104px);line-height:.8;color:var(--card);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;margin-bottom:16px}
+.pth .src{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.pth .src i{width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.pth.y .src i{background:var(--ya)}
+.pth h3{font-size:clamp(24px,3vw,36px);font-weight:800;margin-bottom:14px}
+.pth .lead{font-size:17px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:22px}
+.flow span{font-family:var(--f-mono);font-size:12.5px;padding:8px 12px;border-radius:999px;background:var(--ink);color:#fff;white-space:nowrap}
+.flow span.o{background:var(--accent)}
+.pth.y .flow span.o{background:var(--ya);color:var(--ink)}
+.flow b{color:var(--muted);font-weight:400}
+.ticks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.ticks li{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;font-size:16px}
+.ticks li::before{content:"";width:14px;height:2px;background:var(--accent);margin-top:12px}
+.pth.y .ticks li::before{background:var(--ya)}
+.ticks b{font-weight:600}
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:22px}
+.kv>div{background:var(--paper);border-radius:14px;padding:12px 14px;display:grid;gap:6px}
+.kv .k{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.dots{display:flex;gap:4px}
+.dots i{width:16px;height:6px;border-radius:3px;background:var(--line)}
+.dots i.on{background:var(--accent)}
+.pth.y .dots i.on{background:var(--ya)}
+.kv .t{font-size:14px;font-weight:600;line-height:1.3}
+.pm{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.pm>div{border-top:2px solid var(--ink);padding-top:10px;font-size:15px;color:var(--muted)}
+.pm>div b{display:block;color:var(--ink);font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.pm>div.mi{border-top-color:var(--line)}
+@media (max-width:900px){.pth{grid-template-columns:1fr;gap:24px;padding:24px}}
+@media (max-width:520px){.kv{grid-template-columns:1fr}.pm{grid-template-columns:1fr}.kv>div{grid-template-columns:1fr auto;align-items:center}}
+/* tabs inside path 1 */
+.tabs{display:inline-flex;background:var(--paper);border-radius:999px;padding:4px;gap:4px;margin-bottom:18px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:14px;font-weight:600;border:0;background:none;color:var(--muted);padding:9px 16px;border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tp[hidden]{display:none}
+.tp{animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* COMPARE */
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{padding:14px 12px;text-align:left;border-bottom:1px solid var(--dark-line);vertical-align:top}
+.tbl thead th{font-family:var(--f-display);font-weight:700;font-size:15px;line-height:1.2}
+.tbl thead th span{display:block;font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:6px}
+.tbl thead th.i span{color:var(--accent)} .tbl thead th.y span{color:var(--ya)}
+.tbl tbody th{font-weight:500;color:var(--dark-muted);width:19%}
+.tbl td{color:#fff}
+.tbl .dots i{background:var(--dark-line)}
+.tbl .i .dots i.on{background:var(--accent)} .tbl .y .dots i.on{background:var(--ya)}
+.tblw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media (max-width:860px){
+  .tbl thead{display:none}
+  .tbl,.tbl tbody,.tbl tr,.tbl td,.tbl th{display:block;width:100%}
+  .tbl tbody{display:grid;gap:10px}
+  .tbl tr{background:var(--dark2);border-radius:16px;padding:14px 16px}
+  .tbl tbody th{width:auto;padding:0 0 8px;border:0;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase}
+  .tbl td{display:grid;grid-template-columns:118px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--dark-line);font-size:14.5px}
+  .tbl td:last-child{border-bottom:0}
+  .tbl td::before{content:attr(data-h);font-family:var(--f-mono);font-size:11.5px;color:var(--dark-muted)}
+  .tbl td.i::before{color:var(--accent)} .tbl td.y::before{color:var(--ya)}
+}
+
+/* WEBINAR */
+.web{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:start}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.steps li:first-child{padding-top:0}
+.steps li::before{counter-increment:s;content:counter(s);width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:14px}
+.steps li.o::before{background:var(--accent)}
+.steps b{display:block;color:var(--ink);font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.25;margin-bottom:4px}
+.steps span{color:var(--muted);font-size:15.5px}
+.calc{background:var(--dark);color:#fff;border-radius:var(--r);padding:26px;position:sticky;top:20px}
+.calc h3{font-size:20px;margin-bottom:4px}
+.calc .note{font-size:13px;color:var(--dark-muted)}
+.calc .row2{display:grid;gap:2px;margin-top:18px}
+.calc label{display:flex;justify-content:space-between;gap:12px;font-size:15px;color:var(--dark-muted)}
+.calc output{font-family:var(--f-mono);color:#fff;white-space:nowrap}
+.calc input[type=range]{width:100%;margin:0;height:36px;-webkit-appearance:none;appearance:none;background:transparent;touch-action:pan-y;cursor:pointer}
+.calc input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:4px;background:var(--dark-line)}
+.calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-9px;border-radius:50%;background:var(--accent);border:3px solid var(--dark)}
+.calc input[type=range]::-moz-range-track{height:6px;border-radius:4px;background:var(--dark-line)}
+.calc input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);border:3px solid var(--dark)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.fn{display:grid;gap:6px;margin-top:22px}
+.fn div{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--dark2);position:relative;overflow:hidden}
+.fn div::before{content:"";position:absolute;inset:0;width:var(--w,100%);background:rgba(224,80,110,.16);transition:width .4s ease}
+.fn div>*{position:relative}
+.fn span{font-size:14.5px;color:var(--dark-muted)}
+.fn b{font-family:var(--f-display);font-weight:800;font-size:22px}
+.fn div.hot{background:var(--accent)} .fn div.hot::before{display:none} .fn div.hot span{color:#FFE5EB}
+@media (max-width:900px){.web{grid-template-columns:1fr}.calc{position:static}}
+
+/* PLAN */
+.road{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.rs{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:24px;display:grid;gap:10px;align-content:start}
+.rs .m{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.rs b{font-family:var(--f-display);font-weight:700;font-size:21px;line-height:1.2}
+.rs ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rs li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--dark-muted)}
+.rs li i{flex:none;margin-top:5px;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.rs li i.y{background:var(--ya)}
+.rs li i.w{background:#fff}
+.rs .why{margin-top:6px;padding-top:12px;border-top:1px solid var(--dark-line);font-size:14.5px;color:#fff}
+.rs.f{background:var(--accent);border-color:var(--accent)}
+.rs.f .m{color:#fff}.rs.f li{color:#FFE5EB}.rs.f li i{background:#fff}.rs.f .why{border-top-color:rgba(255,255,255,.35)}
+@media (max-width:900px){.road{grid-template-columns:1fr}}
+
+/* NEED */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.box{background:var(--card);border-radius:var(--r);padding:28px}
+.box.ink{background:var(--ink);color:#fff}
+.box h3{margin-bottom:18px}
+.box.ink .ticks li{color:#E8DEE2}
+@media (max-width:860px){.two{grid-template-columns:1fr}.box{padding:22px}}
+.mod{margin-top:14px;border:1px dashed var(--muted);border-radius:var(--r);padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.mod .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding-top:3px}
+.mod p{color:var(--muted);font-size:15.5px}.mod p b{color:var(--ink)}
+@media (max-width:640px){.mod{grid-template-columns:1fr;gap:8px;padding:18px}}
+
+/* CTA */
+.cta{background:var(--accent);color:#fff}
+.cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+.cta h2{font-size:clamp(28px,4.4vw,52px)}
+.cta p{font-size:18px;margin-top:14px;max-width:620px;color:#FFE9EE}
+.me{width:190px;height:auto;aspect-ratio:1;border-radius:28px;object-fit:cover;object-position:50% 18%}
+.btn{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:18px;padding:17px 28px;border-radius:16px;position:relative;overflow:hidden;transition:transform .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%{left:-60%}55%,100%{left:130%}}
+.handle{display:block;margin-top:12px;font-family:var(--f-mono);font-size:14px;color:#FFE9EE}
+@media (max-width:720px){.cta .wrap{grid-template-columns:1fr;gap:22px}.me{width:116px;border-radius:22px}}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.btn::after{animation:none}.js .meter .fl{transform:scaleX(var(--w))}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="label">Коммерческое предложение · <b>продвижение сексолога</b></div>
+    <h1>Клиенты на&nbsp;консультации и&nbsp;вебинары <em>из&nbsp;Instagram и&nbsp;Яндекса</em></h1>
+    <p class="lead">Четыре связки: от самых быстрых заявок до прогрева через статью и бесплатный эфир. Сравним их и выберем, с чего начать.</p>
+    <div class="hero-paths">
+      <span class="tagc"><i></i>Instagram → форма</span>
+      <span class="tagc"><i></i>Instagram → лендинг</span>
+      <span class="tagc y"><i></i>Яндекс → статья</span>
+      <span class="tagc y"><i></i>Яндекс → вебинар</span>
+    </div>
+    <div class="spec">
+      <div><div class="k">Каналы</div><div class="v">Instagram, Яндекс</div></div>
+      <div><div class="k">География</div><div class="v">Беларусь, Казахстан, зарубежье</div></div>
+      <div><div class="k">Цель</div><div class="v">Консультации и вебинары</div></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>01</b> · Особенность ниши</div>
+      <h2>Почему здесь не работает «просто запустить рекламу»</h2>
+    </div>
+    <div class="cols rv">
+      <div><span class="vn">01</span><b>Деликатная тема</b><span>Человек не напишет первым, пока не почувствует себя в безопасности. Нужны анонимные шаги: короткая форма, переписка в Telegram, эфир без камеры.</span></div>
+      <div><span class="vn">02</span><b>Долгое решение</b><span>С проблемой живут годами и к специалисту идут не сразу. Часть людей сначала нужно прогреть статьёй или эфиром, и только потом звать на консультацию.</span></div>
+      <div><span class="vn">03</span><b>Строгая модерация</b><span>Instagram и Яндекс жёстко проверяют тему 18+. Тексты и креативы пишем языком отношений и здоровья, без откровенных образов, иначе рекламу заблокируют.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>02</b> · Два вида спроса</div>
+      <h2>Одни ищут сами, других нужно найти</h2>
+      <p class="lead">Поэтому каналов два. Они не заменяют, а дополняют друг друга.</p>
+    </div>
+    <div class="dem">
+      <div class="dm y rv">
+        <div class="ch"><i></i>Яндекс</div>
+        <h3>Горячий спрос</h3>
+        <p>Человек сам вводит запрос в поиске. Он уже признал проблему и ищет, к кому обратиться.</p>
+        <q>сексолог онлайн · консультация сексолога минск · пропало желание что делать</q>
+        <div class="meter">
+          <div><span>Готовность купить</span><span class="tr"><span class="fl" style="--w:.85"></span></span></div>
+          <div><span>Объём аудитории</span><span class="tr"><span class="fl" style="--w:.4"></span></span></div>
+        </div>
+      </div>
+      <div class="dm rv">
+        <div class="ch"><i></i>Instagram</div>
+        <h3>Отложенный спрос</h3>
+        <p>Проблема есть, но человек ничего не ищет и откладывает. Реклама показывает ему эксперта, и он решается.</p>
+        <q>видит ролик о проблеме в отношениях → узнаёт себя → оставляет заявку</q>
+        <div class="meter">
+          <div><span>Готовность купить</span><span class="tr"><span class="fl" style="--w:.45"></span></span></div>
+          <div><span>Объём аудитории</span><span class="tr"><span class="fl" style="--w:.9"></span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>03</b> · Варианты</div>
+      <h2>Четыре связки</h2>
+      <p class="lead">У каждой своя скорость, стоимость заявки и то, что нужно подготовить.</p>
+    </div>
+    <div class="paths">
+
+      <article class="pth rv">
+        <div>
+          <div class="no">1</div>
+          <div class="src"><i></i>Instagram · таргет</div>
+          <h3>Instagram → форма заявки</h3>
+          <p class="lead">Форма открывается прямо в Instagram: человек не уходит из приложения и оставляет заявку за 20 секунд.</p>
+          <div class="kv">
+            <div><span class="k">Скорость заявок</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></div>
+            <div><span class="k">Цена заявки</span><span class="t">Самая низкая</span></div>
+            <div><span class="k">Гео</span><span class="t">BY · KZ · зарубежье</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="tabs" role="tablist" aria-label="Куда ведёт форма">
+            <button type="button" role="tab" aria-selected="true" aria-controls="t1a" id="b1a">На консультацию</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="t1b" id="b1b">На вебинар</button>
+          </div>
+          <div class="tp" id="t1a" role="tabpanel" aria-labelledby="b1a">
+            <ul class="ticks">
+              <li><span>Видео или карусель от лица специалиста: одна проблема, один ролик.</span></li>
+              <li><span>В форме 2–3 поля. Можно оставить только ник в Telegram, без имени и телефона.</span></li>
+              <li><span>Заявка сразу приходит вам или администратору, ответ в течение 15 минут.</span></li>
+            </ul>
+            <div class="flow"><span>Реклама</span><b>→</b><span>Форма</span><b>→</b><span>Переписка</span><b>→</b><span class="o">Консультация</span></div>
+            <div class="pm">
+              <div><b>Плюс</b>Быстрый старт: первые заявки в первые дни.</div>
+              <div class="mi"><b>Учесть</b>Заявки холоднее. Важно быстро ответить и правильно предложить консультацию.</div>
+            </div>
+          </div>
+          <div class="tp" id="t1b" role="tabpanel" aria-labelledby="b1b" hidden>
+            <ul class="ticks">
+              <li><span>Та же реклама, но зовём на бесплатный эфир по одной теме.</span></li>
+              <li><span>Прийти на эфир проще, чем записаться к сексологу: можно смотреть анонимно.</span></li>
+              <li><span>На эфире человек видит вас вживую, и консультацию у вас покупают уже со сформированным доверием.</span></li>
+            </ul>
+            <div class="flow"><span>Реклама</span><b>→</b><span>Форма</span><b>→</b><span>Бот-напоминание</span><b>→</b><span>Эфир</span><b>→</b><span class="o">Консультация</span></div>
+            <div class="pm">
+              <div><b>Плюс</b>Один эфир прогревает сразу десятки людей.</div>
+              <div class="mi"><b>Учесть</b>Нужны регулярные эфиры и бот с напоминаниями, иначе многие не придут.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pth rv">
+        <div>
+          <div class="no">2</div>
+          <div class="src"><i></i>Instagram · таргет</div>
+          <h3>Instagram → лендинг</h3>
+          <p class="lead">Реклама ведёт на сайт специалиста. Человек сначала читает, потом записывается.</p>
+          <div class="kv">
+            <div><span class="k">Скорость заявок</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+            <div><span class="k">Цена заявки</span><span class="t">Выше, чем в форме</span></div>
+            <div><span class="k">Гео</span><span class="t">BY · KZ · зарубежье</span></div>
+          </div>
+        </div>
+        <div>
+          <ul class="ticks">
+            <li><span>На лендинге: кто вы, с чем работаете, как проходит консультация, цены, отзывы, запись.</span></li>
+            <li><span>Человек приходит уже с пониманием цены и формата, поэтому реже отказывается на этапе переписки.</span></li>
+            <li><span>Всем, кто был на сайте, показываем рекламу повторно, чтобы вернуть сомневающихся.</span></li>
+          </ul>
+          <div class="flow"><span>Реклама</span><b>→</b><span>Лендинг</span><b>→</b><span>Запись</span><b>→</b><span class="o">Консультация</span></div>
+          <div class="pm">
+            <div><b>Плюс</b>Заявки теплее, больше доходят до оплаты.</div>
+            <div class="mi"><b>Учесть</b>Нужен лендинг. Его тоже можно использовать для Яндекса.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pth y rv">
+        <div>
+          <div class="no">3</div>
+          <div class="src"><i></i>Яндекс · поиск и сети</div>
+          <h3>Яндекс → статья</h3>
+          <p class="lead">Ведём не сразу на запись, а на полезную статью. Она отвечает на вопрос, снимает страх и в конце предлагает консультацию.</p>
+          <div class="kv">
+            <div><span class="k">Скорость заявок</span><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></div>
+            <div><span class="k">Цена клика</span><span class="t">Низкая</span></div>
+            <div><span class="k">Гео</span><span class="t">BY · KZ</span></div>
+          </div>
+        </div>
+        <div>
+          <ul class="ticks">
+            <li><span>Статья под конкретный вопрос: «Почему пропало желание в отношениях», «Что делать, если партнёры хотят разного».</span></li>
+            <li><span>Человек получает пользу без давления. Ему не страшно читать и не стыдно искать.</span></li>
+            <li><span>Тем, кто дочитал, показываем рекламу консультации или эфира. Получаем дешёвый прогрев.</span></li>
+          </ul>
+          <div class="flow"><span>Запрос</span><b>→</b><span>Статья</span><b>→</b><span>Догоняющая реклама</span><b>→</b><span class="o">Консультация</span></div>
+          <div class="pm">
+            <div><b>Плюс</b>Собираем аудиторию, которая уже знает и доверяет вам.</div>
+            <div class="mi"><b>Учесть</b>Результат не мгновенный, нужно 3–5 статей под разные темы.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pth y rv">
+        <div>
+          <div class="no">4</div>
+          <div class="src"><i></i>Яндекс · поиск и сети</div>
+          <h3>Яндекс → вебинар</h3>
+          <p class="lead">Реклама ведёт на страницу регистрации на бесплатный эфир. Продажа консультаций идёт на самом эфире.</p>
+          <div class="kv">
+            <div><span class="k">Скорость заявок</span><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></div>
+            <div><span class="k">Цена регистрации</span><span class="t">Средняя</span></div>
+            <div><span class="k">Гео</span><span class="t">BY · KZ</span></div>
+          </div>
+        </div>
+        <div>
+          <ul class="ticks">
+            <li><span>Страница регистрации: тема, о чём расскажете, кто вы, кнопка «Записаться».</span></li>
+            <li><span>После регистрации человек попадает в Telegram-бота, который напоминает об эфире.</span></li>
+            <li><span>Тем, кто не пришёл, отправляем запись эфира и предложение консультации.</span></li>
+          </ul>
+          <div class="flow"><span>Запрос</span><b>→</b><span>Регистрация</span><b>→</b><span>Бот</span><b>→</b><span>Эфир</span><b>→</b><span class="o">Консультация</span></div>
+          <div class="pm">
+            <div><b>Плюс</b>Горячая аудитория из поиска плюс доверие с эфира.</div>
+            <div class="mi"><b>Учесть</b>Нужна страница регистрации, бот и график эфиров.</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>04</b> · Сравнение</div>
+      <h2>Все связки рядом</h2>
+    </div>
+    <div class="tblw rv">
+      <table class="tbl">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="i"><span>Связка 1</span>Instagram → форма</th>
+            <th class="i"><span>Связка 2</span>Instagram → лендинг</th>
+            <th class="y"><span>Связка 3</span>Яндекс → статья</th>
+            <th class="y"><span>Связка 4</span>Яндекс → вебинар</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Скорость первых заявок</th>
+            <td class="i" data-h="Inst → форма"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+            <td class="i" data-h="Inst → лендинг"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+            <td class="y" data-h="Яндекс → статья"><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+            <td class="y" data-h="Яндекс → вебинар"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span></td>
+          </tr>
+          <tr>
+            <th>Теплота клиента</th>
+            <td class="i" data-h="Inst → форма"><span class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span></td>
+            <td class="i" data-h="Inst → лендинг"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td class="y" data-h="Яндекс → статья"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span></td>
+            <td class="y" data-h="Яндекс → вебинар"><span class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></td>
+          </tr>
+          <tr>
+            <th>Цена заявки</th>
+            <td class="i" data-h="Inst → форма">Самая низкая</td>
+            <td class="i" data-h="Inst → лендинг">Средняя</td>
+            <td class="y" data-h="Яндекс → статья">Дешёвый клик, заявка позже</td>
+            <td class="y" data-h="Яндекс → вебинар">Средняя</td>
+          </tr>
+          <tr>
+            <th>Что подготовить</th>
+            <td class="i" data-h="Inst → форма">Видео и фото специалиста</td>
+            <td class="i" data-h="Inst → лендинг">Видео и лендинг</td>
+            <td class="y" data-h="Яндекс → статья">3–5 статей</td>
+            <td class="y" data-h="Яндекс → вебинар">Страница эфира, бот, график эфиров</td>
+          </tr>
+          <tr>
+            <th>География</th>
+            <td class="i" data-h="Inst → форма">BY · KZ · зарубежье</td>
+            <td class="i" data-h="Inst → лендинг">BY · KZ · зарубежье</td>
+            <td class="y" data-h="Яндекс → статья">BY · KZ</td>
+            <td class="y" data-h="Яндекс → вебинар">BY · KZ</td>
+          </tr>
+          <tr>
+            <th>Лучше всего для</th>
+            <td class="i" data-h="Inst → форма">Быстро заполнить запись</td>
+            <td class="i" data-h="Inst → лендинг">Дорогих и длинных консультаций</td>
+            <td class="y" data-h="Яндекс → статья">Дешёвого прогрева и базы</td>
+            <td class="y" data-h="Яндекс → вебинар">Продажи пакетов и программ</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="white">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>05</b> · Вебинар</div>
+      <h2>Как эфир превращается в консультации</h2>
+      <p class="lead">Вебинар используют связки 1 и 4. Сами по себе регистрации ничего не дают: деньги приносит цепочка вокруг эфира.</p>
+    </div>
+    <div class="web">
+      <ol class="steps rv">
+        <li><span><b>Регистрация</b><span>Человек оставляет ник в Telegram или почту. Никаких анкет.</span></span></li>
+        <li><span><b>Бот напоминает</b><span>За день, за час и за 5 минут до начала. Без напоминаний большая часть просто забудет.</span></span></li>
+        <li><span><b>Эфир 45–60 минут</b><span>Одна тема, разбор частых ситуаций, ответы на анонимные вопросы из чата.</span></span></li>
+        <li class="o"><span><b>Предложение в конце</b><span>Консультация по специальной цене до конца дня или пакет встреч.</span></span></li>
+        <li><span><b>Запись тем, кто не пришёл</b><span>Отправляем запись и то же предложение. Отсюда приходит ещё часть клиентов.</span></span></li>
+      </ol>
+      <div class="calc rv">
+        <h3>Посчитайте свой эфир</h3>
+        <p class="note">Цифры по умолчанию для примера, подставьте свои.</p>
+        <div class="row2"><label for="w-r">Регистраций <output id="w-ro"></output></label><input type="range" id="w-r" min="20" max="500" step="10" value="150"></div>
+        <div class="row2"><label for="w-a">Доходят до эфира <output id="w-ao"></output></label><input type="range" id="w-a" min="10" max="70" step="1" value="30"></div>
+        <div class="row2"><label for="w-c">Покупают консультацию <output id="w-co"></output></label><input type="range" id="w-c" min="2" max="30" step="1" value="10"></div>
+        <div class="row2"><label for="w-p">Цена консультации <output id="w-po"></output></label><input type="range" id="w-p" min="20" max="200" step="5" value="60"></div>
+        <div class="fn">
+          <div id="f1"><span>Зарегистрировались</span><b id="w-1">—</b></div>
+          <div id="f2"><span>Пришли на эфир</span><b id="w-2">—</b></div>
+          <div id="f3"><span>Купили консультацию</span><b id="w-3">—</b></div>
+          <div class="hot"><span>Выручка с одного эфира</span><b id="w-4">—</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>06</b> · С чего начать</div>
+      <h2>Запускаем по шагам, а не всё сразу</h2>
+      <p class="lead">Сначала получаем быстрые заявки и узнаём, какие темы цепляют. Потом подключаем то, что требует подготовки.</p>
+    </div>
+    <div class="road">
+      <div class="rs rv">
+        <span class="m">Месяц 1</span>
+        <b>Быстрые заявки</b>
+        <ul>
+          <li><i></i>Instagram → форма на консультацию</li>
+          <li><i class="y"></i>Яндекс → поиск по горячим запросам</li>
+          <li><i class="w"></i>Тестируем 5–7 тем и 2–3 страны</li>
+        </ul>
+        <p class="why">Итог: понятная цена заявки и темы, которые работают лучше всего.</p>
+      </div>
+      <div class="rs rv">
+        <span class="m">Месяц 2</span>
+        <b>Прогрев</b>
+        <ul>
+          <li><i class="y"></i>Яндекс → статьи по лучшим темам</li>
+          <li><i></i>Лендинг и связка Instagram → лендинг</li>
+          <li><i class="w"></i>Догоняющая реклама на всех, кто читал и смотрел</li>
+        </ul>
+        <p class="why">Итог: заявки теплее, меньше отказов после переписки.</p>
+      </div>
+      <div class="rs f rv">
+        <span class="m">Месяц 3</span>
+        <b>Вебинары и масштаб</b>
+        <ul>
+          <li><i></i>Эфиры с регистрацией из Instagram и Яндекса</li>
+          <li><i></i>Бот с напоминаниями и запись эфира</li>
+          <li><i></i>Увеличиваем бюджет в лучших странах</li>
+        </ul>
+        <p class="why">Итог: стабильный поток на консультации и продажа пакетов.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>07</b> · Распределение работы</div>
+      <h2>Что делаю я и что нужно от вас</h2>
+    </div>
+    <div class="two">
+      <div class="box ink rv">
+        <h3>Я делаю</h3>
+        <ul class="ticks">
+          <li><span>Стратегию по связкам, странам и темам</span></li>
+          <li><span>Тексты объявлений и ТЗ на креативы</span></li>
+          <li><span>Настройку и ведение рекламы в Instagram и Яндексе</span></li>
+          <li><span>Прохождение модерации по теме 18+</span></li>
+          <li><span>Структуру лендинга, статей и страницы эфира</span></li>
+          <li><span>Еженедельный отчёт: заявки, цена заявки, что меняем</span></li>
+        </ul>
+      </div>
+      <div class="box rv">
+        <h3>От вас</h3>
+        <ul class="ticks">
+          <li><span>5–10 коротких видео или фото от вашего лица</span></li>
+          <li><span>Список тем и запросов, с которыми к вам приходят</span></li>
+          <li><span>Цены и форматы консультаций: онлайн, офлайн, пакеты</span></li>
+          <li><span>Диплом и сертификаты: могут понадобиться для модерации</span></li>
+          <li><span>Отзывы, можно анонимные скриншоты</span></li>
+          <li><span>Кто и как быстро отвечает на заявки</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mod rv">
+      <span class="k">Важно</span>
+      <p><b>Скорость ответа решает.</b> В этой нише человек оставляет заявку на эмоциях и быстро остывает. Если ответить через день, большая часть заявок пропадёт, какой бы хорошей ни была реклама.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <img class="me rv" src="img/me.jpg" alt="Максим" width="190" height="190">
+    <div class="rv">
+      <h2>Выберем связку и посчитаем бюджет</h2>
+      <p>Созвонимся на 20 минут: разберём ваши услуги и страны, и я скажу, с какой связки начать и сколько это будет стоить.</p>
+      <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener">Написать в Telegram</a>
+      <span class="handle">Максим · @midnaix</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var $=function(id){return document.getElementById(id)};
+  function f(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+
+  /* reveal */
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add('in')});
+
+  /* tabs */
+  var tabs=[].slice.call(document.querySelectorAll('.tabs [role=tab]'));
+  tabs.forEach(function(b){b.addEventListener('click',function(){
+    tabs.forEach(function(t){var on=t===b;t.setAttribute('aria-selected',on);$(t.getAttribute('aria-controls')).hidden=!on});
+  })});
+
+  /* webinar calc */
+  var ids=['w-r','w-a','w-c','w-p'];
+  function calc(){
+    var r=+$('w-r').value,a=$('w-a').value/100,c=$('w-c').value/100,p=+$('w-p').value;
+    $('w-ro').textContent=f(r);$('w-ao').textContent=$('w-a').value+'%';$('w-co').textContent=$('w-c').value+'%';$('w-po').textContent='$'+f(p);
+    var came=r*a,buy=came*c;
+    $('w-1').textContent=f(r);$('w-2').textContent=f(came);$('w-3').textContent=f(buy);$('w-4').textContent='$'+f(Math.round(buy)*p);
+    $('f2').style.setProperty('--w',(a*100)+'%');$('f3').style.setProperty('--w',Math.max(3,a*c*100)+'%');
+  }
+  ids.forEach(function(id){$(id).addEventListener('input',calc)});
+  calc();
+})();
+</script>
+</body>
+</html>
