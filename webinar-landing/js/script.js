@@ -7,7 +7,8 @@
      Если человек пришёл по ссылке с ?utm_source=...&utm_campaign=... —
      запоминаем эти метки на весь визит (на случай, если он кликнет не
      сразу по форме, а погуляет по странице) и подставляем их в заявку,
-     которая летит в Telegram. */
+     которая летит в Telegram. Заодно utm_term используем, чтобы
+     подставить заголовок под конкретную рекламную группу — см. ниже. */
   function captureUtm() {
     var keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
     var params = new URLSearchParams(window.location.search);
@@ -20,9 +21,9 @@
     });
     try {
       if (hasAny) {
-        sessionStorage.setItem("webinarUtm", JSON.stringify(utm));
+        sessionStorage.setItem("leadUtm", JSON.stringify(utm));
       } else {
-        var stored = sessionStorage.getItem("webinarUtm");
+        var stored = sessionStorage.getItem("leadUtm");
         if (stored) utm = JSON.parse(stored);
       }
     } catch (e) { /* приватный режим и т.п. — просто не запомнится между переходами по странице */ }
@@ -49,26 +50,13 @@
 
   /* ---------- Яндекс.Метрика ----------
      Счётчик уже подключен и инициализирован напрямую в <head> страницы
-     (index.html) — здесь только отправляем в него цели по ходу визита. */
+     (index.html и thanks/index.html) — здесь только отправляем в него
+     цели по ходу визита. */
   function ymGoal(name) {
     if (cfg.yandexMetrikaId && typeof window.ym === "function") {
       window.ym(cfg.yandexMetrikaId, "reachGoal", name);
     }
   }
-
-  /* ---------- цены (в hero и в блоке записи — оба набора элементов) ---------- */
-  ["priceOld", "priceOld2"].forEach(function (id) {
-    var el = document.getElementById(id);
-    if (cfg.priceOld && el) el.textContent = cfg.priceOld;
-  });
-  ["priceNew", "priceNew2"].forEach(function (id) {
-    var el = document.getElementById(id);
-    if (cfg.priceNew && el) el.textContent = cfg.priceNew;
-  });
-  ["priceNote", "priceNote2"].forEach(function (id) {
-    var el = document.getElementById(id);
-    if (cfg.freeUntilText && el) el.textContent = cfg.freeUntilText;
-  });
 
   /* ---------- имя эксперта в title/шапке при желании ---------- */
   if (cfg.expertName) {
@@ -77,103 +65,31 @@
     });
   }
 
-  /* ---------- таймер ---------- */
-  function getEvergreenTarget() {
-    var days = cfg.evergreenDays || 0;
-    var hours = cfg.evergreenHours || 0;
-    var minutes = cfg.evergreenMinutes || 0;
-    var durationMs = (days * 24 * 60 + hours * 60 + minutes) * 60 * 1000;
-    if (durationMs <= 0) durationMs = 24 * 60 * 60 * 1000;
-    var stored = null;
-    try { stored = Number(localStorage.getItem("webinarTimerDeadline")); } catch (e) { /* приватный режим и т.п. — просто считаем заново каждый раз */ }
-
-    var now = Date.now();
-    if (!stored || isNaN(stored) || stored <= now) {
-      stored = now + durationMs;
-      try { localStorage.setItem("webinarTimerDeadline", String(stored)); } catch (e) { /* ничего страшного, таймер просто не запомнится между визитами */ }
-    }
-    return new Date(stored);
-  }
-
-  var target = cfg.timerMode === "fixedDate"
-    ? (cfg.webinarDate ? new Date(cfg.webinarDate) : null)
-    : getEvergreenTarget();
-
-  function pad(n) { return String(n).padStart(2, "0"); }
-
-  function renderCountdown(prefix, days, hours, mins, secs) {
-    var d = document.getElementById(prefix + "-days");
-    var h = document.getElementById(prefix + "-hours");
-    var m = document.getElementById(prefix + "-mins");
-    var s = document.getElementById(prefix + "-secs");
-    if (d) d.textContent = pad(days);
-    if (h) h.textContent = pad(hours);
-    if (m) m.textContent = pad(mins);
-    if (s) s.textContent = pad(secs);
-  }
-
-  function tick() {
-    if (!target || isNaN(target.getTime())) return;
-
-    var now = new Date();
-    var diff = target.getTime() - now.getTime();
-
-    if (diff <= 0) {
-      renderCountdown("cd", 0, 0, 0, 0);
-      renderCountdown("cd2", 0, 0, 0, 0);
-      return;
-    }
-
-    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    var mins = Math.floor((diff / (1000 * 60)) % 60);
-    var secs = Math.floor((diff / 1000) % 60);
-
-    renderCountdown("cd", days, hours, mins, secs);
-    renderCountdown("cd2", days, hours, mins, secs);
-  }
-
-  tick();
-  setInterval(tick, 1000);
-
-  /* ---------- видео ---------- */
-  var frame = document.getElementById("videoFrame");
-  var playBtn = document.getElementById("videoPlayBtn");
-  var video = document.getElementById("webinarVideo");
-  var videoSrcTag = document.getElementById("webinarVideoSrc");
-
-  if (cfg.videoSrc && videoSrcTag) videoSrcTag.src = cfg.videoSrc;
-  if (cfg.videoPoster && video) video.setAttribute("poster", cfg.videoPoster);
-  if (video) video.load();
-
-  if (playBtn && video && frame) {
-    playBtn.addEventListener("click", function () {
-      frame.classList.add("is-playing");
-      gaEvent("video_play", { video_title: "webinar_preview" });
-      ymGoal("video_play");
-      video.play().catch(function () {
-        /* автоплей может быть заблокирован — пользователь нажмёт play на самом видео */
-      });
-    });
-  }
-
-  /* ---------- прогресс просмотра видео (для целей в GA4) ---------- */
-  if (video) {
-    var reachedMarks = {};
-    var marks = [25, 50, 75, 95];
-    video.addEventListener("timeupdate", function () {
-      if (!video.duration) return;
-      var percent = (video.currentTime / video.duration) * 100;
-      marks.forEach(function (mark) {
-        if (percent >= mark && !reachedMarks[mark]) {
-          reachedMarks[mark] = true;
-          gaEvent("video_progress", { video_title: "webinar_preview", percent_watched: mark });
-          ymGoal("video_" + mark);
-          if (window.clarity) window.clarity("set", "video", String(mark));
+  /* ---------- заголовок первого экрана под рекламную группу ----------
+     utm_term у объявления говорит, с каким запросом пришёл человек —
+     подставляем заголовок, который отвечает именно на его ситуацию.
+     Что прописывать в utm_term у объявлений — см. список ключей ниже. */
+  var headlineByTerm = [
+    { match: ["vozrazheniya", "dorogo", "podumaet", "podumayu"], text: "Клиент сказал «я подумаю» и пропал. Разберём, что сказать вместо этого" },
+    { match: ["skripty", "etapy"], text: "Разберём ваш созвон по шагам и найдём, где он разваливается" },
+    { match: ["poisk_klientov", "zayavki"], text: "Заявки есть, оплат нет. За 30 минут найдём, где они теряются" },
+    { match: ["obuchenie", "kursy"], text: "Вместо курса — разбор ваших продаж. 30 минут, бесплатно" },
+    { match: ["nastavnichestvo", "kouching", "konsultacii"], text: "Покажу, почему вашу консультацию не покупают после первого созвона" }
+  ];
+  (function applyHeadline() {
+    var heroTitleEl = document.getElementById("heroTitle");
+    if (!heroTitleEl || !utmData.utm_term) return;
+    var term = utmData.utm_term.toLowerCase();
+    for (var i = 0; i < headlineByTerm.length; i++) {
+      var group = headlineByTerm[i];
+      for (var j = 0; j < group.match.length; j++) {
+        if (term.indexOf(group.match[j]) !== -1) {
+          heroTitleEl.textContent = group.text;
+          return;
         }
-      });
-    });
-  }
+      }
+    }
+  })();
 
   /* ---------- видео-отзывы ---------- */
   document.querySelectorAll(".review-video[data-video-src]").forEach(function (frameEl) {
@@ -217,79 +133,31 @@
     });
   });
 
-  /* ---------- капча из фигур (нажми на треугольник) ---------- */
-  var captchaShapesEl = document.getElementById("captchaShapes");
-  var captchaOk = false;
+  /* ---------- формы записи (их на странице две — в первом экране и в конце) ----------
+     Поле контакта принимает и телеграм (@username), и телефон —
+     проверка нарочно нестрогая, чтобы не отсеивать живых людей. */
+  var contactPattern = /^@?[A-Za-z0-9_]{5,32}$|^\+?[\d\s().-]{10,18}$/;
 
-  if (captchaShapesEl) {
-    var shapes = ["circle", "square", "triangle", "star"];
-    for (var i = shapes.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = shapes[i]; shapes[i] = shapes[j]; shapes[j] = tmp;
-    }
-    shapes.forEach(function (shape, idx) {
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "captcha__shape captcha__shape--" + shape;
-      btn.setAttribute("aria-label", "вариант " + (idx + 1));
-      btn.addEventListener("click", function () {
-        if (captchaOk) return;
-        if (shape === "triangle") {
-          captchaOk = true;
-          btn.classList.add("is-correct");
-          captchaShapesEl.querySelectorAll(".captcha__shape").forEach(function (el) {
-            if (el !== btn) el.disabled = true;
-          });
-        } else {
-          btn.classList.add("is-wrong");
-          setTimeout(function () { btn.classList.remove("is-wrong"); }, 400);
-        }
-      });
-      captchaShapesEl.appendChild(btn);
-    });
-  }
-  /* если блок капчи почему-то не отрисовался — captchaOk остаётся false,
-     отправка формы заблокирована (а не наоборот) */
+  document.querySelectorAll("form.lead-form-el").forEach(function (form) {
+    var errorEl = form.parentElement.querySelector(".lead-form__error");
+    var defaultErrorText = errorEl ? errorEl.textContent : "";
 
-  /* ---------- форма записи ---------- */
-  var form = document.getElementById("signupForm");
-  var successEl = document.getElementById("formSuccess");
-  var errorEl = document.getElementById("formError");
-  var defaultErrorText = errorEl ? errorEl.textContent : "";
-  var usernamePattern = /^@?[A-Za-z0-9_]{5,32}$/;
-
-  if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (errorEl) errorEl.hidden = true;
-
-      /* поле-ловушка: настоящий человек его не видит и не заполняет.
-         если оно заполнено — это бот, тихо игнорируем отправку */
-      if (form.elements["company"] && form.elements["company"].value.trim() !== "") {
-        return;
-      }
+      if (errorEl) { errorEl.hidden = true; errorEl.textContent = defaultErrorText; }
 
       var name = form.elements["name"].value.trim();
-      var username = form.elements["username"].value.trim();
+      var contact = form.elements["contact"].value.trim();
+      var honeypot = form.elements["company"] ? form.elements["company"].value.trim() : "";
 
-      /* проверка формата юзернейма Telegram — реальные заявки, а не любой набор символов */
-      if (!usernamePattern.test(username)) {
-        if (errorEl) { errorEl.textContent = defaultErrorText; errorEl.hidden = false; }
+      if (name === "") {
+        if (errorEl) { errorEl.textContent = "Напишите, как к вам обращаться"; errorEl.hidden = false; }
         return;
       }
-      if (!captchaOk) {
-        if (errorEl) { errorEl.textContent = "Подтверди, что ты не бот — нажми на треугольник выше"; errorEl.hidden = false; }
+      if (!contactPattern.test(contact)) {
+        if (errorEl) { errorEl.textContent = "Укажите телеграм (начинается с @) или номер телефона"; errorEl.hidden = false; }
         return;
       }
-      if (username.charAt(0) !== "@") username = "@" + username;
-
-      var data = {
-        name: name,
-        username: username,
-        webinarDate: cfg.webinarDate || "",
-        utm: utmData,
-        company: form.elements["company"] ? form.elements["company"].value : ""
-      };
 
       var submitBtn = form.querySelector("button[type=submit]");
       if (submitBtn) submitBtn.disabled = true;
@@ -297,14 +165,19 @@
       fetch(cfg.leadEndpoint || "/api/lead.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          name: name,
+          contact: contact,
+          utm: utmData,
+          company: honeypot
+        })
       })
         .then(function (res) { return res.json().catch(function () { return { ok: false }; }); })
         .then(function (res) {
           if (!res || !res.ok) {
             throw new Error(res && res.error ? res.error : "request_failed");
           }
-          gaEvent("generate_lead", { webinar_date: cfg.webinarDate || "" });
+          gaEvent("generate_lead", {});
           ymGoal("lead_submit");
           if (window.clarity) window.clarity("set", "lead", "confirmed");
           try { sessionStorage.setItem("leadToken", res.token || "1"); } catch (e) { /* без sessionStorage просто не будет защиты от прямого захода на /thanks/ */ }
@@ -313,12 +186,12 @@
         .catch(function () {
           if (submitBtn) submitBtn.disabled = false;
           if (errorEl) {
-            errorEl.textContent = "Не получилось отправить заявку — попробуй ещё раз через минуту.";
+            errorEl.textContent = "Не получилось отправить заявку. Попробуйте ещё раз через минуту.";
             errorEl.hidden = false;
           }
         });
     });
-  }
+  });
 
   /* ---------- год в футере ---------- */
   var yearEl = document.getElementById("year");
