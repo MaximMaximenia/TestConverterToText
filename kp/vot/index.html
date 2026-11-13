@@ -308,6 +308,93 @@ p{margin:0}
 @media (max-width:860px){.pay{grid-template-columns:1fr;padding:22px;gap:20px}}
 @media (max-width:480px){.pbar{height:64px;gap:3px}.pbar div:not(.p0) span{display:none}.pbar b{font-size:12px}.pbar .p0 b{font-size:18px}}
 
+/* FUNNEL */
+.fun{display:grid;gap:8px}
+.fr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:center}
+.fb{height:52px;width:var(--w);min-width:84px;background:#2B3833;border-radius:12px;display:flex;align-items:center;padding:0 16px;transform-origin:left}
+.fb b{font-family:var(--f-display);font-weight:800;font-size:20px;white-space:nowrap}
+.fr.hot .fb{background:var(--accent)}
+.fr span{color:var(--dark-muted);font-size:15px}
+.fr.hot span{color:#fff}
+.js .fun .fb{transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .fun.in .fb{transform:scaleX(1)}
+@media (max-width:640px){.fr{grid-template-columns:1fr;gap:6px}}
+/* POTENTIAL */
+.pot{background:var(--card);border-radius:var(--r);padding:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:34px;align-items:start}
+.pot .pg{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin:18px 0 2px;padding-top:14px;border-top:1px solid var(--line)}
+.pot .pg:first-child{margin-top:0;padding-top:0;border-top:0}
+.pot .row2{display:grid;gap:0;margin-top:8px}
+.pot label{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-weight:600}
+.pot output{font-family:var(--f-mono);color:var(--accent-deep);white-space:nowrap}
+.pot input[type=range]{width:100%;margin:0;height:34px;-webkit-appearance:none;appearance:none;background:transparent;touch-action:pan-y;cursor:pointer}
+.pot input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:4px;background:var(--line)}
+.pot input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-9px;border-radius:50%;background:var(--accent);border:3px solid var(--card);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.pot input[type=range]::-moz-range-track{height:6px;border-radius:4px;background:var(--line)}
+.pot input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);border:3px solid var(--card)}
+.pot input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.pout{display:grid;gap:10px;position:sticky;top:20px}
+.pout>div{background:var(--paper);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pout span{color:var(--muted);font-size:14.5px}
+.pout b{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,2.4vw,26px);white-space:nowrap}
+.pout .hot{background:var(--accent);color:#fff;flex-direction:column;align-items:flex-start;gap:4px}
+.pout .hot span,.pout .hot small{color:#E6FAF0}
+.pout .hot small{font-family:var(--f-mono);font-size:13px}
+.pout .hot b{font-size:clamp(34px,4.6vw,52px);line-height:1}
+.pout .pb{background:var(--ink);color:#fff}
+.pout .pb span{color:var(--dark-muted)}
+.pout .pb b{color:var(--accent);font-size:clamp(18px,2vw,22px)}
+@media (max-width:900px){.pot{grid-template-columns:1fr;padding:20px;gap:22px}.pout{position:static}}
+/* PRICE 2 */
+.pr2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pbox{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:24px;display:grid;gap:14px;align-content:start}
+.pbox .k,.ptot .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.pbox .ticks li{color:#DDE5E1;font-size:15px}
+.ptot{background:var(--accent);border-radius:var(--r);padding:24px;display:grid;gap:10px;align-content:start}
+.ptot .k{color:#E6FAF0}
+.ptot .sum{font-family:var(--f-display);font-weight:800;font-size:clamp(38px,3.4vw,50px);line-height:1;white-space:nowrap}
+.ptot .sum small{font-size:.5em}
+.ptot p{color:#E6FAF0;font-size:15px}
+@media (max-width:980px){.pr2{grid-template-columns:1fr}}
+.sbar2{display:flex;gap:3px;height:50px;border-radius:14px;overflow:hidden;margin-bottom:12px}
+.sbar2 div{display:flex;align-items:center;justify-content:center;background:#2B3833;color:#fff;font-family:var(--f-mono);font-size:12.5px;white-space:nowrap;overflow:hidden;min-width:0}
+.sbar2 .s0{background:var(--accent);font-weight:600}
+.sbar2 .s5{background:#3E5048}
+.sched{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);overflow:hidden}
+.sr{display:grid;grid-template-columns:170px minmax(0,1fr) 150px;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--dark-line)}
+.sr:last-child{border-bottom:0}
+.sr .w{font-family:var(--f-mono);font-size:12.5px;color:var(--dark-muted);letter-spacing:.04em}
+.sr .d{font-size:14.5px;color:var(--dark-muted)}
+.sr .d b{display:block;color:#fff;font-weight:600;font-size:15.5px}
+.sr .m{font-family:var(--f-display);font-weight:800;font-size:20px;text-align:right;white-space:nowrap}
+.sr .m small{display:block;font-family:var(--f-mono);font-weight:400;font-size:11.5px;color:#E6FAF0}
+.sr.s{background:var(--accent)}
+.sr.s .w,.sr.s .d{color:#E6FAF0}
+.sr.m2 .m{color:#C7D0CB}
+.sr.t .m{color:var(--accent);font-size:24px}
+.sr.t .w{color:#fff;font-weight:600}
+@media (max-width:720px){.sr{grid-template-columns:1fr auto;gap:4px 12px;padding:14px 16px}.sr .d{grid-column:1/-1;order:3}.sr .m{font-size:18px}}
+.only{margin-top:12px;border:1px dashed #3E5048;border-radius:var(--r);padding:20px 24px}
+.only>div{display:grid;gap:4px}
+.only .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted)}
+.only b{font-family:var(--f-display);font-weight:700;font-size:19px}
+.only span:last-child{color:var(--dark-muted);font-size:15px}
+/* NEXT */
+.nx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.nc{background:var(--card);border-radius:var(--r);padding:26px;display:grid;gap:16px;align-content:start}
+.nc .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+.okv .cb{grid-template-columns:130px minmax(0,1fr)}
+.okv .ex{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);margin-top:6px}
+.js .okv .fl{transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .in .okv .fl{transform:scaleX(1)}
+.grow{display:flex;align-items:flex-end;gap:10px;height:150px;padding-top:6px}
+.grow div{flex:1;height:var(--h);background:#C7D3CD;border-radius:10px 10px 4px 4px;position:relative;transform-origin:bottom}
+.grow div.g{background:var(--accent)}
+.grow span{position:absolute;bottom:-22px;left:0;right:0;text-align:center;font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.grow{margin-bottom:22px}
+.ex2{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);margin-top:-4px}
+.js .grow div{transform:scaleY(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .in .grow div{transform:scaleY(1)}
+@media (max-width:860px){.nx{grid-template-columns:1fr}.nc{padding:20px}}
 /* CTA */
 .cta{background:var(--accent);color:#fff}
 .cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -325,7 +412,7 @@ p{margin:0}
 /* reveal */
 .js .rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.btn::after{animation:none}.js .split .sbar div,.js .bars .fl{transform:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.btn::after{animation:none}.js .split .sbar div,.js .bars .fl,.js .fun .fb,.js .okv .fl,.js .grow div{transform:none}}
 </style>
 </head>
 <body>
@@ -621,71 +708,142 @@ p{margin:0}
       <div class="rv"><b>База и доступы — ваши</b><span>Остаются у вас после завершения</span></div>
     </div>
 
-    <div class="sub rv"><span class="n g">04</span>Сколько стоит один такой клиент</div>
-    <div class="calc rv">
-      <div>
-        <h3>Выручка с корпоративных клиентов</h3>
-        <p class="note">Цифры по умолчанию для примера, подставьте свои.</p>
-        <div class="row2"><label for="c-n">Дизельной техники у клиента <output id="c-no"></output></label><input type="range" id="c-n" min="5" max="200" step="5" value="30"></div>
-        <div class="row2"><label for="c-p">В год нужен ремонт аппаратуры <output id="c-po"></output></label><input type="range" id="c-p" min="5" max="60" step="5" value="20"></div>
-        <div class="row2"><label for="c-s">Средний чек ремонта <output id="c-so"></output></label><input type="range" id="c-s" min="10000" max="200000" step="5000" value="60000"></div>
-        <div class="row2"><label for="c-k">Таких клиентов <output id="c-ko"></output></label><input type="range" id="c-k" min="1" max="20" step="1" value="3"></div>
+    <div class="sub rv"><span class="n g">04</span>Чего ждать от 500 звонков</div>
+    <div class="fun rv">
+      <div class="fr"><div class="fb" style="--w:100%"><b>500</b></div><span>компаний с дизельной техникой в базе</span></div>
+      <div class="fr"><div class="fb" style="--w:44%"><b>~19</b></div><span>ЛПР, которым ремонт актуален</span></div>
+      <div class="fr hot"><div class="fb" style="--w:22%"><b>5–6</b></div><span>постоянных клиентов, которые возвращаются с ремонтом</span></div>
+    </div>
+    <p class="src">Ориентир из прошлого проекта: 800 компаний дали 30 потенциальных клиентов.</p>
+  </div>
+</section>
+
+<!-- 08 POTENTIAL -->
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>08</b> · Потенциал</div>
+      <h2>Сколько вы можете заработать</h2>
+      <p class="lead">Подставьте свои цифры. По умолчанию — прогноз из аудита и ваши чеки.</p>
+    </div>
+    <div class="pot rv">
+      <div class="pin">
+        <div class="pg">Директ</div>
+        <div class="row2"><label for="p-l">Обращений в месяц <output id="p-lo"></output></label><input type="range" id="p-l" min="40" max="250" step="10" value="120"></div>
+        <div class="row2"><label for="p-c">Доходят до ремонта <output id="p-co"></output></label><input type="range" id="p-c" min="10" max="80" step="5" value="40"></div>
+        <div class="row2"><label for="p-f">Из них форсунки <output id="p-fo"></output></label><input type="range" id="p-f" min="0" max="100" step="10" value="70"></div>
+        <div class="row2"><label for="p-t">Чек ремонта ТНВД <output id="p-to"></output></label><input type="range" id="p-t" min="3000" max="30000" step="1000" value="6000"></div>
+        <div class="row2"><label for="p-i">Чек форсунок, комплект <output id="p-io"></output></label><input type="range" id="p-i" min="5000" max="40000" step="1000" value="10000"></div>
+        <div class="pg">Обзвон</div>
+        <div class="row2"><label for="p-k">Постоянных клиентов <output id="p-ko"></output></label><input type="range" id="p-k" min="0" max="20" step="1" value="6"></div>
+        <div class="row2"><label for="p-r">Ремонтов в месяц от каждого <output id="p-ro"></output></label><input type="range" id="p-r" min="1" max="10" step="1" value="3"></div>
       </div>
-      <div class="out">
-        <div><span>Ремонтов в год с одного клиента</span><b class="num" id="o-r">—</b></div>
-        <div><span>Выручка с одного клиента в год</span><b class="num" id="o-1">—</b></div>
-        <div class="hot"><span>Выручка со всех корпоративных клиентов в год</span><b class="num" id="o-a">—</b></div>
+      <div class="pout">
+        <div><span>Ремонтов с Директа в месяц</span><b class="num" id="q-o">—</b></div>
+        <div><span>Выручка с Директа в месяц</span><b class="num" id="q-d">—</b></div>
+        <div><span>Выручка с постоянных клиентов в месяц</span><b class="num" id="q-b">—</b></div>
+        <div class="hot"><span>Всего в месяц</span><b class="num" id="q-t">—</b><small id="q-y">—</small></div>
+        <div class="pb"><span>190 000 ₽ за наши работы — это</span><b class="num" id="q-p">—</b></div>
       </div>
+    </div>
+    <p class="fc"><b>Как считаем:</b> 120 обращений — нижняя граница прогноза из аудита. Доля форсунок 70% — как в бюджете рекламы. Форсунки ремонтируют комплектом, поэтому чек от 10 000 ₽. Это выручка, а не прибыль.</p>
+  </div>
+</section>
+
+<!-- 09 PRICE -->
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>09</b> · Стоимость</div>
+      <h2>190&nbsp;000&nbsp;₽ за&nbsp;всё</h2>
+    </div>
+    <div class="pr2">
+      <div class="pbox rv">
+        <span class="k">Директ · 2 месяца ведения включено</span>
+        <ul class="ticks">
+          <li><span>Аудит и исправление цели</span></li>
+          <li><span>Перезапуск: запросы, минус-слова, ставки, гео</span></li>
+          <li><span>Отдельные страницы ТНВД и форсунок</span></li>
+          <li><span>Догоняющая реклама</span></li>
+          <li><span>Кампания под грузовики и спецтехнику</span></li>
+          <li><span>2 месяца ведения и еженедельные отчёты</span></li>
+        </ul>
+      </div>
+      <div class="pbox rv">
+        <span class="k">Обзвон · 500 компаний</span>
+        <ul class="ticks">
+          <li><span>База компаний с дизельной техникой</span></li>
+          <li><span>Скрипт под ремонт топливной аппаратуры</span></li>
+          <li><span>Выход на ЛПР: главный механик, директор</span></li>
+          <li><span>Все контакты и итоги разговоров в CRM</span></li>
+          <li><span>База и доступы остаются у вас</span></li>
+        </ul>
+      </div>
+      <div class="ptot rv">
+        <span class="k">Итого</span>
+        <div class="sum num">190 000 <small>₽</small></div>
+        <p>Рекламный бюджет Директа оплачивается отдельно, напрямую в Яндекс.</p>
+      </div>
+    </div>
+
+    <div class="sub rv"><span class="n g">₽</span>График оплаты: 50% на старте, остальное по ходу работы</div>
+    <div class="sbar2 rv" aria-hidden="true">
+      <div class="s0" style="flex:95">95 000 ₽ · старт</div>
+      <div style="flex:15">Н1</div><div style="flex:15">Н2</div><div style="flex:15">Н3</div><div style="flex:15">Н4</div>
+      <div class="s5" style="flex:35">М2</div>
+    </div>
+    <div class="sched rv">
+      <div class="sr s"><span class="w">День 1</span><span class="d"><b>Старт</b>Запуск Директа, база и скрипт обзвона</span><span class="m num">95 000 ₽<small>50%</small></span></div>
+      <div class="sr"><span class="w">Пятница, нед. 1</span><span class="d"><b>~125 компаний</b>Первые звонки и первые заявки с Директа</span><span class="m num">15 000 ₽</span></div>
+      <div class="sr"><span class="w">Пятница, нед. 2</span><span class="d"><b>~250 компаний</b>Правим скрипт и рекламу по итогам недели</span><span class="m num">15 000 ₽</span></div>
+      <div class="sr"><span class="w">Пятница, нед. 3</span><span class="d"><b>~375 компаний</b>Перезваниваем тем, кто просил позже</span><span class="m num">15 000 ₽</span></div>
+      <div class="sr"><span class="w">Пятница, нед. 4</span><span class="d"><b>500 компаний</b>Итоговая таблица ЛПР в CRM</span><span class="m num">15 000 ₽</span></div>
+      <div class="sr m2"><span class="w">Начало месяца 2</span><span class="d"><b>Ведение Директа</b>Второй месяц: докручиваем на реальных заявках</span><span class="m num">35 000 ₽</span></div>
+      <div class="sr t"><span class="w">Итого</span><span class="d"></span><span class="m num">190 000 ₽</span></div>
+    </div>
+
+    <div class="only rv">
+      <div><span class="k">Отдельно</span><b>Только настройка Директа</b><span>Без обзвона: аудит, перезапуск, страницы ТНВД и форсунок. Стоимость обсудим отдельно.</span></div>
     </div>
   </div>
 </section>
 
-<!-- 08 PRICE -->
+<!-- 10 NEXT -->
 <section>
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>08</b> · Стоимость</div>
-      <h2>Два направления</h2>
+      <div class="label"><b>10</b> · Что дальше</div>
+      <h2>После двух месяцев: масштабируем то, что сработало</h2>
     </div>
-    <div class="price">
-      <div class="pc a rv">
-        <span class="k">Направление 1</span>
-        <h3>Директ и страницы под услуги</h3>
+    <div class="nx">
+      <div class="nc rv">
+        <span class="k">Обзвон</span>
+        <h3>Находим лучший вид деятельности и масштабируем его</h3>
+        <div class="okv">
+          <div class="cb"><span class="n">Грузоперевозки</span><span class="tr"><span class="fl" style="--w:55%"></span></span></div>
+          <div class="cb lo"><span class="n">Спецтехника</span><span class="tr"><span class="fl" style="--w:90%"></span></span></div>
+          <div class="cb"><span class="n">Автобусы</span><span class="tr"><span class="fl" style="--w:40%"></span></span></div>
+          <div class="cb"><span class="n">Сельхоз</span><span class="tr"><span class="fl" style="--w:30%"></span></span></div>
+          <p class="ex">Пример: доля заинтересованных ЛПР по видам деятельности</p>
+        </div>
         <ul class="ticks">
-          <li><span>Перезапуск Директа: цель, запросы, ставки, гео</span></li>
-          <li><span>Отдельные страницы ТНВД и форсунок</span></li>
-          <li><span>Догоняющая реклама</span></li>
-          <li><span>Кампания под грузовики и спецтехнику</span></li>
-          <li><span>Ведение и еженедельный отчёт</span></li>
+          <li><span>Прозваниваем несколько видов деятельности</span></li>
+          <li><span>Смотрим, где больше всего заинтересованных ЛПР</span></li>
+          <li><span>Берём новые базы по лучшим и звоним дальше</span></li>
         </ul>
-        <div class="sum">Цена уточняется<small>рекламный бюджет оплачивается отдельно</small></div>
       </div>
-      <div class="pc b rv">
-        <span class="k">Направление 2</span>
-        <h3>Холодные звонки B2B</h3>
+      <div class="nc rv">
+        <span class="k">Директ</span>
+        <h3>Кампании обучаются, заявки дешевеют</h3>
+        <div class="grow" aria-hidden="true">
+          <div style="--h:40%"><span>М1</span></div><div style="--h:55%"><span>М2</span></div><div style="--h:68%"><span>М3</span></div><div style="--h:80%"><span>М4</span></div><div class="g" style="--h:92%"><span>М5+</span></div>
+        </div>
+        <p class="ex2">Пример: заявок в месяц при том же бюджете</p>
         <ul class="ticks">
-          <li><span>База компаний с дизельной техникой</span></li>
-          <li><span>Скрипт под ремонт топливной аппаратуры</span></li>
-          <li><span>100–150 компаний в неделю, выход на ЛПР</span></li>
-          <li><span>Все контакты и статусы в CRM</span></li>
-          <li><span>База и доступы остаются у вас</span></li>
+          <li><span>Реклама учится на реальных заявках и находит похожих людей</span></li>
+          <li><span>Отключаем лишнее, усиливаем то, что приносит ремонт</span></li>
+          <li><span>Расширяем запросы, марки и районы, где выгодно</span></li>
         </ul>
-        <div class="sum">Цена уточняется<small>можно запустить отдельно от первого направления</small></div>
-      </div>
-    </div>
-    <div class="pay rv">
-      <div>
-        <span class="k">Порядок оплаты</span>
-        <h3>Половина на старте, остальное по ходу работы</h3>
-        <p>Вторая половина — пятью равными частями по 10% каждую пятницу. Каждую неделю видите в CRM и отчёте, за что платите.</p>
-      </div>
-      <div class="pbar" aria-hidden="true">
-        <div class="p0"><b>50%</b><span>при старте</span></div>
-        <div><b>10%</b><span>нед. 1</span></div>
-        <div><b>10%</b><span>нед. 2</span></div>
-        <div><b>10%</b><span>нед. 3</span></div>
-        <div><b>10%</b><span>нед. 4</span></div>
-        <div><b>10%</b><span>нед. 5</span></div>
       </div>
     </div>
   </div>
@@ -713,12 +871,16 @@ p{margin:0}
     var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
     els.forEach(function(e){io.observe(e)});
   }else els.forEach(function(e){e.classList.add('in')});
-  function calc(){
-    var n=+$('c-n').value,p=$('c-p').value/100,s=+$('c-s').value,k=+$('c-k').value;
-    $('c-no').textContent=n+' ед.';$('c-po').textContent=$('c-p').value+'%';$('c-so').textContent=f(s)+' ₽';$('c-ko').textContent=k;
-    var r=Math.round(n*p);$('o-r').textContent=r;$('o-1').textContent=f(r*s)+' ₽';$('o-a').textContent=f(r*s*k)+' ₽';
+  function pc(){
+    var L=+$('p-l').value,C=$('p-c').value/100,F=$('p-f').value/100,T=+$('p-t').value,I=+$('p-i').value,K=+$('p-k').value,R=+$('p-r').value;
+    $('p-lo').textContent=L;$('p-co').textContent=$('p-c').value+'%';$('p-fo').textContent=$('p-f').value+'%';
+    $('p-to').textContent=f(T)+'\u00a0₽';$('p-io').textContent=f(I)+'\u00a0₽';$('p-ko').textContent=K;$('p-ro').textContent=R;
+    var avg=F*I+(1-F)*T,o=Math.round(L*C),d=o*avg,b2=K*R*avg,t=d+b2;
+    $('q-o').textContent=o;$('q-d').textContent=f(d)+'\u00a0₽';$('q-b').textContent=f(b2)+'\u00a0₽';$('q-t').textContent=f(t)+'\u00a0₽';
+    $('q-y').textContent='≈ '+f(t*12)+'\u00a0₽ в год';
+    var days=t>0?Math.ceil(190000/(t/30)):0;$('q-p').textContent=days?days+' '+(days%10==1&&days%100!=11?'день':(days%10>=2&&days%10<=4&&(days%100<12||days%100>14))?'дня':'дней')+' выручки':'—';
   }
-  ['c-n','c-p','c-s','c-k'].forEach(function(id){$(id).addEventListener('input',calc)});calc();
+  ['p-l','p-c','p-f','p-t','p-i','p-k','p-r'].forEach(function(id){$(id).addEventListener('input',pc)});pc();
 })();
 </script>
 </body>
