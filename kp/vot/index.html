@@ -109,7 +109,7 @@ p{margin:0}
 @media (max-width:640px){.cb{grid-template-columns:104px minmax(0,1fr) 70px;gap:8px}}
 
 /* WORKED */
-.good{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.good{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .gd{background:var(--card);border-top:3px solid var(--accent);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
 .gd .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep)}
 .gd>b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
@@ -232,7 +232,7 @@ p{margin:0}
 .who b{font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.2}
 .who span:last-child{color:var(--dark-muted);font-size:14.5px}
 @media (max-width:900px){.who{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.who{gap:8px}.who>div{padding:14px}.who b{font-size:14.5px}.who span:last-child{font-size:13px}.who .vn{font-size:10px}}
+@media (max-width:520px){.who{gap:8px}.who>div{padding:14px}.who b{font-size:13.5px;hyphens:auto;overflow-wrap:anywhere}.who>div{min-width:0}.who span:last-child{font-size:13px}.who .vn{font-size:10px}}
 .base{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .base>div{border-top:2px solid var(--accent);padding-top:14px;display:grid;gap:6px;align-content:start}
 .base b{font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.2}
@@ -356,7 +356,7 @@ p{margin:0}
     <div class="big4">
       <div class="bn rv"><div class="v num">690 200 ₽</div><span>потрачено за март–сентябрь, ~98 600 ₽ в месяц</span></div>
       <div class="bn rv"><div class="v r num">53%</div><span>бюджета ушло на запросы без единой заявки</span></div>
-      <div class="bn rv"><div class="v num">470 ₽</div><span>лучшая цена обращения — по форсункам в узкой кампании</span></div>
+      <div class="bn rv"><div class="v r num">146 027 ₽</div><span>заплачено за «конверсии» по фиксированной цене, в том числе по мусорным запросам</span></div>
       <div class="bn rv"><div class="v r num">0 ₽</div><span>на догоняющую рекламу — её не было</span></div>
     </div>
     <div class="split rv">
@@ -377,7 +377,6 @@ p{margin:0}
     </div>
     <div class="good">
       <div class="gd rv"><span class="vn">Узнаваемость</span><b>Вас ищут по названию</b><span>По запросам «вот сервис» обращением заканчивался каждый третий клик.</span><div class="gv"><b class="num">33–45%</b><span>кликов → обращение</span></div></div>
-      <div class="gd rv"><span class="vn">Точные запросы</span><b>Узкие фразы окупаются</b><span>Кампания «Основные запросы»: обращение по 552 ₽, по форсункам — 470 ₽.</span><div class="gv"><b class="num">470 ₽</b><span>за обращение</span></div></div>
       <div class="gd rv"><span class="vn">Аудитория</span><b>Мужчины 35–54</b><span>Самые дешёвые обращения: 952–981 ₽. Основная аудитория.</span><div class="gv"><b class="num">318</b><span>обращений за 7 месяцев</span></div></div>
     </div>
     <div class="panel rv">
@@ -411,7 +410,7 @@ p{margin:0}
       <div class="qc rv">
         <div class="qh"><div><b>Запчасти и артикулы</b><span>Хотят купить деталь, а не отремонтировать</span></div><div class="tot"><b class="num">39 185 ₽</b><small>419 кликов</small></div></div>
         <ul class="ql">
-          <li><q><s>датчик тнвд газель next</s></q><span>3 050 ₽ · 1 клик</span></li>
+          <li><q><s>датчик тнвд газель next</s></q><span>3 050 ₽ за «конверсию»</span></li>
           <li><q><s>купить тнвд 0445010142</s></q><span>2 074 ₽</span></li>
           <li><q><s>е1023503 гайка распылитель форсунки купить</s></q><span>1 171 ₽</span></li>
           <li><q><s>купить дизельные форсунки на фольксваген амарок</s></q><span>1 098 ₽</span></li>
@@ -451,26 +450,25 @@ p{margin:0}
       <p><b>Больше всего мусора дал автотаргетинг.</b> Яндекс сам подбирал запросы: 18% бюджета и 40% всех кликов. Отсюда «датчик газель» и артикулы запчастей.</p>
     </div>
 
-    <div class="sub rv"><span class="n">02</span>Одна услуга — в 7 раз дороже</div>
+    <div class="sub rv"><span class="n">02</span>Две модели оплаты — обе работали против вас</div>
     <div class="panel rv">
       <div class="bars">
-        <span class="k">Цена обращения по кампаниям</span>
+        <span class="k">Кампании с оплатой за клики · цена обращения</span>
         <div class="cb hi"><span class="n">Дизель<small>292 587 ₽</small></span><span class="tr"><span class="fl" style="--w:100%"></span></span><span class="c">3 215 ₽</span></div>
         <div class="cb hi"><span class="n">Марки<small>168 203 ₽</small></span><span class="tr"><span class="fl" style="--w:76%"></span></span><span class="c">2 438 ₽</span></div>
-        <div class="cb"><span class="n">Мастер кампаний<small>101 260 ₽</small></span><span class="tr"><span class="fl" style="--w:20%"></span></span><span class="c">629 ₽</span></div>
-        <div class="cb lo"><span class="n">Основные<small>37 545 ₽</small></span><span class="tr"><span class="fl" style="--w:17%"></span></span><span class="c">552 ₽</span></div>
-        <div class="cb"><span class="n">Бренд<small>83 383 ₽</small></span><span class="tr"><span class="fl" style="--w:15%"></span></span><span class="c">488 ₽</span></div>
+        <div class="cb lo"><span class="n">Бренд<small>83 383 ₽</small></span><span class="tr"><span class="fl" style="--w:15%"></span></span><span class="c">488 ₽</span></div>
       </div>
       <div>
-        <h3>Форсунки: 470&nbsp;₽ и <em>3&nbsp;585&nbsp;₽</em> за&nbsp;обращение</h3>
-        <p>Одна и та же услуга в двух кампаниях. Самая дорогая кампания «Дизель» при этом забрала больше всего денег — <b>292 587 ₽</b>.</p>
+        <h3>По кликам — <em>дорого</em>, за конверсии — <em>за мусор</em></h3>
+        <p><b>За клики</b> платили «Дизель» и «Марки»: 460 790 ₽, обращение по 2 400–3 200 ₽, и 354 424 ₽ ушло на запросы без единой заявки.</p>
+        <p style="margin-top:10px"><b>За конверсии</b> платили «Мастер кампаний», «Основные» и «Конкуренты»: 146 027 ₽ по фиксированной цене 976–3 050 ₽ за каждую. Конверсиями засчитывались и «купить тнвд», и «как почистить форсунки».</p>
       </div>
     </div>
 
     <div class="sub rv"><span class="n">03–05</span>Настройки, которые мешали</div>
     <div class="issues">
       <div class="is rv"><span class="vn">03 · Цель</span><b>Реклама училась не на заявках</b><span>Конверсии засчитывались даже по «купить форсунку» и «как почистить форсунки». 574 «конверсии» — не 574 клиента.</span></div>
-      <div class="is rv"><span class="vn">04 · Ставки</span><b>Клики до 3 050 ₽</b><span>Цена клика не ограничивалась: 117 кликов стоили от 900 до 3 050 ₽, всего 138 319 ₽.</span></div>
+      <div class="is rv"><span class="vn">04 · Оплата</span><b>Платили за мусорные «конверсии»</b><span>117 списаний по 900–3 050 ₽, всего 138 319 ₽. Например, 3 050 ₽ за «датчик тнвд газель next» и 2 074 ₽ за «купить тнвд 0445010142».</span></div>
       <div class="is rv"><span class="vn">05 · Догоняющая</span><b>Ушёл — и забыл</b><span>Отдельной догоняющей кампании не было. На показы в сетях Яндекса — 3 050 ₽ из 690 200 ₽.</span></div>
     </div>
   </div>
@@ -484,9 +482,9 @@ p{margin:0}
       <h2>Что из этого следует</h2>
     </div>
     <div class="concl">
-      <div class="rv"><b>Спрос есть и окупается</b><span>Точные запросы и бренд дают обращения по <em>490–550 ₽</em>. Это оставляем.</span></div>
+      <div class="rv"><b>Бренд работает</b><span>По запросам с вашим названием обращение стоит <em>~490 ₽</em>. Это оставляем.</span></div>
       <div class="rv"><b>Половину бюджета можно вернуть</b><span>Запчасти, чужие сервисы, «сделаю сам», автотаргетинг — убираем в первую неделю.</span></div>
-      <div class="rv"><b>Сначала исправить цель</b><span>Пока цель считает не заявки, любая оптимизация идёт вслепую.</span></div>
+      <div class="rv"><b>Сначала исправить цель</b><span>Пока цель считает не заявки, вы платите за «конверсии», которые не приносят клиентов.</span></div>
       <div class="rv"><b>Разделить ТНВД и форсунки</b><span>133 395 ₽ ушло на нужные запросы без заявок. Своя страница под каждую услугу.</span></div>
       <div class="rv"><b>Вернуть ушедших</b><span>Догоняющая реклама показывается тем, кто был на сайте, но не позвонил.</span></div>
       <div class="rv"><b>Бюджет — туда, где дешевле</b><span>Ближнее Подмосковье и мужчины 35–54: обращения <em>в 1,5–2 раза дешевле</em>.</span></div>
@@ -504,7 +502,7 @@ p{margin:0}
     <div class="fix">
       <div class="fx rv"><span class="vn">01</span><b>Цель — заявки и звонки</b><span>Настраиваем учёт заново, чтобы реклама училась на реальных обращениях.</span></div>
       <div class="fx rv"><span class="vn">02</span><b>Чистим запросы</b><span>Минус-слова: «купить», «как», артикулы, названия чужих сервисов. Автотаргетинг — под контроль.</span></div>
-      <div class="fx rv"><span class="vn">03</span><b>Лимит цены клика</b><span>Ставки под окупаемость ремонта, без кликов по 3 000 ₽.</span></div>
+      <div class="fx rv"><span class="vn">03</span><b>Правильная оплата</b><span>Клики — с лимитом ставки. Оплата за конверсии — только когда цель считает реальные заявки.</span></div>
       <div class="fx rv"><span class="vn">04</span><b>Кампании по услугам</b><span>ТНВД и форсунки отдельно, внутри — Common Rail, насос-форсунки, HEUI, PLD.</span></div>
       <div class="fx rv"><span class="vn">05</span><b>Грузовики и спецтехника</b><span>Отдельная кампания: КАМАЗ, MAN, DAF, Volvo, Scania, экскаваторы, тракторы.</span></div>
       <div class="fx rv"><span class="vn">06</span><b>Гео и аудитория</b><span>Повышаем ставки в ближнем Подмосковье и на мужчин 35–54.</span></div>
@@ -568,12 +566,12 @@ p{margin:0}
       <div class="row"><div>Бюджет без единой заявки</div><div class="b">52 500 ₽ (53%)</div><div class="a">до 15 000 ₽ (до 15%)</div></div>
       <div class="row"><div>Цена обращения</div><div class="b">1 202 ₽ по цели, не по заявкам</div><div class="a">600–800 ₽ за реальное обращение</div></div>
       <div class="row"><div>Обращений</div><div class="b">82 «конверсии», часть — не заявки</div><div class="a">120–160 реальных обращений</div></div>
-      <div class="row"><div>Клики дороже 900 ₽</div><div class="b">~17 в месяц</div><div class="a">0 — лимит ставки</div></div>
+      <div class="row"><div>Списания дороже 900 ₽ за клик или «конверсию»</div><div class="b">~17 в месяц</div><div class="a">0 — лимит и правильная цель</div></div>
       <div class="row"><div>Страницы под услуги</div><div class="b">одна на ТНВД и форсунки</div><div class="a">отдельно ТНВД и форсунки</div></div>
       <div class="row"><div>Догоняющая реклама</div><div class="b">нет</div><div class="a">есть, 14 дней</div></div>
       <div class="row"><div>Грузовики и спецтехника</div><div class="b">2,5% бюджета</div><div class="a">отдельная кампания</div></div>
     </div>
-    <p class="fc"><b>Прогноз — на вашей же статистике:</b> лучшие кампании и районы уже давали обращения по 470–690 ₽. Точные цифры зафиксируем после первого месяца.</p>
+    <p class="fc"><b>Прогноз — на вашей же статистике:</b> бренд и ближнее Подмосковье уже давали обращения по 490–690 ₽. Точные цифры зафиксируем после первого месяца.</p>
   </div>
 </section>
 
