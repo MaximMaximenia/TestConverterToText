@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=16">
+<link rel="stylesheet" href="css/style.css?v=17">
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -44,7 +44,6 @@
     <nav class="site-nav">
       <a href="#about">Обо мне</a>
       <a href="#reviews">Отзывы</a>
-      <a href="#faq">Вопросы</a>
       <a href="#signup" class="site-nav__cta">Записаться на разбор</a>
     </nav>
   </div>
@@ -54,7 +53,12 @@
 <section class="hero">
   <div class="hero__glow"></div>
   <div class="container hero__inner">
-    <h1 class="hero__title" id="heroTitle">Покажу за 30 минут, где вы теряете деньги на созвонах</h1>
+    <span class="hero__author">
+      <img src="assets/about-meinard.jpg" alt="Мейнард Скринда">
+      <span>Мейнард Скринда — 10 лет в продажах</span>
+    </span>
+    <span class="scarcity-badge">[ВПИШИ: беру N разборов в неделю]</span>
+    <h1 class="hero__title" id="heroTitle">За 30 минут покажу, где вы теряете деньги при продаже</h1>
     <p class="hero__subtitle">Бесплатный разбор продаж для экспертов и консультантов. Вы рассказываете, как продаёте сейчас, и уходите со списком того, что поменять завтра.</p>
 
     <form class="lead-form-el" novalidate>
@@ -77,18 +81,23 @@
 
     <div class="pains-grid">
       <div class="pain-card pain-card--accent">
+        <img class="pain-card__img" src="assets/who-01.jpg" alt="">
         <p>Созвон прошёл отлично, клиент сказал «я подумаю», и больше не отвечает.</p>
       </div>
       <div class="pain-card">
+        <img class="pain-card__img" src="assets/who-02.jpg" alt="">
         <p>Называете цену и слышите паузу, после которой разговор сворачивается.</p>
       </div>
       <div class="pain-card">
+        <img class="pain-card__img" src="assets/who-03.jpg" alt="">
         <p>Соглашаетесь на скидку, чтобы не потерять клиента, и работаете за половину.</p>
       </div>
       <div class="pain-card">
+        <img class="pain-card__img" src="assets/who-04.jpg" alt="">
         <p>Заявки приходят, а до оплаты доходит один из десяти.</p>
       </div>
       <div class="pain-card">
+        <img class="pain-card__img" src="assets/who-01.jpg" alt="">
         <p>Вы хорошо делаете свою работу, но рассказать о ней так, чтобы купили, не получается.</p>
       </div>
     </div>
@@ -103,7 +112,7 @@
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-card__num">1</div>
-        <h3>Вы пишете в телеграм или оставляете номер</h3>
+        <h3>Оставляете заявку</h3>
         <p>Мейнард связывается и назначает время. Обычно в течение дня.</p>
       </div>
       <div class="step-card">
@@ -220,37 +229,7 @@
   </div>
 </section>
 
-<!-- ===== ЭКРАН 6: ВОПРОСЫ ===== -->
-<section class="faq" id="faq">
-  <div class="container">
-    <h2 class="section-title section-title--center">Вопросы</h2>
-
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3>Это замаскированная продажа?</h3>
-        <p>На разборе будет предложено платное продолжение. Говорю об этом сразу, чтобы не было сюрприза. При этом разбор работает сам по себе: вы уходите со списком правок, даже если дальше мы не работаем.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Почему бесплатно?</h3>
-        <p>Так я вижу, с чем люди приходят, и понимаю, кому могу помочь. Платить за получасовой разговор, после которого мы можем и разойтись, я считаю неправильным.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Мне нечего разбирать, у меня почти нет продаж</h3>
-        <p>Это как раз удобный случай. Чем меньше наработано, тем проще поменять, пока не закрепилось.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Что если вы не найдёте, что исправить?</h3>
-        <p>Скажу об этом прямо и ничего не предложу. Такое бывает редко, но бывает.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Сколько это занимает?</h3>
-        <p>30 минут. Если разговор пойдёт дальше, останавливаться по таймеру не будем.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ЭКРАН 7: ЗАПИСЬ ===== -->
+<!-- ===== ЗАПИСЬ ===== -->
 <section class="signup" id="signup">
   <div class="signup__glow"></div>
   <div class="container signup__inner">
@@ -277,7 +256,7 @@
   </div>
 </footer>
 
-<script src="js/config.js?v=16"></script>
-<script src="js/script.js?v=16"></script>
+<script src="js/config.js?v=17"></script>
+<script src="js/script.js?v=17"></script>
 </body>
 </html>
