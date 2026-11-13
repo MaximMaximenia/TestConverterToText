@@ -154,13 +154,34 @@ p{margin:0}
 .auto .v{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,3.4vw,40px);color:var(--red-l);white-space:nowrap}
 .auto p{color:var(--dark-muted);font-size:15.5px}.auto p b{color:#fff;font-weight:600}
 @media (max-width:640px){.auto{grid-template-columns:1fr;gap:6px;padding:18px}}
-.issues{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.issues{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .is{background:var(--dark2);border:1px solid var(--dark-line);border-left:3px solid var(--red);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
 .is .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-l)}
 .is b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.25}
 .is span:last-child{color:var(--dark-muted);font-size:15px}
-@media (max-width:900px){.issues{grid-template-columns:1fr}}
+@media (max-width:760px){.issues{grid-template-columns:1fr}}
 
+/* LEADS */
+.leads{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:26px;display:grid;gap:18px}
+.lh{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.lh .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted);display:block}
+.lh b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(26px,3vw,36px);margin:4px 0}
+.lh span{color:var(--dark-muted);font-size:15px}
+.lh .lr{color:var(--dark-muted);font-size:15.5px}
+.lrw{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,.6fr));gap:12px;align-items:center;padding:12px 14px;border-radius:12px;font-family:var(--f-mono);font-size:14px}
+.lrw>span:not(:first-child){text-align:right}
+.lrw b{display:block;font-family:var(--f-body);font-size:15.5px;font-weight:600}
+.lrw small{display:block;font-family:var(--f-body);font-size:13px;color:var(--dark-muted)}
+.lrw.hd{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-muted);padding-block:4px}
+.lrw.x{background:var(--dark);color:#C7D0CB}
+.lrw.x b{color:var(--red-l)}
+.lrw.ok{background:rgba(23,178,106,.14);border:1px solid var(--accent)}
+.lrw.ok b{color:var(--accent)}
+.lt{display:grid;gap:6px}
+.lf{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;border-top:1px solid var(--dark-line);padding-top:16px}
+.lf>b{font-family:var(--f-display);font-weight:800;font-size:40px;color:var(--accent)}
+.lf span{color:var(--dark-muted)}.lf span b{color:#fff}
+@media (max-width:720px){.lh{grid-template-columns:1fr;gap:8px}.lrw{grid-template-columns:1fr 1fr 1fr;gap:4px 10px}.lrw>span:first-child{grid-column:1/-1}.lrw>span:not(:first-child){text-align:left}.lrw.hd{display:none}.lrw>span:nth-child(n+2)::before{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--dark-muted)}.lrw>span:nth-child(2)::before{content:"Потрачено"}.lrw>span:nth-child(3)::before{content:"Конверсий"}.lrw>span:nth-child(4)::before{content:"Цена"}.leads{padding:18px}.lf{grid-template-columns:1fr;gap:4px}}
 /* CONCLUSIONS */
 .concl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:c}
 .concl>div{background:var(--card);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
@@ -465,6 +486,18 @@ p{margin:0}
       <div class="sbar"><div class="bad">53% · 0 заявок</div><div class="ok">47% · заявки</div></div>
       <div class="slg"><span><b>367 466 ₽</b> не принесли ни одного обращения</span><span><b>322 734 ₽</b> дали все заявки</span></div>
     </div>
+    <div class="sub rv" style="margin-top:44px"><span class="n g">Итог</span>Сколько было заявок на самом деле</div>
+    <div class="leads rv">
+      <div class="lh"><div><span class="k">По данным Директа</span><b class="num">574 конверсии</b><span>по 1 202 ₽ в среднем</span></div><div class="lr">Но в эту цифру попали и бренд, и мусорные запросы. Разбираем по частям:</div></div>
+      <div class="lt">
+        <div class="lrw hd"><span>Откуда</span><span>Потрачено</span><span>Конверсий</span><span>Цена</span></div>
+        <div class="lrw x"><span><b>Ваш бренд</b><small>«вот сервис» — вы и так в топе выдачи</small></span><span class="num">84 869 ₽</span><span class="num">177</span><span class="num">479 ₽</span></div>
+        <div class="lrw x"><span><b>Мусорные запросы</b><small>запчасти, «как сделать», чужие сервисы</small></span><span class="num">101 087 ₽</span><span class="num">68</span><span class="num">1 487 ₽</span></div>
+        <div class="lrw x"><span><b>Запрос не показан</b><small>автотаргетинг без текста запроса</small></span><span class="num">45 637 ₽</span><span class="num">21</span><span class="num">2 173 ₽</span></div>
+        <div class="lrw ok"><span><b>Целевые запросы</b><small>ремонт ТНВД и форсунок — реальные новые клиенты</small></span><span class="num">458 607 ₽</span><span class="num">308</span><span class="num">1 489 ₽</span></div>
+      </div>
+      <div class="lf"><b class="num">~44</b><span>целевых конверсии в месяц по <b>1 489 ₽</b> — это и есть реальная отправная точка. И даже в них цель могла засчитать не только заявки.</span></div>
+    </div>
     <p class="src">Источник: выгрузки из Яндекс Директа, ООО «ВОТ СЕРВИС», 01.03.2026–30.09.2026.</p>
   </div>
 </section>
@@ -474,10 +507,10 @@ p{margin:0}
   <div class="wrap">
     <div class="head rv">
       <div class="label"><b>02</b> · Что работало</div>
-      <h2>Основа рабочая — её сохраняем</h2>
+      <h2>На что можно опереться</h2>
     </div>
     <div class="good">
-      <div class="gd rv"><span class="vn">Узнаваемость</span><b>Вас ищут по названию</b><span>По запросам «вот сервис» обращением заканчивался каждый третий клик.</span><div class="gv"><b class="num">33–45%</b><span>кликов → обращение</span></div></div>
+      <div class="gd rv"><span class="vn">Спрос</span><b>Целевой спрос есть</b><span>Запросы о ремонте ТНВД и форсунок дали 308 конверсий. Клиенты ищут — нужно перестать тратить деньги мимо них.</span><div class="gv"><b class="num">308</b><span>целевых конверсий за 7 месяцев</span></div></div>
       <div class="gd rv"><span class="vn">Аудитория</span><b>Мужчины 35–54</b><span>Самые дешёвые обращения: 952–981 ₽. Основная аудитория.</span><div class="gv"><b class="num">318</b><span>обращений за 7 месяцев</span></div></div>
     </div>
     <div class="panel rv">
@@ -525,6 +558,7 @@ p{margin:0}
           <li><q><s>мэйджор дизель ремонт форсунок на поморской</s></q><span>1 837 ₽</span></li>
           <li><q><s>рус дизель ремонт форсунок москва</s></q><span>1 643 ₽</span></li>
         </ul>
+        <p class="why"><b>Только «Бош сервис»: 44 924 ₽, 98 кликов, 13 конверсий — по 3 456 ₽.</b> Люди искали официальный сервис Bosch, а попадали к вам.</p>
       </div>
       <div class="qc rv">
         <div class="qh"><div><b>«Сделаю сам»</b><span>Ищут инструкцию, в сервис не поедут</span></div><div class="tot"><b class="num">16 654 ₽</b><small>178 кликов</small></div></div>
@@ -557,7 +591,7 @@ p{margin:0}
         <span class="k">Кампании с оплатой за клики · цена обращения</span>
         <div class="cb hi"><span class="n">Дизель<small>292 587 ₽</small></span><span class="tr"><span class="fl" style="--w:100%"></span></span><span class="c">3 215 ₽</span></div>
         <div class="cb hi"><span class="n">Марки<small>168 203 ₽</small></span><span class="tr"><span class="fl" style="--w:76%"></span></span><span class="c">2 438 ₽</span></div>
-        <div class="cb lo"><span class="n">Бренд<small>83 383 ₽</small></span><span class="tr"><span class="fl" style="--w:15%"></span></span><span class="c">488 ₽</span></div>
+        <div class="cb"><span class="n">Бренд<small>83 383 ₽</small></span><span class="tr"><span class="fl" style="--w:15%"></span></span><span class="c">488 ₽</span></div>
       </div>
       <div>
         <h3>По кликам — <em>дорого</em>, за конверсии — <em>за мусор</em></h3>
@@ -566,11 +600,12 @@ p{margin:0}
       </div>
     </div>
 
-    <div class="sub rv"><span class="n">03–05</span>Настройки, которые мешали</div>
+    <div class="sub rv"><span class="n">03–06</span>Настройки, которые мешали</div>
     <div class="issues">
       <div class="is rv"><span class="vn">03 · Цель</span><b>Реклама училась не на заявках</b><span>Конверсии засчитывались даже по «купить форсунку» и «как почистить форсунки». 574 «конверсии» — не 574 клиента.</span></div>
       <div class="is rv"><span class="vn">04 · Оплата</span><b>Платили за мусорные «конверсии»</b><span>117 списаний по 900–3 050 ₽, всего 138 319 ₽. Например, 3 050 ₽ за «датчик тнвд газель next» и 2 074 ₽ за «купить тнвд 0445010142».</span></div>
       <div class="is rv"><span class="vn">05 · Догоняющая</span><b>Ушёл — и забыл</b><span>Отдельной догоняющей кампании не было. На показы в сетях Яндекса — 3 050 ₽ из 690 200 ₽.</span></div>
+      <div class="is rv"><span class="vn">06 · Бренд</span><b>Платили за свой бренд</b><span>84 869 ₽ на запросы «вот сервис». По своему названию вы и так первые в выдаче — эти люди пришли бы бесплатно.</span></div>
     </div>
   </div>
 </section>
@@ -583,7 +618,7 @@ p{margin:0}
       <h2>Что из этого следует</h2>
     </div>
     <div class="concl">
-      <div class="rv"><b>Бренд работает</b><span>По запросам с вашим названием обращение стоит <em>~490 ₽</em>. Это оставляем.</span></div>
+      <div class="rv"><b>Бренд не рекламируем</b><span>По названию вы и так в топе. <em>84 869 ₽</em> переносим в целевые запросы.</span></div>
       <div class="rv"><b>Половину бюджета можно вернуть</b><span>Запчасти, чужие сервисы, «сделаю сам», автотаргетинг — убираем в первую неделю.</span></div>
       <div class="rv"><b>Сначала исправить цель</b><span>Пока цель считает не заявки, вы платите за «конверсии», которые не приносят клиентов.</span></div>
       <div class="rv"><b>Разделить ТНВД и форсунки</b><span>133 395 ₽ ушло на нужные запросы без заявок. Своя страница под каждую услугу.</span></div>
