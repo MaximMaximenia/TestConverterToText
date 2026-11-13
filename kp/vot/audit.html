@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Аудит Директа VOT SERVICES</title>
+<meta name="description" content="VOT SERVICES: аудит Яндекс Директа за март–сентябрь 2026 — что работало, что сливало бюджет и какие выводы.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Onest:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#E8EBE9; --card:#F7F9F8; --ink:#0E1311; --muted:#56605B; --line:#CDD4D0;
+  --accent:#17B26A; --accent-deep:#0E9156; --accent-soft:#DCF5E8;
+  --red:#C9534C; --red-l:#E0726B; --red-soft:#F5E1DF;
+  --dark:#0E1311; --dark2:#161D1A; --dark-line:#25302B; --dark-muted:#93A09A;
+  --f-display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:22px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+section{padding-block:96px}
+@media (max-width:640px){section{padding-block:60px}}
+.dark{background:var(--dark);color:#fff}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-.02em;line-height:1.04;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,4.8vw,56px);font-weight:800}
+h3{font-size:clamp(20px,2.2vw,26px);font-weight:700;line-height:1.15}
+p{margin:0}
+.label{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dark .label{color:var(--dark-muted)}
+.label b{color:var(--accent);font-weight:600}
+.lead{font-size:clamp(17px,1.6vw,19px);font-weight:300;color:var(--muted);max-width:700px}
+.dark .lead{color:var(--dark-muted)}
+.head{display:grid;gap:16px;margin-bottom:44px}
+@media (max-width:640px){.head{margin-bottom:30px}}
+.num{font-variant-numeric:tabular-nums}
+.sub{display:flex;align-items:center;gap:12px;font-family:var(--f-display);font-weight:700;font-size:clamp(19px,2.2vw,26px);margin:52px 0 18px;line-height:1.2}
+.sub:first-of-type{margin-top:0}
+.sub .n{font-family:var(--f-mono);font-weight:600;font-size:12px;letter-spacing:.1em;border-radius:999px;padding:5px 10px;background:var(--red);color:#fff;flex:none}
+.sub .n.g{background:var(--accent)}
+.ticks{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+.ticks li{display:grid;grid-template-columns:22px 1fr;gap:8px;align-items:start;font-size:16px}
+.ticks li::before{content:"";width:14px;height:2px;background:var(--accent);margin-top:12px}
+.src{margin-top:18px;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.dark .src{color:var(--dark-muted)}
+
+/* HERO */
+.hero{position:relative;background:var(--dark);color:#fff;overflow:hidden;padding-block:0}
+.hero::before{content:"";position:absolute;width:820px;height:820px;right:-300px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(23,178,106,.3) 0%,rgba(23,178,106,0) 62%)}
+.hero .wrap{position:relative;z-index:1;padding-block:60px 56px;display:grid;gap:34px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:stretch;font-family:var(--f-display);font-weight:800;font-size:clamp(24px,3.4vw,38px);letter-spacing:-.03em;line-height:1}
+.brand span:first-child{background:var(--accent);color:#fff;padding:.18em .3em;border-radius:.18em}
+.brand span:last-child{color:#fff;padding:.18em 0 .18em .24em}
+.hero h1{font-weight:800;font-size:clamp(28px,5.4vw,70px);line-height:1;max-width:980px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{color:#C7D0CB;max-width:640px}
+.spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18)}
+.spec>div{padding:18px 18px 4px 0;display:grid;gap:6px;align-content:start}
+.spec>div+div{padding-left:18px;border-left:1px solid rgba(255,255,255,.18)}
+.spec .k{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.spec .v{font-family:var(--f-display);font-weight:700;font-size:clamp(18px,2vw,24px)}
+.spec .d{color:var(--dark-muted);font-size:15px}
+@media (max-width:720px){.spec{grid-template-columns:1fr}.spec>div{padding:16px 0}.spec>div+div{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.18)}}
+
+/* SUMMARY */
+.big4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.bn{background:var(--dark2);border:1px solid var(--dark-line);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.bn .v{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,2.8vw,38px);line-height:1;white-space:nowrap}
+.bn .v.r{color:var(--red-l)}
+.bn span{color:var(--dark-muted);font-size:15px}
+@media (max-width:980px){.big4{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.big4{grid-template-columns:1fr}}
+.split{margin-top:12px;background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:24px}
+.split .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:14px;display:block}
+.sbar{display:flex;height:54px;border-radius:14px;overflow:hidden;gap:3px}
+.sbar div{display:flex;align-items:center;padding:0 16px;font-family:var(--f-mono);font-size:13px;white-space:nowrap;overflow:hidden;transform-origin:left;color:#fff}
+.sbar .bad{flex:53.2;background:var(--red);font-weight:600}
+.sbar .ok{flex:46.8;background:var(--accent-deep)}
+.js .split .sbar div{transform:scaleX(0);transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .split.in .sbar div{transform:scaleX(1)}
+.slg{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px;font-size:14.5px;color:var(--dark-muted)}
+.slg b{color:#fff;font-weight:600}
+
+/* bars (shared) */
+.cb{display:grid;grid-template-columns:130px minmax(0,1fr) 80px;gap:12px;align-items:center;font-size:14.5px;margin-bottom:10px}
+.cb:last-child{margin-bottom:0}
+.cb .n small{display:block;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.dark .cb .n small{color:var(--dark-muted)}
+.cb .tr{height:12px;background:var(--line);border-radius:6px;overflow:hidden}
+.dark .cb .tr{background:var(--dark-line)}
+.cb .fl{display:block;height:100%;width:var(--w);background:#9AA6A0;border-radius:6px;transform-origin:left}
+.dark .cb .fl{background:#3E5048}
+.cb.hi .fl{background:var(--red)!important}
+.cb.lo .fl{background:var(--accent)!important}
+.cb .c{font-family:var(--f-mono);text-align:right;white-space:nowrap}
+.cb.hi .c{color:var(--red)}
+.dark .cb.hi .c{color:var(--red-l)}
+.cb.lo .c{color:var(--accent-deep)}
+.dark .cb.lo .c{color:var(--accent)}
+.js .bars .fl{transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .bars.in .fl,.js .in .bars .fl{transform:scaleX(1)}
+@media (max-width:640px){.cb{grid-template-columns:104px minmax(0,1fr) 70px;gap:8px}}
+
+/* WORKED */
+.good{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gd{background:var(--card);border-top:3px solid var(--accent);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.gd .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep)}
+.gd>b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
+.gd>span:not(.vn){color:var(--muted);font-size:15px}
+.gv{margin-top:6px;padding-top:12px;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.gv b{font-family:var(--f-display);font-weight:800;font-size:26px;color:var(--accent-deep);white-space:nowrap}
+.gv span{color:var(--muted);font-size:13.5px}
+@media (max-width:900px){.good{grid-template-columns:1fr}}
+.panel{margin-top:12px;background:var(--card);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:34px;align-items:center}
+.dark .panel{background:var(--dark2);border:1px solid var(--dark-line)}
+.panel .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
+.dark .panel .k{color:var(--dark-muted)}
+.panel h3{font-size:clamp(22px,2.6vw,30px);margin-bottom:12px}
+.panel h3 em{font-style:normal;color:var(--red-l)}
+.panel p{color:var(--muted)}
+.dark .panel p{color:var(--dark-muted)}
+.panel p b{color:var(--ink);font-weight:600}
+.dark .panel p b{color:#fff}
+@media (max-width:900px){.panel{grid-template-columns:1fr;gap:22px;padding:20px}}
+
+/* QUERIES */
+.qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.qc{background:var(--dark2);border:1px solid var(--dark-line);border-radius:18px;padding:22px;display:grid;gap:12px;align-content:start}
+.qc .qh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.qc .qh b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.2}
+.qc .qh span{display:block;color:var(--dark-muted);font-size:14px;margin-top:4px}
+.qc .tot{text-align:right;flex:none}
+.qc .tot b{display:block;font-family:var(--f-display);font-weight:800;font-size:22px;color:var(--red-l);white-space:nowrap}
+.qc .tot small{font-family:var(--f-mono);font-size:11.5px;color:var(--dark-muted);white-space:nowrap}
+.ql{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.ql li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--dark);border-radius:10px;padding:9px 12px}
+.ql q{quotes:none;font-family:var(--f-mono);font-size:13px;color:#E6ECE9;overflow-wrap:anywhere}
+.ql q s{text-decoration-color:var(--red-l);text-decoration-thickness:2px}
+.ql span{font-family:var(--f-mono);font-size:12.5px;color:var(--red-l);white-space:nowrap}
+.qc.t{border-color:#3E5048}
+.qc.t .tot b{color:#fff}
+.qc.t .ql span{color:var(--dark-muted)}
+.qc .why{font-size:14px;color:var(--dark-muted);border-top:1px solid var(--dark-line);padding-top:10px}
+.qc .why b{color:#fff;font-weight:600}
+@media (max-width:860px){.qgrid{grid-template-columns:1fr}.qc{padding:18px}}
+.auto{margin-top:12px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;background:var(--dark2);border:1px solid var(--dark-line);border-radius:18px;padding:20px 24px}
+.auto .v{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,3.4vw,40px);color:var(--red-l);white-space:nowrap}
+.auto p{color:var(--dark-muted);font-size:15.5px}.auto p b{color:#fff;font-weight:600}
+@media (max-width:640px){.auto{grid-template-columns:1fr;gap:6px;padding:18px}}
+.issues{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.is{background:var(--dark2);border:1px solid var(--dark-line);border-left:3px solid var(--red);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.is .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--red-l)}
+.is b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.25}
+.is span:last-child{color:var(--dark-muted);font-size:15px}
+@media (max-width:900px){.issues{grid-template-columns:1fr}}
+
+/* CONCLUSIONS */
+.concl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:c}
+.concl>div{background:var(--card);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.concl>div::before{counter-increment:c;content:"0" counter(c);font-family:var(--f-mono);font-size:12px;color:var(--accent-deep);letter-spacing:.1em}
+.concl b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.25}
+.concl span{color:var(--muted);font-size:15px}
+.concl span em{font-style:normal;color:var(--accent-deep);font-weight:600}
+@media (max-width:900px){.concl{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.concl{grid-template-columns:1fr}}
+
+/* PLAN */
+.fix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.fx{background:var(--dark2);border:1px solid var(--dark-line);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.fx .vn{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.fx b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.2}
+.fx span:last-child{color:var(--dark-muted);font-size:15px}
+@media (max-width:900px){.fix{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.fix{grid-template-columns:1fr}}
+.scheme{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:26px}
+.scheme .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted);display:block;margin-bottom:6px}
+.scheme .was{font-size:14.5px;color:var(--dark-muted);margin-bottom:20px}
+.scheme .was b{color:var(--red-l);font-weight:600}
+.lanes{display:grid;gap:10px}
+.lane{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1.15fr) 34px minmax(0,.8fr);align-items:stretch;gap:0}
+.lane>div{background:var(--dark);border-radius:14px;padding:14px 16px;display:grid;gap:4px;align-content:center}
+.lane .ar{display:grid;place-items:center;color:var(--accent);font-family:var(--f-mono);font-size:18px;background:none;padding:0}
+.lane .t{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-muted)}
+.lane b{font-family:var(--f-display);font-weight:700;font-size:15.5px;line-height:1.25}
+.lane q{quotes:none;font-family:var(--f-mono);font-size:13px;color:#E6ECE9}
+.lane span.s{font-size:13.5px;color:var(--dark-muted)}
+.lane .pg{border:1px solid var(--accent)}
+.lane .rs{background:var(--accent);color:#fff}
+.lane .rs .t{color:#D7F7E6}
+@media (max-width:860px){.lane{grid-template-columns:1fr}.lane .ar{height:26px;transform:rotate(90deg)}}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.rt{display:grid;gap:8px;counter-reset:r}
+.rt li{list-style:none;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;background:var(--dark);border-radius:12px;padding:10px 12px;font-size:15px}
+.rt li::before{counter-increment:r;content:counter(r);width:28px;height:28px;border-radius:50%;background:#2B3833;display:grid;place-items:center;font-family:var(--f-mono);font-size:13px}
+.rt li.hl{background:var(--accent);color:#fff}
+.rt li.hl::before{background:#fff;color:var(--accent-deep)}
+.rt{margin:0;padding:0}
+
+/* BEFORE / AFTER */
+.ba{background:var(--card);border-radius:var(--r);overflow:hidden}
+.ba .row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);border-bottom:1px solid var(--line)}
+.ba .row:last-child{border-bottom:0}
+.ba .row>div{padding:16px 20px;display:flex;align-items:center;font-size:15.5px}
+.ba .hd>div{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-block:14px}
+.ba .hd .b{color:var(--red)}.ba .hd .a{color:var(--accent-deep)}
+.ba .row>div.b{background:#FBF1F0;color:#8E2F29;font-family:var(--f-mono);font-size:14.5px}
+.ba .row>div.a{background:#EDF9F2;color:#0B6B40;font-family:var(--f-mono);font-size:14.5px;font-weight:600}
+.ba .hd>div.b,.ba .hd>div.a{background:none}
+@media (max-width:720px){
+  .ba .hd{display:none}
+  .ba .row{grid-template-columns:1fr 1fr}
+  .ba .row>div:first-child{grid-column:1/-1;padding:14px 16px 6px;font-weight:600}
+  .ba .row>div.b,.ba .row>div.a{padding:10px 16px 14px;flex-direction:column;align-items:flex-start;gap:2px}
+  .ba .row>div.b::before{content:"Было";font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+  .ba .row>div.a::before{content:"Будет";font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+}
+.fc{margin-top:12px;font-size:14px;color:var(--muted)}
+.fc b{color:var(--ink)}
+
+/* B2B */
+.who{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.who>div{background:var(--dark2);border:1px solid var(--dark-line);border-radius:18px;padding:20px;display:grid;gap:6px;align-content:start}
+.who .vn{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.who b{font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.2}
+.who span:last-child{color:var(--dark-muted);font-size:14.5px}
+@media (max-width:900px){.who{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.who{gap:8px}.who>div{padding:14px}.who b{font-size:13.5px;hyphens:auto;overflow-wrap:anywhere}.who>div{min-width:0}.who span:last-child{font-size:13px}.who .vn{font-size:10px}}
+.base{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.base>div{border-top:2px solid var(--accent);padding-top:14px;display:grid;gap:6px;align-content:start}
+.base b{font-family:var(--f-display);font-weight:700;font-size:17px;line-height:1.2}
+.base span{color:var(--dark-muted);font-size:14.5px}
+@media (max-width:900px){.base{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.base{grid-template-columns:1fr}}
+.flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.st{position:relative;background:var(--dark2);border:1px solid var(--dark-line);border-radius:14px;padding:16px 14px;display:grid;gap:6px;align-content:start}
+.st i{font-style:normal;font-family:var(--f-mono);font-size:12px;color:var(--dark-muted)}
+.st b{font-family:var(--f-display);font-weight:700;font-size:15px;line-height:1.25}
+.st span{color:var(--dark-muted);font-size:13.5px}
+.st.key{background:var(--accent);border-color:var(--accent)}
+.st.key i,.st.key span{color:#E6FAF0}
+.st.you{background:#fff;color:var(--ink);border-color:#fff}
+.st.you i,.st.you span{color:var(--muted)}
+.zones{display:grid;grid-template-columns:5fr 1fr;gap:8px;margin-top:10px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+.zones div{border-top:2px solid var(--accent);padding-top:8px;color:var(--accent)}
+.zones div+div{border-top-color:#fff;color:#fff}
+@media (max-width:980px){.flow{grid-template-columns:1fr 1fr 1fr}.zones{display:none}}
+@media (max-width:560px){.flow{grid-template-columns:1fr}}
+.get{margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.get>div{background:var(--dark2);border:1px solid var(--dark-line);border-radius:18px;padding:20px;display:grid;gap:6px}
+.get b{font-family:var(--f-display);font-weight:700;font-size:17px}
+.get span{color:var(--dark-muted);font-size:14.5px}
+@media (max-width:860px){.get{grid-template-columns:1fr}}
+/* calc */
+.calc{background:var(--card);color:var(--ink);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
+.calc h3{font-size:clamp(20px,2.4vw,26px);font-weight:800;margin-bottom:6px}
+.calc .note{font-size:13.5px;color:var(--muted)}
+.calc .row2{display:grid;gap:2px;margin-top:12px}
+.calc label{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-weight:600}
+.calc output{font-family:var(--f-mono);color:var(--accent-deep);white-space:nowrap}
+.calc input[type=range]{width:100%;margin:0;height:36px;-webkit-appearance:none;appearance:none;background:transparent;touch-action:pan-y;cursor:pointer}
+.calc input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:4px;background:var(--line)}
+.calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-9px;border-radius:50%;background:var(--accent);border:3px solid var(--card);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.calc input[type=range]::-moz-range-track{height:6px;border-radius:4px;background:var(--line)}
+.calc input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);border:3px solid var(--card)}
+.calc input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.out{display:grid;gap:10px}
+.out>div{background:var(--paper);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.out span{color:var(--muted);font-size:14.5px}
+.out b{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,2.4vw,26px);white-space:nowrap}
+.out .hot{background:var(--accent);color:#fff;flex-direction:column;align-items:flex-start;gap:4px}
+.out .hot span{color:#E6FAF0}
+.out .hot b{font-size:clamp(32px,4.4vw,50px);line-height:1}
+@media (max-width:900px){.calc{grid-template-columns:1fr;gap:20px;padding:20px}}
+
+/* PRICE */
+.price{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pc{border-radius:var(--r);padding:26px;display:grid;gap:14px;align-content:start}
+.pc.a{background:var(--card)}
+.pc.b{background:var(--ink);color:#fff}
+.pc .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+.pc.b .k{color:var(--accent)}
+.pc h3{font-size:clamp(22px,2.6vw,28px);font-weight:800}
+.pc .sum{font-family:var(--f-display);font-weight:700;font-size:clamp(20px,2.2vw,24px);padding-top:14px;border-top:1px solid var(--line)}
+.pc.b .sum{border-top-color:var(--dark-line)}
+.pc .sum small{display:block;font-family:var(--f-mono);font-weight:400;font-size:12.5px;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+.pc.b .sum small{color:var(--dark-muted)}
+.pc.b .ticks li{color:#DDE5E1}
+@media (max-width:860px){.price{grid-template-columns:1fr}.pc{padding:22px}}
+.pay{margin-top:12px;background:var(--card);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px;align-items:center}
+.pay .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+.pay h3{margin:8px 0 10px}
+.pay p{color:var(--muted);font-size:16px}
+.pbar{display:flex;gap:4px;height:80px}
+.pbar div{flex:1;background:var(--paper);border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;min-width:0}
+.pbar .p0{flex:3.2;background:var(--accent);color:#fff}
+.pbar b{font-family:var(--f-display);font-weight:800;font-size:clamp(13px,1.3vw,16px)}
+.pbar .p0 b{font-size:clamp(18px,2vw,24px)}
+.pbar span{font-family:var(--f-mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.pbar .p0 span{color:#E6FAF0}
+@media (max-width:860px){.pay{grid-template-columns:1fr;padding:22px;gap:20px}}
+@media (max-width:480px){.pbar{height:64px;gap:3px}.pbar div:not(.p0) span{display:none}.pbar b{font-size:12px}.pbar .p0 b{font-size:18px}}
+
+/* FUNNEL */
+.fun{display:grid;gap:8px}
+.fr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:center}
+.fb{height:52px;width:var(--w);min-width:84px;background:#2B3833;border-radius:12px;display:flex;align-items:center;padding:0 16px;transform-origin:left}
+.fb b{font-family:var(--f-display);font-weight:800;font-size:20px;white-space:nowrap}
+.fr.hot .fb{background:var(--accent)}
+.fr span{color:var(--dark-muted);font-size:15px}
+.fr.hot span{color:#fff}
+.js .fun .fb{transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .fun.in .fb{transform:scaleX(1)}
+@media (max-width:640px){.fr{grid-template-columns:1fr;gap:6px}}
+/* POTENTIAL */
+.pot{background:var(--card);border-radius:var(--r);padding:28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:34px;align-items:start}
+.pot .pg{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);margin:18px 0 2px;padding-top:14px;border-top:1px solid var(--line)}
+.pot .pg:first-child{margin-top:0;padding-top:0;border-top:0}
+.pot .row2{display:grid;gap:0;margin-top:8px}
+.pot label{display:flex;justify-content:space-between;gap:12px;font-size:15px;font-weight:600}
+.pot output{font-family:var(--f-mono);color:var(--accent-deep);white-space:nowrap}
+.pot input[type=range]{width:100%;margin:0;height:34px;-webkit-appearance:none;appearance:none;background:transparent;touch-action:pan-y;cursor:pointer}
+.pot input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:4px;background:var(--line)}
+.pot input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;margin-top:-9px;border-radius:50%;background:var(--accent);border:3px solid var(--card);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.pot input[type=range]::-moz-range-track{height:6px;border-radius:4px;background:var(--line)}
+.pot input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);border:3px solid var(--card)}
+.pot input[type=range]:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:6px}
+.pout{display:grid;gap:10px;position:sticky;top:20px}
+.pout>div{background:var(--paper);border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.pout span{color:var(--muted);font-size:14.5px}
+.pout b{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,2.4vw,26px);white-space:nowrap}
+.pout .hot{background:var(--accent);color:#fff;flex-direction:column;align-items:flex-start;gap:4px}
+.pout .hot span,.pout .hot small{color:#E6FAF0}
+.pout .hot small{font-family:var(--f-mono);font-size:13px}
+.pout .hot b{font-size:clamp(34px,4.6vw,52px);line-height:1}
+.pout .pb{background:var(--ink);color:#fff}
+.pout .pb span{color:var(--dark-muted)}
+.pout .pb b{color:var(--accent);font-size:clamp(18px,2vw,22px)}
+@media (max-width:900px){.pot{grid-template-columns:1fr;padding:20px;gap:22px}.pout{position:static}}
+/* PRICE 2 */
+.pr2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pbox{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:24px;display:grid;gap:14px;align-content:start}
+.pbox .k,.ptot .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.pbox .ticks li{color:#DDE5E1;font-size:15px}
+.ptot{background:var(--accent);border-radius:var(--r);padding:24px;display:grid;gap:10px;align-content:start}
+.ptot .k{color:#E6FAF0}
+.ptot .sum{font-family:var(--f-display);font-weight:800;font-size:clamp(38px,3.4vw,50px);line-height:1;white-space:nowrap}
+.ptot .sum small{font-size:.5em}
+.ptot p{color:#E6FAF0;font-size:15px}
+@media (max-width:980px){.pr2{grid-template-columns:1fr}}
+.sbar2{display:flex;gap:3px;height:50px;border-radius:14px;overflow:hidden;margin-bottom:12px}
+.sbar2 div{display:flex;align-items:center;justify-content:center;background:#2B3833;color:#fff;font-family:var(--f-mono);font-size:12.5px;white-space:nowrap;overflow:hidden;min-width:0}
+.sbar2 .s0{background:var(--accent);font-weight:600}
+.sbar2 .s5{background:#3E5048}
+.sched{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);overflow:hidden}
+.sr{display:grid;grid-template-columns:170px minmax(0,1fr) 150px;gap:16px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--dark-line)}
+.sr:last-child{border-bottom:0}
+.sr .w{font-family:var(--f-mono);font-size:12.5px;color:var(--dark-muted);letter-spacing:.04em}
+.sr .d{font-size:14.5px;color:var(--dark-muted)}
+.sr .d b{display:block;color:#fff;font-weight:600;font-size:15.5px}
+.sr .m{font-family:var(--f-display);font-weight:800;font-size:20px;text-align:right;white-space:nowrap}
+.sr .m small{display:block;font-family:var(--f-mono);font-weight:400;font-size:11.5px;color:#E6FAF0}
+.sr.s{background:var(--accent)}
+.sr.s .w,.sr.s .d{color:#E6FAF0}
+.sr.m2 .m{color:#C7D0CB}
+.sr.t .m{color:var(--accent);font-size:24px}
+.sr.t .w{color:#fff;font-weight:600}
+@media (max-width:720px){.sr{grid-template-columns:1fr auto;gap:4px 12px;padding:14px 16px}.sr .d{grid-column:1/-1;order:3}.sr .m{font-size:18px}}
+.only{margin-top:12px;border:1px dashed #3E5048;border-radius:var(--r);padding:20px 24px}
+.only>div{display:grid;gap:4px}
+.only .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted)}
+.only b{font-family:var(--f-display);font-weight:700;font-size:19px}
+.only span:last-child{color:var(--dark-muted);font-size:15px}
+/* NEXT */
+.nx{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.nc{background:var(--card);border-radius:var(--r);padding:26px;display:grid;gap:16px;align-content:start}
+.nc .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+.okv .cb{grid-template-columns:130px minmax(0,1fr)}
+.okv .ex{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);margin-top:6px}
+.js .okv .fl{transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .in .okv .fl{transform:scaleX(1)}
+.grow{display:flex;align-items:flex-end;gap:10px;height:150px;padding-top:6px}
+.grow div{flex:1;height:var(--h);background:#C7D3CD;border-radius:10px 10px 4px 4px;position:relative;transform-origin:bottom}
+.grow div.g{background:var(--accent)}
+.grow span{position:absolute;bottom:-22px;left:0;right:0;text-align:center;font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.grow{margin-bottom:22px}
+.ex2{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);margin-top:-4px}
+.js .grow div{transform:scaleY(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .in .grow div{transform:scaleY(1)}
+@media (max-width:860px){.nx{grid-template-columns:1fr}.nc{padding:20px}}
+/* LINK BLOCK */
+.xl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:var(--ink);color:#fff;border-radius:var(--r);padding:28px}
+.xl .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.xl h3{font-size:clamp(22px,2.6vw,30px);margin:8px 0 8px}
+.xl p{color:var(--dark-muted)}
+.xbtn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:17px;padding:16px 24px;border-radius:14px;white-space:nowrap;transition:transform .2s ease}
+.xbtn:hover{transform:translateY(-2px)}
+.xbtn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.xbtn.ghost{background:transparent;border:1px solid rgba(255,255,255,.3)}
+@media (max-width:720px){.xl{grid-template-columns:1fr;padding:22px}}
+.recap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:12px}
+@media (max-width:980px){.recap{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.recap{grid-template-columns:1fr}}
+.hero .xbtn{justify-self:start}
+/* CTA */
+.cta{background:var(--accent);color:#fff}
+.cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+.cta h2{font-size:clamp(28px,4.4vw,52px)}
+.cta p{font-size:18px;margin-top:14px;max-width:620px;color:#E6FAF0}
+.me{width:190px;height:auto;aspect-ratio:1;border-radius:28px;object-fit:cover;object-position:50% 18%}
+.btn{display:inline-flex;align-items:center;gap:12px;margin-top:26px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:18px;padding:17px 28px;border-radius:16px;position:relative;overflow:hidden;transition:transform .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+@keyframes shine{0%{left:-60%}55%,100%{left:130%}}
+.handle{display:block;margin-top:12px;font-family:var(--f-mono);font-size:14px;color:#E6FAF0}
+@media (max-width:720px){.cta .wrap{grid-template-columns:1fr;gap:22px}.me{width:116px;border-radius:22px}}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.btn::after{animation:none}.js .split .sbar div,.js .bars .fl,.js .fun .fb,.js .okv .fl,.js .grow div{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <div class="brand" aria-label="VOT SERVICES"><span>VOT</span><span>SERVICES</span></div>
+      <div class="label">Аудит рекламы · <b>ремонт ТНВД и форсунок</b></div>
+    </div>
+    <h1>Аудит Яндекс Директа <em>за&nbsp;7&nbsp;месяцев</em></h1>
+    <p class="lead">Статистика рекламы за март–сентябрь 2026: что работало, что сливало бюджет и какие выводы из этого следуют.</p>
+    <div class="spec">
+      <div><span class="k">Период</span><span class="v">01.03 – 30.09.2026</span><span class="d">Москва и Московская область</span></div>
+      <div><span class="k">Кампаний</span><span class="v">6</span><span class="d">Поиск, марки, бренд, конкуренты, мастер кампаний</span></div>
+      <div><span class="k">Отчёты</span><span class="v">5 выгрузок</span><span class="d">Запросы, регионы, аудитория, устройства, площадки</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- 01 SUMMARY -->
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>01</b> · Итоги аудита</div>
+      <h2>7 месяцев рекламы в&nbsp;цифрах</h2>
+    </div>
+    <div class="big4">
+      <div class="bn rv"><div class="v num">690 200 ₽</div><span>потрачено за март–сентябрь, ~98 600 ₽ в месяц</span></div>
+      <div class="bn rv"><div class="v r num">53%</div><span>бюджета ушло на запросы без единой заявки</span></div>
+      <div class="bn rv"><div class="v r num">146 027 ₽</div><span>заплачено за «конверсии» по фиксированной цене, в том числе по мусорным запросам</span></div>
+      <div class="bn rv"><div class="v r num">0 ₽</div><span>на догоняющую рекламу — её не было</span></div>
+    </div>
+    <div class="split rv">
+      <span class="k">Весь бюджет 690 200 ₽</span>
+      <div class="sbar"><div class="bad">53% · 0 заявок</div><div class="ok">47% · заявки</div></div>
+      <div class="slg"><span><b>367 466 ₽</b> не принесли ни одного обращения</span><span><b>322 734 ₽</b> дали все заявки</span></div>
+    </div>
+    <p class="src">Источник: выгрузки из Яндекс Директа, ООО «ВОТ СЕРВИС», 01.03.2026–30.09.2026.</p>
+  </div>
+</section>
+
+<!-- 02 WORKED -->
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>02</b> · Что работало</div>
+      <h2>Основа рабочая — её сохраняем</h2>
+    </div>
+    <div class="good">
+      <div class="gd rv"><span class="vn">Узнаваемость</span><b>Вас ищут по названию</b><span>По запросам «вот сервис» обращением заканчивался каждый третий клик.</span><div class="gv"><b class="num">33–45%</b><span>кликов → обращение</span></div></div>
+      <div class="gd rv"><span class="vn">Аудитория</span><b>Мужчины 35–54</b><span>Самые дешёвые обращения: 952–981 ₽. Основная аудитория.</span><div class="gv"><b class="num">318</b><span>обращений за 7 месяцев</span></div></div>
+    </div>
+    <div class="panel rv">
+      <div>
+        <span class="k">Цена обращения по городам</span>
+        <h3>Ближнее Подмосковье дешевле Москвы в&nbsp;2&nbsp;раза</h3>
+        <p>Люберцы, Котельники, Балашиха, Реутов — рядом с сервисом на Ташкентской. Сюда переносим часть бюджета.</p>
+      </div>
+      <div class="bars">
+        <div class="cb lo"><span class="n">Люберцы</span><span class="tr"><span class="fl" style="--w:33%"></span></span><span class="c">592 ₽</span></div>
+        <div class="cb lo"><span class="n">Котельники</span><span class="tr"><span class="fl" style="--w:34%"></span></span><span class="c">609 ₽</span></div>
+        <div class="cb lo"><span class="n">Мытищи</span><span class="tr"><span class="fl" style="--w:38%"></span></span><span class="c">680 ₽</span></div>
+        <div class="cb lo"><span class="n">Балашиха</span><span class="tr"><span class="fl" style="--w:39%"></span></span><span class="c">690 ₽</span></div>
+        <div class="cb"><span class="n">Москва</span><span class="tr"><span class="fl" style="--w:67%"></span></span><span class="c">1 194 ₽</span></div>
+        <div class="cb hi"><span class="n">Химки</span><span class="tr"><span class="fl" style="--w:100%"></span></span><span class="c">1 792 ₽</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 NOT WORKED -->
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>03</b> · Что не работало</div>
+      <h2>Пять причин, почему уходил бюджет</h2>
+    </div>
+
+    <div class="sub rv"><span class="n">01</span>Мусорные поисковые запросы</div>
+    <div class="qgrid">
+      <div class="qc rv">
+        <div class="qh"><div><b>Запчасти и артикулы</b><span>Хотят купить деталь, а не отремонтировать</span></div><div class="tot"><b class="num">39 185 ₽</b><small>419 кликов</small></div></div>
+        <ul class="ql">
+          <li><q><s>датчик тнвд газель next</s></q><span>3 050 ₽ за «конверсию»</span></li>
+          <li><q><s>купить тнвд 0445010142</s></q><span>2 074 ₽</span></li>
+          <li><q><s>е1023503 гайка распылитель форсунки купить</s></q><span>1 171 ₽</span></li>
+          <li><q><s>купить дизельные форсунки на фольксваген амарок</s></q><span>1 098 ₽</span></li>
+        </ul>
+      </div>
+      <div class="qc rv">
+        <div class="qh"><div><b>Чужие сервисы</b><span>Ищут конкретного конкурента по названию</span></div><div class="tot"><b class="num">56 756 ₽</b><small>125 кликов</small></div></div>
+        <ul class="ql">
+          <li><q><s>бош сервис ремонт тнвд</s></q><span>8 424 ₽</span></li>
+          <li><q><s>опен дизель ремонт форсунок</s></q><span>2 252 ₽</span></li>
+          <li><q><s>мэйджор дизель ремонт форсунок на поморской</s></q><span>1 837 ₽</span></li>
+          <li><q><s>рус дизель ремонт форсунок москва</s></q><span>1 643 ₽</span></li>
+        </ul>
+      </div>
+      <div class="qc rv">
+        <div class="qh"><div><b>«Сделаю сам»</b><span>Ищут инструкцию, в сервис не поедут</span></div><div class="tot"><b class="num">16 654 ₽</b><small>178 кликов</small></div></div>
+        <ul class="ql">
+          <li><q><s>как почистить форсунки на рено дастер</s></q><span>1 098 ₽</span></li>
+          <li><q><s>как снять топливный насос на двигателе</s></q><span>976 ₽</span></li>
+          <li><q><s>как проверить сопротивление пьезофорсунки</s></q><span>976 ₽</span></li>
+          <li><q><s>соренто дизель как снять тнвд для ремонта</s></q><span>398 ₽</span></li>
+        </ul>
+      </div>
+      <div class="qc t rv">
+        <div class="qh"><div><b>Нужные запросы, но 0 заявок</b><span>Искали именно ремонт — и ушли с сайта</span></div><div class="tot"><b class="num">133 395 ₽</b><small>451 запрос</small></div></div>
+        <ul class="ql">
+          <li><q>ремонт тнвд дизельных двигателей</q><span>3 733 ₽ · 0 заявок</span></li>
+          <li><q>ремонт форсунок дизельных</q><span>3 582 ₽ · 0 заявок</span></li>
+          <li><q>ремонт дизельных форсунок в москве</q><span>3 282 ₽ · 0 заявок</span></li>
+          <li><q>ремонт форсунок дизельных двигателей</q><span>1 914 ₽ · 0 заявок</span></li>
+        </ul>
+        <p class="why"><b>Проблема не в запросе, а в странице.</b> ТНВД и форсунки на сайте — на одной общей странице. Человек не видит сразу свою услугу и цену.</p>
+      </div>
+    </div>
+    <div class="auto rv">
+      <div class="v num">125 941 ₽</div>
+      <p><b>Больше всего мусора дал автотаргетинг.</b> Яндекс сам подбирал запросы: 18% бюджета и 40% всех кликов. Отсюда «датчик газель» и артикулы запчастей.</p>
+    </div>
+
+    <div class="sub rv"><span class="n">02</span>Две модели оплаты — обе работали против вас</div>
+    <div class="panel rv">
+      <div class="bars">
+        <span class="k">Кампании с оплатой за клики · цена обращения</span>
+        <div class="cb hi"><span class="n">Дизель<small>292 587 ₽</small></span><span class="tr"><span class="fl" style="--w:100%"></span></span><span class="c">3 215 ₽</span></div>
+        <div class="cb hi"><span class="n">Марки<small>168 203 ₽</small></span><span class="tr"><span class="fl" style="--w:76%"></span></span><span class="c">2 438 ₽</span></div>
+        <div class="cb lo"><span class="n">Бренд<small>83 383 ₽</small></span><span class="tr"><span class="fl" style="--w:15%"></span></span><span class="c">488 ₽</span></div>
+      </div>
+      <div>
+        <h3>По кликам — <em>дорого</em>, за конверсии — <em>за мусор</em></h3>
+        <p><b>За клики</b> платили «Дизель» и «Марки»: 460 790 ₽, обращение по 2 400–3 200 ₽, и 354 424 ₽ ушло на запросы без единой заявки.</p>
+        <p style="margin-top:10px"><b>За конверсии</b> платили «Мастер кампаний», «Основные» и «Конкуренты»: 146 027 ₽ по фиксированной цене 976–3 050 ₽ за каждую. Конверсиями засчитывались и «купить тнвд», и «как почистить форсунки».</p>
+      </div>
+    </div>
+
+    <div class="sub rv"><span class="n">03–05</span>Настройки, которые мешали</div>
+    <div class="issues">
+      <div class="is rv"><span class="vn">03 · Цель</span><b>Реклама училась не на заявках</b><span>Конверсии засчитывались даже по «купить форсунку» и «как почистить форсунки». 574 «конверсии» — не 574 клиента.</span></div>
+      <div class="is rv"><span class="vn">04 · Оплата</span><b>Платили за мусорные «конверсии»</b><span>117 списаний по 900–3 050 ₽, всего 138 319 ₽. Например, 3 050 ₽ за «датчик тнвд газель next» и 2 074 ₽ за «купить тнвд 0445010142».</span></div>
+      <div class="is rv"><span class="vn">05 · Догоняющая</span><b>Ушёл — и забыл</b><span>Отдельной догоняющей кампании не было. На показы в сетях Яндекса — 3 050 ₽ из 690 200 ₽.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 CONCLUSIONS -->
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>04</b> · Выводы</div>
+      <h2>Что из этого следует</h2>
+    </div>
+    <div class="concl">
+      <div class="rv"><b>Бренд работает</b><span>По запросам с вашим названием обращение стоит <em>~490 ₽</em>. Это оставляем.</span></div>
+      <div class="rv"><b>Половину бюджета можно вернуть</b><span>Запчасти, чужие сервисы, «сделаю сам», автотаргетинг — убираем в первую неделю.</span></div>
+      <div class="rv"><b>Сначала исправить цель</b><span>Пока цель считает не заявки, вы платите за «конверсии», которые не приносят клиентов.</span></div>
+      <div class="rv"><b>Разделить ТНВД и форсунки</b><span>133 395 ₽ ушло на нужные запросы без заявок. Своя страница под каждую услугу.</span></div>
+      <div class="rv"><b>Вернуть ушедших</b><span>Догоняющая реклама показывается тем, кто был на сайте, но не позвонил.</span></div>
+      <div class="rv"><b>Бюджет — туда, где дешевле</b><span>Ближнее Подмосковье и мужчины 35–54: обращения <em>в 1,5–2 раза дешевле</em>.</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="xl rv">
+      <div><span class="k">Следующий шаг</span><h3>Что с этим делать</h3><p>План перезапуска Директа, холодные звонки компаниям с дизельной техникой, прогноз заработка и стоимость — в коммерческом предложении.</p></div>
+      <a class="xbtn" href="index.html">Открыть КП →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <img class="me rv" src="img/me.jpg" alt="Максим" width="190" height="190">
+    <div class="rv">
+      <h2>Обсудим запуск</h2>
+      <p>Созвонимся на 20 минут: пройдёмся по аудиту и решим, с какого направления начать.</p>
+      <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener">Написать в Telegram</a>
+      <span class="handle">Максим · @midnaix</span>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var $=function(id){return document.getElementById(id)};
+  function f(n){return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ')}
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    els.forEach(function(e){io.observe(e)});
+  }else els.forEach(function(e){e.classList.add('in')});
+  function pc(){
+    var L=+$('p-l').value,C=$('p-c').value/100,F=$('p-f').value/100,T=+$('p-t').value,I=+$('p-i').value,K=+$('p-k').value,R=+$('p-r').value;
+    $('p-lo').textContent=L;$('p-co').textContent=$('p-c').value+'%';$('p-fo').textContent=$('p-f').value+'%';
+    $('p-to').textContent=f(T)+'\u00a0₽';$('p-io').textContent=f(I)+'\u00a0₽';$('p-ko').textContent=K;$('p-ro').textContent=R;
+    var avg=F*I+(1-F)*T,o=Math.round(L*C),d=o*avg,b2=K*R*avg,t=d+b2;
+    $('q-o').textContent=o;$('q-d').textContent=f(d)+'\u00a0₽';$('q-b').textContent=f(b2)+'\u00a0₽';$('q-t').textContent=f(t)+'\u00a0₽';
+    $('q-y').textContent='≈ '+f(t*12)+'\u00a0₽ в год';
+    var days=t>0?Math.ceil(190000/(t/30)):0;$('q-p').textContent=days?days+' '+(days%10==1&&days%100!=11?'день':(days%10>=2&&days%10<=4&&(days%100<12||days%100>14))?'дня':'дней')+' выручки':'—';
+  }
+  if($('p-l')){['p-l','p-c','p-f','p-t','p-i','p-k','p-r'].forEach(function(id){$(id).addEventListener('input',pc)});pc();}
+})();
+</script>
+</body>
+</html>
