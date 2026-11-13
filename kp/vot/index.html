@@ -114,6 +114,33 @@ p{margin:0}
 .src{margin-top:14px;font-family:var(--f-mono);font-size:12px;color:var(--dark-muted)}
 @media (max-width:640px){.goal{grid-template-columns:1fr;gap:8px;padding:18px}}
 
+.part{display:flex;align-items:center;gap:12px;font-family:var(--f-display);font-weight:700;font-size:clamp(20px,2.4vw,28px);margin:56px 0 18px}
+.part i{width:14px;height:14px;border-radius:50%;flex:none}
+.part i.ok{background:var(--accent)}.part i.bad{background:var(--warn)}.part i.go{background:#fff}
+.good{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.gd{background:var(--dark2);border:1px solid var(--dark-line);border-top:3px solid var(--accent);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.gd .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.gd>b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
+.gd>span:not(.vn){color:var(--dark-muted);font-size:15px}
+.gv{margin-top:6px;padding-top:12px;border-top:1px solid var(--dark-line);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.gv b{font-family:var(--f-display);font-weight:800;font-size:26px;color:var(--accent);white-space:nowrap}
+.gv span{color:var(--dark-muted);font-size:13.5px}
+@media (max-width:900px){.good{grid-template-columns:1fr}}
+.geo{margin-top:12px;background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:34px;align-items:center}
+.geo .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dark-muted);display:block;margin-bottom:12px}
+.geo h3{font-size:clamp(22px,2.6vw,30px);margin-bottom:12px}
+.geo p{color:var(--dark-muted)}
+.geo .cb{grid-template-columns:110px minmax(0,1fr) 74px}
+.js .geo .fl{transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .geo.in .fl{transform:scaleX(1)}
+@media (max-width:900px){.geo{grid-template-columns:1fr;gap:22px;padding:20px}}
+.concl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--dark-line)}
+.concl>div{padding:22px 22px 22px 0;border-bottom:1px solid var(--dark-line);display:grid;gap:6px;align-content:start}
+.concl>div:not(:nth-child(3n+1)){padding-left:22px;border-left:1px solid var(--dark-line)}
+.concl .vn{font-family:var(--f-mono);font-size:12px;color:var(--accent);letter-spacing:.1em}
+.concl b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.25}
+.concl span:last-child{color:var(--dark-muted);font-size:15px}
+@media (max-width:900px){.concl{grid-template-columns:1fr}.concl>div,.concl>div:not(:nth-child(3n+1)){padding:18px 0;border-left:0}}
 /* DIRECT FIX */
 .fix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .fx{background:var(--card);border-radius:18px;padding:24px;display:grid;gap:10px;align-content:start}
@@ -234,6 +261,19 @@ p{margin:0}
 .pc .sum small{display:block;font-family:var(--f-mono);font-weight:400;font-size:12.5px;letter-spacing:.06em;color:var(--muted);margin-top:8px}
 .pc.b .sum small{color:var(--dark-muted)}
 .pc.b .ticks li{color:#DDE5E1}
+.pay{margin-top:14px;background:var(--card);border-radius:var(--r);padding:28px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:30px;align-items:center}
+.pay .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+.pay h3{margin:8px 0 10px}
+.pay p{color:var(--muted);font-size:16px}
+.pbar{display:flex;gap:4px;height:84px}
+.pbar div{flex:1;background:var(--paper);border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;min-width:0}
+.pbar .p0{flex:3.2;background:var(--accent);color:#fff}
+.pbar b{font-family:var(--f-display);font-weight:800;font-size:clamp(13px,1.3vw,16px)}
+.pbar .p0 b{font-size:clamp(18px,2vw,24px)}
+.pbar span{font-family:var(--f-mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.pbar .p0 span{color:#E6FAF0}
+@media (max-width:860px){.pay{grid-template-columns:1fr;padding:22px;gap:20px}}
+@media (max-width:480px){.pbar{height:64px;gap:3px}.pbar div:not(.p0) span{display:none}.pbar b{font-size:12px}.pbar .p0 b{font-size:18px}}
 .nope{margin-top:14px;font-size:15px;color:var(--muted)}
 .nope b{color:var(--ink)}
 @media (max-width:860px){.price{grid-template-columns:1fr}.pc{padding:22px}}
@@ -279,9 +319,9 @@ p{margin:0}
 <section class="dark">
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>01</b> · Разбор Директа</div>
-      <h2>Куда ушли 690&nbsp;000&nbsp;₽ за&nbsp;7&nbsp;месяцев</h2>
-      <p class="lead">Мы выгрузили статистику по запросам, кампаниям и регионам за март–сентябрь 2026. Вот что видно в цифрах.</p>
+      <div class="label"><b>01</b> · Аудит рекламы</div>
+      <h2>Аудит Директа: 690&nbsp;000&nbsp;₽ за&nbsp;7&nbsp;месяцев</h2>
+      <p class="lead">Мы выгрузили статистику по запросам, кампаниям и регионам за март–сентябрь 2026. Ниже — что работало, что нет, и какие выводы мы из этого сделали.</p>
     </div>
     <div class="big4">
       <div class="bn rv"><div class="v num">690 200 ₽</div><span>потрачено на рекламу за 7 месяцев</span></div>
@@ -290,6 +330,29 @@ p{margin:0}
       <div class="bn rv"><div class="v w num">2,5%</div><span>бюджета досталось грузовикам и спецтехнике, самым крупным клиентам</span></div>
     </div>
 
+    <div class="part rv"><i class="ok"></i>Что работало</div>
+    <div class="good">
+      <div class="gd rv"><span class="vn">Узнаваемость</span><b>Вас ищут по названию</b><span>По запросам «вот сервис» каждый третий клик заканчивался обращением. Название знают — репутация работает.</span><div class="gv"><b class="num">33–45%</b><span>кликов → обращение</span></div></div>
+      <div class="gd rv"><span class="vn">Точные запросы</span><b>Узкая семантика окупается</b><span>Кампания «Основные запросы» с чёткими фразами: обращение по 552 ₽, по форсункам — 470 ₽.</span><div class="gv"><b class="num">470 ₽</b><span>за обращение по форсункам</span></div></div>
+      <div class="gd rv"><span class="vn">Аудитория</span><b>Мужчины 35–54 — ядро</b><span>Самые дешёвые обращения: 952–981 ₽. На эту аудиторию и делаем ставку.</span><div class="gv"><b class="num">318</b><span>обращений от мужчин 35–54</span></div></div>
+    </div>
+    <div class="geo rv">
+      <div>
+        <span class="k">Цена обращения по городам</span>
+        <h3>Ближнее Подмосковье дешевле Москвы в&nbsp;2&nbsp;раза</h3>
+        <p>Люберцы, Котельники, Балашиха, Реутов — рядом с сервисом на Ташкентской. Отсюда приезжают охотнее, а обращение стоит 590–820 ₽ против 1 194 ₽ по Москве.</p>
+      </div>
+      <div class="gb">
+        <div class="cb lo"><span class="n">Люберцы</span><span class="tr"><span class="fl" style="--w:33%"></span></span><span class="c">592 ₽</span></div>
+        <div class="cb lo"><span class="n">Котельники</span><span class="tr"><span class="fl" style="--w:34%"></span></span><span class="c">609 ₽</span></div>
+        <div class="cb lo"><span class="n">Мытищи</span><span class="tr"><span class="fl" style="--w:38%"></span></span><span class="c">680 ₽</span></div>
+        <div class="cb lo"><span class="n">Балашиха</span><span class="tr"><span class="fl" style="--w:39%"></span></span><span class="c">690 ₽</span></div>
+        <div class="cb"><span class="n">Москва</span><span class="tr"><span class="fl" style="--w:67%"></span></span><span class="c">1 194 ₽</span></div>
+        <div class="cb hi"><span class="n">Химки</span><span class="tr"><span class="fl" style="--w:100%"></span></span><span class="c">1 792 ₽</span></div>
+      </div>
+    </div>
+
+    <div class="part rv"><i class="bad"></i>Что не работало</div>
     <div class="split rv">
       <span class="k">Весь бюджет 690 200 ₽</span>
       <div class="sbar"><div class="bad">53% · 0 заявок</div><div class="ok">47% · заявки</div></div>
@@ -321,6 +384,15 @@ p{margin:0}
       <span class="k">Важно</span>
       <p><b>574 «конверсии» — это не 574 клиента.</b> Конверсии засчитывались даже по запросам «купить форсунку» и «как почистить форсунки». Значит, цель в Метрике считает не реальные заявки. Реклама оптимизировалась на эту цель и честно приносила то, что её просили.</p>
     </div>
+    <div class="part rv"><i class="go"></i>Выводы</div>
+    <div class="concl">
+      <div class="rv"><span class="vn">01</span><b>Спрос есть, и он окупается</b><span>Точные запросы и бренд дают обращения по 490–550 ₽. Основа рабочая — её оставляем.</span></div>
+      <div class="rv"><span class="vn">02</span><b>Половина денег — в мусор</b><span>Широкие фразы, запчасти, «сделай сам» и клики без лимита. Это убираем в первую неделю.</span></div>
+      <div class="rv"><span class="vn">03</span><b>Реклама учится не на том</b><span>Цель считает не заявки. Пока это не исправить, любая оптимизация идёт вслепую.</span></div>
+      <div class="rv"><span class="vn">04</span><b>Ставку — на ближние районы и мужчин 35–54</b><span>Там обращения в 1,5–2 раза дешевле. Перераспределяем бюджет туда.</span></div>
+      <div class="rv"><span class="vn">05</span><b>Крупные клиенты не охвачены</b><span>Грузовикам и спецтехнике 2,5% бюджета. Это отдельный канал: реклама + холодные звонки.</span></div>
+      <div class="rv"><span class="vn">06</span><b>72% бюджета — с телефонов</b><span>Сайт должен быть удобен со смартфона: кнопка звонка, короткая форма, быстрая загрузка.</span></div>
+    </div>
     <p class="src">Источник: выгрузки из Яндекс Директа, ООО «ВОТ СЕРВИС», 01.03.2026–30.09.2026.</p>
   </div>
 </section>
@@ -328,7 +400,7 @@ p{margin:0}
 <section>
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>02</b> · Яндекс Директ</div>
+      <div class="label"><b>02</b> · Что делаем дальше · Яндекс Директ</div>
       <h2>Перезапуск: платим только за тех, кому нужен ремонт</h2>
     </div>
     <div class="fix">
@@ -473,10 +545,26 @@ p{margin:0}
         <ul class="ticks">
           <li><span>База автопарков и компаний со спецтехникой</span></li>
           <li><span>Скрипт под ремонт топливной аппаратуры</span></li>
-          <li><span>Звонки и выход на главного механика или директора</span></li>
-          <li><span>Таблица с итогом по каждой компании и отчёт</span></li>
+          <li><span>100–150 компаний в неделю, выход на главного механика или директора</span></li>
+          <li><span>Вся история звонков и статусы в CRM, у вас доступ в реальном времени</span></li>
+          <li><span>Все доступы и база остаются у вас после завершения</span></li>
         </ul>
         <div class="sum">Цена уточняется<small>можно запустить отдельно от первого направления</small></div>
+      </div>
+    </div>
+    <div class="pay rv">
+      <div class="pt">
+        <span class="k">Порядок оплаты</span>
+        <h3>Половина на старте, остальное по ходу работы</h3>
+        <p>Вторую половину платите пятью равными частями по 10% каждую пятницу, пока идёт работа. Каждую неделю видите в CRM, за что платите.</p>
+      </div>
+      <div class="pbar" aria-hidden="true">
+        <div class="p0"><b>50%</b><span>при старте</span></div>
+        <div><b>10%</b><span>нед. 1</span></div>
+        <div><b>10%</b><span>нед. 2</span></div>
+        <div><b>10%</b><span>нед. 3</span></div>
+        <div><b>10%</b><span>нед. 4</span></div>
+        <div><b>10%</b><span>нед. 5</span></div>
       </div>
     </div>
   </div>
