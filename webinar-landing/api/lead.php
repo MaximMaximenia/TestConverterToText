@@ -31,14 +31,14 @@ if (!is_array($input)) {
 }
 
 $name = isset($input['name']) ? trim((string) $input['name']) : '';
-$contact = isset($input['contact']) ? trim((string) $input['contact']) : '';
+$contact = isset($input['username']) ? trim((string) $input['username']) : '';
+$webinarDate = isset($input['webinarDate']) ? trim((string) $input['webinarDate']) : '';
 $honeypot = isset($input['company']) ? trim((string) $input['company']) : '';
 $utm = isset($input['utm']) && is_array($input['utm']) ? $input['utm'] : [];
 
 /* честная серверная валидация — фронтенд тоже проверяет, но доверять
-   только фронтенду нельзя, запрос можно отправить напрямую мимо формы.
-   Контакт — телеграм (@username, 5-32 символа) ИЛИ телефон. */
-$contactOk = (bool) preg_match('/^@?[A-Za-z0-9_]{5,32}$|^\+?[\d\s().-]{10,18}$/', $contact);
+   только фронтенду нельзя, запрос можно отправить напрямую мимо формы. */
+$contactOk = (bool) preg_match('/^@?[A-Za-z0-9_]{5,32}$/', $contact);
 $nameOk = $name !== '' && mb_strlen($name) <= 100;
 
 if ($honeypot !== '') {
@@ -53,8 +53,7 @@ if (!$nameOk || !$contactOk) {
     respond(['ok' => false, 'error' => 'validation_failed'], 422);
 }
 
-$isTelegram = $contact[0] === '@' || preg_match('/^[A-Za-z0-9_]{5,32}$/', $contact);
-if ($isTelegram && $contact[0] !== '@') {
+if ($contact[0] !== '@') {
     $contact = '@' . $contact;
 }
 
@@ -80,9 +79,10 @@ if ($utmHasAny) {
     }
 }
 
-$text = "🎯 Новая заявка на разбор продаж!\n" .
+$text = "🎯 Новая заявка на вебинар!\n" .
     "Имя: " . $name . "\n" .
-    "Контакт: " . $contact .
+    "Telegram: " . $contact . "\n" .
+    "Дата вебинара: " . ($webinarDate !== '' ? $webinarDate : 'не указана') .
     $utmLines;
 
 $tgOk = false;
@@ -120,7 +120,7 @@ if ($botToken && $chatId && strpos($botToken, 'ВПИШИ') === false) {
    сломан, а ошибку никто не заметил вовремя. */
 $mailOk = false;
 if ($notifyEmail && strpos($notifyEmail, 'ВПИШИ') === false) {
-    $subject = ($tgOk ? '' : '[ТЕЛЕГРАМ НЕ ДОШЁЛ] ') . 'Новая заявка на разбор продаж';
+    $subject = ($tgOk ? '' : '[ТЕЛЕГРАМ НЕ ДОШЁЛ] ') . 'Новая заявка на вебинар';
     $body = $text . ($tgOk ? '' : "\n\n(Внимание: в Telegram это сообщение НЕ доставлено: " . $tgError . ")");
     $headers = 'Content-Type: text/plain; charset=UTF-8';
     $mailOk = @mail($notifyEmail, $subject, $body, $headers);
