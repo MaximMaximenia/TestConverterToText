@@ -294,7 +294,7 @@
       var submitBtn = form.querySelector("button[type=submit]");
       if (submitBtn) submitBtn.disabled = true;
 
-      fetch(cfg.leadEndpoint || "/api/lead.php", {
+      fetch(cfg.leadEndpoint || "api/lead.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
@@ -308,7 +308,7 @@
           ymGoal("lead_submit");
           if (window.clarity) window.clarity("set", "lead", "confirmed");
           try { sessionStorage.setItem("leadToken", res.token || "1"); } catch (e) { /* без sessionStorage просто не будет защиты от прямого захода на /thanks/ */ }
-          window.location.href = "/thanks/";
+          window.location.href = "thanks/";
         })
         .catch(function () {
           if (submitBtn) submitBtn.disabled = false;

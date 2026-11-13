@@ -111,7 +111,7 @@ window.SITE_CONFIG = {
 
   // Куда форма шлёт заявку — см. пункт 4 выше. Менять не нужно,
   // если api/lead.php лежит там же, где и сам сайт.
-  leadEndpoint: "/api/lead.php",
+  leadEndpoint: "api/lead.php",
 
   // Яндекс.Метрика — счётчик уже подключен напрямую в <head> страницы
   // (index.html). Это поле только для целей (video_25, lead_submit и т.д.) —
