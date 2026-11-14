@@ -746,6 +746,11 @@ body{background:#FBFDFC}
 @keyframes glow{0%,100%{box-shadow:0 0 0 6px rgba(23,178,106,.18),0 0 22px rgba(23,178,106,.55)}50%{box-shadow:0 0 0 12px rgba(23,178,106,.08),0 0 40px rgba(23,178,106,.95)}}
 @keyframes bob{0%,100%{transform:translate(-50%,-60%) rotate(45deg)}50%{transform:translate(-50%,-35%) rotate(45deg)}}
 @media (prefers-reduced-motion:reduce){.farr i,.farr i::after{animation:none}}
+.flow-arrow{display:flex;justify-content:center;margin-top:72px;margin-bottom:-36px;color:var(--accent-deep);opacity:.55}
+.flow-arrow svg{animation:fa 2.6s ease-in-out infinite}
+@keyframes fa{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@media (prefers-reduced-motion:reduce){.flow-arrow svg{animation:none}}
+@media (max-width:640px){.flow-arrow{margin-top:48px;margin-bottom:-20px}.flow-arrow svg{height:48px}}
 /* CTA */
 .cta{background:var(--accent);color:#fff}
 .cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -773,7 +778,7 @@ body{background:#FBFDFC}
       <div class="brand" aria-label="VOT SERVICES"><span>VOT</span><span>SERVICES</span></div>
       <div class="label">Коммерческое предложение · <b>обзвон B2B</b></div>
     </div>
-    <h1>Найдём вам постоянных клиентов <em>с&nbsp;помощью обзвона</em></h1>
+    <h1>Найдём вам постоянных клиентов <em>с&nbsp;помощью холодных звонков</em></h1>
     <p class="lead">Обзвоним 500 компаний с дизельной техникой, выйдем на главных механиков и директоров и передадим вам тех, кому ремонт ТНВД и форсунок нужен постоянно.</p>
     <div class="spec">
       <div><span class="k">Кому звоним</span><span class="v">Владельцам техники</span><span class="d">Спецтехника, грузовые и автобусные парки</span></div>
@@ -808,11 +813,11 @@ body{background:#FBFDFC}
       <div class="rv"><b>Коммунальная техника</b><span>Уборочная и дорожная</span></div>
       <div class="rv"><b>Грузовые СТО</b><span>Без своего стенда — отдают на ремонт</span></div>
     </div>
+    <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 64" width="24" height="64"><path d="M12 2v56M4 50l8 10 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </div>
 </section>
 
 <!-- 02 CASE -->
-<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 02 SCRIPT -->
 <section class="lmesh">
   <div class="wrap">
@@ -845,10 +850,10 @@ body{background:#FBFDFC}
         </div>
       </div>
     </div>
+    <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 64" width="24" height="64"><path d="M12 2v56M4 50l8 10 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </div>
 </section>
 
-<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 03 CASE -->
 <section class="lmesh">
   <div class="wrap">
@@ -894,10 +899,10 @@ body{background:#FBFDFC}
         <span class="vt"><span class="vn">Видео 2</span><b>Как разбираем звонки</b><span>Слушаем каждый звонок и правим скрипт по ходу проекта</span></span>
       </a>
     </div>
+    <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 64" width="24" height="64"><path d="M12 2v56M4 50l8 10 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </div>
 </section>
 
-<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 03 YOUR CASE -->
 <section>
   <div class="wrap">
@@ -916,10 +921,10 @@ body{background:#FBFDFC}
       <div class="fr2 hot"><div class="fb2" style="--w:26%"><b>~20</b></div><span>заинтересованных компаний — ориентировочно</span></div>
     </div>
     <p class="src">Ориентир, не обещание: в примере ВТ-Инвест 800 компаний дали 30 заинтересованных.</p>
+    <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 64" width="24" height="64"><path d="M12 2v56M4 50l8 10 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </div>
 </section>
 
-<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 05 PRICE -->
 <section>
   <div class="wrap">
@@ -955,10 +960,10 @@ body{background:#FBFDFC}
         <p>Каждую пятницу платите за то, что уже сделано и видно в CRM.</p>
       </div>
     </div>
+    <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 64" width="24" height="64"><path d="M12 2v56M4 50l8 10 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </div>
 </section>
 
-<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 04 CRM -->
 <section class="lmesh">
   <div class="wrap">
@@ -1011,10 +1016,10 @@ body{background:#FBFDFC}
       <div class="rv"><b>База и доступы — ваши</b><span>После проекта всё остаётся у вас</span></div>
     </div>
     <p class="src">Компании и цифры на макете — пример.</p>
+    <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 64" width="24" height="64"><path d="M12 2v56M4 50l8 10 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </div>
 </section>
 
-<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 06 ABOUT -->
 <section class="about gmesh">
   <div class="wrap">
