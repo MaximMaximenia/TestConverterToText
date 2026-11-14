@@ -575,7 +575,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 .rec i::after{content:"";position:absolute;left:10px;top:8px;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent #fff}
 .rec b{margin-left:auto;font-family:var(--f-mono);font-weight:400;color:var(--muted)}
 .cfe{margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.cfe>div{border-top:2px solid var(--accent);padding-top:12px;display:grid;gap:4px}
+.cfe>div{border-top:2px solid var(--accent);padding-top:12px;display:grid;gap:4px;align-content:start}
 .cfe b{font-family:var(--f-display);font-weight:700;font-size:17px}
 .cfe span{color:var(--dark-muted);font-size:14.5px}
 @media (max-width:980px){.cgrid{grid-template-columns:1fr}}
@@ -610,7 +610,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 @media (max-width:520px){.nich{grid-template-columns:1fr}}
 /* CASE 2 */
 .cres2{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,.8fr) minmax(0,1.5fr);gap:12px}
-.cr2{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:26px;display:grid;gap:8px;align-content:end}
+.cr2{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:26px;display:grid;gap:8px;align-content:start}
 .cr2 b.num{font-family:var(--f-display);font-weight:800;font-size:clamp(48px,6vw,76px);line-height:1}
 .cr2 span{color:var(--dark-muted);font-size:15.5px}
 .cr2.big{border:0;background-color:#0B1A13;background-image:radial-gradient(at 12% 18%,rgba(23,178,106,.55) 0,transparent 45%),radial-gradient(at 88% 8%,rgba(64,214,140,.45) 0,transparent 42%),radial-gradient(at 70% 92%,rgba(14,145,86,.6) 0,transparent 48%),radial-gradient(at 20% 95%,rgba(120,230,170,.28) 0,transparent 40%),radial-gradient(at 50% 50%,rgba(10,60,38,.9) 0,transparent 70%)}
@@ -1006,13 +1006,12 @@ body{background:#FBFDFC}
             <dt>Нужно</dt><dd>2 комплекта форсунок Common Rail, ТНВД на экскаватор</dd>
             <dt>Шаг</dt><dd class="g">Позвонить до пятницы, 10:00–12:00</dd>
           </dl>
-          <div class="rec"><i aria-hidden="true"></i><span>Запись разговора</span><b>04:37</b></div>
         </div>
       </div>
     </div>
     <div class="cfe">
       <div class="rv"><b>Отчёт каждую пятницу</b><span>Сколько обзвонили, на кого вышли, кто заинтересован</span></div>
-      <div class="rv"><b>Записи разговоров</b><span>Можно послушать любой звонок</span></div>
+      <div class="rv"><b>Видно, какая ниша горячее</b><span>Спецтехника, грузоперевозки, автобусы — по цифрам</span></div>
       <div class="rv"><b>База и доступы — ваши</b><span>После проекта всё остаётся у вас</span></div>
     </div>
     <p class="src">Компании и цифры на макете — пример.</p>
