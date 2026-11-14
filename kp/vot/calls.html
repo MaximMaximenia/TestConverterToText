@@ -609,7 +609,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 @media (max-width:860px){.nich{grid-template-columns:1fr 1fr}}
 @media (max-width:520px){.nich{grid-template-columns:1fr}}
 /* CASE 2 */
-.cres2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1.1fr);gap:12px}
+.cres2{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,.8fr) minmax(0,1.5fr);gap:12px}
 .cr2{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:26px;display:grid;gap:8px;align-content:end}
 .cr2 b.num{font-family:var(--f-display);font-weight:800;font-size:clamp(48px,6vw,76px);line-height:1}
 .cr2 span{color:var(--dark-muted);font-size:15.5px}
@@ -668,12 +668,12 @@ a.pf b::after{content:" →";color:var(--accent)}
 /* THEME 2 */
 .dmesh{background-color:#050C08;background-image:radial-gradient(at 85% 10%,rgba(23,178,106,.35) 0,transparent 45%),radial-gradient(at 10% 90%,rgba(14,145,86,.28) 0,transparent 45%),radial-gradient(at 60% 60%,rgba(64,214,140,.12) 0,transparent 50%)}
 .hero.dmesh .label{color:#B7CEC2}
-.hero.dmesh .label b{color:#8FF0BE}
+.hero.dmesh .label b{color:var(--accent)}
 .hero.dmesh .lead{color:#D2E3DA}
-.hero.dmesh h1 em{color:#8FF0BE}
-.hero.dmesh .spec .k{color:#8FF0BE}
+.hero.dmesh h1 em{color:var(--accent)}
+.hero.dmesh .spec .k{color:var(--accent)}
 .hero.dmesh .spec .d{color:#B7CEC2}
-.hero.dmesh h1{font-size:clamp(23px,4.6vw,60px);line-height:1.06}
+.hero.dmesh h1{font-size:clamp(34px,6.6vw,86px);line-height:1}
 .lmesh{background-color:#F4F8F5;background-image:radial-gradient(at 0% 0%,rgba(143,240,190,.45) 0,transparent 40%),radial-gradient(at 100% 20%,rgba(23,178,106,.18) 0,transparent 40%),radial-gradient(at 80% 100%,rgba(143,240,190,.35) 0,transparent 45%),radial-gradient(at 10% 80%,rgba(220,245,232,.9) 0,transparent 50%)}
 .gmesh{background-color:#14A862;background-image:radial-gradient(at 15% 20%,rgba(143,240,190,.55) 0,transparent 45%),radial-gradient(at 90% 15%,rgba(14,145,86,.7) 0,transparent 45%),radial-gradient(at 70% 95%,rgba(8,90,52,.6) 0,transparent 50%)}
 .lmesh .cr2,.lmesh .cs2,.lmesh .rvw{background:#fff;border:1px solid #DCE8E1;color:var(--ink)}
@@ -682,7 +682,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 .lmesh .cr2.big{border:0;color:#fff;background-color:#0B1A13;background-image:radial-gradient(at 12% 18%,rgba(23,178,106,.55) 0,transparent 45%),radial-gradient(at 88% 8%,rgba(64,214,140,.45) 0,transparent 42%),radial-gradient(at 70% 92%,rgba(14,145,86,.6) 0,transparent 48%),radial-gradient(at 20% 95%,rgba(120,230,170,.28) 0,transparent 40%),radial-gradient(at 50% 50%,rgba(10,60,38,.9) 0,transparent 70%)}
 .lmesh .cr2.big span{color:#E6FAF0}
 .lmesh .cr2.gz{background:var(--ink);color:#fff;border:0}
-.lmesh .cr2.gz .vn{color:#8FF0BE}
+.lmesh .cr2.gz .vn{color:#E6FAF0}
 .lmesh .cr2.gz span:last-child{color:#C7D0CB}
 .lmesh .okd2 span{background:#EEF6F1;border-color:#DCE8E1;color:var(--ink)}
 .lmesh .rtx .vn{color:var(--accent-deep)}
@@ -705,7 +705,7 @@ body{background:#FBFDFC}
 .dh{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:4px}
 .dh i{font-style:normal;background:#2B3833;border-radius:999px;padding:2px 8px;letter-spacing:.06em}
 .ln{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:start;background:var(--dark2);border-radius:14px;padding:12px 14px}
-.ln .who{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#8FF0BE;padding-top:3px}
+.ln .who{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding-top:3px}
 .ln p{font-size:15.5px;line-height:1.45;color:#E6ECE9}
 .ln.go{background:var(--accent)}.ln.go .who{color:#fff}.ln.go p{color:#fff}
 .cyc{background:#fff;border:1px solid #DCE8E1;border-radius:var(--r);padding:24px;display:grid;gap:14px}
@@ -726,6 +726,26 @@ body{background:#FBFDFC}
 .js .in .vers i{transform:scaleX(1)}
 @media (max-width:900px){.scr{grid-template-columns:1fr}}
 @media (max-width:480px){.ln{grid-template-columns:1fr;gap:4px}}
+/* REFINE */
+.acc{color:var(--accent)}
+.cr2.gzf{position:relative;overflow:hidden;color:#fff;border:0!important;background-color:#0E9156!important;background-image:radial-gradient(at 15% 15%,rgba(143,240,190,.55) 0,transparent 45%),radial-gradient(at 90% 90%,rgba(8,80,46,.7) 0,transparent 50%)!important;box-shadow:0 24px 50px -20px rgba(23,178,106,.6);align-content:start;padding-right:150px}
+.cr2.gzf .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#E6FAF0}
+.cr2.gzf>b{font-family:var(--f-display);font-weight:800;font-size:clamp(24px,2.6vw,34px);line-height:1.08}
+.cr2.gzf>span:not(.vn){color:#E6FAF0!important;font-size:16px}
+.six{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-style:normal;text-align:center;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#E6FAF0;line-height:1.3}
+.six b{display:block;font-family:var(--f-display);font-weight:800;font-size:84px;line-height:.9;color:#fff;letter-spacing:-.04em;margin-bottom:4px}
+@media (max-width:900px){.cres2{grid-template-columns:1fr 1fr}.cr2.gzf{grid-column:1/-1}}
+@media (max-width:520px){.cres2{grid-template-columns:1fr}.cr2.gzf{padding-right:120px}.six b{font-size:64px}}
+.fb2{background:#DCF5E8;color:var(--accent-deep)}
+.fr2:first-child .fb2{background:linear-gradient(90deg,#DCF5E8,#B8EDD1)}
+.fr2.hot .fb2{background:var(--accent)!important;background-image:none!important;color:#fff;box-shadow:0 0 0 6px rgba(23,178,106,.15),0 14px 30px -10px rgba(23,178,106,.7)}
+.fr2.hot span{color:var(--accent-deep);font-weight:600}
+.farr{position:relative;z-index:5;height:0;display:flex;justify-content:center}
+.farr i{position:absolute;top:-26px;width:52px;height:52px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 6px rgba(23,178,106,.18),0 0 28px rgba(23,178,106,.75);animation:glow 2.4s ease-in-out infinite}
+.farr i::after{content:"";position:absolute;left:50%;top:44%;width:14px;height:14px;border-right:3px solid #fff;border-bottom:3px solid #fff;transform:translate(-50%,-50%) rotate(45deg);animation:bob 2.4s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 0 6px rgba(23,178,106,.18),0 0 22px rgba(23,178,106,.55)}50%{box-shadow:0 0 0 12px rgba(23,178,106,.08),0 0 40px rgba(23,178,106,.95)}}
+@keyframes bob{0%,100%{transform:translate(-50%,-60%) rotate(45deg)}50%{transform:translate(-50%,-35%) rotate(45deg)}}
+@media (prefers-reduced-motion:reduce){.farr i,.farr i::after{animation:none}}
 /* CTA */
 .cta{background:var(--accent);color:#fff}
 .cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -753,8 +773,8 @@ body{background:#FBFDFC}
       <div class="brand" aria-label="VOT SERVICES"><span>VOT</span><span>SERVICES</span></div>
       <div class="label">Коммерческое предложение · <b>обзвон B2B</b></div>
     </div>
-    <h1>За 4 недели выйдем на главных механиков 500 компаний с дизельной техникой — <em>и найдём клиентов, которые будут ремонтироваться у вас годами</em></h1>
-    <p class="lead">Спецтехника, грузовые и автобусные парки. Звоним по проработанному скрипту, находим тех, кто решает, где ремонтировать технику, и передаём вам контакты с готовностью к разговору.</p>
+    <h1>Найдём вам постоянных клиентов <em>с&nbsp;помощью обзвона</em></h1>
+    <p class="lead">Обзвоним 500 компаний с дизельной техникой, выйдем на главных механиков и директоров и передадим вам тех, кому ремонт ТНВД и форсунок нужен постоянно.</p>
     <div class="spec">
       <div><span class="k">Кому звоним</span><span class="v">Владельцам техники</span><span class="d">Спецтехника, грузовые и автобусные парки</span></div>
       <div><span class="k">С кем говорим</span><span class="v">С теми, кто решает</span><span class="d">Главный механик, начальник колонны, директор</span></div>
@@ -792,6 +812,7 @@ body{background:#FBFDFC}
 </section>
 
 <!-- 02 CASE -->
+<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 02 SCRIPT -->
 <section class="lmesh">
   <div class="wrap">
@@ -827,6 +848,7 @@ body{background:#FBFDFC}
   </div>
 </section>
 
+<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 03 CASE -->
 <section class="lmesh">
   <div class="wrap">
@@ -837,9 +859,9 @@ body{background:#FBFDFC}
     </div>
 
     <div class="cres2">
-      <div class="cr2 big mesh rv"><b class="num">30</b><span>компаний, которым нужны были подрядчики на крупные объекты</span></div>
+      <div class="cr2 rv"><b class="num acc">30</b><span>компаний, которым нужны были подрядчики на крупные объекты</span></div>
       <div class="cr2 rv"><b class="num">800</b><span>компаний обзвонили за 5 недель</span></div>
-      <div class="cr2 gz rv"><span class="vn">Главный результат</span><b>Вышли на директора «Газпрома»</b><span>Через его подрядчика — и взяли объект на 6&nbsp;месяцев работы</span></div>
+      <div class="cr2 gzf rv"><span class="vn">Главный результат</span><b>Вышли на директора «Газпрома»</b><span>Через его подрядчика — и взяли объект на 6&nbsp;месяцев работы</span><em class="six"><b>6</b>месяцев<br>работы</em></div>
     </div>
 
     <div class="cstory2">
@@ -875,13 +897,14 @@ body{background:#FBFDFC}
   </div>
 </section>
 
+<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 03 YOUR CASE -->
 <section>
   <div class="wrap">
     <div class="head rv">
       <div class="label"><b>04</b> · План</div>
       <h2>Как лучше поступить в&nbsp;вашей ситуации</h2>
-      <p class="lead">Не угадывать, а проверить: звоним в несколько ниш и усиливаем ту, где ремонт нужен чаще всего.</p>
+      <p class="lead">Звоним в несколько ниш сразу и усиливаем ту, где ремонт нужен чаще всего.</p>
     </div>
     <div class="plan3">
       <div class="p3 rv"><span class="vn">Недели 1–2</span><b>Звоним сразу в несколько ниш</b><span>Спецтехника, грузоперевозки, автобусы, сельхоз. Обкатываем скрипт.</span></div>
@@ -890,17 +913,57 @@ body{background:#FBFDFC}
     </div>
     <div class="fun2 rv">
       <div class="fr2"><div class="fb2" style="--w:100%"><b>500</b></div><span>компаний с дизельной техникой</span></div>
-      <div class="fr2 hot"><div class="fb2 mesh" style="--w:24%"><b>~20</b></div><span>компаний, которым сейчас актуально ремонтировать технику, — и они готовы говорить</span></div>
+      <div class="fr2 hot"><div class="fb2" style="--w:26%"><b>~20</b></div><span>заинтересованных компаний — ориентировочно</span></div>
     </div>
     <p class="src">Ориентир, не обещание: в примере ВТ-Инвест 800 компаний дали 30 заинтересованных.</p>
   </div>
 </section>
 
+<div class="farr" aria-hidden="true"><i></i></div>
+<!-- 05 PRICE -->
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>05</b> · Стоимость</div>
+      <h2>Всё это — за&nbsp;110&nbsp;000&nbsp;₽</h2>
+      <p class="lead">500 компаний, проработанный скрипт, CRM и отчёты. Оплата по ходу работы.</p>
+    </div>
+    <div class="pr3">
+      <div class="pbx rv">
+        <span class="k">Что входит</span>
+        <ul class="ticks">
+          <li><span>База 500 компаний с дизельной техникой</span></li>
+          <li><span>Проработка скрипта под ремонт ТНВД и форсунок</span></li>
+          <li><span>Звонки и выход на ЛПР</span></li>
+          <li><span>Прослушка звонков и доработка скрипта каждую неделю</span></li>
+          <li><span>CRM с доступом в реальном времени</span></li>
+          <li><span>Отчёт каждую пятницу</span></li>
+          <li><span>База и доступы остаются у вас</span></li>
+        </ul>
+      </div>
+      <div class="pbx g rv">
+        <span class="k">Оплата</span>
+        <div class="bigp num">110 000 ₽</div>
+        <div class="sbar3" aria-hidden="true"><div class="s0">50%</div><div>Н1</div><div>Н2</div><div>Н3</div><div>Н4</div></div>
+        <div class="sch">
+          <div><span>День 1 · старт</span><b class="num">55 000 ₽</b></div>
+          <div><span>Пятница, неделя 1 · ~125 компаний</span><b class="num">13 750 ₽</b></div>
+          <div><span>Пятница, неделя 2 · ~250 компаний</span><b class="num">13 750 ₽</b></div>
+          <div><span>Пятница, неделя 3 · ~375 компаний</span><b class="num">13 750 ₽</b></div>
+          <div><span>Пятница, неделя 4 · 500 компаний</span><b class="num">13 750 ₽</b></div>
+        </div>
+        <p>Каждую пятницу платите за то, что уже сделано и видно в CRM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 04 CRM -->
 <section class="lmesh">
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>05</b> · Прозрачность</div>
+      <div class="label"><b>06</b> · Прозрачность</div>
       <h2>Прозрачная статистика по&nbsp;каждой компании</h2>
       <p class="lead">Доступ к CRM с первого дня. Каждая компания — карточка: с кем говорили, сколько у них техники, что им нужно и когда звонить.</p>
     </div>
@@ -951,44 +1014,7 @@ body{background:#FBFDFC}
   </div>
 </section>
 
-<!-- 05 PRICE -->
-<section>
-  <div class="wrap">
-    <div class="head rv">
-      <div class="label"><b>06</b> · Стоимость</div>
-      <h2>Всё это — за&nbsp;110&nbsp;000&nbsp;₽</h2>
-      <p class="lead">500 компаний, проработанный скрипт, CRM и отчёты. Оплата по ходу работы.</p>
-    </div>
-    <div class="pr3">
-      <div class="pbx rv">
-        <span class="k">Что входит</span>
-        <ul class="ticks">
-          <li><span>База 500 компаний с дизельной техникой</span></li>
-          <li><span>Проработка скрипта под ремонт ТНВД и форсунок</span></li>
-          <li><span>Звонки и выход на ЛПР</span></li>
-          <li><span>Прослушка звонков и доработка скрипта каждую неделю</span></li>
-          <li><span>CRM с доступом в реальном времени</span></li>
-          <li><span>Отчёт каждую пятницу</span></li>
-          <li><span>База и доступы остаются у вас</span></li>
-        </ul>
-      </div>
-      <div class="pbx g rv">
-        <span class="k">Оплата</span>
-        <div class="bigp num">110 000 ₽</div>
-        <div class="sbar3" aria-hidden="true"><div class="s0">50%</div><div>Н1</div><div>Н2</div><div>Н3</div><div>Н4</div></div>
-        <div class="sch">
-          <div><span>День 1 · старт</span><b class="num">55 000 ₽</b></div>
-          <div><span>Пятница, неделя 1 · ~125 компаний</span><b class="num">13 750 ₽</b></div>
-          <div><span>Пятница, неделя 2 · ~250 компаний</span><b class="num">13 750 ₽</b></div>
-          <div><span>Пятница, неделя 3 · ~375 компаний</span><b class="num">13 750 ₽</b></div>
-          <div><span>Пятница, неделя 4 · 500 компаний</span><b class="num">13 750 ₽</b></div>
-        </div>
-        <p>Каждую пятницу платите за то, что уже сделано и видно в CRM.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<div class="farr" aria-hidden="true"><i></i></div>
 <!-- 06 ABOUT -->
 <section class="about gmesh">
   <div class="wrap">
@@ -996,7 +1022,7 @@ body{background:#FBFDFC}
     <div class="rv">
       <div class="label" style="color:#E6FAF0">Обо мне</div>
       <h2>Меня зовут Максим</h2>
-      <p>Я помогаю компаниям находить клиентов среди бизнеса: выхожу на тех, кто принимает решения, и довожу до живого разговора. Каждый звонок слушаю сам и докручиваю скрипт, пока он не начнёт приносить результат.</p>
+      <p>Я помогаю компаниям находить постоянных клиентов: выхожу на тех, кто принимает решения, и довожу до живого разговора.</p>
       <p>Буду рад поработать с вами, довести дело до результата и привести вам клиентов, с которыми вы будете работать годами.</p>
       <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener">Написать в Telegram</a>
       <span class="handle">Максим · @midnaix</span>
