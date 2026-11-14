@@ -506,6 +506,42 @@ a.pf b::after{content:" →";color:var(--accent)}
 .sch b{font-family:var(--f-mono);font-weight:600;color:#fff;white-space:nowrap}
 .pbx.g p{color:var(--dark-muted);font-size:14.5px}
 @media (max-width:860px){.pr3{grid-template-columns:1fr}.pbx{padding:22px}}
+.bav{display:grid;grid-template-columns:minmax(0,1fr) 48px minmax(0,1fr);gap:12px;align-items:stretch}
+.bv{border-radius:var(--r);padding:26px;display:grid;gap:14px;align-content:start}
+.bv .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.bv ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.bv li{display:grid;grid-template-columns:24px 1fr;gap:4px 10px}
+.bv li::before{grid-row:span 2;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;margin-top:1px}
+.bv li b{font-weight:600;font-size:16.5px}
+.bv li span{font-size:14.5px}
+.bv.b{background:var(--dark2);border:1px solid var(--dark-line)}
+.bv.b .k{color:var(--red-l)}
+.bv.b li::before{content:"×";background:rgba(201,83,76,.18);color:var(--red-l)}
+.bv.b li span{color:var(--dark-muted)}
+.bv.a{background:var(--accent);color:#fff}
+.bv.a .k{color:#E6FAF0}
+.bv.a li::before{content:"✓";background:#fff;color:var(--accent-deep)}
+.bv.a li span{color:#E6FAF0}
+.ar2{display:grid;place-items:center;font-family:var(--f-display);font-size:30px;color:var(--accent)}
+@media (max-width:860px){.bav{grid-template-columns:1fr}.ar2{transform:rotate(90deg);height:30px}.bv{padding:22px}}
+.vids{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.vid{display:grid;grid-template-columns:minmax(0,1fr);background:var(--ink);color:#fff;border-radius:var(--r);overflow:hidden;text-decoration:none;transition:transform .2s ease}
+.vid:hover{transform:translateY(-3px)}
+.vid:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.th{position:relative;display:block;aspect-ratio:16/9;background:radial-gradient(circle at 70% 30%,rgba(23,178,106,.35),transparent 60%),#1A221E;overflow:hidden}
+.th img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .2s ease,transform .4s ease}
+.vid:hover .th img{opacity:1;transform:scale(1.03)}
+.th i{position:absolute;left:50%;top:50%;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:var(--accent);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.th i::after{content:"";position:absolute;left:27px;top:21px;border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent #fff}
+.vt{display:grid;gap:6px;padding:20px 22px}
+.vt .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.vt b{font-family:var(--f-display);font-weight:700;font-size:19px}
+.vt b::after{content:" →";color:var(--accent)}
+.vt span:last-child{color:var(--dark-muted);font-size:14.5px}
+@media (max-width:760px){.vids{grid-template-columns:1fr}}
+.proof2{margin-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.proof2{grid-template-columns:1fr}}
+.cov{position:absolute;left:24px;bottom:20px;font-family:var(--f-display);font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1;color:#fff;letter-spacing:-.02em}
 /* CTA */
 .cta{background:var(--accent);color:#fff}
 .cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -543,11 +579,42 @@ a.pf b::after{content:" →";color:var(--accent)}
   </div>
 </header>
 
+<!-- 01 BEFORE AFTER -->
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>01</b> · До → после</div>
+      <h2>Что меняется для вас за&nbsp;5&nbsp;недель</h2>
+    </div>
+    <div class="bav">
+      <div class="bv b rv">
+        <span class="k">Сейчас</span>
+        <ul>
+          <li><b>Заказы разовые</b><span>Частник приехал, отремонтировал и пропал на годы</span></li>
+          <li><b>Клиентов ищете через рекламу</b><span>За каждую заявку платите заново</span></li>
+          <li><b>Крупных клиентов по договору нет</b><span>Автопарки и спецтехника ремонтируются у других</span></li>
+          <li><b>Непонятно, кому звонить</b><span>Нет базы, нет контактов главных механиков и директоров</span></li>
+        </ul>
+      </div>
+      <div class="ar2" aria-hidden="true">→</div>
+      <div class="bv a rv">
+        <span class="k">Через 5 недель</span>
+        <ul>
+          <li><b>~20 тёплых компаний</b><span>С ЛПР уже поговорили, ремонт им актуален</span></li>
+          <li><b>Знакомы с главными механиками</b><span>Звоните человеку, который вас уже ждёт</span></li>
+          <li><b>Понятно, какие ниши горячие</b><span>Спецтехника, грузоперевозки или автобусы — видно по цифрам</span></li>
+          <li><b>База, скрипт и CRM — ваши</b><span>Можно продолжать звонить самим или масштабировать</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 01 HOW -->
 <section>
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>01</b> · Как это работает</div>
+      <div class="label"><b>02</b> · Как это работает</div>
       <h2>Пять шагов от базы до&nbsp;вашего звонка</h2>
     </div>
     <div class="flow2 rv">
@@ -570,7 +637,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 <section class="dark">
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>02</b> · Прозрачность</div>
+      <div class="label"><b>03</b> · Прозрачность</div>
       <h2>Вы видите каждый звонок</h2>
     </div>
     <div class="tr4">
@@ -586,7 +653,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 <section>
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>03</b> · Кейс</div>
+      <div class="label"><b>04</b> · Кейс</div>
       <h2>ВТ-Инвест: работа на&nbsp;6&nbsp;месяцев за&nbsp;5&nbsp;недель звонков</h2>
       <p class="lead">Монтаж и обслуживание инженерных сетей, Минск. Осень 2026.</p>
     </div>
@@ -613,8 +680,18 @@ a.pf b::after{content:" →";color:var(--accent)}
       <div class="tl2 hl"><span class="w">Итог</span><b>Объект на 6 месяцев и 30 заинтересованных компаний</b></div>
     </div>
 
-    <div class="proof">
-      <a class="pf rv" href="#" data-video><span class="vn">Видео</span><b>Как мы разбираем звонки</b><span>Прослушка и правка скрипта на реальном проекте</span></a>
+    <div class="sub rv" style="margin-top:40px"><span class="n g">Видео</span>Как это выглядит изнутри</div>
+    <div class="vids">
+      <a class="vid rv" href="https://youtu.be/OeCbhDcSRMw" target="_blank" rel="noopener">
+        <span class="th"><img src="https://i.ytimg.com/vi/OeCbhDcSRMw/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" onerror="this.remove()"><i aria-hidden="true"></i></span>
+        <span class="vt"><span class="vn">Видео 1</span><b>Как составляем скрипт</b><span>Пишем скрипт под нишу и готовим к первым звонкам</span></span>
+      </a>
+      <a class="vid rv" href="https://youtu.be/T7BQ0HsEuJQ" target="_blank" rel="noopener">
+        <span class="th"><span class="cov" aria-hidden="true">Разбор<br>звонков</span><i aria-hidden="true"></i></span>
+        <span class="vt"><span class="vn">Видео 2</span><b>Как разбираем звонки</b><span>Слушаем каждый звонок и правим скрипт по ходу проекта</span></span>
+      </a>
+    </div>
+    <div class="proof2">
       <div class="pf rv"><span class="vn">Отзыв</span><b>Официальный отзыв с печатью</b><span>Прикладываем к предложению</span></div>
       <div class="pf rv"><span class="vn">Контакт</span><b>Можно спросить напрямую</b><span>Дадим контакт руководителя ВТ-Инвест</span></div>
     </div>
@@ -625,7 +702,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 <section class="dark">
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>04</b> · Чего ждать</div>
+      <div class="label"><b>05</b> · Чего ждать</div>
       <h2>600 звонков — около 20 тёплых компаний</h2>
     </div>
     <div class="fun rv">
@@ -640,7 +717,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 <section>
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>05</b> · Стоимость</div>
+      <div class="label"><b>06</b> · Стоимость</div>
       <h2>110&nbsp;000&nbsp;₽ за&nbsp;600&nbsp;компаний</h2>
     </div>
     <div class="pr3">
