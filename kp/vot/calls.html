@@ -580,6 +580,91 @@ a.pf b::after{content:" →";color:var(--accent)}
 .cfe span{color:var(--dark-muted);font-size:14.5px}
 @media (max-width:980px){.cgrid{grid-template-columns:1fr}}
 @media (max-width:640px){.board{grid-template-columns:1fr 1fr}.cfe{grid-template-columns:1fr}.cgrid{padding:12px}}
+/* MESH */
+.mesh{background-color:#0B1A13;background-image:radial-gradient(at 12% 18%,rgba(23,178,106,.55) 0,transparent 45%),radial-gradient(at 88% 8%,rgba(64,214,140,.45) 0,transparent 42%),radial-gradient(at 70% 92%,rgba(14,145,86,.6) 0,transparent 48%),radial-gradient(at 20% 95%,rgba(120,230,170,.28) 0,transparent 40%),radial-gradient(at 50% 50%,rgba(10,60,38,.9) 0,transparent 70%)}
+.hero.mesh::before{display:none}
+.hero.mesh .lead{color:#D5E7DD}
+.hero.mesh .spec{border-top-color:rgba(255,255,255,.25)}
+.hero.mesh .spec>div+div{border-left-color:rgba(255,255,255,.25)}
+.hero.mesh .spec .k{color:#8FF0BE}
+.hero.mesh .spec .d{color:#BCD5C8}
+.hero.mesh h1 em{color:#8FF0BE}
+/* PATH */
+.path{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative}
+.path::before{content:"";position:absolute;left:10%;right:10%;top:27px;height:2px;background:linear-gradient(90deg,var(--line),var(--accent) 50%,var(--ink))}
+.pn{position:relative;display:grid;justify-items:center;align-content:start;text-align:center;gap:8px;padding:0 10px}
+.pi{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:20px;position:relative;z-index:1}
+.pn b{font-family:var(--f-display);font-weight:700;font-size:17px;margin-top:6px}
+.pn span:last-child{color:var(--muted);font-size:14.5px;max-width:200px}
+.pn.key .pi{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 0 8px rgba(23,178,106,.18)}
+.pn.you .pi{background:var(--ink);border-color:var(--ink);color:#fff}
+.pz{display:grid;grid-template-columns:4fr 1fr;gap:8px;margin-top:22px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;text-align:center}
+.pz span{border-top:2px solid var(--accent);padding-top:8px;color:var(--accent-deep)}
+.pz span+span{border-top-color:var(--ink);color:var(--ink)}
+@media (max-width:860px){.path{grid-template-columns:1fr;gap:16px}.path::before{left:27px;right:auto;top:20px;bottom:20px;width:2px;height:auto;background:linear-gradient(180deg,var(--line),var(--accent) 60%,var(--ink))}.pn{grid-template-columns:56px 1fr;justify-items:start;text-align:left;column-gap:16px;row-gap:2px;padding:0}.pi{grid-row:span 2}.pn b{margin-top:6px}.pz{display:none}}
+.nich{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.nich>div{background:var(--card);border-radius:18px;padding:22px 22px 20px;display:grid;gap:6px;border-left:4px solid var(--accent)}
+.nich b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
+.nich span{color:var(--muted);font-size:15px}
+@media (max-width:860px){.nich{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.nich{grid-template-columns:1fr}}
+/* CASE 2 */
+.cres2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.8fr) minmax(0,1.1fr);gap:12px}
+.cr2{background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:26px;display:grid;gap:8px;align-content:end}
+.cr2 b.num{font-family:var(--f-display);font-weight:800;font-size:clamp(48px,6vw,76px);line-height:1}
+.cr2 span{color:var(--dark-muted);font-size:15.5px}
+.cr2.big{border:0;background-color:#0B1A13;background-image:radial-gradient(at 12% 18%,rgba(23,178,106,.55) 0,transparent 45%),radial-gradient(at 88% 8%,rgba(64,214,140,.45) 0,transparent 42%),radial-gradient(at 70% 92%,rgba(14,145,86,.6) 0,transparent 48%),radial-gradient(at 20% 95%,rgba(120,230,170,.28) 0,transparent 40%),radial-gradient(at 50% 50%,rgba(10,60,38,.9) 0,transparent 70%)}
+.cr2.big b.num{font-size:clamp(80px,10vw,128px)}
+.cr2.big span{color:#E6FAF0;font-size:17px;font-weight:500}
+.cr2.gz{background:#fff;color:var(--ink);border:0;align-content:start}
+.cr2.gz .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep)}
+.cr2.gz b{font-family:var(--f-display);font-weight:800;font-size:clamp(24px,2.6vw,32px);line-height:1.1}
+.cr2.gz span:last-child{color:var(--muted);font-size:16px}
+@media (max-width:900px){.cres2{grid-template-columns:1fr}}
+.cstory2{margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cs2{background:var(--dark2);border:1px solid var(--dark-line);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.cs2 .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.cs2>b{font-family:var(--f-display);font-weight:700;font-size:18px;line-height:1.25}
+.cs2>span{color:var(--dark-muted);font-size:15px}
+.okd2{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.okd2 span{font-family:var(--f-mono);font-size:12px;background:var(--dark);border:1px solid var(--dark-line);border-radius:999px;padding:5px 10px;color:#DDE5E1}
+@media (max-width:900px){.cstory2{grid-template-columns:1fr}}
+.rvw{margin-top:12px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:center;background:var(--dark2);border:1px solid var(--dark-line);border-radius:var(--r);padding:28px}
+.rimg{display:block;border-radius:12px;overflow:hidden;background:#fff;transform:rotate(-1.5deg);box-shadow:0 30px 60px -20px rgba(0,0,0,.7);transition:transform .3s ease}
+.rimg:hover{transform:rotate(0) scale(1.02)}
+.rimg:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.rimg img{width:100%;height:auto;aspect-ratio:936/1100;object-fit:cover;object-position:top}
+.rtx{display:grid;gap:16px}
+.rtx .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.rtx blockquote{margin:0;font-family:var(--f-display);font-weight:700;font-size:clamp(19px,2vw,24px);line-height:1.3;letter-spacing:-.01em}
+.rtx blockquote.sm{font-family:var(--f-body);font-weight:400;font-size:17px;color:#C7D0CB;line-height:1.5;border-left:3px solid var(--accent);padding-left:16px}
+.who2{color:#DDE5E1}.who2 b{color:#fff}
+.hint{font-size:14px;color:var(--dark-muted)}
+@media (max-width:860px){.rvw{grid-template-columns:1fr;padding:20px;gap:24px}.rimg{max-width:320px;margin:0 auto}}
+.th.mesh{background-color:#0B1A13}
+/* PLAN 3 */
+.plan3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.p3{background:var(--card);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.p3 .vn{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep)}
+.p3 b{font-family:var(--f-display);font-weight:700;font-size:19px;line-height:1.2}
+.p3 span:last-child{color:var(--muted);font-size:15px}
+.p3.hl{background:var(--ink);color:#fff}.p3.hl .vn{color:var(--accent)}.p3.hl span:last-child{color:var(--dark-muted)}
+@media (max-width:860px){.plan3{grid-template-columns:1fr}}
+.fun2{margin-top:14px;display:grid;gap:8px}
+.fr2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:center}
+.fb2{height:58px;width:var(--w);min-width:96px;background:#C7D3CD;border-radius:14px;display:flex;align-items:center;padding:0 18px}
+.fb2 b{font-family:var(--f-display);font-weight:800;font-size:22px;white-space:nowrap}
+.fr2.hot .fb2{color:#fff;background-color:#0B1A13;background-image:radial-gradient(at 12% 18%,rgba(23,178,106,.55) 0,transparent 45%),radial-gradient(at 88% 8%,rgba(64,214,140,.45) 0,transparent 42%),radial-gradient(at 70% 92%,rgba(14,145,86,.6) 0,transparent 48%),radial-gradient(at 20% 95%,rgba(120,230,170,.28) 0,transparent 40%),radial-gradient(at 50% 50%,rgba(10,60,38,.9) 0,transparent 70%)}
+.fr2 span{color:var(--muted);font-size:15.5px}
+.fr2.hot span{color:var(--ink);font-weight:600}
+@media (max-width:640px){.fr2{grid-template-columns:1fr;gap:6px}}
+/* ABOUT */
+.about{color:#fff;padding-block:100px}
+.about .wrap{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+.about h2{font-size:clamp(30px,4.4vw,52px);margin:10px 0 16px}
+.about p{font-size:18px;color:#E6FAF0;max-width:640px;margin-top:10px}
+.about .me{width:220px}
+@media (max-width:720px){.about .wrap{grid-template-columns:1fr;gap:22px}.about .me{width:130px;border-radius:22px}.about{padding-block:64px}}
 /* CTA */
 .cta{background:var(--accent);color:#fff}
 .cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -601,18 +686,18 @@ a.pf b::after{content:" →";color:var(--accent)}
 </style>
 </head>
 <body>
-<header class="hero">
+<header class="hero mesh">
   <div class="wrap">
     <div class="top">
       <div class="brand" aria-label="VOT SERVICES"><span>VOT</span><span>SERVICES</span></div>
       <div class="label">Коммерческое предложение · <b>обзвон B2B</b></div>
     </div>
-    <h1>500 компаний с&nbsp;дизельной техникой. <em>Находим тех, кому нужен ваш ремонт</em></h1>
-    <p class="lead">Звоним, выходим на того, кто принимает решения, и передаём вам тёплый контакт. Дальше говорите вы.</p>
+    <h1>Найдём вам постоянных клиентов, <em>которым ваш ремонт нужен всегда</em></h1>
+    <p class="lead">Обзвоним 500 компаний с дизельной техникой, выйдем на тех, кто принимает решения, и найдём тех, кому ремонт ТНВД и форсунок нужен постоянно — и кто готов за него платить.</p>
     <div class="spec">
-      <div><span class="k">Объём</span><span class="v">500 компаний</span><span class="d">Спецтехника, грузовые и автобусные парки</span></div>
-      <div><span class="k">Темп</span><span class="v">120–150 в неделю</span><span class="d">Первые контакты — в первую неделю</span></div>
-      <div><span class="k">Результат</span><span class="v">Контакты ЛПР в CRM</span><span class="d">С кем говорить и что им нужно</span></div>
+      <div><span class="k">Кому звоним</span><span class="v">Владельцам техники</span><span class="d">Спецтехника, грузовые и автобусные парки</span></div>
+      <div><span class="k">С кем говорим</span><span class="v">С теми, кто решает</span><span class="d">Главный механик, начальник колонны, директор</span></div>
+      <div><span class="k">Что получаете</span><span class="v">Тёплые контакты</span><span class="d">С кем говорить и что им нужно</span></div>
     </div>
   </div>
 </header>
@@ -624,147 +709,102 @@ a.pf b::after{content:" →";color:var(--accent)}
       <div class="label"><b>01</b> · Как это работает</div>
       <h2>Пять шагов от базы до&nbsp;вашего звонка</h2>
     </div>
-    <div class="flow2 rv">
-      <div class="st2"><i>01</i><b>База</b><span>Собираем 500 компаний с дизельной техникой</span></div>
-      <div class="st2"><i>02</i><b>Скрипт</b><span>Пишем под ремонт ТНВД и форсунок, обкатываем в первую неделю</span></div>
-      <div class="st2 key"><i>03</i><b>Выход на ЛПР</b><span>Главный механик, начальник колонны, директор</span></div>
-      <div class="st2"><i>04</i><b>Контакт в CRM</b><span>Кто, должность, телефон, сколько техники, что нужно</span></div>
-      <div class="st2 you"><i>05</i><b>Ваше предложение</b><span>Вы звоните уже знакомому человеку</span></div>
+    <div class="path rv">
+      <div class="pn"><span class="pi">1</span><b>База</b><span>500 компаний с дизельной техникой</span></div>
+      <div class="pn"><span class="pi">2</span><b>Скрипт</b><span>Под ремонт ТНВД и форсунок, обкатываем в первую неделю</span></div>
+      <div class="pn key"><span class="pi">3</span><b>Выход на ЛПР</b><span>Главный механик, начальник колонны, директор</span></div>
+      <div class="pn"><span class="pi">4</span><b>Карточка в CRM</b><span>Кто, сколько техники, что нужно, когда звонить</span></div>
+      <div class="pn you"><span class="pi">5</span><b>Ваш звонок</b><span>Вы звоните человеку, который уже ждёт</span></div>
     </div>
-    <div class="zones2"><div>Делаем мы</div><div>Вы</div></div>
+    <div class="pz"><span>Делаем мы</span><span>Вы</span></div>
 
-    <div class="sub rv" style="margin-top:44px"><span class="n g">Кому</span>Кому звоним</div>
-    <div class="chipz rv">
-      <span>Спецтехника и карьеры</span><span>Транспортные компании</span><span>Автобусные перевозчики</span><span>Сельхозпредприятия</span><span>Коммунальная техника</span><span>Грузовые СТО и техцентры</span>
+    <div class="sub rv" style="margin-top:48px"><span class="n g">Кому</span>Кому звоним</div>
+    <div class="nich">
+      <div class="rv"><b>Спецтехника и карьеры</b><span>Экскаваторы, погрузчики, самосвалы</span></div>
+      <div class="rv"><b>Транспортные компании</b><span>Грузовые парки и логистика</span></div>
+      <div class="rv"><b>Автобусные перевозчики</b><span>Межгород, вахта, школьные</span></div>
+      <div class="rv"><b>Сельхозпредприятия</b><span>Тракторы, комбайны, грузовики</span></div>
+      <div class="rv"><b>Коммунальная техника</b><span>Уборочная и дорожная</span></div>
+      <div class="rv"><b>Грузовые СТО</b><span>Без своего стенда — отдают на ремонт</span></div>
     </div>
   </div>
 </section>
 
-<!-- 02 TRANSPARENCY -->
+<!-- 02 CASE -->
 <section class="dark">
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>02</b> · Прозрачность</div>
-      <h2>Вы видите каждый звонок</h2>
-    </div>
-    <div class="tr4">
-      <div class="rv"><span class="vn">CRM</span><b>Доступ с первого дня</b><span>Каждая компания, итог разговора и статус — в реальном времени.</span></div>
-      <div class="rv"><span class="vn">Пятница</span><b>Отчёт каждую неделю</b><span>Сколько обзвонили, на кого вышли, кто заинтересован.</span></div>
-      <div class="rv"><span class="vn">Записи</span><b>Каждый звонок прослушиваем</b><span>Разбираем, что сработало и что нет, и докручиваем скрипт.</span></div>
-      <div class="rv"><span class="vn">Ваше</span><b>База и доступы — ваши</b><span>После проекта всё остаётся у вас.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 CASE -->
-<section>
-  <div class="wrap">
-    <div class="head rv">
-      <div class="label"><b>03</b> · Пример</div>
+      <div class="label"><b>02</b> · Пример</div>
       <h2>У кого это уже сработало: ВТ-Инвест</h2>
-      <p class="lead">Монтаж и обслуживание инженерных сетей, Минск. Осень 2026 — конец сезона, заявок нет.</p>
+      <p class="lead">Монтаж и обслуживание инженерных сетей, Минск. Осень 2026 — сезон заканчивался, своего источника заявок не было.</p>
     </div>
 
-    <div class="cres">
-      <div class="cr hl big rv"><b class="num">30</b><span>компаний сами захотели обсудить работу с руководителем — им нужны были подрядчики на монтаж</span></div>
-      <div class="cr rv"><b class="num">800</b><span>компаний обзвонили за 5 недель</span></div>
-      <div class="cr rv"><b>Объект «Газпрома»</b><span>Подписали через подрядчика — бригада загружена работой на 6 месяцев вперёд</span></div>
+    <div class="cres2">
+      <div class="cr2 big mesh rv"><b class="num">30</b><span>компаний, которым нужны были подрядчики на крупные объекты</span></div>
+      <div class="cr2 rv"><b class="num">800</b><span>компаний обзвонили за 5 недель</span></div>
+      <div class="cr2 gz rv"><span class="vn">Главный результат</span><b>Вышли на директора «Газпрома»</b><span>Через его подрядчика — и взяли объект на 6&nbsp;месяцев работы</span></div>
     </div>
 
-    <div class="cstory">
-      <div class="cs rv"><span class="vn">Ситуация</span><b>Сезон заканчивался, заявок не было</b><span>Летом работы много, к осени поток иссяк. Своего источника заявок не было, рекламы тоже.</span></div>
-      <div class="cs rv"><span class="vn">Что сделали</span><b>Обзвон по нужным видам деятельности</b><span>Собрали базы, написали скрипт, обкатали его в первую неделю. Каждый звонок прослушивали и правили скрипт.</span>
-        <div class="okd"><span>Строительство зданий</span><span>Монтаж отопления и водоснабжения</span><span>Электромонтаж</span><span>ТСЖ и управление недвижимостью</span><span>Производства</span></div>
+    <div class="cstory2">
+      <div class="cs2 rv"><span class="vn">Ситуация</span><b>Сезон заканчивался, заявок не было</b><span>Летом работы много, к осени поток иссяк. Ни рекламы, ни своей базы.</span></div>
+      <div class="cs2 rv"><span class="vn">Что сделали</span><b>Обзвон по нужным видам деятельности</b><span>Собрали базы, написали скрипт, обкатали в первую неделю. Каждый звонок слушали и правили скрипт.</span>
+        <div class="okd2"><span>Строительство зданий</span><span>Монтаж отопления и водоснабжения</span><span>Производства</span><span>ТСЖ</span></div>
       </div>
-      <div class="cs rv"><span class="vn">Результат</span><b>От мелкого объекта до «Газпрома»</b><span>Первый объект — в первые недели, небольшой монтаж. Дальше вышли на подрядчика «Газпрома», через него — на руководство, и подписали объект на 6 месяцев.</span></div>
+      <div class="cs2 rv"><span class="vn">Результат</span><b>От небольшого монтажа до «Газпрома»</b><span>Первый объект — в первые недели. Дальше вышли на подрядчика «Газпрома», через него на директора — и подписали объект на полгода.</span></div>
     </div>
 
-    <div class="ctl rv">
-      <div class="tl2"><span class="w">Неделя 1</span><b>Скрипт обкатан, первая заявка</b></div>
-      <div class="tl2"><span class="w">Каждую неделю</span><b>120–150 звонков, прослушка, правка скрипта</b></div>
-      <div class="tl2"><span class="w">Первые недели</span><b>Первый объект — небольшой монтаж</b></div>
-      <div class="tl2"><span class="w">Дальше</span><b>Подрядчик «Газпрома» → выход на руководство</b></div>
-      <div class="tl2 hl"><span class="w">Итог</span><b>30 заинтересованных компаний и объект на полгода</b></div>
+    <div class="rvw rv">
+      <a class="rimg" href="img/review.jpg" target="_blank" rel="noopener"><img src="img/review.jpg" alt="Отзыв ООО «ВТ-Инвест Компани» о сотрудничестве с Максимом Максименей, с подписью директора и печатью" width="936" height="1287"></a>
+      <div class="rtx">
+        <span class="vn">Официальный отзыв · с печатью</span>
+        <blockquote>«Благодаря Максиму мы смогли выйти на тех заказчиков, до которых самостоятельно, скорее всего, никогда бы не добрались. Мы не просто „получили базу“ — мы получили живой контакт с реальными потенциальными клиентами».</blockquote>
+        <blockquote class="sm">«Вся история взаимодействия фиксировалась в CRM в режиме реального времени, мы видели каждый шаг и понимали, за что платим».</blockquote>
+        <p class="who2"><b>С. Г. Мулёв</b>, директор ООО «ВТ-Инвест Компани»</p>
+        <p class="hint">Контакт руководителя дадим — можно спросить напрямую.</p>
+      </div>
     </div>
 
-    <div class="sub rv" style="margin-top:40px"><span class="n g">Видео</span>Как это выглядит изнутри</div>
+    <div class="sub rv" style="margin-top:44px"><span class="n g">Видео</span>Как это выглядит изнутри</div>
     <div class="vids">
       <a class="vid rv" href="https://youtu.be/OeCbhDcSRMw" target="_blank" rel="noopener">
-        <span class="th"><span class="cov" aria-hidden="true">Как составить<br>скрипт</span><i aria-hidden="true"></i></span>
+        <span class="th mesh"><span class="cov" aria-hidden="true">Как составить<br>скрипт</span><i aria-hidden="true"></i></span>
         <span class="vt"><span class="vn">Видео 1</span><b>Как составляем скрипт</b><span>Пишем скрипт под нишу и готовим к первым звонкам</span></span>
       </a>
       <a class="vid rv" href="https://youtu.be/T7BQ0HsEuJQ" target="_blank" rel="noopener">
-        <span class="th"><span class="cov" aria-hidden="true">Разбор<br>звонков</span><i aria-hidden="true"></i></span>
+        <span class="th mesh"><span class="cov" aria-hidden="true">Разбор<br>звонков</span><i aria-hidden="true"></i></span>
         <span class="vt"><span class="vn">Видео 2</span><b>Как разбираем звонки</b><span>Слушаем каждый звонок и правим скрипт по ходу проекта</span></span>
       </a>
     </div>
-    <div class="proof2">
-      <div class="pf rv"><span class="vn">Отзыв</span><b>Официальный отзыв с печатью</b><span>Прикладываем к предложению</span></div>
-      <div class="pf rv"><span class="vn">Контакт</span><b>Можно спросить напрямую</b><span>Дадим контакт руководителя ВТ-Инвест</span></div>
-    </div>
   </div>
 </section>
 
-<!-- 04 EXPECT -->
-<section class="dark">
-  <div class="wrap">
-    <div class="head rv">
-      <div class="label"><b>04</b> · Чего ждать</div>
-      <h2>500 звонков — компании, которые уже ищут, где ремонтировать технику</h2>
-    </div>
-    <div class="fun rv">
-      <div class="fr"><div class="fb" style="--w:100%"><b>500</b></div><span>компаний с дизельной техникой</span></div>
-      <div class="fr hot"><div class="fb" style="--w:22%"><b>~20</b></div><span>компаний с техникой, которым сейчас нужен ремонт ТНВД и форсунок — и они готовы говорить</span></div>
-    </div>
-    <p class="src">Ориентир, не обещание: в примере ВТ-Инвест 800 компаний дали 30 заинтересованных. Точная цифра зависит от ниши — её покажут первые недели.</p>
-  </div>
-</section>
-
-<!-- 05 PRICE -->
+<!-- 03 YOUR CASE -->
 <section>
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>05</b> · Стоимость</div>
-      <h2>110&nbsp;000&nbsp;₽ за&nbsp;500&nbsp;компаний</h2>
+      <div class="label"><b>03</b> · Как лучше поступить в вашем случае</div>
+      <h2>Начать с&nbsp;500 компаний и&nbsp;найти свою нишу</h2>
     </div>
-    <div class="pr3">
-      <div class="pbx rv">
-        <span class="k">Что входит</span>
-        <ul class="ticks">
-          <li><span>База 500 компаний с дизельной техникой</span></li>
-          <li><span>Скрипт под ремонт ТНВД и форсунок</span></li>
-          <li><span>Звонки и выход на ЛПР</span></li>
-          <li><span>Прослушка звонков и доработка скрипта</span></li>
-          <li><span>CRM с доступом в реальном времени</span></li>
-          <li><span>Отчёт каждую пятницу</span></li>
-          <li><span>База и доступы остаются у вас</span></li>
-        </ul>
-      </div>
-      <div class="pbx g rv">
-        <span class="k">Оплата</span>
-        <div class="bigp num">110 000 ₽</div>
-        <div class="sbar3" aria-hidden="true"><div class="s0">50%</div><div>Н1</div><div>Н2</div><div>Н3</div><div>Н4</div></div>
-        <div class="sch">
-          <div><span>День 1 · старт</span><b class="num">55 000 ₽</b></div>
-          <div><span>Пятница, неделя 1 · ~125 компаний</span><b class="num">13 750 ₽</b></div>
-          <div><span>Пятница, неделя 2 · ~250 компаний</span><b class="num">13 750 ₽</b></div>
-          <div><span>Пятница, неделя 3 · ~375 компаний</span><b class="num">13 750 ₽</b></div>
-          <div><span>Пятница, неделя 4 · 500 компаний</span><b class="num">13 750 ₽</b></div>
-        </div>
-        <p>Каждую пятницу платите за то, что уже сделано и видно в CRM.</p>
-      </div>
+    <div class="plan3">
+      <div class="p3 rv"><span class="vn">Недели 1–2</span><b>Звоним сразу в несколько ниш</b><span>Спецтехника, грузоперевозки, автобусы, сельхоз. Обкатываем скрипт.</span></div>
+      <div class="p3 rv"><span class="vn">Недели 2–3</span><b>Смотрим, где горячее</b><span>По CRM видно, где ЛПР охотнее говорят и где ремонт нужен чаще.</span></div>
+      <div class="p3 hl rv"><span class="vn">Недели 3–4</span><b>Добиваем лучшую нишу</b><span>Основные звонки — туда, где больше компаний, которым актуален ремонт.</span></div>
     </div>
+    <div class="fun2 rv">
+      <div class="fr2"><div class="fb2" style="--w:100%"><b>500</b></div><span>компаний с дизельной техникой</span></div>
+      <div class="fr2 hot"><div class="fb2 mesh" style="--w:24%"><b>~20</b></div><span>компаний, которым сейчас актуально ремонтировать технику, — и они готовы говорить</span></div>
+    </div>
+    <p class="src">Ориентир, не обещание: в примере ВТ-Инвест 800 компаний дали 30 заинтересованных.</p>
   </div>
 </section>
 
-
-<!-- 06 CRM -->
+<!-- 04 CRM -->
 <section class="dark">
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>06</b> · Что вы получите</div>
-      <h2>Так выглядит ваша CRM</h2>
-      <p class="lead">Каждая компания — карточка: с кем говорили, сколько у них техники, что им нужно и когда звонить. Открываете и звоните.</p>
+      <div class="label"><b>04</b> · Прозрачность</div>
+      <h2>Прозрачная статистика по&nbsp;каждой компании</h2>
+      <p class="lead">Доступ к CRM с первого дня. Каждая компания — карточка: с кем говорили, сколько у них техники, что им нужно и когда звонить.</p>
     </div>
     <div class="crm rv" aria-label="Пример CRM">
       <div class="cbar"><span class="dots"><i></i><i></i><i></i></span><span class="ct">Обзвон · VOT SERVICES</span><span class="cx">пример</span></div>
@@ -805,20 +845,60 @@ a.pf b::after{content:" →";color:var(--accent)}
       </div>
     </div>
     <div class="cfe">
-      <div class="rv"><b>Карточка по каждой компании</b><span>Кто решает, какая техника, что нужно, когда звонить</span></div>
+      <div class="rv"><b>Отчёт каждую пятницу</b><span>Сколько обзвонили, на кого вышли, кто заинтересован</span></div>
       <div class="rv"><b>Записи разговоров</b><span>Можно послушать любой звонок</span></div>
-      <div class="rv"><b>Видно, какая ниша горячее</b><span>Спецтехника, грузоперевозки, автобусы — по цифрам</span></div>
+      <div class="rv"><b>База и доступы — ваши</b><span>После проекта всё остаётся у вас</span></div>
     </div>
     <p class="src">Компании и цифры на макете — пример.</p>
   </div>
 </section>
 
-<section class="cta">
+<!-- 05 PRICE -->
+<section>
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>05</b> · Стоимость</div>
+      <h2>110&nbsp;000&nbsp;₽ за&nbsp;500&nbsp;компаний</h2>
+    </div>
+    <div class="pr3">
+      <div class="pbx rv">
+        <span class="k">Что входит</span>
+        <ul class="ticks">
+          <li><span>База 500 компаний с дизельной техникой</span></li>
+          <li><span>Скрипт под ремонт ТНВД и форсунок</span></li>
+          <li><span>Звонки и выход на ЛПР</span></li>
+          <li><span>Прослушка звонков и доработка скрипта</span></li>
+          <li><span>CRM с доступом в реальном времени</span></li>
+          <li><span>Отчёт каждую пятницу</span></li>
+          <li><span>База и доступы остаются у вас</span></li>
+        </ul>
+      </div>
+      <div class="pbx g rv">
+        <span class="k">Оплата</span>
+        <div class="bigp num">110 000 ₽</div>
+        <div class="sbar3" aria-hidden="true"><div class="s0">50%</div><div>Н1</div><div>Н2</div><div>Н3</div><div>Н4</div></div>
+        <div class="sch">
+          <div><span>День 1 · старт</span><b class="num">55 000 ₽</b></div>
+          <div><span>Пятница, неделя 1 · ~125 компаний</span><b class="num">13 750 ₽</b></div>
+          <div><span>Пятница, неделя 2 · ~250 компаний</span><b class="num">13 750 ₽</b></div>
+          <div><span>Пятница, неделя 3 · ~375 компаний</span><b class="num">13 750 ₽</b></div>
+          <div><span>Пятница, неделя 4 · 500 компаний</span><b class="num">13 750 ₽</b></div>
+        </div>
+        <p>Каждую пятницу платите за то, что уже сделано и видно в CRM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 ABOUT -->
+<section class="about mesh">
   <div class="wrap">
     <img class="me rv" src="img/me.jpg" alt="Максим" width="190" height="190">
     <div class="rv">
-      <h2>Начнём на этой неделе</h2>
-      <p>Первые разговоры с ЛПР — уже в первую неделю. Напишите, пришлю договор.</p>
+      <div class="label" style="color:#E6FAF0">Обо мне</div>
+      <h2>Меня зовут Максим</h2>
+      <p>Я помогаю компаниям находить клиентов среди бизнеса: выхожу на тех, кто принимает решения, и довожу до живого разговора. Каждый звонок слушаю сам и докручиваю скрипт, пока он не начнёт приносить результат.</p>
+      <p>Буду рад поработать с вами, довести дело до результата и привести вам клиентов, с которыми вы будете работать годами.</p>
       <a class="btn" href="https://t.me/midnaix" target="_blank" rel="noopener">Написать в Telegram</a>
       <span class="handle">Максим · @midnaix</span>
     </div>
