@@ -665,6 +665,67 @@ a.pf b::after{content:" →";color:var(--accent)}
 .about p{font-size:18px;color:#E6FAF0;max-width:640px;margin-top:10px}
 .about .me{width:220px}
 @media (max-width:720px){.about .wrap{grid-template-columns:1fr;gap:22px}.about .me{width:130px;border-radius:22px}.about{padding-block:64px}}
+/* THEME 2 */
+.dmesh{background-color:#050C08;background-image:radial-gradient(at 85% 10%,rgba(23,178,106,.35) 0,transparent 45%),radial-gradient(at 10% 90%,rgba(14,145,86,.28) 0,transparent 45%),radial-gradient(at 60% 60%,rgba(64,214,140,.12) 0,transparent 50%)}
+.hero.dmesh .label{color:#B7CEC2}
+.hero.dmesh .label b{color:#8FF0BE}
+.hero.dmesh .lead{color:#D2E3DA}
+.hero.dmesh h1 em{color:#8FF0BE}
+.hero.dmesh .spec .k{color:#8FF0BE}
+.hero.dmesh .spec .d{color:#B7CEC2}
+.hero.dmesh h1{font-size:clamp(23px,4.6vw,60px);line-height:1.06}
+.lmesh{background-color:#F4F8F5;background-image:radial-gradient(at 0% 0%,rgba(143,240,190,.45) 0,transparent 40%),radial-gradient(at 100% 20%,rgba(23,178,106,.18) 0,transparent 40%),radial-gradient(at 80% 100%,rgba(143,240,190,.35) 0,transparent 45%),radial-gradient(at 10% 80%,rgba(220,245,232,.9) 0,transparent 50%)}
+.gmesh{background-color:#14A862;background-image:radial-gradient(at 15% 20%,rgba(143,240,190,.55) 0,transparent 45%),radial-gradient(at 90% 15%,rgba(14,145,86,.7) 0,transparent 45%),radial-gradient(at 70% 95%,rgba(8,90,52,.6) 0,transparent 50%)}
+.lmesh .cr2,.lmesh .cs2,.lmesh .rvw{background:#fff;border:1px solid #DCE8E1;color:var(--ink)}
+.lmesh .cr2 span,.lmesh .cs2>span{color:var(--muted)}
+.lmesh .cs2 .vn{color:var(--accent-deep)}
+.lmesh .cr2.big{border:0;color:#fff;background-color:#0B1A13;background-image:radial-gradient(at 12% 18%,rgba(23,178,106,.55) 0,transparent 45%),radial-gradient(at 88% 8%,rgba(64,214,140,.45) 0,transparent 42%),radial-gradient(at 70% 92%,rgba(14,145,86,.6) 0,transparent 48%),radial-gradient(at 20% 95%,rgba(120,230,170,.28) 0,transparent 40%),radial-gradient(at 50% 50%,rgba(10,60,38,.9) 0,transparent 70%)}
+.lmesh .cr2.big span{color:#E6FAF0}
+.lmesh .cr2.gz{background:var(--ink);color:#fff;border:0}
+.lmesh .cr2.gz .vn{color:#8FF0BE}
+.lmesh .cr2.gz span:last-child{color:#C7D0CB}
+.lmesh .okd2 span{background:#EEF6F1;border-color:#DCE8E1;color:var(--ink)}
+.lmesh .rtx .vn{color:var(--accent-deep)}
+.lmesh .rtx blockquote.sm{color:var(--muted)}
+.lmesh .who2{color:var(--muted)}.lmesh .who2 b{color:var(--ink)}
+.lmesh .rimg{box-shadow:0 30px 60px -24px rgba(14,60,38,.45)}
+.lmesh .cfe span{color:var(--muted)}
+.lmesh .crm{box-shadow:0 30px 70px -30px rgba(14,60,38,.4);border:1px solid #DCE8E1}
+.tgc{display:inline-grid;gap:2px;justify-self:start;background:var(--accent);color:#fff;text-decoration:none;border-radius:14px;padding:12px 18px;transition:transform .2s ease}
+.tgc:hover{transform:translateY(-2px)}
+.tgc:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.tgc span{font-size:13px;color:#E6FAF0}
+.tgc b{font-family:var(--f-display);font-size:17px}
+body{background:#FBFDFC}
+.nich>div,.p3:not(.hl),.pbx:not(.g){background:#fff;border:1px solid #DCE8E1}
+.nich>div{border-left:4px solid var(--accent)}
+/* SCRIPT */
+.scr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start}
+.dlg{background:var(--ink);color:#fff;border-radius:var(--r);padding:22px;display:grid;gap:10px;box-shadow:0 30px 60px -30px rgba(14,60,38,.5)}
+.dh{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-muted);margin-bottom:4px}
+.dh i{font-style:normal;background:#2B3833;border-radius:999px;padding:2px 8px;letter-spacing:.06em}
+.ln{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:start;background:var(--dark2);border-radius:14px;padding:12px 14px}
+.ln .who{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#8FF0BE;padding-top:3px}
+.ln p{font-size:15.5px;line-height:1.45;color:#E6ECE9}
+.ln.go{background:var(--accent)}.ln.go .who{color:#fff}.ln.go p{color:#fff}
+.cyc{background:#fff;border:1px solid #DCE8E1;border-radius:var(--r);padding:24px;display:grid;gap:14px}
+.cyc .k{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep)}
+.cyc ol{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:c}
+.cyc li{display:grid;grid-template-columns:34px 1fr;gap:2px 12px}
+.cyc li::before{counter-increment:c;content:counter(c);grid-row:span 2;width:30px;height:30px;border-radius:50%;background:#EEF6F1;color:var(--accent-deep);display:grid;place-items:center;font-family:var(--f-mono);font-size:13px;font-weight:600}
+.cyc li.hl::before{background:var(--accent);color:#fff}
+.cyc li b{font-weight:600;font-size:16px}
+.cyc li span{color:var(--muted);font-size:14.5px}
+.vers{display:grid;gap:6px;border-top:1px solid #DCE8E1;padding-top:14px}
+.vers div{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center}
+.vers span{font-family:var(--f-mono);font-size:12.5px;color:var(--muted)}
+.vers i{height:10px;width:var(--w);border-radius:6px;background:#C7D3CD;transform-origin:left}
+.vers .g i{background:var(--accent)}.vers .g span{color:var(--accent-deep);font-weight:600}
+.vers p{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);margin-top:2px}
+.js .vers i{transform:scaleX(0);transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.js .in .vers i{transform:scaleX(1)}
+@media (max-width:900px){.scr{grid-template-columns:1fr}}
+@media (max-width:480px){.ln{grid-template-columns:1fr;gap:4px}}
 /* CTA */
 .cta{background:var(--accent);color:#fff}
 .cta .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -686,14 +747,14 @@ a.pf b::after{content:" →";color:var(--accent)}
 </style>
 </head>
 <body>
-<header class="hero mesh">
+<header class="hero dmesh">
   <div class="wrap">
     <div class="top">
       <div class="brand" aria-label="VOT SERVICES"><span>VOT</span><span>SERVICES</span></div>
       <div class="label">Коммерческое предложение · <b>обзвон B2B</b></div>
     </div>
-    <h1>Найдём вам постоянных клиентов, <em>которым ваш ремонт нужен всегда</em></h1>
-    <p class="lead">Обзвоним 500 компаний с дизельной техникой, выйдем на тех, кто принимает решения, и найдём тех, кому ремонт ТНВД и форсунок нужен постоянно — и кто готов за него платить.</p>
+    <h1>За 4 недели выйдем на главных механиков 500 компаний с дизельной техникой — <em>и найдём клиентов, которые будут ремонтироваться у вас годами</em></h1>
+    <p class="lead">Спецтехника, грузовые и автобусные парки. Звоним по проработанному скрипту, находим тех, кто решает, где ремонтировать технику, и передаём вам контакты с готовностью к разговору.</p>
     <div class="spec">
       <div><span class="k">Кому звоним</span><span class="v">Владельцам техники</span><span class="d">Спецтехника, грузовые и автобусные парки</span></div>
       <div><span class="k">С кем говорим</span><span class="v">С теми, кто решает</span><span class="d">Главный механик, начальник колонны, директор</span></div>
@@ -731,10 +792,46 @@ a.pf b::after{content:" →";color:var(--accent)}
 </section>
 
 <!-- 02 CASE -->
-<section class="dark">
+<!-- 02 SCRIPT -->
+<section class="lmesh">
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>02</b> · Пример</div>
+      <div class="label"><b>02</b> · Скрипт</div>
+      <h2>Скрипт, который доводит до&nbsp;ЛПР — и&nbsp;становится лучше каждую неделю</h2>
+      <p class="lead">Результат обзвона решает скрипт. Поэтому мы не звоним «по бумажке», а пишем его под вашу нишу и докручиваем по живым разговорам.</p>
+    </div>
+    <div class="scr">
+      <div class="dlg rv">
+        <div class="dh"><span>Фрагмент скрипта</span><i>пример</i></div>
+        <div class="ln"><span class="who">Секретарь</span><p>«Добрый день! Подскажите, кто у вас отвечает за ремонт техники — главный механик?»</p></div>
+        <div class="ln"><span class="who">ЛПР</span><p>«Сколько у вас дизельной техники? Кто сейчас ремонтирует топливную аппаратуру?»</p></div>
+        <div class="ln"><span class="who">Боль</span><p>«Бывает, что техника стоит, пока ждёт ремонта форсунок или ТНВД?»</p></div>
+        <div class="ln go"><span class="who">Шаг</span><p>«Давайте наш руководитель позвонит и посчитает условия для вашего парка. Когда удобно?»</p></div>
+      </div>
+      <div class="cyc rv">
+        <span class="k">Как докручиваем</span>
+        <ol>
+          <li><b>Пишем под вашу нишу</b><span>Под ремонт ТНВД и форсунок и под каждый тип техники</span></li>
+          <li><b>Обкатываем на первых звонках</b><span>В первую неделю видно, где разговор обрывается</span></li>
+          <li><b>Слушаем каждый звонок</b><span>Находим слабые места: возражения, паузы, лишние слова</span></li>
+          <li class="hl"><b>Выпускаем новую версию</b><span>И так каждую неделю, пока скрипт не начнёт стабильно доводить до ЛПР</span></li>
+        </ol>
+        <div class="vers">
+          <div><span>v1</span><i style="--w:30%"></i></div>
+          <div><span>v2</span><i style="--w:55%"></i></div>
+          <div class="g"><span>v3</span><i style="--w:85%"></i></div>
+          <p>Пример: с каждой версией больше разговоров доходит до ЛПР</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CASE -->
+<section class="lmesh">
+  <div class="wrap">
+    <div class="head rv">
+      <div class="label"><b>03</b> · Пример</div>
       <h2>У кого это уже сработало: ВТ-Инвест</h2>
       <p class="lead">Монтаж и обслуживание инженерных сетей, Минск. Осень 2026 — сезон заканчивался, своего источника заявок не было.</p>
     </div>
@@ -760,11 +857,11 @@ a.pf b::after{content:" →";color:var(--accent)}
         <blockquote>«Благодаря Максиму мы смогли выйти на тех заказчиков, до которых самостоятельно, скорее всего, никогда бы не добрались. Мы не просто „получили базу“ — мы получили живой контакт с реальными потенциальными клиентами».</blockquote>
         <blockquote class="sm">«Вся история взаимодействия фиксировалась в CRM в режиме реального времени, мы видели каждый шаг и понимали, за что платим».</blockquote>
         <p class="who2"><b>С. Г. Мулёв</b>, директор ООО «ВТ-Инвест Компани»</p>
-        <p class="hint">Контакт руководителя дадим — можно спросить напрямую.</p>
+        <a class="tgc" href="https://t.me/VTI_KM" target="_blank" rel="noopener"><span>Спросите у руководителя напрямую</span><b>@VTI_KM в Telegram →</b></a>
       </div>
     </div>
 
-    <div class="sub rv" style="margin-top:44px"><span class="n g">Видео</span>Как это выглядит изнутри</div>
+    <div class="sub rv" style="margin-top:44px"><span class="n g">Видео</span>Что происходило изнутри</div>
     <div class="vids">
       <a class="vid rv" href="https://youtu.be/OeCbhDcSRMw" target="_blank" rel="noopener">
         <span class="th mesh"><span class="cov" aria-hidden="true">Как составить<br>скрипт</span><i aria-hidden="true"></i></span>
@@ -782,8 +879,9 @@ a.pf b::after{content:" →";color:var(--accent)}
 <section>
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>03</b> · Как лучше поступить в вашем случае</div>
-      <h2>Начать с&nbsp;500 компаний и&nbsp;найти свою нишу</h2>
+      <div class="label"><b>04</b> · План</div>
+      <h2>Как лучше поступить в&nbsp;вашей ситуации</h2>
+      <p class="lead">Не угадывать, а проверить: звоним в несколько ниш и усиливаем ту, где ремонт нужен чаще всего.</p>
     </div>
     <div class="plan3">
       <div class="p3 rv"><span class="vn">Недели 1–2</span><b>Звоним сразу в несколько ниш</b><span>Спецтехника, грузоперевозки, автобусы, сельхоз. Обкатываем скрипт.</span></div>
@@ -799,10 +897,10 @@ a.pf b::after{content:" →";color:var(--accent)}
 </section>
 
 <!-- 04 CRM -->
-<section class="dark">
+<section class="lmesh">
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>04</b> · Прозрачность</div>
+      <div class="label"><b>05</b> · Прозрачность</div>
       <h2>Прозрачная статистика по&nbsp;каждой компании</h2>
       <p class="lead">Доступ к CRM с первого дня. Каждая компания — карточка: с кем говорили, сколько у них техники, что им нужно и когда звонить.</p>
     </div>
@@ -857,17 +955,18 @@ a.pf b::after{content:" →";color:var(--accent)}
 <section>
   <div class="wrap">
     <div class="head rv">
-      <div class="label"><b>05</b> · Стоимость</div>
-      <h2>110&nbsp;000&nbsp;₽ за&nbsp;500&nbsp;компаний</h2>
+      <div class="label"><b>06</b> · Стоимость</div>
+      <h2>Всё это — за&nbsp;110&nbsp;000&nbsp;₽</h2>
+      <p class="lead">500 компаний, проработанный скрипт, CRM и отчёты. Оплата по ходу работы.</p>
     </div>
     <div class="pr3">
       <div class="pbx rv">
         <span class="k">Что входит</span>
         <ul class="ticks">
           <li><span>База 500 компаний с дизельной техникой</span></li>
-          <li><span>Скрипт под ремонт ТНВД и форсунок</span></li>
+          <li><span>Проработка скрипта под ремонт ТНВД и форсунок</span></li>
           <li><span>Звонки и выход на ЛПР</span></li>
-          <li><span>Прослушка звонков и доработка скрипта</span></li>
+          <li><span>Прослушка звонков и доработка скрипта каждую неделю</span></li>
           <li><span>CRM с доступом в реальном времени</span></li>
           <li><span>Отчёт каждую пятницу</span></li>
           <li><span>База и доступы остаются у вас</span></li>
@@ -891,7 +990,7 @@ a.pf b::after{content:" →";color:var(--accent)}
 </section>
 
 <!-- 06 ABOUT -->
-<section class="about mesh">
+<section class="about gmesh">
   <div class="wrap">
     <img class="me rv" src="img/me.jpg" alt="Максим" width="190" height="190">
     <div class="rv">
