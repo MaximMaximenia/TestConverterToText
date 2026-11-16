@@ -1,0 +1,12 @@
+# config.php хранит токен бота, leads.log — записи заявок с контактами
+# людей. Оба закрыты от прямых запросов по ссылке.
+# lead.php остаётся доступен, это и есть сам API-эндпоинт.
+<FilesMatch "^(config\.php|leads\.log)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
