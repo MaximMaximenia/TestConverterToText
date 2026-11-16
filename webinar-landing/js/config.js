@@ -103,7 +103,7 @@ window.SITE_CONFIG = {
   freeUntilText: "Только на этом запуске — дальше по полной цене",
 
   // Видео на главном экране
-  videoSrc: "assets/main.mp4",
+  videoSrc: "videos/main.mp4",
   videoPoster: "assets/video-poster.jpg",
 
   // Имя эксперта
