@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Научись продавать — навык, который не заменит ИИ</title>
-<meta name="description" content="Живое общение с человеком — единственное, что ИИ не может продавать вместо тебя. Бесплатная диагностика навыков продаж от Мейнарда Скринды.">
+<title>ИИ заменит почти всех. Продавца — никогда</title>
+<meta name="description" content="Люди покупают у людей, а не у алгоритмов. 500 000+ открытых вакансий продавцов в России — бесплатная диагностика навыков продаж от Мейнарда Скринды.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=1">
+<link rel="stylesheet" href="css/style.css?v=2">
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -34,36 +34,40 @@
 <!-- /Microsoft Clarity -->
 </head>
 <body>
-<div class="mesh-bg"></div>
+<div class="mesh-bg mesh-bg--dark"></div>
 
 <div class="funnel">
-  <div class="funnel__brand">MEINARD <span>SCRINDA</span></div>
-  <div class="funnel__progress"><i class="is-done"></i><i></i><i></i></div>
+  <div class="funnel__brand hero-punch">MEINARD <span>SCRINDA</span></div>
+  <div class="funnel__progress hero-punch"><i class="is-done"></i><i></i><i></i></div>
 
-  <div class="funnel__card glass">
+  <div class="funnel__card hero-punch">
+    <img class="hero-punch__photo" src="assets/meinard.jpg" alt="Мейнард Скринда">
     <p class="eyebrow">Шаг 1 из 3</p>
-    <h1 class="headline" id="step1Headline">Хочешь зарабатывать в интернете? <span class="accent">Научись продавать</span></h1>
-    <p class="lede">Кого угодно заменит ИИ. <strong>Живое общение с человеком — никогда.</strong> А продажи — это и есть живое общение, в котором человек решает заплатить другому человеку.</p>
+    <h1 class="headline" id="step1Headline">ИИ заменит почти всех. <span class="accent">Продавца — никогда</span></h1>
+    <p class="lede">Потому что <strong>люди покупают у людей</strong>, а не у алгоритмов. Пока нейросети забирают дизайнеров и копирайтеров — спрос на тех, кто умеет продавать живьём, только растёт.</p>
 
-    <div class="proof-row">
-      <span class="proof-chip">500 000+ вакансий продавцов с начала 2026 — hh.ru</span>
-      <span class="proof-chip">№1 по спросу у малого и среднего бизнеса</span>
+    <div class="stat-block">
+      <strong>500 000+</strong>
+      <span>вакансий продавцов открыто в России с начала 2026 года — hh.ru</span>
     </div>
 
     <a href="step2/" class="btn btn--gold" id="step1Cta">
       Узнать, из чего состоит этот навык <span class="btn__arrow">→</span>
     </a>
-    <p class="funnel__note">2 минуты чтения. Дальше — решишь сам, нужна ли диагностика.</p>
+    <a href="step3/" class="skip-link" id="skipLink">Уже знаю, что хочу — сразу записаться →</a>
   </div>
 
-  <p class="funnel__footer">© <span id="year"></span> Мейнард Скринда</p>
+  <p class="funnel__footer hero-punch">© <span id="year"></span> Мейнард Скринда</p>
 </div>
 
-<script src="js/funnel.js?v=1"></script>
+<script src="js/funnel.js?v=2"></script>
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
   document.getElementById("step1Cta").addEventListener("click", function () {
     window.funnelYmGoal("funnel_step1_to_step2");
+  });
+  document.getElementById("skipLink").addEventListener("click", function () {
+    window.funnelYmGoal("funnel_step1_skip_to_step3");
   });
 </script>
 </body>

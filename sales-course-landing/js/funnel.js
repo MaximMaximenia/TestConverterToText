@@ -37,8 +37,8 @@
      в utm_term у объявлений — см. ключи ниже. */
   var headlineByTerm = [
     { match: ["zarabotok", "internet", "dengi_online"], text: 'Хочешь зарабатывать в интернете? <span class="accent">Научись продавать</span>' },
-    { match: ["kak_prodavat", "navyki_prodazh", "prodazhi"], text: 'ИИ заменит многих. <span class="accent">Продажи — никогда</span>' },
-    { match: ["professiya", "novaya_professiya", "smena_professii"], text: 'Новая профессия, которая всегда нужна — <span class="accent">продажи</span>' }
+    { match: ["kak_prodavat", "navyki_prodazh", "prodazhi"], text: 'ИИ заменит почти всех. <span class="accent">Продавца — никогда</span>' },
+    { match: ["professiya", "novaya_professiya", "smena_professii"], text: 'Профессию можно потерять за год. <span class="accent">Эту — никогда</span>' }
   ];
   (function applyHeadline() {
     var el = document.getElementById("step1Headline");

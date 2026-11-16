@@ -48,6 +48,59 @@ a { color: inherit; text-decoration: none; }
     radial-gradient(55% 50% at 50% 95%, rgba(169,116,42,0.35), transparent 70%),
     var(--cream);
 }
+.mesh-bg--dark {
+  background:
+    radial-gradient(50% 45% at 15% 0%, rgba(243,205,130,0.35), transparent 65%),
+    radial-gradient(55% 50% at 100% 20%, rgba(193,102,59,0.5), transparent 65%),
+    radial-gradient(60% 55% at 50% 100%, rgba(169,116,42,0.4), transparent 70%),
+    var(--clay-900);
+}
+
+/* ---- hero punch (step 1) ---- */
+.hero-punch { text-align: left; color: var(--cream); }
+.hero-punch .funnel__brand, .hero-punch .funnel__footer { color: rgba(251,243,230,0.8); }
+.hero-punch .funnel__progress i { background: rgba(251,243,230,0.2); }
+.hero-punch__photo {
+  width: 86px; height: 86px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold-light);
+  box-shadow: 0 0 0 5px rgba(214,162,74,0.18);
+  margin-bottom: 20px;
+}
+.hero-punch .eyebrow { color: var(--gold-light); }
+.hero-punch h1.headline { color: var(--cream); font-size: clamp(30px, 7vw, 46px); }
+.hero-punch h1.headline .accent {
+  background: var(--gold-grad);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-punch .lede { color: rgba(251,243,230,0.82); font-size: 17.5px; }
+.hero-punch .lede strong { color: var(--gold-light); }
+.hero-punch .stat-block {
+  display: flex; align-items: baseline; gap: 10px;
+  margin: 22px 0 26px;
+  padding: 16px 20px;
+  background: rgba(251,243,230,0.08);
+  border: 1px solid rgba(251,243,230,0.18);
+  border-radius: var(--radius-md);
+}
+.hero-punch .stat-block strong {
+  font-size: 30px; font-weight: 800;
+  background: var(--gold-grad);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  white-space: nowrap;
+}
+.hero-punch .stat-block span { font-size: 13.5px; color: rgba(251,243,230,0.75); }
+.skip-link {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: rgba(251,243,230,0.6);
+  text-decoration: underline;
+}
+.hero-punch .skip-link { color: rgba(251,243,230,0.6); }
+body:not(.on-dark) .skip-link { color: var(--ink-soft); }
 
 /* ---- glass card ---- */
 .glass {
